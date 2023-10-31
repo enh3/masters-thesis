@@ -1,0 +1,577 @@
+%% Pour voir les accents de ce fichier, assurez-vous que votre
+%% éditeur de texte lise le fichier en utf-8!
+
+%% La classe <dms> est construite au-dessus de <amsbook>, donc
+%% <amsmath>, <amsfonts> et <amsthm> sont automatiquement chargés.
+%% Pour un mémoire
+\documentclass[12pt,twoside,maitrise]{template}
+%% Pour une thèse
+%%\documentclass[12pt,twoside,phd]{dms}
+
+\usepackage[utf8]{inputenc} %Obligatoires
+\usepackage[T1]{fontenc}    %
+
+%% <lmodern> incorpore les fontes en T1, pour
+%% faciliter le dépôt final. Ceci n'est pas la
+%% seule option :
+%%  1. Si cm-super est installé, vous pouvez enlever <lmodern>
+%%     (à ce moment, la police est un peu plus fidèle
+%%      au Computer Modern orginal);
+%%  2. Si vous avez une police préférée, par exemple,
+%%     <times> ou <euler> ou <mathpazo> (et bien d'autres),
+%%     alors vous pouvez remplacer <lmodern> ci-bas.
+%% Par contre, si vous faîtes face à un problème d'encapsulation
+%% lors dépôt final, il se peut que la solution soit d'utiliser <lmodern>.
+%% (Parfois le problème est au niveau de l'installation, donc
+%%  essayez de compiler sur un autre ordinateur sur lequel vous êtes
+%%  certain·e que l'installation est bonne.)
+\usepackage{lmodern}
+
+%% Il n'est pas nécessaire d'utiliser <babel>, car
+%% les commandes intégrées par la classe <dms>
+%% \francais et \anglais font le travail. Néanmoins,
+%% certains autres packages nécessitent <babel> (comme
+%% <natbib>), donc simplement enlever les % devant <babel>
+%% dans ce cas. Attention! Certains packages sont sensibles
+%% à l'ordre dans lequel ils sont chargés.
+\francais % or
+%%\anglais
+%%
+%%\usepackage[english,frenchb]{babel}
+
+ % ENGLISH OPTION
+ % If you call \anglais here before the \begin{document},
+ % all the chater's header will be in english, even if you
+ % call \francais. To change this, use
+ % \entetedynamique
+
+%% La commande \sloppy peut avoir des effets étranges sur les
+%% lignes de certains paragraphes.  Dans ce cas, essayez \fussy
+%% qui suppresse les effets de \sloppy.
+%% (\fussy est normalement le comportement par défaut.)
+%% On redéfinit \sloppy, pour tenter de réduire les comportements
+%% étranges. Le seul changement apporté à la version originale
+%% est la valeur de \tolerance.
+\def\sloppy{%
+  \tolerance 500%  %9999 dans LaTeX ordinaire, mauvaise idée.
+  \emergencystretch 3em%
+  \hfuzz .5pt
+  \vfuzz\hfuzz}
+\sloppy   %appel de \sloppy pour le document
+%%\fussy  %ou \fussy
+
+%% Packages utiles.
+\usepackage{graphicx,amssymb,subfigure,icomma}
+%% icomma       permet d'écrire les nombres décimaux en
+%%                  français (p.ex. 1,23 plutôt que 1.23)
+%% subfigure    simplifie l'inclusion de figures côtes-à-côtes
+
+%% Packages parfois utiles.
+%%\usepackage{dsfont,mathrsfs,color,url,verbatim,booktabs}
+%% dsfont       symboles mathématiques \mathds
+%% mathrsfs     plus de symboles mathématiques \mathscr
+%% color        pour utiliser des couleurs (comparer avec <xcolor>)
+%% url          permet l'écriture d'url
+%% verbatim     pour écrire du code ou du texte tel quel
+%% booktabs     plus de macros pour faire les tableaux
+%%                  (voir documentation du package)
+
+%% pour que la largeur de la légende des figures soit = \textwidth
+\usepackage[labelfont=bf, width=\linewidth]{caption}
+
+%% les 3 lignes suivante servent à l'affichage de l'index
+%% dans le visionneur de pdf. <hyperref> et <bookmark>
+%% devraient être les dernier package a être chargé,
+%% donc chargez vos packages avant.
+\usepackage{hyperref}  % Ajoute les hyperlien
+\hypersetup{colorlinks=true,allcolors=black}
+\usepackage{hypcap}   % Corrige la position du lien pour les images
+\usepackage{bookmark} % Remédie à des petits problème
+                      % de <hyperref> (important qu'il
+                      % apparaisse APRÈS <hyperref>)
+
+  % Enlever les commentaires du prochaine \hypersetup et
+  % le remplir avec l'information pertinente.
+  % Ceci ajoute des « méta-données » au pdf.  C'est optionnel,
+  % mais recommandé. Vous pouvez voir ces méta-données en
+  % ouvrant un visionneur de pdf et en cherchant les propriétés
+  % du pdf. (Vous pouvez aussi tapez ' pdfinfo <nom-du-pdf> '
+  % dans un terminal.) Ces données sont utiles, par exemple,
+  % pour augmenter les chances qu'un algorithme de recherche
+  % trouve votre document sur Internet, une fois diffusé.
+%%\hypersetup{
+%%  pdftitle = {Titre de la thèse / du mémoire},
+%%  pdfauthor = {auteur·e},
+%%  pdfsubject = {Ex: Transformation de Fourier ; régressions linéaires ; ... },
+%%  pdfkeywords = {Ex: mathématiques, statistiques, groupes, variables aléatoires,...}
+%%}
+
+%% Définition des environnements utiles pour un mémoire scientifique.
+%% La numérotation est laissée à la discrétion de l'auteur·e. L'exemple
+%% illustré ici produit « Définition x.y.z »
+%%   x = no. chapitre
+%%   y = no. section
+%%   z = no. définition
+%% et la numérotation des corollaires, définitions, etc. se fait
+%% successivement.
+%%
+%% Les macros \<type>name sont telles qu'ils suivent
+%% la langue actuelle. (P.ex. si \francais est utilisé,
+%% alors \begin{theo} va faire un Théorème et si \anglais
+%% est utilisé, \begin{theo} fera un Theorem.)
+%%
+\newtheorem{cor}{\corollaryname}[section]
+\newtheorem{deff}[cor]{\definitionname}
+\newtheorem{ex}[cor]{\examplename}
+\newtheorem{lem}[cor]{\lemmaname}
+\newtheorem{prop}[cor]{Proposition}
+\newtheorem{rem}[cor]{\remarkname}
+\newtheorem{theo}[cor]{\theoremname}
+\theoremstyle{definition}
+\newtheorem{algo}[cor]{\algoname}
+%% NOTE : Il peut être commode de redéfinir \the<type> pour
+%% obtenir la numérotation désirée. Par exemple, pour
+%% que les corollaires soit numérotés #section.#sous-section.#sous-sous-section.#paragraphe.#corollaire,
+%% on fait
+%% \renewcommand\thecor{\theparagraph.\arabic{cor}}
+
+%%%
+%%% Si vous préférez que les corollaires, définitions, théorèmes,
+%%% etc. soient numérotés séparément, utilisez plutôt un bloc de
+%%% commandes de la forme :
+%%%
+
+%%\newtheorem{cor}{\corollaryname}[section]
+%%\newtheorem{deff}{\definitionname}[section]
+%%\newtheorem{ex}{\examplename}[section]
+%%\newtheorem{lem}{\lemmaname}[section]
+%%\newtheorem{prop}{Proposition}[section]
+%%\newtheorem{rem}{\remarkname}[section]
+%%\newtheorem{theo}{\theoremname}[section]
+
+%%
+%% Numérotation des équations par section
+%% et des  tableaux et figures par chapitre.
+%% Ceci peut être modifié selon les préférences de l'utilisateur.
+\numberwithin{equation}{section}
+\numberwithin{table}{chapter}
+\numberwithin{figure}{chapter}
+
+%%
+%% Si on veut faire un index, il faut décommenter la ligne
+%% suivante. Ajouter des mots à l'index avec la commande \index{mot cle} au
+%% fur et à mesure dans le texte.  Compiler, puis taper la commande
+%% makeindex pour creer les indexs.  Après une nouvelle compilation,
+%% vous aurez votre index.
+%%
+
+%%\makeindex
+
+%% Il est obligatoire d'écrire à double interligne
+%% ou à interligne et demi. On peut soit utiliser
+%% le package <setspace> ou \baselinestretch.
+%% Le package est un peu plus propre, mais le choix
+%% reste à la discrétion de l'usager.
+\usepackage[onehalfspacing]{setspace}
+ % ou
+%%\renewcommand{\baselinestretch}{1.5}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%                                     %%%%%%%%%%%%%
+%%%%%%%%%% D é b u t    d u    d o c u m e n t %%%%%%%%%%%%%
+%%%%%%%%%%                                     %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\entetedynamique
+
+%%
+%% Voici des options pour annoter les différentes versions de votre
+%% mémoire. La commande \brouillon imprime, au bas de chacune des pages, la
+%% date ainsi que l'heure de la dernière compilation de votre fichier.
+%%
+%%\brouillon
+%%
+%%
+%% \version est la version de votre manuscrit
+%%
+\version{1}
+
+%%------------------------------------------------- %
+%%              pages i et ii                       %
+%%------------------------------------------------- %
+
+%%%
+%%% Voici les variables à définir pour les deux premières pages de votre
+%%% mémoire.
+%%%
+
+\title{Contemporary perspectives on the hyper-organ: conceiving, playing and writing for an augmented Casavant Frères pipe organ}
+
+\author{Kjel Sidloski}
+
+\copyrightyear{2024}
+
+\department{Faculté de musique}
+
+\date{\today} %Date du DÉPÔT INITIAL (ou du 2e dépôt s'il y a corrections majeures)
+
+\sujet{musique}
+\orientation{composition}%Ce champ est optionnel
+%%
+%% Voici les disciplines possibles (voir avec votre directeur):
+%% \sujet{statistique},
+%% \sujet{mathématiques}, \orientation{mathématiques appliquées},
+%% \orientation{mathématiques fondamentales}
+%% \orientation{mathématiques de l'ingénieur} et
+%% \orientation{mathématiques appliquées}
+
+\president{Nom du président du jury}
+
+\directeur{Pierre Michaud}
+
+\codirecteur{Caroline Traube}         % s'il y a lieu
+%%\codirecteurs{Nom du 2e codirecteur}         % s'il y a lieu
+
+\membrejury{Nom du membre de jury}
+
+%%\examinateur{Nom de l'examinateur externe}   %obligatoire pour la these
+
+%% \membresjury{Deuxième membre du jury}  % s'il y a lieu
+
+%%  \plusmembresjury{Troisième membre du jury}    % s'il y a lieu
+
+ % Cette option existe encore, mais elle n'a plus sa place
+ % dans la page titre. L'utiliser seulement si le directeur
+ % insiste...
+%%\repdoyen{Nom du représentant du doyen} %(thèse seulement)
+
+%%
+%% Fin des variables à définir. La commande \maketitle créera votre
+%% page titre.
+
+\maketitle
+
+ % Pour générer la deuxième page titre, il faut appeler à nouveau \maketitle
+ % Cette page est obligatoire.
+\maketitle
+
+%%------------------------------------------------- %
+%%              pages iii                           %
+%%------------------------------------------------- %
+
+\francais
+
+\chapter*{Résumé}
+
+...sommaire et mots clés en français...
+
+%%------------------------------------------------- %
+%%              pages iv                            %
+%%------------------------------------------------- %
+
+\anglais
+
+\chapter*{Abstract}
+
+This paper presents a body of work for the pipe organ exploring the emerging tradition of augmented instruments as pioneered by Tod Machover and others. 
+The organ is being examined as an augmented instrument by a niche community including Lauren Redhead and the Orgelpark project, yet represents an underexploited resource of musical exploration, uniquely positioned as an embodied cultural artifact. 
+The nature of an instrument that is embedded in its space poses the question of whether there is truly a distinction between the building housing the instrument and the instrument itself, yielding a situation in which augmenting the pipe organ can be seen akin to sonic architecture. 
+The instrument examined in this work is the symphonic organ of l'église Saint-Édouard where the author is organist. 
+Built in 1913 by Casavant Frères, this organ has a unique and eventful history. 
+Being taken down from its original position in the west gallery, forgotten about and nearly abandonned, it was found by new administration nearly ten years later and reinstalled in the north transept where it sits today. 
+I believe that the sound of this instrument tells the story of its heritage, and by studying its unique properties, we gain insight into the nuances of history. 
+
+This project contains both an experimental and a creative component. 
+The former includes a small study using Max modules and an online questionnaire to establish affective-poetic correlates between various organ registrations and semantic descriptors, as well as the creation of a sound synthesis module in python. 
+The creative portion includes several compositions. 
+The piece Élégies, inspired by the 10 Élégies de Duino (Rilke, 1986), serves as a set of studies to explore the capabilities of the hyper-organ, according to three modalities of mixed music: acoustic organ and synthetic organ, organ with processing, and organ with bed track. 
+The church space is also considered in its entirety, invoking a spatial-narrative structure. 
+Next, the project is brought into a collaborative context, with a piece for hyper-organ and viola. 
+Throughout the creative process, attempts have been made to not only extend the sonic capacity of the instrument, but to integrate with it, basing for instance, the sound synthesis on various organ stops, which can then be mutated in ways which would be impossible on the original instrument, creating a dialectic of real and artifical sound environments.
+
+%%------------------------------------------------- %
+
+%%        page v --- Table de matieres              %
+%%------------------------------------------------- %
+
+ % Pour un mémoire en anglais, changer pour
+ % \anglais. Noter qu'il faut une permission
+ % pour écrire son mémoire en anglais.
+\anglais
+%%\francais
+ % \cleardoublepage termine la page actuel et force TeX
+ % a poussé les éléments flottant (fig., tables, etc.) sur
+ % la page (normalement TeX les garde en suspend jusqu'à ce
+ % qu'il trouve un endroit approprié). Avec l'option <twoside>,
+ % la commande s'assure que la prochaine page de texte est sur
+ % le recto, pour l'impression. On l'utilise ici
+ % pour que TeX sache que la table des matières etc. soit
+ % sur la page qui suit.
+%% TABLE DES MATIÈRES
+\cleardoublepage
+\pdfbookmark[chapter]{\contentsname}{toc}  % Crée un bouton sur
+                                           % la bar de navigation
+\anglais
+\tableofcontents
+ % LISTE DES TABLES
+\cleardoublepage
+\anglais
+\english
+\phantomsection  % Crée une section invisible (utile pour les hyperliens)
+\listoftables
+ % LISTE DES FIGURES
+\cleardoublepage
+\phantomsection
+%% Il est obligatoire, selon les directives de la FESP,
+%% pour une thèse ou un mémoire d'avoir une liste des sigles et
+%% des abréviations.  Si vous considérez que de telles listes ne seraient pas
+%% pertinentes (si, par exemple, vous n'utilisez aucun sigle ou abré.), son
+%% inclusion ou omission est laissé à votre discrétion.  En cas de doute,
+%% parlez-en à votre directeur de recherche, le coadministrateur ou au/à la
+%% bibliothécaire.
+%%
+%% Le gabarit inclut un exemple d'une liste « fait à la main ».  Il existe des outils
+%% plus sophistiqués si vous devez inclure une multitude de sigles et abréviations.
+%% Par exemple, le package <glossaries> peut faire des index élaborés.  Comme
+%% son utilisation est technique, il n'y a pas d'exemple directement dans ce gabarit.
+%% On invite les gens qui aurait à l'utiliser à lire la documentation officielle,
+%% soit en allant sur https://www.ctan.org/, soit en tapant dans un terminal :
+%%
+%% texdoc glossaries
+%%
+
+\chapter*{List of acronyms and abbreviations}
+ % Option de colonnes: definir \colun ou \coldeux
+%%% Exemple
+%%% \def\colun{\bf} % Première colonne en gras
+%%% Pour numéroté les entrées, on peut faire
+%%% \newcount\abbrlist
+%%% \abbrlist=0
+%%% \def\plusun{\global\advance\abbrlist by 1\relax}
+%%% \def\colun{\plusun\the\abbrlist. }
+%%\def\coldeux{\relax}
+\begin{twocolumnlist}{.2\textwidth}{.7\textwidth}
+\end{twocolumnlist}
+%% L'environnement <threecolumnlist> existe aussi pour trois colonnes.
+
+%%------------------------------------------------- %
+%%              pages vi                            %
+%%------------------------------------------------- %
+
+\chapter*{Acknowledgements}
+
+...remerciements...
+
+ %
+ % Fin des pages liminaires.  À partir d'ici, les
+ % premières pages des chapitres ne doivent pas
+ % être numérotées
+ %
+
+\NoChapterPageNumber
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                  %
+%%   TEXTE DU MÉMOIRE :  introduction page 1,...    %
+%%                                                  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Introduction}
+
+...introduction...
+
+%%------------------------------------------------- %
+%%                pages 1                           %
+%%------------------------------------------------- %
+
+\chapter{The hyper or augmented instrument}
+
+Le 1$^{\text{er}}$ chapitre numéroté. Voici quelques mots en \emph{italique}, en \textbf{gras} et \textsf{sans serif}.
+
+\section{Tod Machover and the birth of the hyper-instrument}
+
+La premi\`ere section du 1$^{\text{er}}$ chapitre.
+
+\section{Levensons' hyper-cello}
+
+\section{Beilharz' hyper-shakuhachi}
+
+\section{McPhersons hyper-piano}
+
+\section{Lauren Redhead}
+
+\section{Orgelpark}
+
+
+\chapter{Psychoacoustics}
+
+\section{Context}
+
+\subsection{Semantics of organ timbre}
+\cite{stepanek_spectral_2005}
+
+\subsubsection{Important precursors}
+
+\subsubsection{Categorisation and 3D space}
+
+\subsection{Affective dimensionality}	
+
+\subsection{Limitations of the existing research}
+
+
+\chapter{Construction of a pilot study} 
+
+\section{The organ of l’église Saint-Édouard}   
+
+\subsection{Sélection de régistrations}   
+
+\subsection{Sélection d'extraits}  
+
+\section{Survey}
+
+\subsection{Partie A} 
+
+\subsection{Partie B} 
+
+\section{Analyse}
+
+\subsection{Partie A}  
+
+\subsection{Partie B}  
+
+\subsection{Questions}
+
+
+\chapter{Jardin de givre}
+
+\section{Context}
+
+\section{Approach}
+
+
+\chapter{Creative Approach}
+
+\section{Modalities}
+
+\subsection{Synthesis}
+
+\subsubsection{OrganLab}
+
+\subsubsection{Additive}
+
+\subsubsection{Subtractive}
+
+\subsubsection{Sampling}
+
+\subsubsection{Physical modeling}
+
+\subsection{Live audio processing}
+
+\subsection{Bed track}
+
+
+\chapter{10 Élégies}
+
+\section{Context}
+
+\section{Approach}
+
+\section{Techniques}
+
+\section{Form}
+
+
+%%--------------%
+%%     index    %
+%%--------------%
+
+%% S'il y a lieu, décommenter la ligne pour mettre votre index
+
+%%\printindex
+
+%%------------------------------------------------- %
+%%         références --- bibliographie             %
+%%------------------------------------------------- %
+  % Enlever les commentaires de la prochaine commande si vous préférez que le
+  % chapitre s'appelle « Références » plutôt que « Bibliographie » (au choix selon le contexte).
+%%\let\bibname=\refname
+
+%% Lorsque vous serez prêt à faire afficher votre bibliographie
+%% et vos références, enlevez les commandaires des commandes suivantes
+%% et donnez le nom de votre fichier .bib à la commande \bibliography{..}
+%% (consultez l'exemple au besoin).  Vous pouvez utiliser le style de votre
+%% choix.
+\bibliographystyle{plain}     % Le style de la bibliographie. Notons que
+                                        % les extensions ne sont pas données pour ces deux fichiers.
+%%\def\bibname{R\'ef\'erences bibliographiques} % Nom obligatoire de la section des références.
+                                              % On utilise \'e car le é cause des problèmes
+                                              % dans la table des matière
+%% ENGLISH
+\def\bibname{References}
+\bibliography{ref}     % La base de données contenant des entrées bibliographiques.
+                                    % Seules celles référencées dans le texte seront ajoutées
+                                    % \`a la bibliographie.
+
+%%------------------------------------------------- %
+%%                  Annexe A                        %
+%%------------------------------------------------- %
+
+\appendix
+\chapter{Le titre}
+
+\section{Section un de l'Annexe A}
+
+...texte...
+
+\chapter{Les différentes parties et leur ordre d'apparition}
+
+J'ajoute ici les différentes parties d'un mémoire ou d'une thèse ainsi
+que leur ordre d'apparition tel que décrit dans le guide de
+présentation des mémoires et des thèses de la Faculté des études
+supérieures.  Pour plus d'information, consultez le guide sur le site
+web de la facutlé (www.fes.umontreal.ca).
+
+\newcount\colnum
+\colnum=1
+\def\i{\number\colnum. \global\advance\colnum by 1\ignorespaces}
+\begin{table}[p]
+  \begin{center}
+    \begin{tabular}{|l|l|r|}\hline
+       \noindent\hfil
+         \textbf{\strut Ordre des éléments constitutifs du mémoire ou de la thèse}
+         \hfil\span\omit\span\omit\\\hline % \span\omit pour couvrir plus d'une
+                                           % case sans utiliser le package multirow ou autre
+      \i &  La page de titre & obligatoire\\\hline
+      \i &  La page d'identification des membres du jury & obligatoire\\\hline
+      \i &  Le résumé en français et les mots clés français\kern3em& obligatoires\\\hline
+      \i &  Le résumé en anglais et les mots clés anglais & obligatoires\\\hline
+      \i &  Le résumé dans une autre langue que l'anglais & obligatoire \\
+         &  ou le français (si le document est écrit dans &\\
+         &  une autre langue que l'anglais ou le français)&\\\hline
+      \i &  Le résumé de vulgarisation& facultatif\\\hline
+      \i &  La table des matières, la liste des tableaux,& obligatoires\\
+         &   la liste des figures ou autre &\\\hline
+      \i &  La liste des sigles et des abréviations& obligatoire\\\hline
+      \i &  La dédicace& facultative\\\hline
+      \i &  Les remerciements & facultatifs\\\hline
+      \i &  L'avant-propos & facultatif\\\hline
+      \i &  Le corps de l'ouvrage& obligatoire\\\hline
+      \i &  Les index& facultatif\\\hline
+      \i &  Les références bibliographiques & obligatoires\\\hline
+      \i &  Les annexes & facultatifs\\\hline
+      \i &  Les documents spéciaux & facultatifs\\\hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
+\end{document}
+
+
+
+\endinput
+%%
+%% End of file `gabaritmem.tex'.
