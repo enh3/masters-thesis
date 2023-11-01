@@ -3,3 +3,8 @@ thesis.toc
 thesis.lot
 thesis.log
 thesis.pdf
+thesis.blg
+thesis.bbl
+.thesis.tex.swo
+.gitignore.swp
+.DS_Store
