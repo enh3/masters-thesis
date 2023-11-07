@@ -1403,7 +1403,7 @@
     \@startsection{subsubsection}
         {3}
         \normalparindent
-        {6\p@\@plus2\p@}
+        {6pt}
         {1em}
         {\normalfont}%
 }
