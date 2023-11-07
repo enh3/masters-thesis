@@ -1404,7 +1404,7 @@
         {3}
         \normalparindent
         {6\p@\@plus2\p@}
-        {-1mm}
+        {1em}
         {\normalfont}%
 }
 \def\paragraph{%
