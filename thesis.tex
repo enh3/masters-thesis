@@ -12,6 +12,18 @@
 \usepackage[T1]{fontenc}    %
 \usepackage{epigraph}
 \usepackage{csquotes}
+\usepackage{graphicx}
+\graphicspath{{./graphics/}}
+\usepackage{caption}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+
+\DeclareCaptionFormat{custom}{%
+    \setlength{\parindent}{0pt}% Remove the paragraph indentation
+    %%\centered% Justify the caption text to the left
+    \textbf{\fontsize{9pt}{0pt}\selectfont #1 #2}{\fontsize{9pt}{0pt}\selectfont #3}% Adjust the label formatting
+}
+\captionsetup[figure]{format=custom, labelsep=colon, belowskip=20pt, skip=9pt}
 
 %% <lmodern> incorpore les fontes en T1, pour
 %% faciliter le dépôt final. Ceci n'est pas la
@@ -27,7 +39,7 @@
 %% (Parfois le problème est au niveau de l'installation, donc
 %%  essayez de compiler sur un autre ordinateur sur lequel vous êtes
 %%  certain·e que l'installation est bonne.)
-\usepackage{lmodern}
+\usepackage{mathptmx}
 
 %% Il n'est pas nécessaire d'utiliser <babel>, car
 %% les commandes intégrées par la classe <dms>
@@ -155,9 +167,9 @@
 %% Numérotation des équations par section
 %% et des  tableaux et figures par chapitre.
 %% Ceci peut être modifié selon les préférences de l'utilisateur.
-\numberwithin{equation}{section}
-\numberwithin{table}{chapter}
-\numberwithin{figure}{chapter}
+%%\numberwithin{equation}{section}
+%%\numberwithin{table}{chapter}
+%%\numberwithin{figure}{chapter}
 
 %%
 %% Si on veut faire un index, il faut décommenter la ligne
@@ -501,6 +513,10 @@ At the same time, metrical time has a long tail of history in western notation, 
 Furthermore, proportional notation seems to give the sense of music frozen and static in time, which I associate with the timelessness of the ethereal.
 
 \subsubsection{Composition Process}
+
+This movement begins with a sung melodic fragment, which represents the principal melody of the piece, taken from a session of singing the poetry of Rilke in l'église Saint-Édouard in the fall of 2022. The melody comes from the first line of the first elegie and has been modified only slightly from the original recording. 
+
+\customincludegraphics{melody1}{test test}{}
 
 I wanted to begin the movement with a sonic interpretation of the cry. Even though the cry is simply a hypothetical, and is not actually enacted in the poem, I wanted to represent the internal, subjective cry. Of course there is no correct, objective way to represent subjectivity, but I've attempted a poetic approach. To do this, I call upon a distinctly north american property of the pipe-organ: the crescendo pedal. This pedal allows the player to quickly open or close many stops simply by flicking the foot. 
 

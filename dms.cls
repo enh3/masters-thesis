@@ -1760,6 +1760,13 @@
   vide, vous pouvez faire p.ex. \revue{\relax}.}
      \errmessage{DMS : Vous devez remplir le champ \string#1 avant d'appeler \string\maketitle}}
 
+\newcommand{\customincludegraphics}[2]{%
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\textwidth]{#1}
+        \caption{#2}
+    \end{figure}
+}
 
 \endinput
 %%
