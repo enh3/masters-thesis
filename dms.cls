@@ -1761,7 +1761,7 @@
      \errmessage{DMS : Vous devez remplir le champ \string#1 avant d'appeler \string\maketitle}}
 
 \newcommand{\customincludegraphics}[2]{%
-    \begin{figure}[h]
+    \begin{figure}[H]
         \centering
         \includegraphics[width=\textwidth]{#1}
         \caption{#2}

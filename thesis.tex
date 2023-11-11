@@ -15,15 +15,17 @@
 \usepackage{graphicx}
 \graphicspath{{./graphics/}}
 \usepackage{caption}
-\usepackage{chngcntr}
-\counterwithout{figure}{chapter}
+%%\usepackage{chngcntr}
+%%\counterwithout{figure}{chapter}
+\usepackage{float}
+\usepackage{listings}
 
 \DeclareCaptionFormat{custom}{%
     \setlength{\parindent}{0pt}% Remove the paragraph indentation
     %%\centered% Justify the caption text to the left
     \textbf{\fontsize{9pt}{0pt}\selectfont #1 #2}{\fontsize{9pt}{0pt}\selectfont #3}% Adjust the label formatting
 }
-\captionsetup[figure]{format=custom, labelsep=colon, belowskip=20pt, skip=9pt}
+\captionsetup[figure]{format=custom, labelsep=colon, belowskip=9pt, skip=9pt}
 
 %% <lmodern> incorpore les fontes en T1, pour
 %% faciliter le dépôt final. Ceci n'est pas la
@@ -91,7 +93,7 @@
 %%                  (voir documentation du package)
 
 %% pour que la largeur de la légende des figures soit = \textwidth
-\usepackage[labelfont=bf, width=\linewidth]{caption}
+%%\usepackage[labelfont=bf, width=\linewidth]{caption}
 
 %% les 3 lignes suivante servent à l'affichage de l'index
 %% dans le visionneur de pdf. <hyperref> et <bookmark>
@@ -491,21 +493,61 @@ La premi\`ere section du 1$^{\text{er}}$ chapitre.
 \epigraph{\textit{Qui, si je criais, qui donc entendrait mon cri parmi les hiérarchies des Anges?}}{}
 
 \subsubsection{Narrative context}
-Rilke's Élégies begin not with a cry, but with the question of a cry. A question seemingly addressed to no one. A plea of solitude and desperation. Perhaps this question is addressed to God, to the reader of his poem, or to himself. In any case this question represents perhaps a sort of internal cry, representing the subjectivity of our protagonist's lament. He goes on to evoke the level of solitude felt in his unknown setting, wondering if anyone is listening at all, calling into question the purpose of crying, or of communicating in any way.
+Rilke's Élégies begin not with a cry, but with the question of a cry.
+A question seemingly addressed to no one.
+A plea of solitude and desperation.
+Perhaps this question is addressed to God, to the reader of his poem, or to himself.
+In any case this question represents perhaps a sort of internal cry, representing the subjectivity of our protagonist's lament.
+He goes on to evoke the level of solitude felt in his unknown setting, wondering if anyone is listening at all, calling into question the purpose of crying, or of communicating in any way.
 
-From a sonic perspective, the issue of sound is immediately relevant, the cry evoking at once a sound source---the human voice---and the volume, and intensity of this sound. The subjective nature of sound is also essential, with "qui donc entendrait" illustrating the importance of hearing and perception to the auditory experience. This startling juxtaposition between the immense loudness of the subject's inner world, and the expansive quietude of the environment provides an immediate dialectic between inner and outer worlds.
+From a sonic perspective, the issue of sound is immediately relevant, the cry evoking at once a sound source---the human voice---and the volume, and intensity of this sound.
+The subjective nature of sound is also essential, with "qui donc entendrait" illustrating the importance of hearing and perception to the auditory experience.
+This startling juxtaposition between the immense loudness of the subject's inner world, and the expansive quietude of the environment provides an immediate dialectic between inner and outer worlds.
 
-The second part of the sentence describes the setting somewhat, though in obscure terms. He depicts the subject as among the hierarchies of angels. This brings another essential dialectic lense to Rilke's world: the spiritual and the human. Here is a startling image. We were quickly led to believe that we were alone, contemplating the futility of communication, when not only are we not alone, but we are found among a cacophonie of angels. The reason that the angels might not hear the subject's plaintif cry is unclear. Maybe the angels are simply too far away. Maybe they are making too much noise themselves to hear anything. Or maybe they do not contain the capacity for subjective experience at all. If we take this last case, this quickly paints an image of Rilke's angel, not as an anthropomorphized, man's best friend, but as a very different creature entirely. The idea that they would hear nothing implies an austere, cold distance from the angels---the small human alone underneath a swarm of ethereal beings.
+The second part of the sentence describes the setting somewhat, though in obscure terms.
+He depicts the subject as among the hierarchies of angels.
+This brings another essential dialectic lense to Rilke's world: the spiritual and the human.
+Here is a startling image.
+We were quickly led to believe that we were alone, contemplating the futility of communication, when not only are we not alone, but we are found among a cacophonie of angels.
+The reason that the angels might not hear the subject's plaintif cry is unclear. 
+Maybe the angels are simply too far away.
+Maybe they are making too much noise themselves to hear anything.
+Or maybe they do not contain the capacity for subjective experience at all.
+If we take this last case, this quickly paints an image of Rilke's angel, not as an anthropomorphized, man's best friend, but as a very different creature entirely.
+The idea that they would hear nothing implies an austere, cold distance from the angels---the small human alone underneath a swarm of ethereal beings.
 
 \subsubsection{Techniques}
 
 Software:
 
-One of the main advantages of a digital pipe-organ over an acoustic instrument, is the ability to use non-discrete pitches. To represent the hierarchies of angels, I thought that it would be appropriate to make use of an extended glissando, starting in a lower register and moving upwards, signifying some kind of transcendental nature. It might seem strange to represent a hierarchy with something non-discrete and essentially non-hierarchical, but the hierarchy is already present in the harmonic series. The way that this glissando function works, is that over the course of a set amount of time (in this case two minutes), the frequency of each of the eight partials is incremented by one about ten times a second. Because the frequency is being incremented, and not the midi equivalent, the harmonic series quickly becomes inharmonic. For instance, if 100 and 200 are the first two partials, after an addition of 10, 110, and 210 are no longer multiples of eachother. This process creates the sensation of an alien sort of movement, pulsating and morphing, yet not in a coherent, human way.    
+One of the main advantages of a digital pipe-organ over an acoustic instrument, is the ability to use non-discrete pitches.
+To represent the hierarchies of angels, I thought that it would be appropriate to make use of an extended glissando, starting in a lower register and moving upwards, signifying some kind of transcendental nature.
+It might seem strange to represent a hierarchy with something non-discrete and essentially non-hierarchical, but the hierarchy is already present in the harmonic series.
+The way that this glissando function works, is that over the course of a set amount of time (in this case two minutes), the frequency of each of the eight partials is incremented by one about ten times a second.
+Because the frequency is being incremented, and not the midi equivalent, the harmonic series quickly becomes inharmonic.
+For instance, if 100 and 200 are the first two partials, after an addition of 10, 110, and 210 are no longer multiples of eachother.
+This process creates the sensation of an alien sort of movement, pulsating and morphing, yet not in a coherent, human way.    
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+glissC = [0 for i in range(8)]
+def glissUp():
+    global glissC
+    for i in range(len(glissC)):
+        glissC[i] == 0
+    if glissC[0] < 600:
+        stop1.setTrans(glissC)
+        for i in range(len(glissC)):
+            glissC[i] = glissC[i] + 2
+    else:
+        for i in range(len(glissC)):
+            glissC[i] = 0
+\end{lstlisting}
+\caption{The glissUp function takes a python list and increments it until it reaches 600, this list is used to increment the first 8 partials of the synthesis module}
+\end{figure}
 
 Compositional:
 
-For this movement, I wanted to represent the binary form of the poetic fragment with a juxtaposition of proportional notation and metric notation.
+For this movement, I wanted to represent the binary form of the poetic fragment with a juxtaposition of proportional notation and semi-metric notation.
 The proportional notation is supposed to represent the angelic form.
 Here again the choice is somewhat arbitrary.
 One could easily make the case that metrical time is more hierarchical.
@@ -514,20 +556,36 @@ Furthermore, proportional notation seems to give the sense of music frozen and s
 
 \subsubsection{Composition Process}
 
-This movement begins with a sung melodic fragment, which represents the principal melody of the piece, taken from a session of singing the poetry of Rilke in l'église Saint-Édouard in the fall of 2022. The melody comes from the first line of the first elegie and has been modified only slightly from the original recording. 
+This movement begins with a sung melodic fragment, which represents the principal melody of the piece, taken from a session of singing the poetry of Rilke in l'église Saint-Édouard in the fall of 2022.
+The melody comes from the first line of the first elegie and has been modified only slightly from the original recording. 
 
-\customincludegraphics{melody1}{test test}{}
+\customincludegraphics{3-1-1_melody}{The main melody of the piece, based on the 19 syllables of the first line of Rilke's elegies.}
 
-I wanted to begin the movement with a sonic interpretation of the cry. Even though the cry is simply a hypothetical, and is not actually enacted in the poem, I wanted to represent the internal, subjective cry. Of course there is no correct, objective way to represent subjectivity, but I've attempted a poetic approach. To do this, I call upon a distinctly north american property of the pipe-organ: the crescendo pedal. This pedal allows the player to quickly open or close many stops simply by flicking the foot. 
+I wanted to then invoke a sonic interpretation of the cry.
+Even though the cry is simply a hypothetical, and is not actually enacted in the poem, I wanted to represent the internal, subjective cry.
+Of course there is no correct, objective way to represent subjectivity, but I've attempted a poetic approach.
+To do this, I call upon a distinctly north american property of the pipe-organ: the crescendo pedal.
+This pedal allows the player to quickly open or close many stops simply by flicking the foot. 
 
-One loses detailed control over the registration, yet gains access to a quick dynamic swell that surpasses the capacity of the normal expressive pedals. I begin the piece with the crescendo pedal open about 60% of the way, with the acoustic and digital organs playing the same D minor chord. At first, the acoustic instrument masks the digital sound completely, evoking the sens of solitude, but gradually the crescendo pedal closes and the acoustic instrument is masked, leaving the hierarchy of angels as the focus. The gradual widening of registral distance between the acoustic organ and the digital glissando evokes the sense of distance between the human and the angelic realms. Towards the end of the movement, the pipe organ slowly enters with ascending chords built around open fifths and fourths, representing the human who is caught under the ethereal. 
+One loses detailed control over the registration, yet gains access to a quick dynamic swell that surpasses the capacity of the normal expressive pedals.
+I begin the piece with the crescendo pedal open about 60% of the way, with the acoustic and digital organs playing the same D minor chord.
+At first, the acoustic instrument masks the digital sound completely, evoking the sens of solitude, but gradually the crescendo pedal closes and the acoustic instrument is masked, leaving the glissando as the focus.
+The gradual widening of registral distance between the acoustic organ and the digital glissando evokes the sense of distance between the human and the angelic realms.  
+
+As far as the notation of the glissando, my original sketches included lines symbolizing the gesture of the sound and the many partials, and the ascent of the angels, but in the final manuscript, it felt like an unnecessary use of space on the page.
+The organ-lab setting is desribed with the number one placed in a box, and upon placing the hand in the right position, the glissando will be handled by the software. 
+
+\customincludegraphics{3-1-2_gliss}{Original sketch of the glissandos of the first movement}
+
+\customincludegraphics{3-1-3_system}{Final version of the first organ system, with the 1 in a box representing the first setting of Organ Lab, the sustain pedal used to maintain the glissando in the upper stave, and the crescendo pedal notated at the bottom.}
+
+The choice of pitches in this movement come from a range of influences. For one, one of the original inspirations of this piece was the Magnificat of Jehan Titelouze, and particular the sixth piece, Sexti Toni, which is based in F major. For the first chord, I didn't want the brightness of F major, and decided to use the relative, D minor. Not long after, on analysing the bells of l'église Saint-Édouard, I realized that they were also based in F major, which further jutified this decision. 
+
+Towards the end of the movement, the pipe organ slowly enters with ascending chords built around open fifths and fourths. These mostly parallel, open harmonies for me evoke two influences. On the one hand the organum tradition of Leonin and Perotin, and on the other hand, the open harmonies of Boards of Canada. Ultimately, these chords rise like the synthesized glissando, representing the human who is caught under the ethereal. Here the notation changes from proportional, to semi-metrical. I use this word because the quarter note and half note of metrical notation are present, yet meter itself is not.
+
+\customincludegraphics{3-1-4_system}{Rising chords based on open fifths and fourths}
 
 \subsubsection{Linking}
-
-I wanted to begin the movement with a sonic interpretation of the cry. Even though the cry is simply a hypothetical, and is not actually enacted in the poem, I wanted to represent the internal, subjective cry. Of course there is no correct, objective way to represent subjectivity, but I've attempted a poetic approach. To do this, I call upon a distinctly north american property of the pipe-organ: the crescendo pedal. This pedal allows the player to quickly open or close many stops simply by flicking the foot. 
-
-One loses detailed control over the registration, yet gains access to a quick dynamic swell that surpasses the capacity of the normal expressive pedals. I begin the piece with the crescendo pedal open about 60% of the way, with the acoustic and digital organs playing the same D minor chord. At first, the acoustic instrument masks the digital sound completely, evoking the sens of solitude, but gradually the crescendo pedal closes and the acoustic instrument is masked, leaving the hierarchy of angels as the focus. The gradual widening of registral distance between the acoustic organ and the digital glissando evokes the sense of distance between the human and the angelic realms. Towards the end of the movement, the pipe organ slowly enters with ascending chords built around open fifths and fourths, representing the human who is caught under the ethereal. 
-Test test test
 
 \subsection{2e Élégie}
 
