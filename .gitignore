@@ -6,5 +6,6 @@ thesis.pdf
 thesis.blg
 thesis.bbl
 .thesis.tex.swo
+.thesis.tex.swp
 .gitignore.swp
 .DS_Store

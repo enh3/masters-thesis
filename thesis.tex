@@ -19,6 +19,11 @@
 %%\counterwithout{figure}{chapter}
 \usepackage{float}
 \usepackage{listings}
+%%\usepackage{courier}
+\lstset{
+    basicstyle=\fontsize{9}{9}\selectfont\ttfamily,
+    showstringspaces=false
+}
 
 \DeclareCaptionFormat{custom}{%
     \setlength{\parindent}{0pt}% Remove the paragraph indentation
@@ -299,7 +304,6 @@ The instrument examined in this work is the symphonic organ of l'église Saint-�
 Built in 1913 by Casavant Frères, this organ has a unique and eventful history. 
 Being taken down from its original position in the west gallery, forgotten about and nearly abandonned, it was found by new administration nearly ten years later and reinstalled in the north transept where it sits today. 
 I believe that the sound of this instrument tells the story of its heritage, and by studying its unique properties, we gain insight into the nuances of history. 
-
 This project contains both an experimental and a creative component. 
 The former includes a small study using Max modules and an online questionnaire to establish affective-poetic correlates between various organ registrations and semantic descriptors, as well as the creation of a sound synthesis module in python. 
 The creative portion includes several compositions. 
@@ -404,9 +408,27 @@ Throughout the creative process, attempts have been made to not only extend the 
 %%                pages 1                           %
 %%------------------------------------------------- %
 
-\chapter{The hyper or augmented instrument}
+\chapter{The Emergence and Relevance of Hyper-Instruments}
 
-Le 1$^{\text{er}}$ chapitre numéroté. Voici quelques mots en \emph{italique}, en \textbf{gras} et \textsf{sans serif}.
+Hyper, or augmented instruments, situated at the confluence of traditional musical artistry and cutting-edge technological innovation, present a complex and diverse field of inquiry.
+This chapter seeks to delve into this multifaceted world, highlighting the significance of hyper-instrument design and performancein contemporary music practices and the intricate process of developing and defining them within various musical contexts.
+
+At the core of any musical instrument lies the interface between an artist's musical expression and the resultant sound in their environment.
+Augmenting an instrument, therefore, becomes an exercise in expanding this interface.
+This task is often far from straightforward, as musicians are typically engaged fully, utilizing their hands, mouth, and sometimes feet, to produce sound.
+In such scenarios, where every faculty of mind and body is already employed, the question arises: where is there room for expansion?
+Among the various approaches in interface design, are gestural mapping, sensitivity mapping through pressure sensors, and the integration of MIDI interfaces.
+Each of these approaches has its unique challenges and opportunities, tailored to the specificities of the instrument being augmented.
+
+The choice between convergence or divergence with the natural workings of the instrument is crucial.
+For instance, augmenting a wind instrument involves navigating its intimate relationship with the performer's breathing and the air column.
+Here, the lateral movements of the performer, which do not inherently affect pitch, provide an opportunity for introducing an independent dimension of expressivity and virtuosity.
+Conversely, in an instrument like the piano, where pitch is intrinsically tied to the horizontal plane, any augmentation must consider this inherent constraint.
+While this may limit the scope for independent controls, it ensures that any technological integration remains deeply rooted in the natural mechanics and traditions of piano playing.
+
+This chapter aims to navigate the extensive landscape of hyper-instruments, examining methodologies and concepts that are shaping this evolving domain.
+From the pioneering work of Tod Machover to adaptations in instruments like the hyper-cello, hyper-shakuhachi, hyper-piano, and hyper-flûte, we will explore how musicians and technologists are redefining musical expression.
+Through this exploration, we seek to uncover the broader implications for music as a dynamic and evolving art form in the digital age.
 
 \section{History and approaches}
 
@@ -424,11 +446,21 @@ La premi\`ere section du 1$^{\text{er}}$ chapitre.
 
 \section{Hyper-organ}
 
+In the context of augmented pipe organs, these considerations manifest in unique and innovative ways.
+Projects led by visionaries like Lauren Redhead and the Orgelpark initiative are exemplary in demonstrating how technology can reimagine the traditional pipe organ.
+These initiatives not only showcase the potential of technological integration with historic instruments but also highlight the diverse methodologies and creative opportunities within the field of hyper-instruments.
+
 \subsection{Lauren Redhead}
 
 \subsection{Orgelpark}
 
 \section{The question of coherence}
+
+As we can see, augmented instrument design is far from a monolithic, and this inherent plurality is one of the most intriguing aspects of the field.
+The term 'hyper-instrument' encompasses a broad spectrum of augmented musical tools, each with its unique characteristics and requirements.
+Developing an intuitive interface for a hyper-instrument involves a deep understanding of the instrument's core essence and a thoughtful integration of technology that enhances without overshadowing its intrinsic qualities.
+This diversity in approach underscores the difficulty in pinning down hyper-instruments as a singular practice.
+Instead, they represent a constellation of practices, each illuminating different aspects of the intersection between modern and traditional technologies.
 
 \chapter{Constructing an augmented interface for the pipe-organ}
 
@@ -475,6 +507,16 @@ La premi\`ere section du 1$^{\text{er}}$ chapitre.
 \subsection{History vs contemporainity}
 
 \subsection{Memory/decay}
+
+\subsection{Dialectic and fusion}
+
+As seen through the various axes discussed--the voice vs the organ, constraint vs freedom, artificial vs real, history vs contemporainity, etc., dialectic thought is very important to my approach.
+In my philosphy, the binary is the most fundamental building block of thought.
+Even the most basic idea precludes a distinction--between self and other, or between this and that, for instance.
+To me the entire world exists inside this divine contradiction, and art in its highest form is like the impossible resolution of these opposing forces.
+As far as we know, nuclear fusion is the most immense creative force of energy production that exists.
+The triggering of this fusion process is not trivial however, requiring a temperature of more than one-hundred million degrees fahrenheit.
+Perhaps the fusion, or synthesis, of ideas in the realm of art is just such a creative force, requiring an equally massive force to hold them together.
 
 \section{Tools}
 
@@ -565,47 +607,233 @@ I wanted to then invoke a sonic interpretation of the cry.
 Even though the cry is simply a hypothetical, and is not actually enacted in the poem, I wanted to represent the internal, subjective cry.
 Of course there is no correct, objective way to represent subjectivity, but I've attempted a poetic approach.
 To do this, I call upon a distinctly north american property of the pipe-organ: the crescendo pedal.
-This pedal allows the player to quickly open or close many stops simply by flicking the foot. 
+This pedal allows the player to quickly open or close many stops simply by flicking the foot.
 
 One loses detailed control over the registration, yet gains access to a quick dynamic swell that surpasses the capacity of the normal expressive pedals.
 I begin the piece with the crescendo pedal open about 60% of the way, with the acoustic and digital organs playing the same D minor chord.
 At first, the acoustic instrument masks the digital sound completely, evoking the sens of solitude, but gradually the crescendo pedal closes and the acoustic instrument is masked, leaving the glissando as the focus.
-The gradual widening of registral distance between the acoustic organ and the digital glissando evokes the sense of distance between the human and the angelic realms.  
+The gradual widening of registral distance between the acoustic organ and the digital glissando evokes the sense of distance between the human and the angelic realms.
 
 As far as the notation of the glissando, my original sketches included lines symbolizing the gesture of the sound and the many partials, and the ascent of the angels, but in the final manuscript, it felt like an unnecessary use of space on the page.
-The organ-lab setting is desribed with the number one placed in a box, and upon placing the hand in the right position, the glissando will be handled by the software. 
+The organ-lab setting is desribed with the number one placed in a box, and upon placing the hand in the right position, the glissando will be handled by the software.
 
 \customincludegraphics{3-1-2_gliss}{Original sketch of the glissandos of the first movement}
 
 \customincludegraphics{3-1-3_system}{Final version of the first organ system, with the 1 in a box representing the first setting of Organ Lab, the sustain pedal used to maintain the glissando in the upper stave, and the crescendo pedal notated at the bottom.}
 
-The choice of pitches in this movement come from a range of influences. For one, one of the original inspirations of this piece was the Magnificat of Jehan Titelouze, and particular the sixth piece, Sexti Toni, which is based in F major. For the first chord, I didn't want the brightness of F major, and decided to use the relative, D minor. Not long after, on analysing the bells of l'église Saint-Édouard, I realized that they were also based in F major, which further jutified this decision. 
+The choice of pitches in this movement come from a range of influences.
+For one, one of the original inspirations of this piece was the Magnificat of Jehan Titelouze, and particular the sixth piece, Sexti Toni, which is based in F major.
+For the first chord, I didn't want the brightness of F major, and decided to use the relative, D minor.
+Not long after, on analysing the bells of l'église Saint-Édouard, I realized that they were also based in F major, which further jutified this decision.
 
-Towards the end of the movement, the pipe organ slowly enters with ascending chords built around open fifths and fourths. These mostly parallel, open harmonies for me evoke two influences. On the one hand the organum tradition of Leonin and Perotin, and on the other hand, the open harmonies of Boards of Canada. Ultimately, these chords rise like the synthesized glissando, representing the human who is caught under the ethereal. Here the notation changes from proportional, to semi-metrical. I use this word because the quarter note and half note of metrical notation are present, yet meter itself is not.
+Towards the end of the movement, the pipe organ slowly enters with ascending chords built around open fifths and fourths.
+These mostly parallel, open harmonies for me evoke two influences.
+On the one hand the organum tradition of Leonin and Perotin, and on the other hand, the open harmonies of Boards of Canada.
+Ultimately, these chords rise like the synthesized glissando, representing the human who is caught under the ethereal.
+Here the notation changes from proportional, to semi-metrical.
+I use this word because the quarter note and half note of metrical notation are present, yet meter itself is not.
 
 \customincludegraphics{3-1-4_system}{Rising chords based on open fifths and fourths}
 
-\subsubsection{Linking}
-
 \subsection{2e Élégie}
+
+\epigraph{\textit{Tout Ange est terrible.
+Et pourtant, malheur à moi!}}{}
 
 \subsubsection{Narrative context}
 
+In this movement, the haunting opening of Rilke's verse, "Tout Ange est terrible," forms the thematic crux.
+The word 'terrible' presents a complex duality, oscillating between connotations of fear and awe and a sense of pathos and frailty.
+This ambiguity is not just a linguistic puzzle but a profound emotional landscape that the music seeks to explore and express.
+The latter part of the verse, "Et pourtant, malheur à moi!
+pourtant je vous invoque," resonates as a solemn invocation, a plea before embarking on an arduous, soul-searching journey.
+This movement attempts to capture the essence of this prayer, infused with both trepidation and a resigned yearning.
+
 \subsubsection{Techniques}
+
+Software:
+
+The use of a gradual dynamic envelope is a pivotal element in this movement.
+By enhancing the traditional bourdon sound with a brighter tone, and accentuating the fourth partial, a unique auditory experience is created.
+This approach transcends the limitations of an acoustic pipe organ, illustrating the intersection of tradition and innovation.
+
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+def dynEnv():
+    print('Enveloppe dynamique')
+    stop1.setPart([1, 2, 3, 4, 4, 4, 0, 0])
+    stop1.setMul([0.588, 0.338, 0.665, 0.773, 0.512, 0, 0, 0])
+    stop1.setEnvAtt([0.285, 0.450, 0.327, 0.338, 0.385, 0.277, 0, 0])
+    stop1.setEnvDec([0.02, 0.04, 0.085, 0.008, 0.008, 0.008, 0, 0])
+    stop1.setEnvSus([0.446, 0.523, 0.404, 0.05, 0.05, 0.542, 0, 0])
+    stop1.setEnvRel([0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0, 0])
+    stop1.setNoiseAtt(0.081)
+    stop1.setNoiseDec(0.146)
+    stop1.setNoiseSus(0.7)
+    stop1.setNoiseRel(0.1)
+    stop1.setNoiseMul(3)
+    stop1.setNoiseFiltQ(3)
+    stop1.setSumMul(0)
+\end{lstlisting}
+\caption{The dynEnv function alters the dynamic envelope of both the harmonic sound and the noise sound, while tripling the fourth partial}
+\end{figure}
+
+Compositional:
+
+The structure of the movement employs a binary form to parallel the contrasting themes of Rilke's verse.
+Part A, representing the 'terrible angels,' is characterized by dense chromatic harmonies and a rich, plein orgue registration, employing proportional notation for depth.
+In contrast, Part B adopts a simpler harmonic language, employing metric notation.
+This section features an inverted version of the initial melody, serving as a cantus firmus.
+Interestingly, all durations in this voice are equalized as whole notes, played with the pedals along with the bourdon and flute 8’.
+This structure serves both as an improvisational guide and a compositional framework, offering the performer the liberty to improvise around the notated cantus firmus, colored in red, with an alternative pre-composed version available as a guideline.
 
 \subsubsection{Composition Process}
 
+The creation of this movement began with the creation of the sung melodic line.
+I considered using new motivic material, but ultimately decided that it would be better to use a variation of the original melody.
+This is partly to maintain coherence, and partly in reference to the Magnificat of Jehan Titelouze which uses a repetition of a sung melodic fragment as a formal element.
+This thematic variation is now infused with additional chromaticism, reflecting a progression into complexity and uncertainty.
+
+\customincludegraphics{3-2-1_melody}{A variation of the first sung melody, with more chromaticism}
+
+The creation of Section A of the organ composition began with a dissonant harmonization of the main melody, making extensive use of an altered dominant sharp 7 chord.
+This chord, a variation of the classic altered dominant chord in jazz, swaps the flat seven for a sharp 7, alongside the dominant 7 sharp 13 flat 9, and the minor major 7.
+These harmonies, particularly resonant with the plein orgue registration, evoke an intense, almost ethereal quality.
+The subtle voice leading within this dense texture aims to create movement and emotional depth.
+Section B's composition process, focusing on the outer voices, was governed by the principles of traditional counterpoint.
+This involved careful resolution of dissonances and maintaining a fluid musical dialogue between the voices.
+The movement, starting from a melodic D minor perspective, culminates in a half cadence to the A minor dominant, signifying a transition yet an unfinished journey.
+
+\customincludegraphics{3-2-2_system}{System showing the progression from dense chromatic harmonies in proportional notation to metrical notation with outervoices braiding an inner cantus firmus}
+
 \subsubsection{Linking}
+
+The movement concludes with an auditory link to the next – a sound sample of footsteps echoing in the basement of the church, leading into the sprinkler room.
+The mundane, yet eerily resonant sounds of the church's underbelly, including the hum of compressors, provide a sensory bridge to the third movement.
+This blending of the sacred with the profane mirrors the thematic journey of the music, from the divine to the earthly, the celestial to the subterranean.
 
 \subsection{3e Élégie}
 
+\epigraph{\textit{Chanter l'Amante est une chose. C'en est une autre, hélas! de chanter cet occulte Fleuve-Dieu du sang.}}{}
+
 \subsubsection{Narrative context}
+
+I interpret this poetic fragment as a reflection on the difficulty of walking the path ahead--contemplating the dichotomy between the relative simplicity of singing of love, versus the profound challenge of vocalizing the sacred, yet enigmatic, 'God river of blood.' 
+This highlights a dialectic between thought and action, and the contrast between superficial perception and embodied reality.
+This narrative conflict sets the tone for the movement's musical exploration.
+Musically, I interpret "chanter", in a few ways, on the one hand, as the voix humaine stop on the récit, with tremolo, which imitates the sung human voice.
+"Chanter l'Amante" is represented by a simple song-like melody, and "Chanter cet occulte Fleuve-Dieu du sang" is interpreted as the compositional and timbral disintegration of the movement.
 
 \subsubsection{Techniques}
 
+Software:
+
+I thought that it would be appropriate to emulate the tremolo of the voix humaine stop with frequency modulation of a voix humaine emulation in OrganLab.
+With this idea, it seemed like a logical step to increase this frequency modulation in speed, while changing the index and ratio, such that the natural trembling of the voice, passes through a comic, exaggerated warble, gradually losing the sense of sung tremolo altogether, giving way to an inharmonic, bell-like sound.
+This is all done by interpolating with SigTo() objects, and the entire process takes place over 180 seconds.
+The one part that is not interpolated, due to limitations of ADSR objects in Pyo, is the envelope, which simply changes suddenly at the end of the 180 seconds.
+
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+bellCall1 = None
+bellCall2 = None
+bellCall3 = None
+bellCall4 = None
+
+def bell():
+    global bellCall1, bellCall2, bellCall3, bellCall4 
+    bellCall1 = CallAfter(stop1.setEnvAtt, time=180, arg=(.001, .001, .001, .001, 0.001, 0.001, 0.0001, 0.0006, 0.0007, 0.0005, 0.0006, 0.0003, 0.0005, 0.0003, 0.0006, 0.0005, 0.0004, 0.0002, 0.0001, 0.0001)).play()
+    bellCall2 = CallAfter(stop1.setEnvDec, time=180, arg=(1.3, .05, .02, 0, 0, 0.04, .004, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04)).play()
+    bellCall3 = CallAfter(stop1.setEnvSus, time=180, arg=(.4, .1, .02, .01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .002, 0.002)).play()
+    bellCall4 = CallAfter(stop1.setEnvRel, time=180, arg=(2, 0.1, 0.1, .01, .03, 0.4, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.4, .04, 0.04, .04, 0.4)).play()
+    setInterpol(180)
+    stop1.setRamp(180)
+    stop1.setMul([1, 0.01, 0.1, 0.01, 0.07, 0, 0.02, 0, 0.01, 0, 0.003, 0, 0.003, 0, 0.001, 0, 0.001, 0, 0.001, 0])
+    stop1.setRatio(0.43982735)
+    stop1.setIndex(4)
+    stop1.setNoiseAtt(0.001)
+    stop1.setNoiseDec(0.1)
+    stop1.setNoiseSus(0.01)
+    stop1.setNoiseRel(0.1)    
+    stop1.setNoiseMul(0.9)
+    stop1.setNoiseFiltQ(4)
+    stop1.setPartScRat(1.02)
+    print(bell)
+\end{lstlisting}
+\caption{This function morphes the ratio and index of frequency of modulation, as well as a very slight exponential expansion of the harmonic series on the attack, which creates an additionally inharmonic attack. The envelope is altered after 180 seconds through the bellCall function calls}
+\end{figure}
+
+Interpolation in general was a major goal of this project, and one of my initial ideas was the transition between harmonic organ sounds, and inharmonic and/or chaotic sounds.
+This process is semantically justified through the passage from the simplicity of singing of love, versus the reality of singing the God river of blood.
+It is as though the simple dream is interrupted by a descent into a more complextimbral world.
+
+Compositional:
+
+The movement adopts a song form to represent 'singing,' starting with an 12 bar melody as the A section.(Grove reference)
+Instead of following a traditional AABA form, the A section is repeated incessantly in a variation form.
+These variations expand exponentially at a rate of 5/4, symbolizing a narrative disruption akin to a rupture in the fabric of time.
+During these variations, the left hand chords and rhythms are constrained, while the right hand is free to improvise. 
+A composed version is offered as a suggestion, or as an alternative to improvisation.
+To parallel the software techniques, frequency modulation is also applied at the notational level.
+A patch in OpenMusic uses the A section melody as the carrier and the bass line as the modulator to generate chords.
+Selected sonorities from this process are integrated into the variations, enhancing the movement's thematic and textural depth.
+
 \subsubsection{Composition Process}
 
+The movement begins with a sung fragment, introducing a lilting melody, rising by thirds and spelling out an e minor triad.
+The organ then enters with a similar rising motive, harmonized with perfect fifths below the melody.
+Throughout this process the tonal center is tenous, first suggesting B minor in the voice, then A minor in the organ, with a thin, hollow texture of 8' and 2' flutes, before pivoting towards D minor.
+This sets the stage for the entrance of the main motive of this movement, a lamenting descending line, beginning on the third scale degree, in this case F, and moving down towards the fifth scale degree, C in this case.
+This descending line is in stark contrast with the rising motive heard earlier.
+Both the tonal and motivic contrast between the opening sung melody, and the following part create a dissonance, not in a harmonic sense, but in a temporal, or symbolic sense.
+The relation between the sung material, and the organ material is not yet clear.
+Various alternatives to the lilting rising motive were tried for the introduction.
+The original intention was to write something that felt like a classic song introduction in the tin pan alley tradition.
+In the end, none of my more elaborate introductions seemed as appealing as the stark simplicity of the original rising motive.
+
+\customincludegraphics{3-3-1_system}{Sung melodic fragment introducing lilting ascending motive}
+
+\customincludegraphics{3-3-2_system}{Organ introduction, referencing the rising motive, but leaning towards A minor instead of B minor, which then leads into the main, lamenting melody at the end of the system.}
+
+As for the composition of the descending motive, the first four measures came to me around the same time as the rising motive, around september, 2022, when I first started as organist at l'église Saint-Édouard and started my masters program at l'Université de Montréal.
+Throughout the following months, I found myself adding on pieces to this melody, and finding new variations.
+Once I decided to move in the direction of song form, I tried to crystallize the melody into a version that would fit within the bounds of an 8, 12 or 16 bar section I did this by taking all my motivic fragments and shuffling them around in different orders until I found a version that felt like it had a logical progression.
+In the end, the idea seemed to naturally solidify into 12 bars.
+
+At first, the continuation of this movement was supposed to simply dissolve into a textural mass, as the sound of the voix humaine undergoes it's painful transition into a bell.
+This was the working idea until I realized that variation form, a form that I was looking to incorporate into the piece at some point, would be particularily appropriate for song form, as there is a great jazz tradition of playing variations on traditional songs.
+In order to facilitate these variations, and to reference the jazz tradition, I decided to find jazz chords that could harmonize the original melody.
+The original accompaniment is with an octave ostinato, and didn't lend itself well to variations in the jazz style, leading to an alternative harmonisation.
+
+\customincludegraphics{3-3-3_melody}{Descending "lament" motive, with jazz changes annotated above}
+
+At first, the continuation of this movement was supposed to simply dissolve into a textural mass, as the sound of the voix humaine undergoes it's painful transition into a bell.
+This was the working idea until I realized that variation form, a form that I was looking to incorporate into the piece at some point, would be particularily appropriate for song form, as there is a great jazz tradition of playing variations on traditional songs.
+At first, the continuation of this movement was supposed to simply dissolve into a textural mass, as the sound of the voix humaine undergoes it's painful transition into a bell.
+This was the working idea until I realized that variation form, a form that I was looking to incorporate into the piece at some point, would be particularily appropriate for song form, as there is a great jazz tradition of playing variations on traditional songs.
+The obvious and simple choice would have been simply to simply repeat the twelve bars over and over again, but I felt that this simple repetition wasn't necessarily in line with the subject matter, devolving into the God river of blood.
+I was also hearing continuations in 3/8, and wanted to find a way to alter the meter, while keeping in line with the variations idea.
+It then came to me to incorporate exponential variations.
+The idea is that each variation is either dilated, or expanded by a certain proportion.
+In this case, I chose the proportion of 5/4, finding that a proportion of 2/1 wouldn't give me the metric variety I was looking for, and 3/2 would be too long.
+5/4 seemed to give me the right amount of variety without being overly long.
+In order to verify this, I drafted a patch in OpenMusic that calculates the total time of a given number of measures with a given time signature at a given tempo.
+With 12 measures at a tempo of quarter note equals 64 beats per minute, I found that with four variations, the movement would take about 4.3 minutes, not including the introductory material.
+This seemed like a reasonable length, and gave me the time signatures of 5/4, 25/16, and 125/64.
+Obviously, these latter two are all but unreadable to mere mortals, and required some clever compartmentalization to yield a musical, communicative notation.
+I decided to break up 25/15 into three measures of 3/8 plus one measure of 7/16.
+The 125/64 was more problematic.
+After many attempts, including a systematic attempt to find every possible decomposition of the fraction, using a site similar to this one: https://www.mathcelebrity.com/decompose-fraction.php?num=125%2F64&pl=Decompose, only to find that all possible combinations would need a measure with a denominator of 64.
+Using 64th notes as the rythmic pulse is not particularily practical, so my first instinct was to round to the 32nd note, but I then considered the possibility of incorporating a metric modulation.
+Through some trial and error, I found that making five eighth notes equal to the new quarter note would allow me to use a measure of 2/4 plus a measure of 9/32 to equal my 125/64 beast.
+9/32 is still not a particularily common time signature, but the grouping of three 32nd notes in compound time makes it more tenable.
+
+\customincludegraphics{3-3-4_system}{First variation, in 5/4, with constrained elements notated in red, and free, optional element notated with small noteheads}
+
 \subsubsection{Linking}
+
+As the movement concludes, the sound of the bells gradually fades, transitioning into the sound of singing glasses.
+This transition not only serves as a bridge to the next movement but also symbolizes the continual evolution of the thematic elements–-from the tangible to the ethereal, from the known to the unknown.
 
 \subsection{4e Élégie}
 
