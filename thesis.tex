@@ -837,13 +837,97 @@ This transition not only serves as a bridge to the next movement but also symbol
 
 \subsection{4e Élégie}
 
+\epigraph{\textit{Vous, Arbres de la Vie, oh! quand donc hivernaux? Nous n'allons pas à l'unisson.}}{}
+
 \subsubsection{Narrative context}
+
+On the one hand, this poetic fragment speaks to the trees of life.
+The object that these trees symbolize is not clear.
+Are they the angels, the readers of the poem, or perhaps life itself?
+In any case, the poem then places the trees in the inevitability of the impending winter.
+This winter can be read as an intimation of death, or at least a dormant state.
+The musical term \textit{'unisson'} and its deliberate negation in the next sentence express a sense of divergence or disharmony, which becomes a central theme in the musical interpretation.
+
+From a musical standpoint, I wanted to set the listener in the winter, which for me entails a sense of space and vastness, of stillness.
+To evoke this environment, I thought it would be appropriate to use sounds with slow attacks and decays, to create a sense of slow evolutive timbre.
+As I had been working on the writing of Jardin de Givre, which made extensive use of singing wine glasses, and I had high quality chromatic samples of these wine glasses on hand, I decided to create a sampler out of these recordings, so that I could play the wine glasses on my midi keyboard.
+This also presents a pun, as the french word for ice is glace, which is a homophone with glass, the material of the wine glasses, evoking the ice covered ground of the desolate winter landscape.
+As far as the second part of the poetic fragment, I decided that this would be a good moment to bring back the glissando motive from the first movement, this time moving in contrary motion.
 
 \subsubsection{Techniques}
 
+Software:
+
+In this movement I make use of sampling for the first time, in two senses.
+In one sense, with a sampler VST in Ableton Live which uses some recordings of singing wine glasses recorded in my apartment.
+This sampler is driven by my midi keyboard and can be played chromatically.
+On the other hand, I have a longer sample that is not played on the keyboard, but is simply triggered, acting as a bed track, to support the finale of the movement, creating additional tension and filling the space.
+Lastly, in Pyo, I decided to revisit the glissando motive from the first movement, this time rather than moving all the partials in the same direction, moving the even partials higher in pitch, and the odd partials lower in pitch, creating a kind of contrary motion, while at the same time exploding the harmonic series.
+This process refers to the text "Nous n'allons pas à l'unisson", creating a sonic divergence in opposing directions in pitch space.
+
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+def glissCont():
+    global glissC
+    for i in range(len(glissC)):
+        glissC[i] == 0
+    if glissC[0] < 600:
+        stop1.setTrans(glissC)
+        for i in range(len(glissC)):
+            if i % 2 == 0:
+                glissC[i] = glissC[i] + 0.4
+            else:
+                glissC[i] = glissC[i] + -0.4
+    else:
+        for i in range(len(glissC)):
+            glissC[i] = 0
+    print("0", glissC[0])
+    print("1", glissC[1])
+\end{lstlisting}
+\caption{The function glissCont defines a glissando where each even partial is gradually incremented, whereas each odd partial is gradually decremented. This function is later called by a Pattern object 10 times a second}
+\end{figure}
+
+Compositional :
+
+Several compositional constraints and techniques are explored in this movement.
+On the one hand, the application of an isorhythm as cantus-firmus, which is placed in the bass part but is played with the right hand on the midi keyboard.
+The right hand is very much not accustomed to playing the bass part, and so this represents a sort of étude.
+Seeing as the keyboard can't easily be switched from one side to another, and playing it with the left hand would make it impossible to play the acoustic organ with the right hand, this provides a unique limitation and possibility for new cognitive and proprioceptive pathways.
+
+
+I also wanted to develop the ascending by thirds motive, and decided to use it as an ostinato that begins slowly, later becoming a fast arppegiation, which in turn becomes the accompaniment for a variation of the melody of lamentation.
+This provides a first attempt of the synthesis of these two motives, so central to the composition as a whole.
+The arpeggiations also form, both visually in the score, and sonically, a set of arches.
+These arches are symbolic of the physical arches of l'église Saint-Édouard and represent the broader iconography of the church.
+
 \subsubsection{Composition Process}
 
+This movement begins with an evocation of winter's vast stillness.
+Long, monophonic singing glass samples with gradual attack and decay, unachievable on a traditional pipe organ, form the foundation.
+These melodies are particularily centered on different combinations of the minor third, referencing both the initial melody and the ascending motif from the third movement.
+These minor thirds are explored and combined with other intervals to form a fairly free and wandering section with ambigous tonality.
+
+\customincludegraphics{3-4-1_system}{Free monophonic section, using singing bell samples with long attacks and decays.}
+
+This melody uses proportional notation, to add to the metric freedom of the evolutive sounds. Later, a meter of 4/4 is introduced, and as the movement progresses, the intial long melody is truncated into a chroma of 12 notes, set against a talea of four rhythms: a dotted half note, a half note, a dotted half note rest, and a whole note.
+This cycle repeats twice, leading to a shift where the right hand retakes the treble pitches, and the bass moves to the pedals.
+The introduction of an ascending triad motive ostinato in C minor follows, with an audio file triggered to reinforce the ostinato, pitch-shifted an octave higher for a brighter sound.
+However, just as C minor becomes established, the movement shifts to G minor.
+A low G in the bombarde from the bed track cues rapid arpeggiations in the left hand, while the right hand introduces a descending melody reminiscent of the lamentation motif from the third movement.
+This section, with its faster left-hand figurations and the bed track's added tension, can be likened to a winter storm, symbolizing chaos and intensity.
+
+The crescendo pedal is used strategically to create large-scale dynamic waves, swelling and fading over approximately four-measure intervals.
+In the final phase, the MIDI keyboard transitions from singing wine glasses to glissandi in contrary motion, culminating in a single sustained chord that fades into an ambient mass.
+
+\customincludegraphics{3-4-3_system}{The introduction of the arch motive, symbolizing the staggering arches of l'église Saint-Édouard}
+
 \subsubsection{Linking}
+
+The transition from the third to the fourth movement is seamless, moving from bell-like sounds to singing glass sounds.
+This continuity, however, necessitates a deviation from the established structure of singing before each Elegie.
+To address this, the melody of the fourth Elegie is placed after the fourth movement, followed immediately by the melody of the fifth Elegie.
+This arrangement, while a stark contrast, serves a specific purpose: the first melody acts as an echo of the preceding movement, while the second heralds the beginning of something new.
+The common thread between these contrasting elements is the shared instrument of the voice, providing a thematic and auditory link.
 
 \subsection{5e Élégie}
 
