@@ -402,7 +402,25 @@ Throughout the creative process, attempts have been made to not only extend the 
 
 \chapter*{Introduction}
 
-...introduction...
+Throughout time, music instrument design has been an evolving and exploratory world.
+Many of the instruments that we know today, like the violin or the french horn, or the guitar, went through countless iterations, with many divergent and convergent paths leading to the instruments we know today.
+The practice of hyper instruments is simply a testament to the continuation of this lineage of curiosity and experimentation.
+
+However, the question then remains, why use the old instruments at all?
+In fields like digital lutherie, many people are creating new interfaces altogether, some of them solely gestural, relying on no physical instrument whatsoever.
+These are certainly very interesting and fruitful areas of exploration, but the approach of beginning with an existing instrument and building on it provides us with a unique set of constraints and advantages.
+On the one hand, there is something to be said for longevity.
+If an instrument has endured the test of time, and come to be used for generations upon generations, that demonstrates a creative and expressive capacity that is simply established by time.
+
+On the other hand, one may easily pose the question: why ruin a good thing?
+If the instrument already works, does what it needs to do, and has an established sound that we all love, what is there to add?
+Of course, there is nothing wrong with the original instruments, and explorations of augmented instruments typically celebrate a multiplicity of approaches rather than holding the goal of a general improvement.
+However, one can also easily make the argument that these instruments, so loved throughout time, deserve to be revisited with a modern perspective, both in terms of technology that simply wasn't available in the original periods of the instruments' evolutions, and in terms of the ideas and conceptions that the original builders and listeners didn't have access to.
+
+Pursuing this expansion comes with both great possibilities, and a certain burden of responsibility.
+The historic traditions of these instruments give them a weight, not just in terms of the playing traditions, and the mechanisms involved in their interfaces, but also in the many, often unconscious, symbolic associations that we have formed with these instruments.
+This cultural baggage is not something to be overcome however, but is a great strength.
+If one is careful to take into consideration the nuances of the original interface, integrating them with their ideas in a way that complements, rather than fights the natural tendencies of the instrument, the result can be an enduring hommage, and a continuation of a tradition that crosses both culture and time.
 
 %%------------------------------------------------- %
 %%                pages 1                           %
@@ -464,6 +482,88 @@ Instead, they represent a constellation of practices, each illuminating differen
 
 \chapter{Constructing an augmented interface for the pipe-organ}
 
+In developing an interface for augmenting the pipe organ, several questions are central.
+First of all, in what way will the interface be augmented?
+Historically, many hyper-instruments have made use of gesture, or touch sensitivity as a way to augment the instrument.
+As previously mentioned in chapter one, there is always the question of augmenting a part of the interface that is already integral to the functioning of the instrument, like adding a gestural mapping to the horizontal, left/right plane of a piano player, who already needs to use this space to navigate pitch space.
+This ensures that the mapping is consistent with the innate gestures of playing the instrument, but does not allow for independant control of these parameters.
+With the flute, on the other hand, this exact same mapping could be used more or less independently, as the horizontal left/right plane is not directly coupled with any musical parameter.
+
+Taking the pipe organ, one could make the case that a gestural mapping would be logical, as it has the same issue of the piano, where the horizontal left/right plane is essential for navigating pitch space.
+At the same time, gesture is a completely foreign concept to the organ, which operates almost exclusively in the discrete realm, a note being either on or off, and a stop being either engaged or disengaged.
+The endlessly subtle, multidimensional contours of gesture couldn't be further removed.
+
+This approach certainly has expressive potential, as would using pressure sensors on the keys, which could make use of another parameter not accessible through traditional pipe-organs.
+At the same time, for the construction of my interface, I wanted to remain as true as possible to the tradition of the instrument itself, and what could be more traditional for the pipe organ than... adding another keyboard.
+
+Midi keyboard have been used since the very beginnings of hyper-instruments, and have reached a state of ubiquity that in some circles they are considered passé, not worthy of more expressive and nuanced interfaces of the future.
+At the same time, I argue that a midi keyboard is a particularly appropriate choice for the pipe organ, as it is exactly in line with the traditional method of interfacing with the instrument.
+
+Here there comes another dilemna, however.
+What does this midi interface play?
+It would be all too easy to have the midi keyboard play some nice filtered saw waves or evolving pads and call it a day, but where would the sonic link be?
+We could say that there is a link in interface, and a link in shared space, and that would be enough, but I wanted to go further and emulate the sound of the pipe-organ, based on analyses of the pipe organ of l'église Saint-Édouard, not with the goal of simple reproduction, but with the end of manipulating, transforming, and mutating these emulations in ways that would be impossible for the traditional instrument, in the hopes of achieving a dialectic, or a sort of continuum of acoustic and synthetic, which interact, overlap, disagree, and sometimes fuse.
+
+Throughout the process of designing this interface the question has been posed, but how is this a hyper-instrument?
+Isn't it a duet between two different instruments?
+My case for a one-instrument perspective is reliant on the history of the pipe organ as one of the most modular instruments that exists.
+Where one draws the line between what is considered one instrument, has never been as blurry as with this gargantuan instrument.
+One could easily say that the positive division is one instrument, whereas the swell is another.
+They are often even neatly separated in their own wooden boxes, called enclosures.
+The interface is also already modular, with multiple keyboards representing different tonal palettes.
+My keyboard is in line with this tradition, simply opening up yet more opportunities for timbral explorations.
+This is the main thrust of my interface, but I also explore to a lesser extent, two other modalties of augmentation, which will be explored further throughout this chapter: audio processing and bed tracks.
+
+\section{My background with the organ}
+First, I’d like to provide an account of my background with the pipe organ.
+In 2019, I travelled for several months in South America, beginning in Peru and moving up through Ecuador, ending in Colombia.
+Upon returning from this trip, I moved into a house in Vancouver, agreeing to move in before visiting or even seeing photos of the house.
+During my walk to the house on moving day, I was struck by the towering church, with nearly black stones, auspiciously stationed on the corner of this unsuspecting Kerrisdale intersection.
+I then realized that my new home was directly beside this church.
+After a couple weeks of living here, one day returning from a grocery trip, I heard music coming from the church and saw that the doors were open.
+I peeked inside and saw not only that the choir was rehearsing, but also that behind them was a magnificent pipe organ.
+
+
+I had always been interested in the pipe organ, starting from an obsession with several synthetic pipe organ sounds on my Roland RD300NX keyboard, especially what are called puff organ, and nason flute.
+I used these sounds on my first album, Ad viger, on the track Cyclogram 1, originally written for two sopranos, but adapted for the organ.
+Around this same time, in 2014, I approached Michael Murray, and he graciously invited me to the St.
+Philips Anglican church, where I played the pipe organ for the first time.
+He gave me a tour of the instrument, and had me stumble through reading some simple hymns in three staves, clumsily and comically attempting to manage the pedals for the first time.
+At the time I felt I was too busy to take on the challenge of learning the pipe organ, and I was deterred by the inaccessibility of the instrument in comparison to an electronic or midi keyboard that I can fit in my bedroom.
+The beauty and variety of the sounds of the instrument, as well as the delightful challenge of managing the pedal part with the other voices,  stayed in my mind in the following years.
+
+
+Returning to 2019, I approached the music director of my neighbouring church, which I had by that time learned was the Pacific Spirit United Church, Bryn Nixon, and asked him if he would like any help with the music, mentioning that I had some keyboard skills, and that I’d be interested in trying the organ.
+We scheduled a meeting, and he gave me a tour of the instrument, explaining the history of the instrument and its many stops, as well as giving me some pointers on what to focus on in terms of technique and repertoire.
+At this point, I wasn’t sure if I would continue learning the organ or whether it would end with one or two sessions, but I was soon captivated by the instrument, and I received an email from Bryn telling me that the keys to the church were waiting for me in the office.
+I bought some organ shoes, and I then spent many evenings quietly working through various physical and musical problems, slowly becoming more and more at ease at the console.
+At the same time, Bryn employed me as a pianist, and as organist for simple pieces and accompaniments for the church choir.
+This was a profoundly transformative experience for me, and gave me a regular outlet for both personal, and collaborative music making.
+
+
+At this same time, I enrolled in part time studies at the University of British Columbia, in order to take two courses that I wasn’t able to fit into my Bachelors degree because of time table conflicts and course requirements: counterpoint and physics of music.
+In order to receive part time student loans from StudentAidBC, they asked for proof of continuing education.
+At the time I had no plans of continuing education, and the simplest option would have been to put UBC as my plan for graduate studies.
+At the same time, being a curious person, I decided to do a bit of research on different institutions, and stumbled upon the University of Montréal.
+I was immediately struck by what I felt was an openness and plurality of approaches and aesthetic that was coming out the University of Montréal music department, and soon enrolled as a student in their D.E.S.S.
+one year diploma program in digital music.
+
+
+I wanted to continue my studies of the pipe organ in Montréal, and I knew that the city of a thousand bell towers would have opportunities to continue this exploration, but it wasn’t until the summer after my D.E.S.S.
+that I began to explore the many churches of Montréal, speaking with organists and priests in order to find people with which to collaborate with.
+After several dead ends, I stumbled upon l’église Saint-Édouard, where the current organist Georges-Aimé, who was looking to retire, was all too thrilled to be relieved of his post.
+I began as organist at this church in July of 2022, and began the master’s in music composition and sound design at l’Université de Montréal in the following September.
+
+
+My proposed master’s project was based on treating the organ as an augmented instrument.
+I had heard of augmented instruments since my time at UBC as part of what was then misleadingly named, the laptop orchestra.
+This wasn’t a traditional orchestra, however, and included a cellist, a french horn player, a pianist, a trombone player, a singer, as well as several dancers.
+This ensemble, which was later renamed interactive performance systems, focused extensively on gesture tracking through input from gametrackers, gyroscopes, and the microsoft Kinect 2, and consisted in a group of performers, and a group of coders.
+I was in the coding group, creating interfaces for the performers.
+This was a formative experience for me, but it wasn’t until the time during my D.E.S.S.
+that I began considering the idea of crafting an interface for myself.
+During my master’s program, I suddenly had access to l’église Saint-Édouard and the time to focus on a major project.
+
 \section{Context: L'église Saint-Édouard}
 
 \section{Modalities}
@@ -490,13 +590,125 @@ Instead, they represent a constellation of practices, each illuminating differen
 
 \subsection{Bed tracks and triggers}
 
-\chapter{10 Élégies}
+\chapter{Creative application}
 
-\section{Context and precedents}
+The construction of a hyper-instrument is no easy task.
+As we've seen in the previous chapter, there are many theoretical questions and technical challenges that present themselves along the way.
+This creative chasm is rivalled, however, if not dwarfed, by the realm of creative possibilities presented in the application of this interface, once constructed.
+The structure of this thesis attempts to provide a neat narrative, chapter by chapter, going from historical context, to interface design and construction, and finally ending with creative application, but this is merely for the reader's convenience, and to organize my own thinking in a coherent way.
+The reality of the process has been anything but linear, and all three of these components have informed and directed the others in the course of this research.
+My original vision of the master’s program before setting upon this challenge was to segment the work into these three stages, but my director, Pierre Michaud, urged me to begin the compositional portion as soon as possible.
+This led to a situation which I’ve described as, “building a bridge while walking across it”.
+While inherently precarious, this approach has the advantage that the two creative processes are intrinsically linked, forming a recursive bond.
+The bridge may not be perfectly arched, and may meander from its intended path—but it nevertheless represents the unique path walked by its builder, advancing step by step, and somehow, miraculously, arriving at the other side.
+
+This fact notwithstanding, for the purposes of this paper, I wanted to compartmentalize the roles I’ve played.
+In this chapter I’d like to take the perspective of a composer and a performer as much as possible, imagining that the interface was designed by a third party, and is something that I’ve received and have to contend with.
+I’ll attempt to describe not only the technical constraints of the interface, but the aesthetic implications of the environment, and the various ways that I’ve exploited these possibilities.
 
 \section{Compositional considerations}
 
+In my compositional world, the dialectic is central.
+As far as I can tell, all thought stems from a discrimination, between self and other; between here and there; between this and that.
+Of course, this binary, which is also intrinsic to the functioning of computers and of the brain of humans and other animals, is often not discrete in practice.
+Though the polarities define the space of knowing, they frame a continuum which includes all gradations within that binary.
+From an aesthetic perspective, one could say that beauty lies in finding some kind of balance in this continuum.
+This is often called symmetry.
+Of course, I am not the first artist to be struck by the beauty of symettry.
+This has been a fascination of artists and mathematicians since at least the time of ancient Athens and the Pythagorean experiments with geometry.
+Symmetry implies a formal balance between opposing parts.
+From a visual perspective, this could mean the balance of luminosity vs shadow, or the density of visual information.
+At least in the traditional realm of painting or drawing, all of these fulcrums are played out in a global binary which is the balance between right and left, and up and down.
+In the auditory realm, which takes time as its canvas, the symmetry has to do with the dialectic between before and after.
+Other polarities are then mapped onto this time space.
+Parameters like spectral brightness vs darkness, an auditory version of luminosity, density of auditory information, or loudness vs softness, are all in constant flux in time space, creating proportions that are more or less symmetric.
+
+A beginning artist might hear this proclamation and say, well wouldn’t the most beautiful thing be something perfectly symmetric?
+With a single non-retrogradable rhythm and a palindromic melody based on one of the modes of limited transposition à la Messiaen?
+However, the fascinating thing about symmetry is not that it’s beautiful, but that it isn’t.
+Take the human form, or any animal for that matter.
+If you crossed paths with a human that had an upside down head touching the pavement, or a face with upside down eyes and nose mirroring their normal features, you would likely be perplexed, fearful, and repulsed, cursing yourself for not having more pleasant thoughts before falling asleep.
+The human form is laterally symmetric, but not vertically.
+Yet even laterally, the symmetry is not a perfect symmetry.
+We often don’t notice, but any human face has more or less pronounced differences in lateral features like shape and size of the eyes and ears.
+Artificially constructed photos of faces with perfect symmetry are generally described as unnatural and eery, a phenomenon called uncanny valley.
+
+This means that beauty is much more illusive, and entails a careful organization of symmetry and asymmetry, creating a balance of forces that nevertheless maintains an aspect of instability.
+It’s funny to note that symmetry itself, which was originally our way of describing the concept of dialectic itself, has now become another dialectic: symmetry vs asymmetry.
+This is the way thought works, from top to bottom, beginning to end, branching into infinite divides.
+To me, this recursive act of co-definition, and the impossible fusion of two opposing elements, is the primordial creative force.
+One could say that a single contradiction holds the entire world in its arms.
+There are many more of these polarities which are fundamental to my thinking, and I’ll enumerate several of them in order to provide an account of my creative approach.
+
 \subsection{Constraint vs freedom}
+
+A key consideration in the design of any structure, be it physical, musical, social, or ethical, is the equilibrium between constraint and freedom.
+On the one hand, too rigid a structure, and it lacks the ability to adapt to the needs of its environment.
+In the case of a bridge, this might mean that the impact of an earthquake will simply break it altogether, as its lacking the suppleness needed to absorb the energy of the tremor.
+In the arts, this may be a lack of spontaneity, of an exploratory sense of intrigue, relying too heavily on formulaic calculations without responding to the natural tendencies and needs of the medium.
+On the other hand, one wouldn't want to attempt walking across a bridge with no rigidity whatsoever.
+The rigidity provides the support to allow the bridge to serve its function.
+In the same way, music with no sense of rigidity can seem like a nebulous path--a bridge that constantly falling away, letting us drop down into the murky depths below us.
+
+This balance is essential, but is not straightforward in finding.
+There are certainly artists who compose with very little or no conscious constraints.
+Morten Feldman was often this way, emblematized in the famous story of John Cage asking him how he composed an early piece, and his replying "I don't know".
+That being said, even Feldman may place unconscious constraints on his music, and at the very least he is constrained by the medium itself--the music, and the particular instruments, spaces, and players he's working with.
+
+But beyond these inescapable constraints, there are also constraints at the compositional level.
+These can be at the level of melody, harmony, counterpoint, meter, rhythm, form, and many more.
+Constraining all of these parameters would be something akin to total serialism, like Boulez's Structures I and II.
+These pieces and others like it could be said to be on the extreme side of the authoritarian polarity.
+That's not to make an aesthetic judgement, but only to say that it does represent an extreme of controlled parameters.
+On the other hand, constraining nothing and simply letting the music express itself, while a completely valid approach, can feel like leaping from our bridge into the unknown.
+
+Often, constraining one, or several of these parameters, and building the other parameters intuitively based on the suggestions of the constrained parameters is an excellent, concrete way to make sure that there is a musical coherence, yet an expressive freedom.
+An example of this kind of approach is the sitcom Curb your enthusiasm, which uses sketches showing the overall direction and main points of the story, constraining the overall form, yet doesn't provide the actor with their lines, allowing them to improvise based on the situation.
+This leads to a wonderful situation where there is a sense of genuine interplay, surprise, and liveness that simply doesn't exist with fully scripted sitcoms.
+The same is true in music.
+Sietze de Vries, the great Netherlands-based organist, who is a proponent of this kind of a approach, often invokes the paradox "absolute control is the way to freedom", placing emphasis on the strict adherence to a constrained element, usually melodic, in order to hone one's creative potential.
+
+Of course, before constraining an element, one first has to have some material to constrain.
+This part of the process, often called inspiration, is one of the most challenging and mysterious parts of the creative process.
+There are many approaches to the generation of ideas, and infinite subtle gradations within each approach that will vary from person to person, but they fall into two main categories, which I’ll call internal vs external.
+The internal approach is an intuitive approach, it relies on bringing something that is heard or felt in the mind’s eye, and bringing that to conscious awareness.
+This could be through singing or playing a melody, chord progression, rhythmic idea, etc.
+The external approach relies on the use of data outside the artist’s inner world.
+Rather than using audiation to generate material, one might use a series of numbers, either random or based on some mathematical series, or any conceivable data, mapping these values to a musical parameter or several, such as pitch, duration, loudness, etc.
+The process of mapping data onto musical parameters is called signification, a good example being the piece Searsville 1891-2015, written by Marc Evanstein for the Stanford New Ensemble, which uses data from a CT scan of a sediment core from Searsville Dam at Stanford's Jasper Ridge Biological Preserve to map the wetter and dryer periods in the dam’s history with musical density, with wet periods being more dense and dry periods being more sparse.
+https://www.youtube.com/watch?v=LAT6OCifCvQ.
+
+The difference between this internal/intuitive approach, and the external/analytic approach is significant, John Cage going so far as to claim in rule eight of his ten rules for students and teachers, creation and analysis are independant processes that can’t be mixed.
+Cage likely had a different definition of analytic thinking than I do, in the sense that he seems to equate it to analyzing his work once created, rather than analyzing data in order to generate material.
+That being said, his words still hold true in this case.
+The divide is akin to inverse ways of approaching the creative process itself.
+I like to think of sculpture.
+On the one hand, there’s the perspective that the sculpture is already inside the block of stone, and that the sculptors task is simply to make that form appear.
+This is the internal approach, and in music it’s reminiscent of the operatic ideal during the time of Verdi, which was not to create a shockingly surprising melody, but to construct a melody that sounded familiar, as if it had always existed.
+
+
+The analytic approach is more like making the stone into the sculpture.
+Rather than revealing the statue within the stone, we create it, through trial and error, and force of will—arriving perhaps at a result that we never could have imagined.
+Of course, these two approaches aren’t completely independent.
+In my own experience I have historically leaned more towards the intuitive side, but I am very inspired by the generative power of the analytic approach, and in my ideal vision, the two processes form a sort of symbiotic relationship, nourishing eachother along the way.
+
+
+Now, once material is generated, one can start using it as constraints, against which other elements can be built upon.
+The question is then which elements to constrain, and they are not equal.
+For example, for an improviser, it is often much more challenging to have constrained durations, with free pitch, either limiting the player to a certain set of durations and allowing them to choose freely between them, or placing the durations in a certain order, and allowing the player to play any pitch, than it is to do the inverse, giving the player a pitch set, either as a pool to be arbitrarily selected from, or as an ordered sequence, allowing the player to freely select the durations of each note event.
+
+The first thought when considering constraints may be constraining a single musical parameter like pitch, duration, or loudness, and this is certainly a valid approach, but often it is more pragmatic to package several musical parameters together, essentially working at a higher level of abstraction.
+This way the constraint is more in line with musical thought, embodying a holistic form of the musical experience.
+In language this would be the equivalent of constraining someone to speak without using the letter t, or only using words that use the first thirteen letters of the alphabet, or perhaps to speak with every third word being an adjective.
+It’s possible, and sounds like a fun, though somewhat sadistic party game, but it’s not a particularly natural way to represent semantic communication.
+A more appropriate constraint might be to limit one to a subject, like speaking about things that are blue, or of a certain place or person.
+
+In the western music tradition, oftentimes the word subject is used to describe an important melodic structure in a given piece of music.
+Indeed, if one examines cultures from around the world and throughout time, often melody is considered a foundational element.
+From the origins of notated western music, melody has been central, for centuries being sung monophonically by Gregorian monks, and later being used as a basis for early polyphonic music, beginning as what is known as organum, thought to have originated in the 10th century and culminating in the writings of the Notre Dame school masters Léonin and Pérotin in the 12th and early 13th century, and later in the complex motets of the ars nova school led by Guillaume de Machaut and Philippe de Vitry.
+These flourishing periods of creation and polyphonic innovation have one important thing in common: they all rely on a constrained element.
+This element came from the Gregorian chant which was so established at the time, placing the chant in the tenor voice and composing the other voice, or voices around this tenor.
+This constrained voice is often called a cantus firmus, coming from the latin for fixed melody.
 
 \subsection{Artificial vs real}
 
@@ -518,6 +730,17 @@ As far as we know, nuclear fusion is the most immense creative force of energy p
 The triggering of this fusion process is not trivial however, requiring a temperature of more than one-hundred million degrees fahrenheit.
 Perhaps the fusion, or synthesis, of ideas in the realm of art is just such a creative force, requiring an equally massive force to hold them together.
 
+\section{As a performer (physical constraints)}
+As far as the issues of interacting with the interface from the perspective of a performer, there are plenty of new obstacles to overcome and integrate. As a relative newcomer to the pipe organ in general, the traditional acoustic instrument already provides a significant challenge, and when I started playing the pipe organ at l’église Saint-Édouard, I found enough difficulty in playing the instrument as it was, that I was intimidated by taking on the additional challenge of the augmented component. I nevertheless began to incorporate little by little the practice of managing the fourth keyboard. 
+
+Having a fourth keyboard may seem trivial after already traversing three manuals and a pedalboard, but the principal challenge was the angle. Whether at the piano, the harpsichord, or the organ, a keyboardist will generally place themselves somewhere near the centre of the instrument, facing it directly. My original plan was to place the keyboard underneath the others to maintain this continuity of angle, but it quickly became apparent that there was not enough space to make this feasible, and the idea was born to place the keyboard off to the side. This was a very new and uncomfortable experience for me. The practice of keyboards at 90 degrees is not unheard of. Artists like Chick Corea and Cory Henry have used this setup, and although normally they switch from one to the other, facing each instrument as normally, on rare occasions they will play both instruments at the same time, generally providing chordal pad sounds with the left hand while soling on the other keyboard with their right hands. 
+
+While this approach may have a niche precedent in jazz circles, it seems to be new to the pipe organ world. In German and in Dutch, the manuals are often named by their position, including Oberwerk, or upper manual, and the Rückpositif which as the name suggests, originated as a separate manual placed behind the player, but eventually became incorporated into the main instrument in front of the player. A “Seitewerk” or “Seitepositif”, which would be the logical German translation of “side manual” seems to not exist at all, as far as I can tell. In any respect, this new orientation certainly took some getting used to, as it threw off my entire basis of proprioception. Not only this, but it introduced with it another problem. I mentioned that Chick Corea and Cory Henri typically play the solo with their right hand while chording with their left, but what if I want to put the melody in the acoustic organ and play the bass part with a synthesized sound? This may seem like a niche requirement, but is not an unreasonable orchestration choice. Yet if the midi keyboard is set to my right side, this means playing the bass part with my right hand, which sounds like a keyboardist’s uncanny, nervous dream. Placing the keyboard to my left, which was less practical at the console at l’église Saint-Édouard in any case, would mean that synthetic sounds in the melody would have to be played with the left hand, which is even stranger. 
+
+Two obvious solutions present themselves here, one being to move the keyboard from side to side during a given performance, and the other is simply to have two keyboards on either side. In the first case, after some consideration, I realized that not only would cabling make it a nightmare, but it would take too much time. Of course I could hire a sort of stage crew to move the keyboard around, but in the spirit of DIY, I didn’t want to have to depend on this kind of arrangement, if only for the practical reason that I could rehearse without needing to manage a team. For the second option of having two keyboards, I don’t have an excellent reason why I haven’t chosen to go in this direction, and it is certainly something that could be explored in the future, however, my main contentions are that the instrument is already incredibly complex, and adding one keyboard is already stretching the limit, and two additional keyboard seems excessive. I also like the aesthetic of asymmetry, and of course there is the practical issue that two keyboards, would box me in, creating a claustrophobic environment. After reflecting on all of these options, I ultimately elected to maintain the original version of one keyboard on the right. Originally I thought I would just avoid putting the bass part in the synthesizer altogether, but in the end, being something of a masochist, I decided to treat playing the bass part in the right hand as a new avenue of virtuosity, incorporating it in small doses to begin integrating the new spatial and cognitive mappings.
+
+Besides the issue of keyboard angle there are also the issues of sustain pedal, patch changes, sample triggering, and volume control. The midi keyboard permits the pianistic privilege of the sustain pedal, which is not found on a traditional pipe organ, and is particularly useful for drone sections where one can simply depress the damper pedal, freeing the hands to do other things. One of the things that the hands might be freed up to do, besides playing the other manuals or changing the registrations, is triggering samples or regulating the volume of the synthesized sounds. Originally, all of this was done through OSC, using a TouchOSC patch on my phone, but the internet connection in the organ loft is not reliable enough for this to be a sound solution, and MIDI was selected. This way, various keys are assigned to control changes on channel 6, stepping through a global navigation scheme which modifies the settings of both OrganLab and Ableton Live, as well as triggering samples. Two sliders are assigned respectively to the volume of Pyo and Ableton, with a third slider assigned to both volumes. 
+
 \section{Tools}
 
 \subsection{GrandOrgue}
@@ -528,8 +751,10 @@ Perhaps the fusion, or synthesis, of ideas in the realm of art is just such a cr
 
 \subsection{Ableton Live}
 
-\section{Movements}
-\anglais
+\section{Élégies}
+
+\subsection{Context and precedents}
+
 \subsection{1e Élégie}
 
 \epigraph{\textit{Qui, si je criais, qui donc entendrait mon cri parmi les hiérarchies des Anges?}}{}
@@ -807,19 +1032,17 @@ The original accompaniment is with an octave ostinato, and didn't lend itself we
 
 \customincludegraphics{3-3-3_melody}{Descending "lament" motive, with jazz changes annotated above}
 
-At first, the continuation of this movement was supposed to simply dissolve into a textural mass, as the sound of the voix humaine undergoes it's painful transition into a bell.
-This was the working idea until I realized that variation form, a form that I was looking to incorporate into the piece at some point, would be particularily appropriate for song form, as there is a great jazz tradition of playing variations on traditional songs.
-At first, the continuation of this movement was supposed to simply dissolve into a textural mass, as the sound of the voix humaine undergoes it's painful transition into a bell.
-This was the working idea until I realized that variation form, a form that I was looking to incorporate into the piece at some point, would be particularily appropriate for song form, as there is a great jazz tradition of playing variations on traditional songs.
 The obvious and simple choice would have been simply to simply repeat the twelve bars over and over again, but I felt that this simple repetition wasn't necessarily in line with the subject matter, devolving into the God river of blood.
 I was also hearing continuations in 3/8, and wanted to find a way to alter the meter, while keeping in line with the variations idea.
 It then came to me to incorporate exponential variations.
 The idea is that each variation is either dilated, or expanded by a certain proportion.
+
 In this case, I chose the proportion of 5/4, finding that a proportion of 2/1 wouldn't give me the metric variety I was looking for, and 3/2 would be too long.
 5/4 seemed to give me the right amount of variety without being overly long.
 In order to verify this, I drafted a patch in OpenMusic that calculates the total time of a given number of measures with a given time signature at a given tempo.
 With 12 measures at a tempo of quarter note equals 64 beats per minute, I found that with four variations, the movement would take about 4.3 minutes, not including the introductory material.
 This seemed like a reasonable length, and gave me the time signatures of 5/4, 25/16, and 125/64.
+
 Obviously, these latter two are all but unreadable to mere mortals, and required some clever compartmentalization to yield a musical, communicative notation.
 I decided to break up 25/15 into three measures of 3/8 plus one measure of 7/16.
 The 125/64 was more problematic.
