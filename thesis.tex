@@ -692,7 +692,6 @@ Rather than revealing the statue within the stone, we create it, through trial a
 Of course, these two approaches aren’t completely independent.
 In my own experience I have historically leaned more towards the intuitive side, but I am very inspired by the generative power of the analytic approach, and in my ideal vision, the two processes form a sort of symbiotic relationship, nourishing eachother along the way.
 
-
 Now, once material is generated, one can start using it as constraints, against which other elements can be built upon.
 The question is then which elements to constrain, and they are not equal.
 For example, for an improviser, it is often much more challenging to have constrained durations, with free pitch, either limiting the player to a certain set of durations and allowing them to choose freely between them, or placing the durations in a certain order, and allowing the player to play any pitch, than it is to do the inverse, giving the player a pitch set, either as a pool to be arbitrarily selected from, or as an ordered sequence, allowing the player to freely select the durations of each note event.
@@ -1117,7 +1116,6 @@ On the one hand, the application of an isorhythm as cantus-firmus, which is plac
 The right hand is very much not accustomed to playing the bass part, and so this represents a sort of étude.
 Seeing as the keyboard can't easily be switched from one side to another, and playing it with the left hand would make it impossible to play the acoustic organ with the right hand, this provides a unique limitation and possibility for new cognitive and proprioceptive pathways.
 
-
 I also wanted to develop the ascending by thirds motive, and decided to use it as an ostinato that begins slowly, later becoming a fast arppegiation, which in turn becomes the accompaniment for a variation of the melody of lamentation.
 This provides a first attempt of the synthesis of these two motives, so central to the composition as a whole.
 The arpeggiations also form, both visually in the score, and sonically, a set of arches.
@@ -1154,9 +1152,129 @@ The common thread between these contrasting elements is the shared instrument of
 
 \subsection{5e Élégie}
 
+\epigraph{\textit{Mais les errant, dis-moi qui sont-ils, ces voyageurs fugaces?}}{}
+
 \subsubsection{Narrative context}
 
+The fifth elegie dwells on the fleeting nature of life and the enigmatic journey of the soul.
+This movement is situated between the third and fourth "stations" of the path.
+Before it begins, the protagonist passes through the salle Morin, named after the first priest of l'église Saint-Édouard, where the hum of a refrigerator is heard, the complex sound becoming more and more intense.
+Then the distant sound of a clock ticking comes to the forefront, dominating the texture and becoming more and more incessant.
+As the intensity of the clock builds, the footsteps, which thusfar have always been near, suddenly begin to recede into the distance, calling the subjectivity of the listener/protagonist into question.
+The sound of the dissolving footsteps against the growing intensity of the clock creates an eery dialectic, at once referenceing the non-unisson of the fourth movement, and the nebulousness of time in the fifth.
+Just as the clock climaxes, it splits off into several iterations of itself, like time fractionning and dissolving into the fugal mass.
+This is the third station on the journey through the church, paralleling the fifth and sixth stations of the cross.
+
+Musically, the movement begins with the voice, singing the poetic fragment with a densely chromatic theme.
+This theme is then explored at the organ, on the one hand with the cornet registration, which I associate with thick, incense filled air, and on the other hand, the pyo synthesis server doing stop interpolation, that is, transforming from one stop to another.
+This creates a nebulous effect evokative of the voyageurs fugaces mentionned by Rilke.
+
+It ends with a recording that represents the fourth station in the path, that of the furnace room.
+Deep in the church's underbelly, we hear the opening of a heavy, sliding, steel door that gives way into the furnace room, gently clicking.
+The use of the furnace at this point is a reference to the word fugaces, like the thick incense filled air, the fumes of the furnace spiral up into the sky above the church.
+
 \subsubsection{Techniques}
+
+Software:
+
+In the origins of this project was a fascination with interpolation.
+I find it very intriguing to take a sound that seems permanent, stable, fixed in place and historical context, and to transform it into something else.
+This capability is one of the key advantages afforded to the use of digital synthesis.
+A traditional pipe organ operates in a very binary fashion, and this is especially true of electro-pneumatic organs, in which pulling a stop simply sends a control voltage to open the valve to the rank or ranks in question.
+Moreover, even with a tracker organ, where half stops exist and are exploited in some experimental music, they are not so much an interpolation of the timbral space of that stop and silence, but are more like a distortion of the normal register, much like overblowing a flute.
+This is not to speak of the idea of morphing from one stop to another.
+In order to do this with a traditional organ, one would need to transform the metal in real time.
+It's simply not possible!
+
+
+In the digital world, sound is not linked to physicality in such a direct way.
+The loudspeaker opens us up to much more flexible ways of generating and manipulating air pressure waves.
+Once I had developed my first iteration of the sound synthesis server in python, one of the first ideas that I wanted to try out was this idea of morphing between stops, as if the metal is being stretched or contracted in realtime.
+There's not necessarily an objective way to go about doing this, and the most obvious solution would simply be to use a crossfade, making one stop quieter while another enters.
+This would be akin to increasing the transparency of one photo while another increases in opacity.
+I considered this approach, and when this visual analogy came to mind, I imagined another possibility, where each pixel moves to where it needs to be for the transformed state.
+Technically, this doesn't really make sense, as it would necessitate that both the original and transformed image have the same collection of pixels, but in a different order, which would likely not be the case.
+In reality the more appropriate analogy would probably be that each pixel stays exactly where it is, but gradually alters it's RGB values until it reaches the desired state.
+
+In any case, this visualisation gave me the idea to manipulate the timbral space itself for my transformations, using the spectral profiles of each stop, and in particular the amplitudes of each partial, as my pixels--a sort of data primitive which can be morphed as needed.
+I had already designed functions which instantiated the profiles of different stops.
+The only functionality missing was to define a way to interpolate between these states.
+After some research, it seemed that the most straightforward approach would be to replace the Sig() objects with SigTo() objects.
+The former generates a constant value, and jumps to a new value when changed, whereas the latter object takes a second argument, that of time, which determines the rate at which it moves to a new value once set.
+
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+        for i in range(len(part)):
+            self.amps.append(SigTo(mul[i], time=self.ramp))
+            self.att.append(SigTo(att[i], time=self.inter))
+            self.dec.append(SigTo(dec[i], time=self.inter))
+            self.sus.append(SigTo(sus[i], time=self.inter))
+            self.rel.append(SigTo(rel[i], time=self.inter))
+            self.envs.append(MidiAdsr(self.note['velocity'], attack=att[i], decay=dec[i], sustain=sus[i], release=rel[i], mul=self.amps[-1]))
+            self.part.append(SigTo(part[i], time=0.2))
+            self.snds.append(Sine(freq=(self.part[i]**self.partSc) * (MToF(FToM(self.note['pitch']-0.15))) + Randi(-rand, rand, 5) + self.trans + self.mod, mul=self.envs[-1]))
+            self.mixed.append(self.snds[-1].mix())
+\end{lstlisting}
+\caption{This snippet from stop.py uses SigTo() objects to manage interpolation between values.
+self.ramp is used to determine the rate of transformation of the amplitudes of the harmonics, and self.inter, short for interpolation, governs the changes between envelope parameters.
+For the moment self.inter is not functional, due to MidiAdsr() not allowing live signal for it's parameters (the first value is used at instantiation).} 
+\end{figure}
+
+This way of spectral morphing can work well at both large and small time scales.
+The former giving a sense of evolutive expansion or contraction, depending on whether the spectrum is brightened or dampened.
+The latter has a more elastic effect, as if the sound is a physical object and bounces like a rubber ball.
+For this movement, I wanted to automate the morphing process, while experimenting with a range of medium time-scales.
+To do this, I drafted a function called stopInter() which simply draws a number between zero and three, at an interval between 1 and 10 seconds.
+This number represents the bourdon 8', principal 8', voix humaine 8', and cornet 5Rgs.
+stops.
+Each time a new time interval is selected, the ramp is changed accordingly, creating a sense of spectral instability and constant shifting, like the smoke of our "voyageurs fugaces".
+
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+stopInterPRand = Sig(1)
+def stopInter():
+    global stopInterPRand
+    x = randint(0, 3)
+    stopInterPRand.value = randint(1, 10)
+    stop1.setRamp(stopInterPRand)
+    print(x)
+    if x == 0:
+        bourdon()
+    elif x == 1:
+        principal()
+    elif x == 2:
+        voixHumaine()
+    elif x == 3:
+        cornet()
+    print('stopInter', stopInterPRand)
+
+stopInterP = Pattern(function=stopInter, time=Sig(stopInterPRand))
+\end{lstlisting}
+\caption{The function stopInterPRand interpolates between the spectral composition of the bourdon, the principal, the voix humaine, and the cornet.
+The pattern stopInterP triggers the function at a randomly chosen time interval between 1 to 10 seconds.
+The interpolation is five seconds long, which is defined in the midi\_nav.py file (see GitHub respository).}
+\end{figure}
+
+Compositional:
+
+The use of the word fugace in the poetic fragment strongly suggests he traditional form of the fugue.
+This realization struck me well into the conception of this piece, long after the idea to use interpolation to represent the nebulous, smoky evocations, and presented several technical challenges.
+In some sense, these two ideas are completely opposed.
+The interpolation idea was fundamentally ambient and evolutive, whereas the fugue has historically featured clearly defined rhythms and melodic motives as a key element.
+Moreover, the interpolation works best with the sustain pedal depressed, and with a wide spread of intervals, to create an immersive resonance, but the fugue theme, which naturally sprung from the text, is tightly weaved and chromatic.
+
+My solution to these problems is to treat these two ideas as largely distinct formal elements.
+I view the more traditional fugal writing like a thread, or a dimly lit path, which at times becomes shrouded in darkness.
+This "lost path" is represented by the ambient, evolutive sections using stop interpolation.
+It is indeed as if our travellers give the impression of going somewhere, only to vanish in smoke.
+At the same time, it has a psychological effect, as if following an idea, only to become lost in thought.
+
+For these ambient sections, I allow myself to use non-fugal material, but in order to fuse the two ideas, I do reference the fugue theme from time to time, though with some important alterations.
+In order to create an ambient texture, I generally apply augmentation to the durations, and to avoid extreme chromaticism, I use a technique borrowed from the fugue of the sixth movement of Messiaen's Vingt Regards sur l'enfant Jesus.
+In this movment, Messiaen uses octave displacement throughout to disguise his subject.
+Though in a very different paradigm, I use this technique to lessen the dissonance of the texture, and open up the resonance during the ambient sections.
+I displace the notes according to the closest partiel in the spectral analysis of the bell of l'église Saint-Édouard.
+This gives me a sound that is based in a physical object, tied to the space itself, and yet which maintains a level of chromaticism, yielding an uneasy tension, like difficult dreams.
 
 \subsubsection{Composition Process}
 
@@ -1164,15 +1282,105 @@ The common thread between these contrasting elements is the shared instrument of
 
 \subsection{6e Élégie}
 
+\epigraph{\textit{Figuier, depuis longtemps déjà ce m'est un signe que presque entièrement tu te dérobes à la gloire des fleures...}}{}
+
 \subsubsection{Narrative context}
+
+To me this is the crux of Rilke's texts, and the key narrative moment of the piece.
+It is like the voice of God acknowledging that the subject is not living up to their fullest potential, that they are shrinking before the greatness of their task.
+It is the point in the story where the protagonist must face his mortality, questioning the possibility of continuing, feeling crushed under the weight of burden, as a small fragile child.
+For this movement I wanted to make use of what I call the dissociated bourdon.
+In this synthesis patch, the harmonic content, and the transient noise content (marking the attacks of notes), are treated independently, where the noise sounds on every note onset, but the harmonic content sounds every sixth onset.
+This creates an effect which is haunting and fragile--largely rhythmic.
+The sound world is based in F minor, which refers to the minor triad contained in the harmonics of the spectral analysis of the lowest bell of l'église Saint-Édouard, and fragmented bursts of sound are heard interspersed with the clicking of the transient sounds.
+Interestingly, there would have been a fuller contrapuntal message, but it is truncated, hidden, and lost to time.
+This is a metaphor for the fig tree, hiding itself and dissociating from its truer form.
+For this movement, I thought it would be appropriate to leave the stage, further dissociating the sound from the physical source.
+This sort of theatrical element has interested me for a long time, and it provides a dramatic support to the narrative importance of this movement.
 
 \subsubsection{Techniques}
 
-\subsubsection{Composition Process}
+Software:
 
-\subsubsection{Linking}
+The idea for the dissociated bourdon came as a result of an error of polyphony management when designing my initial synthesis program.
+The issue was that my sound was separated into six channels, and instead of triggering each channel on each note event, pyo was cycling through the channels, and putting all the harmonic content on the first step.
+The noise content was not subject to this polyphony issue and came through on each step, creating an intriguing texture, largely rhythmic, and punctuated with bursts of organ sound.
+I quickly realized that I needed to sum the channels with a Mix() object before passing the sound to the output, but I was quite captivated by the result of this "happy error".
+I kept that broken patch set aside, and soon after I tested it at the church, recording the result, and this is what ultimately became the bed track for this movement.
+
+\begin{figure}[H]
+\begin{lstlisting}[language=Python]
+dissCount = 0
+def dissocie(x):
+    global dissCount
+    print(x)
+    if x != 0:
+        dissCount += 1
+        print(dissCount)
+        if dissCount > 1:
+            stop1.setMul([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+            print("set0")
+        elif dissCount == 1 :
+            stop1.setMul([1, 0.01, 0.1, 0.01, 0.07, 0, 0.02, 0, 0.01, 0, 0.003, 0, 0.003, 0, 0.001, 0, 0.001, 0, 0.001, 0])
+            print("setnon0")
+    if dissCount == 4:
+        dissCount = 0
+\end{lstlisting}
+\caption{The function dissocie mutes the harmonic content of the organ synthesis every five notes.
+For the other four attacks, only the noise of the transient and the air is heard.}
+\end{figure}
+
+Compositional:
+
+Compositionally, the piece is largely freely improvised.
+I instinctively reached for a pan-tonal palette, which seemed to adequately represent a sort of pathetic nature.
+In this case, my improvisation was based in F minor.
+This was not planned in any meaningful way at the time, but in retrospect, it is an appropriate choice, as the spectral analysis of the bells of l'église Saint-Édouard reveal a duality of F major and F minor.
+My piece attempts to put this relationship in dialogue, and the fact that structurally, at the point of great doubt, the tonality arrives in F minor, feels thematically consistent.
+
+\subsubsection{Theatrical elements}
+
+Prior to the sixth movement, there are already present several important, though more subtle, theatrical elements.
+At the beginning of the piece, the fact that I climb the stairs to arrive at the organ while the initial bed track plays can be seen as a theatrical staging.
+From the perspective of the audience, they do not necessarily know whether this is simply a practical necessity, or a dramatic element--in other words, it is unclear whether the piece has already started during the bed track, or whether my arrival at the organ console initiated the beginning.
+My sense is that initially, the natural interpretation is likely that the piece starts when I arrive, with the bed track serving as an introduction, but that in retrospect, once more theatric elements are introduced, the beginning of the piece is reinterpreted as having already begun without the audiences' knowledge.
+Besides the initial entrance, the movements from the organ console to vocalise are a form of staging, though fairly restricted in scope.
+
+In the sixth movement, I underline the narrative importance of this movement with the introduction of a much more marked theatrical element.
+I leave the stage at the end of the fifth movement, before I do, triggering an audio clip which on the one hand transitions from the fifth movement with recordings of the final chord doing the stop interpolation, in order to give me time to leave the stage and enter the room without too much dead space.
+Then, the audience hears a disembodied voice before the entrance of the dissociated bourdon.
+This yields a sensation of alienation, highlighting the tension between the hopelessness of our protagonist and the call to a higher state of being.
+
+Originally, I imagined that I would play the keyboard for this movement off stage, but this was a point of frustration, because it was technically infeasible.
+As the keyboard is connected to my interface by a cable, it would require managing a very long cable, or having a separate setup with another computer, interface, and keyboard in another room, for only one movement.
+Ultimately, in discussing the options with my co-supervisor Caroline Traube, we devised the plan to have this movement be entirely pre-recorded.
+In this way, something is undeniably lost.
+The immediacy of music performed in real-time is replaced with the automaton.
+At the same time, from the narrative perspective, this is even better.
+The timbral dissociation is linked with the physical disembodiment of the performer and their sound.
+Since the performer is in another room, the audience is left to wonder what the source of this sound is.
+Is the performer playing it from somewhere?
+Or is it pre-recorded?
+They are not told ahead of time so they are left to ponder this, putting the role of presence and physicality in music-making in question.
+
+Just after the ambient, evolutive final chord from the fifth movement fugue ends and the dissociated bourdon of the sixth movement begins, the performer sings from another room sings an inversion of the principal melody, but begins with an incessant loop of the first gesture, "Figuier", as if frozen in time, or in thought.
+As this syllable is uttered, the closed door of this room is slowly opened, mimicking the opening of the jalousies of an organ enclosure/expressive box.
+After this disembodied voice is heard from afar, the recording of the dissociated bourdon enters.
+Originally I considered triggering this recording with OSC, but during a testing of various techniques and excerpts from the Élégies, I found that the internet connection was not reliable enough to make this a good solution, and instead planned to simply time the sung material approximately with the space left between the end of the fifth movement and the sound file trigger of the sixth.
+
+At the same time that I was experimenting with the role of physicality, and space, I wanted to increase the poignancy and effectiveness of this dramatic effect of alienation by further exploring of the auditory space, not only relocating the performer, but also the sound itself.
+Instead of using the same speaker beside the pipe organ that has been used thus-far, a separate sound system located in the second balcony in the back of the church where the organ originally stood sounds the dissociated bourdon recording.
+At the same time, a flashlight with a cold light is illuminated in this same space.
+From a technical standpoint, this in theory could be controlled with software, LEDs, and a cabled connection, but it was more practical to simply ask a friend to stay in the balcony with a flashlight during the performance, awaiting the auditory cue, which is the end of my singing.
+The friend not only turns on the light, but also triggers the recording, ensuring that they are well timed and synchronous.
+Seeing as the light is behind the audience, it's possible that this won't even be noticed by certain audience members.
+At the same time, seeing as the performer has left the stage, they will no longer have a visual aspect to attract their attention, and in the confusion of identifying their sound source, most of them will instinctually look behind them to find it, and doing so will see the light.
+This simple visual elaboration signifies on the one hand, the simple, fragile, yet constant spiritual presence of our protagonist, symbolized as a fig tree, and simultaneously represents the phantom of the organ in its original home, now vacant.
+It also invokes the separation of the traditional physical performer and the mechanized, automated version--the ghost in the machine.
 
 \subsection{7e Élégie}
+
+\epigraph{\textit{Non, plus d’imploration, voix maintenant mûrie, plus de clameur...}}{}
 
 \subsubsection{Narrative context}
 
@@ -1184,6 +1392,8 @@ The common thread between these contrasting elements is the shared instrument of
 
 \subsection{8e Élégie}
 
+\epigraph{\textit{A plein regards, la créature voit dans l’Ouvert.}}{}
+
 \subsubsection{Narrative context}
 
 \subsubsection{Techniques}
@@ -1193,6 +1403,8 @@ The common thread between these contrasting elements is the shared instrument of
 \subsubsection{Linking}
 
 \subsection{9e Élégie}
+
+\epigraph{\textit{Pourquoi, s’il est loisible aussi bien de remplir son délai d’existence en laurier, sombre un peu plus que tous les autres verts, avec ces vaguelettes...}}{}
 
 \subsubsection{Narrative context}
 
@@ -1204,13 +1416,13 @@ The common thread between these contrasting elements is the shared instrument of
 
 \subsection{10e Élégie}
 
+\epigraph{\textit{Vienne le jour enfin, sortant de la voyance encolérée, où je chante la gloire et la jubilation aux Anges qui l’agréent. Que des marteaux du cœur au battement très clair aucun ne vienne à faux tomber sur une corde molle, ou encore douteuse ou prête à se briser.}}{}
+
 \subsubsection{Narrative context}
 
 \subsubsection{Techniques}
 
 \subsubsection{Composition Process}
-
-\subsubsection{Linking}
 
 \subsubsection{Linking}
 
