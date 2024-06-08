@@ -5,7 +5,12 @@ thesis.log
 thesis.pdf
 thesis.blg
 thesis.bbl
+thesis.bcf
+thesis.run.xml
 .thesis.tex.swo
 .thesis.tex.swp
+ref.bib.bbl
+ref.bib.blg
+installed_packages.txt
 .gitignore.swp
 .DS_Store

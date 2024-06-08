@@ -13,6 +13,7 @@
 \usepackage{epigraph}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage[backend=biber,style=verbose]{biblatex}
 \graphicspath{{./graphics/}}
 \usepackage{caption}
 %%\usepackage{chngcntr}
@@ -194,6 +195,7 @@
 %% Le package est un peu plus propre, mais le choix
 %% reste à la discrétion de l'usager.
 \usepackage[onehalfspacing]{setspace}
+\addbibresource{ref.bib}
  % ou
 %%\renewcommand{\baselinestretch}{1.5}
 
@@ -305,11 +307,9 @@ Built in 1913 by Casavant Frères, this organ has a unique and eventful history.
 Being taken down from its original position in the west gallery, forgotten about and nearly abandonned, it was found by new administration nearly ten years later and reinstalled in the north transept where it sits today. 
 I believe that the sound of this instrument tells the story of its heritage, and by studying its unique properties, we gain insight into the nuances of history. 
 This project contains both an experimental and a creative component. 
-The former includes a small study using Max modules and an online questionnaire to establish affective-poetic correlates between various organ registrations and semantic descriptors, as well as the creation of a sound synthesis module in python. 
-The creative portion includes several compositions. 
-The piece Élégies, inspired by the 10 Élégies de Duino (Rilke, 1986), serves as a set of studies to explore the capabilities of the hyper-organ, according to three modalities of mixed music: acoustic organ and synthetic organ, organ with processing, and organ with bed track. 
+The experimental component includes the creation of a sound synthesis module written in python called OrganLab, and a diffusion network, with five speakers placed throughout the church, in order to thoroughly explore the space. 
+The creative portion involved the piece Élégies, inspired by the 10 Élégies de Duino (Rilke, 1986), which serves as a set of studies to explore the capabilities of the hyper-organ, according to three modalities mixed music: acoustic organ and synthetic organ, organ with processing, and organ with bed track. 
 The church space is also considered in its entirety, invoking a spatial-narrative structure. 
-Next, the project is brought into a collaborative context, with a piece for hyper-organ and viola. 
 Throughout the creative process, attempts have been made to not only extend the sonic capacity of the instrument, but to integrate with it, basing for instance, the sound synthesis on various organ stops, which can then be mutated in ways which would be impossible on the original instrument, creating a dialectic of real and artifical sound environments.
 
 %%------------------------------------------------- %
@@ -402,25 +402,9 @@ Throughout the creative process, attempts have been made to not only extend the 
 
 \chapter*{Introduction}
 
-Throughout time, music instrument design has been an evolving and exploratory world.
-Many of the instruments that we know today, like the violin or the french horn, or the guitar, went through countless iterations, with many divergent and convergent paths leading to the instruments we know today.
-The practice of hyper instruments is simply a testament to the continuation of this lineage of curiosity and experimentation.
+This paper presents a research-creation project in which I examine the unique problem space of pipe organ augmentation. As part of this project, I have developed a synthesis server in python, called OrganLab, which serves to emulate and mutate pipe-organ based sounds and is placed in dialogue with the acoustic instrument. The pipe organ can be considered the original synthesizer, and I extend this rich tradition with additive, subtractive, and FM synthesis, allowing me to access eects not possible with the original instrument, like interpolation between stops, glissandi, and inharmonic sounds. Since each partial is independently controlled, the harmonic spectrum can be exploded, contracted, and distorted, creating a rich palette of new timbral possibilities. 
 
-However, the question then remains, why use the old instruments at all?
-In fields like digital lutherie, many people are creating new interfaces altogether, some of them solely gestural, relying on no physical instrument whatsoever.
-These are certainly very interesting and fruitful areas of exploration, but the approach of beginning with an existing instrument and building on it provides us with a unique set of constraints and advantages.
-On the one hand, there is something to be said for longevity.
-If an instrument has endured the test of time, and come to be used for generations upon generations, that demonstrates a creative and expressive capacity that is simply established by time.
-
-On the other hand, one may easily pose the question: why ruin a good thing?
-If the instrument already works, does what it needs to do, and has an established sound that we all love, what is there to add?
-Of course, there is nothing wrong with the original instruments, and explorations of augmented instruments typically celebrate a multiplicity of approaches rather than holding the goal of a general improvement.
-However, one can also easily make the argument that these instruments, so loved throughout time, deserve to be revisited with a modern perspective, both in terms of technology that simply wasn't available in the original periods of the instruments' evolutions, and in terms of the ideas and conceptions that the original builders and listeners didn't have access to.
-
-Pursuing this expansion comes with both great possibilities, and a certain burden of responsibility.
-The historic traditions of these instruments give them a weight, not just in terms of the playing traditions, and the mechanisms involved in their interfaces, but also in the many, often unconscious, symbolic associations that we have formed with these instruments.
-This cultural baggage is not something to be overcome however, but is a great strength.
-If one is careful to take into consideration the nuances of the original interface, integrating them with their ideas in a way that complements, rather than fights the natural tendencies of the instrument, the result can be an enduring hommage, and a continuation of a tradition that crosses both culture and time.
+These innovations are put into practice with the piece Élégies, written for my hyper-organ interface at l’église Saint-Édouard, where I've been organist since July of 2022. Based on the 10 Duino Élégies of Maria-Rainer Rilke, the piece incorporates the aural iconography of the space, making use of the sounds of bells, the fire alarm of the church, and the sounds of footsteps through its many corridors. This symbolic and spatial exploration mimics the aural exploration that seeks to navigate the continuum of acoustic and simulated--the sacred and the profane.
 
 %%------------------------------------------------- %
 %%                pages 1                           %
@@ -429,7 +413,7 @@ If one is careful to take into consideration the nuances of the original interfa
 \chapter{The Emergence and Relevance of Hyper-Instruments}
 
 Hyper, or augmented instruments, situated at the confluence of traditional musical artistry and cutting-edge technological innovation, present a complex and diverse field of inquiry.
-This chapter seeks to delve into this multifaceted world, highlighting the significance of hyper-instrument design and performancein contemporary music practices and the intricate process of developing and defining them within various musical contexts.
+This chapter seeks to delve into this multifaceted world, highlighting the significance of hyper-instrument design and performance in contemporary music practices and the intricate process of developing and defining them within various musical contexts.
 
 At the core of any musical instrument lies the interface between an artist's musical expression and the resultant sound in their environment.
 Augmenting an instrument, therefore, becomes an exercise in expanding this interface.
@@ -450,25 +434,201 @@ Through this exploration, we seek to uncover the broader implications for music 
 
 \section{History and approaches}
 
+\subsection{What is a hyper-instrument?}
+
+A musical instrument is an interface \footcite{noauthor_instrument_nodate}. 
+It allows one to express thought in audible form. 
+Among the first instruments were undoubtedly the voice. 
+The human voice allows us to express ourselves in a near infinite variety--from the most practical, logic oriented thoughts, to the most abstract of indefinite feelings. 
+The voice provides an interface between their internal, subjective world, to the external. 
+
+Yet a musical instrument is also a technology, which like any other, aids us in extending beyond our natural human capacities, yielding access to insights and abilities that would not otherwise be possible. 
+A scientific instrument like the microscope allows us to magnify our visual capacity manifold, in order to see things that would be much too small for the naked eye. 
+Similarily, a musical instrument can allow us to do things that would not be possible with the human voice. 
+For instance, with a small flute, a person with a very low voice can sound very high frequencies, and vice versa. 
+With a bowed instrument like the violin, one can sound the note indefinitely, bypassing the voices necessity to take breaths. 
+With a lute, one can sound more than one note at a time. 
+
+The results of a musical instrument are inherently subjective, and the goals of designing an expressive interface that is considered "good" are a reflection of the culture, the time, and the context of the people creating it. 
+For instance, one culture may optimize for resonance and slow decay, whereas another may want shorter, more percussive sounds. 
+One people may desire maximum expressivity through timbral variety, like with the human voice, while another may see timbral variability as a defect, and seek timbral consistency throughout the range of the instrument. 
+
+The goals of innovation in musical interfaces are not uniform, and with an advance in one area of expressivity, another is lessened or lost. 
+This process of aesthetic prioritization makes instrument design inherently personal. It nevertheless represents a process of innovation, albeit non-linear. 
+
+In the twentieth and twenty-first centuries, with the advent of electronic and then digital technologies, people around the world have been reimagining the musical instrument from various perspectives. 
+On the one hand, practices like digital lutherie generally seek to create interfaces centered in digital technologies, using various sensors, and computers to input and process data for expressive means. 
+These kinds of approaches allow one to rethink what a musical instrument can be, without some of the physical restrictions and cultural baggage that come with a traditional instrument with a long history. 
+These devices range from digital interfaces that mimick instrumental approaches, to gestural interfaces that generate sound simply by moving the instrument through the air.
+
+The practice of augmented, or hyper-instruments takes a different approach. 
+Rather than starting from scratch, the hyper-instrument seeks to integrate digital technologies with more traditional acoustic instruments. 
+This approach has several advantages and obstacles. 
+On the one hand, there is something to be said for longevity.
+If an instrument has endured the test of time, and come to be used for generations upon generations, that demonstrates a creative and expressive capacity that is simply established by time.
+
+On the other hand, one may easily pose the question: why ruin a good thing?
+If the instrument already works, does what it needs to do, and has an established sound that we all love, what is there to add?
+Of course, there is nothing wrong with the original instruments, and explorations of augmented instruments typically celebrate a multiplicity of approaches rather than holding the goal of a general improvement.
+However, one can also make the argument that these instruments, so loved throughout time, deserve to be revisited with a modern perspective, both in terms of technology that simply wasn't available in the original periods of the instruments' evolutions, and in terms of the ideas and conceptions that the original builders and listeners didn't have access to. Furthermore, this spirit of exploration is the very same process that led to the creation of these instruments in the first place.
+
+Pursuing this expansion comes with both great possibilities, and a certain burden of responsibility.
+The historic traditions of these instruments give them a weight, not just in terms of the playing traditions, and the mechanisms involved in their interfaces, but also in the many, often unconscious, symbolic associations that we have formed with these instruments.
+This cultural baggage is not something to be overcome however, but is a great strength.
+If one is careful to take into consideration the nuances of the original interface, integrating them with their ideas in a way that complements, rather than fights the natural tendencies of the instrument, the result can be an enduring hommage, and a continuation of a tradition that crosses both culture and time.
+
 \subsection{Tod Machover and the birth of the hyper-instrument}
 
-La premi\`ere section du 1$^{\text{er}}$ chapitre.
+The term hyper-instrument comes to us from Tod Machover, a leading figure at MIT's Media Lab, who has been carrying out pioneering research in hyper-instruments since the 1980s. 
+His work aims to redefine the relationship between the performer and their instrument by merging human expressivity with machine precision. 
+Rather than simply enhancing an instrument's capabilities, Machover's hyper-instruments explore new ways for performers to interact with their instruments, including feedback mechanisms where the machine can also make decisions that influence the performer.
 
-\subsection{Levensons' hyper-cello}
+The initial development of hyper-instruments involved integrating electronic keyboards (such as the Yamaha KX88 and Kurzweil Midiboard) and percussion controllers (including the Silicon Mallet, Octapad, and KAT) with a computer system \footcite{machover_hyper-instruments_1989}. 
+MIDI data from these instruments was sent to a Macintosh II computer running custom software called Hyperlisp. 
+This real-time MIDI/Lisp environment was specifically developed to analyze and process the input data, which was then sent to digital synthesizers, samplers, and outboard processing devices to generate the final musical output.
+
+One of the most significant applications of hyper-instrument technology was the development of the hypercello, designed for the renowned cellist Yo-Yo Ma \footcite{levenson_taming_1994}. 
+This instrument incorporated sensors to measure various parameters such as bow position, pressure, and finger placement. 
+The data collected was processed by a computer to control and modify the sound in real-time, allowing the cellist to interact with the instrument in a highly nuanced and expressive manner.
+
+The hypercello was prominently featured in Machover's composition "Begin Again Again...," performed by Yo-Yo Ma at the Concertgebouw in Amsterdam. 
+This piece exemplified the potential of hyper-instruments to create complex, multi-layered musical experiences. 
+The performance involved not only traditional cello playing but also interaction with a pre-programmed score, enabling Ma to control and shape the music dynamically. 
+The integration of synthesized sounds and real-time digital processing created a unique blend of acoustic and electronic music.
+
+The development of hyper-instruments involved significant technical challenges, particularly in managing the complex flow of data and ensuring accurate real-time processing. 
+The hypercello, for instance, required precise synchronization between the performer's gestures and the computer-generated responses. 
+This necessitated robust hardware and software capable of handling large amounts of data with high accuracy.
+
+Not only does Machover seek to extend an instrument's expressive capacity, but cenral to his vision of the hyper-instrument is the redefinition of the relationship of the performer to their instrument \footcite{hoffman_q_2010}. 
+For instance, his "double instruments" combine the gestures of two performers playing separate controllers, creating a new form of ensemble performance where musical results are produced collaboratively.
 
 \subsection{Beilharz' hyper-shakuhachi}
 
+The hyper-shaku, developed by Kirsty Beilharz, is an augmented version of the traditional Japanese bamboo shakuhachi flute. 
+This project integrates motion sensors and computer vision to create an interactive performance environment that enhances both auditory and visual elements \footcite{beilharz_hyper-shaku_2006}. 
+
+The hyper-shaku project builds on previous works in intelligent sensor environments and gesture-controlled interactive systems. 
+The primary objective is to create a system where the performer's movements trigger both immediate auditory responses and generative visual processes. 
+This dual-mode interaction distinguishes the hyper-shaku from other hyper-instruments, focusing on both the acoustic performance and the visual representation.
+
+The system uses a combination of wireless sensors and computer vision to capture the performer's gestures. 
+These inputs are processed in real-time using Max/MSP and Jitter software, which generates corresponding sound and visual displays. 
+The motion data triggers various synthesis processes and generative design elements, creating a dynamic and responsive performance environment.
+
+Gesture data is central to the hyper-shaku's functionality. 
+The performer's movements, such as pitch inflections achieved by angling the chin and dramatic articulations, are captured and translated into both sound and visual outputs. 
+This approach emphasizes the theatrical and spatial aspects of shakuhachi performance, enhancing the traditional sound with electronic augmentation.
+
+The hyper-shaku can be used for both composed and improvisatory performances. 
+It aims to re-invigorate interest in the shakuhachi by integrating it into a contemporary multimedia context. 
+This hybridization of traditional and modern elements provides new opportunities for creative expression and audience engagement.
+
+Kirsty Beilharz's hyper-shaku represents a significant advancement in the field of hyper-instruments. 
+By combining auditory and visual augmentation, this project not only expands the capabilities of the shakuhachi but also explores new dimensions of interactive and generative performance. 
+The hyper-shaku exemplifies how traditional instruments can be transformed and recontextualized through the use of modern technology.
+
 \subsection{McPhersons hyper-piano}
+
+The Magnetic Resonator Piano (MRP) is designed to augment the acoustic piano, allowing continuous control over pitch, dynamics, and timbre. 
+The instrument employs 88 electromagnetic actuators to vibrate the strings independently of the traditional hammer mechanism, producing a wide range of sounds while preserving the acoustic richness of the piano. 
+This system is controlled through an optical sensor strip on the keyboard, which measures the continuous position of each key, enabling nuanced performance techniques such as gradual key presses, taps, and vibrato gestures.
+
+A common issue in DMI design is ensuring the instrument's relevance beyond its initial performance \footcite{mcpherson_problem_2012}. 
+Many new instruments fail to attract a significant following, often because they are tailored to specific pieces or performers. 
+The authors emphasize the importance of making the instrument useful to a broader community, allowing musicians to explore its capabilities and develop personal styles.
+
+McPherson and Kim discuss how feedback from initial users can guide design refinements. 
+For the MRP, they identified key areas for improvement based on musician input, including enhancing dynamic range, reducing attack time, enriching timbre, and simplifying control mappings. 
+They also aimed to expand the instrument's capabilities without compromising its playability for traditional pianists.
+
+To build a community around the MRP, the authors collaborated with six composers from Philadelphia and Princeton, each writing new pieces for the instrument. 
+This project culminated in two concert performances, showcasing a diverse range of styles and techniques. 
+The composers' engagement with the MRP provided valuable insights into its potential and limitations, driving further refinements.
+
+Iterative Design: Initially link the instrument and piece, then iterate based on feedback to relax constraints and broaden its appeal.
+Familiar Models: Connect new techniques and sounds to musicians' existing skills to facilitate adoption.
+Audience Engagement: Convincing performances can attract potential collaborators from the audience.
+Accessibility: Provide access to the instrument and designer support during the creation process to encourage ongoing use and development.
 
 \subsection{Cléo Palacio-Quintin's hyper-flûte}
 
+The hyper-flute, as developed by Palacio-Quintin, involves attaching various sensors to a standard flute. 
+These sensors capture a range of data, including finger positions, breath pressure, and even specific gestures made by the performer. 
+The data collected is then transmitted to a computer, where it can be processed in real-time to manipulate electronic sounds or control other digital effects. 
+This setup allows the flutist to interact with electronic components seamlessly, creating a rich, hybrid soundscape.
+
+One of the primary challenges addressed by Palacio-Quintin is the synchronization between the acoustic instrument and electronic components \footcite{palacio-quintin_composition_2012-1}. 
+Traditional mixed music often required performers to follow rigid, pre-determined electronic tracks, which limited expressive freedom. 
+By contrast, the hyper-flute allows for real-time interaction, where the performer's gestures and playing directly influence the electronic output. 
+This dynamic interaction is achieved through programming and real-time signal processing, primarily using Max/MSP.
+
+This choice also explains her lack of focus on sound spatialization, a popular domain among electroacoustic composers. 
+The presence of an on-stage performer who projects an acoustic sound naturally delimits a sound space. 
+To integrate the electroacoustic sound with the acoustic, her works are designed in stereo to be projected mainly by front-positioned speakers near the performer. 
+The primary sound source remains the flute, and the electroacoustic sounds should emanate from it, justifying their projection near the source.
+
+A significant focus of Palacio-Quintin's research is on gesture control, which she argues is crucial for creating a natural and intuitive interface between the performer and the electronic components. 
+By utilizing gesture data, the hyper-flute can respond to the nuances of the performer's movements, allowing for a more fluid and expressive performance. 
+This approach not only enhances the musical capabilities of the flute but also redefines the role of the performer, who becomes an active participant in shaping the electronic soundscape.
+
+In terms of interaction, Palacio-Quintin’s approach aligns with Chadabe's vision, which advises allowing both the performer and the computer a degree of freedom to maintain a lively interactive space. 
+The modes of interaction can vary; the music is not entirely fixed, and the computerized system remains flexible, giving the performer some freedom in their play. 
+This aligns with the interest in improvised music, where each musician can be surprised by their colleagues' new musical ideas during the performance. 
+George Lewis’s definition of improvisation in his article "Interacting with Latter-day Musical Automata" aptly fits this type of human-machine interaction: "Musical improvisation is (...) an interaction within a multi-dimensional environment, where structure and meaning arise from the analysis, generation, manipulation, and transformation of sonic symbols" [35, p.101]. 
+Indeed, the hyper-flute’s electronic setup is a multidimensional environment, capable of analyzing, generating, manipulating, and transforming sound materials. 
+This interactive system changes traditional subdivisions of musical practice, merging composer, score, work, performer, performance, instrument, and environment into one process.
+
+In the context of hyper-flute, there are three main types of musical interaction between acoustic and electroacoustic components:
+
+1.Digital Audio Effects on Acoustic Sound: The acoustic instrument's sound is transformed in real-time by digital signal processing. 
+The computer serves as a direct extension of the instrument's sound, with the potential for gestural control over the effects to maintain real-time interactivity.
+
+2.Sound Synthesis Controlled by Gestures: The computer generates sound independently, controlled by the performer's gestures, either captured directly or through sound analysis. 
+This synthesis can diverge significantly from the acoustic sound.
+
+3.Accompanying Electroacoustic Sounds: Pre-recorded or computer-generated sounds accompany the performer, independent of the performer's actions once initiated. 
+This can include fixed sounds or algorithmically generated sounds, offering interaction through the performer's reaction to the evolving sound environment.
+
+Prior to her doctorate, Palacio-Quintin primarily used the hyper-flute in improvised music contexts, focusing on the real-time transformation of the flute’s sound. 
+During her doctoral studies, she aimed to explore forms of composition to deepen the use of other interaction categories.
+
 \section{Hyper-organ}
+
+When speaking of the instrument as a technology, perhaps no instrument is so emblematic of this tradition of continuous innovation than the pipe organ. 
+Throughout it's millenia long history, it has continually been reimagined, from the one keyboard hydraulis of 300BC Greece, to the addition of multiple independantly controlled stops and keyboards, the extensive exploration of timbre, not just through the creation of new stops, but through the capacity to combine different stops, essentially bringing the role of instrument design into the hands of the performer. 
+Then, throughout the 19th and 20th centuries, the pipe organ embraced pneumatic, then electro-pneumatic, and more recently, digital mechanisms of communication. 
+The pipe organ has always played a role in challenging the threshold of the possible, on the one hand, looking back towards a rich history, and on the other hand, embracing and integrating technological innovations as they arise. 
+At the same time, the pipe organ is unique in its diversity. 
+Being an inherently modular instrument, one pipe organ can look very different from another. 
+From one to the seven keyboards of the Boardwalk hall organ, with or without pedal-board, with or without enclosures, with an enormous variety of stops, and many more. 
+
+In terms of the selection of stops, even a stop with the same name, such as Flute 8', can vary widely from one instrument to another based on the era of it's construction, the aesthetic goals of the builder and of the maintainers of the instrument. 
+This means that each instrument tells the story of its unique heritage, and serves as a time capsule of shared historical and physical space.
 
 In the context of augmented pipe organs, these considerations manifest in unique and innovative ways.
 Projects led by visionaries like Lauren Redhead and the Orgelpark initiative are exemplary in demonstrating how technology can reimagine the traditional pipe organ.
 These initiatives not only showcase the potential of technological integration with historic instruments but also highlight the diverse methodologies and creative opportunities within the field of hyper-instruments.
 
 \subsection{Lauren Redhead}
+
+Lauren Redhead doesn't explicitly use the term hyper-organ, or augmented instrument, instead choosing to align her work with the mixed music tradition of electronics and live performer. This is especially pertinent as Alistair Zaldua conceives of and controls the electronics in concert, strengthening the perspective of a duet, rather than a unified instrumental expression. Despite this, her pursuit of improvisation with a high degree of freedom, open forms, and interactivity is in line with the practices of Machover and Palatio-Quentin.
+
+Redhead's approach emphasizes the organ's potential as an interface for electronic music. By utilizing the organ’s MIDI capabilities and incorporating live sound processing, she expands the instrument’s expressive range. This integration enables the organ to control electronic sounds and vice versa, allowing for a dynamic and interactive performance environment.
+
+Lauren Redhead’s work often involves the use of open notation, graphic scores, and real-time generated notations, which challenge traditional notions of musical performance. Her compositions require performers to engage with the scores in a fluid and interpretative manner, often involving real-time decision-making and interaction with electronic elements.
+
+In her paper "Sound and Space: Performing Music for Organ and Electronics," Redhead discusses the collaborative nature of her work with composers and performers. This collaboration is crucial in developing pieces that fully exploit the interaction between the organ and electronics. The performance space itself becomes an integral part of the instrument, influencing the sound and how it is perceived by the audience. This site-specific approach ensures that each performance is unique, tailored to the acoustics and spatial characteristics of the venue.
+
+Redhead’s pursuit of improvisation with a high degree of freedom, open forms, and interactivity aligns her with the practices of pioneers like Tod Machover and Sophie Palazio-Quentin. These practices emphasize the importance of performer agency and real-time interaction, creating a dynamic and responsive musical experience.
+
+One of Redhead’s significant projects is her work on the "Sound and Music Tour," where she performed a series of concerts across the UK, showcasing new works for organ and electronics. This tour highlighted the versatility of the organ when combined with live electronics and featured compositions that explored various aspects of this interaction.
+
+The project "Diapason: Music for Organ and Electronics," released as a CD, documents some of these performances and provides a snapshot of the evolving relationship between the organ and electronic music. The recordings on this CD reflect the diverse sonic possibilities achieved through this combination, with pieces by various composers who have collaborated with Redhead.
+
+Lauren Redhead’s contributions extend beyond performance and composition to include significant theoretical insights. Her work often references Nicholas Bourriaud’s concept of the 'journey form,' which she uses to articulate the relationship between creative, interpretative, and listening processes in music. This theoretical framework underpins her exploration of open notation and the iterative nature of musical interpretation.
+
+In her book chapter "Notation as Process: Interpreting Open Scores and the ‘Journey Form’," Redhead delves into the performative and interpretative challenges posed by open notation. She argues that the interpretation of such scores is an ongoing process involving the composer, performer, and the score itself. This perspective shifts the focus from a finished musical product to the continuous evolution of the work through performance.
 
 \subsection{Orgelpark}
 
@@ -573,9 +733,13 @@ During my master’s program, I suddenly had access to l’église Saint-Édouar
 
 \subsubsection{Setup/physical constraints}
 
+\customincludegraphics{IMG_3414_copy.jpg}{}
+
 \subsection{Live processing and effects}
 
 \subsubsection{Issues of microphone capture and amplification in live setting}
+
+\customincludegraphics{stageplot_ste-edouard.png}{}
 
 \subsubsection{Delay}
 
@@ -681,7 +845,6 @@ I like to think of sculpture.
 On the one hand, there’s the perspective that the sculpture is already inside the block of stone, and that the sculptors task is simply to make that form appear.
 This is the internal approach, and in music it’s reminiscent of the operatic ideal during the time of Verdi, which was not to create a shockingly surprising melody, but to construct a melody that sounded familiar, as if it had always existed.
 
-
 The analytic approach is more like making the stone into the sculpture.
 Rather than revealing the statue within the stone, we create it, through trial and error, and force of will—arriving perhaps at a result that we never could have imagined.
 Of course, these two approaches aren’t completely independent.
@@ -739,6 +902,8 @@ Besides the issue of keyboard angle there are also the issues of sustain pedal, 
 
 \subsection{GrandOrgue}
 
+\customincludegraphics{grand_orgue.png}{}
+
 \subsection{OrganLab}
 
 \subsection{Open Music}
@@ -746,6 +911,8 @@ Besides the issue of keyboard angle there are also the issues of sustain pedal, 
 \subsection{Ableton Live}
 
 \section{Élégies}
+
+\customincludegraphics{2024-04-28_MH_sat50.png}{}
 
 \subsection{Context and precedents}
 
@@ -1181,7 +1348,6 @@ This is not to speak of the idea of morphing from one stop to another.
 In order to do this with a traditional organ, one would need to transform the metal in real time.
 It's simply not possible!
 
-
 In the digital world, sound is not linked to physicality in such a direct way.
 The loudspeaker opens us up to much more flexible ways of generating and manipulating air pressure waves.
 Once I had developed my first iteration of the sound synthesis server in python, one of the first ideas that I wanted to try out was this idea of morphing between stops, as if the metal is being stretched or contracted in realtime.
@@ -1509,14 +1675,15 @@ At the same time, the possibility of musically altered responses, like respondin
 %% et donnez le nom de votre fichier .bib à la commande \bibliography{..}
 %% (consultez l'exemple au besoin).  Vous pouvez utiliser le style de votre
 %% choix.
-\bibliographystyle{plain}     % Le style de la bibliographie. Notons que
+%%\bibliographystyle{plain}     % Le style de la bibliographie. Notons que
                                         % les extensions ne sont pas données pour ces deux fichiers.
 %%\def\bibname{R\'ef\'erences bibliographiques} % Nom obligatoire de la section des références.
                                               % On utilise \'e car le é cause des problèmes
                                               % dans la table des matière
 %% ENGLISH
-\def\bibname{References}
-\bibliography{ref}     % La base de données contenant des entrées bibliographiques.
+%%\def\bibname{References}
+\printbibliography
+%%\bibliography{ref}     % La base de données contenant des entrées bibliographiques.
                                     % Seules celles référencées dans le texte seront ajoutées
                                     % \`a la bibliographie.
 
@@ -1573,8 +1740,6 @@ web de la facutlé (www.fes.umontreal.ca).
 \end{table}
 
 \end{document}
-
-
 
 \endinput
 %%
