@@ -1,6 +1,5 @@
 %%
-%% This is file `dms.cls',
-%% generated with the docstrip utility.
+%% This is file `dms_ks.cls', a modification of `dms.cls' by Kjel Sidloski.
 %%
 %% The original source files were:
 %%
@@ -1504,11 +1503,13 @@
         \vbox{\hrule width \hsize height .1mm}%
         \vskip 9pt
         #1 \par %\uppercase{#1} \par  %Laisser ou non \uppercase? Choix à faire
-        \vskip 42pt \par
+        \vskip 10pt \par
     \endgroup
     \skip@=36\p@%
     \advance\skip@ by -\normalbaselineskip
     \vskip\skip@%
+    %%\setlength{\parindent}{0pt}  % Apply no indentation to non-numbered chapters
+    %%\setlength{\parskip}{1em}    % Apply spacing between paragraphs
 }
 
 \def\@makeschapterhead#1{%
@@ -1518,12 +1519,14 @@
         \leftline{#1} %\uppercase{#1}}%  % Laisser ou non \uppercase? Choix à faire
         \vskip0pt
         \vbox{\hrule width \hsize}
-        \vskip42pt
+        \vskip10pt
         \par
     \endgroup
     \skip@=36pt
     \advance\skip@-\normalbaselineskip
     \vskip\skip@
+    %%\setlength{\parindent}{0pt}  % Apply no indentation to non-numbered chapters
+    %%\setlength{\parskip}{1em}    % Apply spacing between paragraphs
 }
 \setcounter{tocdepth}{3}
 
@@ -1760,11 +1763,11 @@
   vide, vous pouvez faire p.ex. \revue{\relax}.}
      \errmessage{DMS : Vous devez remplir le champ \string#1 avant d'appeler \string\maketitle}}
 
-\newcommand{\customincludegraphics}[2]{%
+\newcommand{\customincludegraphics}[3][]{%
     \begin{figure}[H]
         \centering
-        \includegraphics[width=\textwidth]{#1}
-        \caption{#2}
+        \includegraphics[#1]{#2}
+        \caption{#3}
     \end{figure}
 }
 

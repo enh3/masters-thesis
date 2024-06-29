@@ -1,16 +1,44 @@
-thesis.aux
-thesis.toc
-thesis.lot
-thesis.log
-thesis.pdf
-thesis.blg
-thesis.bbl
-thesis.bcf
-thesis.run.xml
-.thesis.tex.swo
-.thesis.tex.swp
-ref.bib.bbl
-ref.bib.blg
-installed_packages.txt
-.gitignore.swp
+# LaTeX intermediate files
+*.aux
+*.log
+*.bbl
+*.blg
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.nav
+*.snm
+*.vrb
+
+# LaTeX bibliography and compilation files
+*.bcf
+*.run.xml
+
+# Temporary files created by text editors
+*.swo
+*.swp
+
+# Temporary files for specific editors
+*~
+*.backup
+*.bak
+
+# Exclude all swap files
+*.sw?
+
+# LaTeX build directories
+_build/
+_build_tex/
+
+# Miscellaneous files
+*.dvi
+*.ps
+*.pdf
+
+# macOS specific files
 .DS_Store
+
