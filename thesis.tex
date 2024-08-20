@@ -558,10 +558,13 @@ The choice of approach, or mix of approaches, will depend both on the intentions
 
 In the previous section, we discussed the input and output components of hyper-instrument design, yet this says nothing of the relationship between the two.
 This is what is broadly referred to as mapping, in which a certain form of data or grouping of data is made to correspond with a given audio event, including layers of multiple events or a sequence of events. 
+
+Andy Hunt and Ross Kirk provide a detailed analysis of mappings in musical interface design in their article textit{Mapping Strategies for Musical Performance} \footcite{hunt_mapping_2000}.
 Cléo-Palacio Quintin, whose work on hyper-flute will be discussed later in the chapter, points out that there is an important, distinction between what she calls convergent and divergent mappings, where a convergent mapping implies that several data inputs affect the same output, whereas a divergent mapping means that one input parameter affects multiple outputs \footcite[44--45]{palacio-quintin_composition_2012-1}. 
+
 She then goes on to make the argument that while divergent mappings are often time more intuitive for a new instrument designer, that ultimately convergent mappings are more intuitive for the player, leading to a more holistic approach. 
 
-\customincludegraphics[scale=0.25]{palacio-quintin_mappings.png}{Cléo Palacio-Quintin's graphic demonstrating the important distincion between convergent and divergent mappings, using the flute as an example}
+\customincludegraphics[scale=1]{mapping.png}{The violin is used to demonstrate the important distincion between convergent and divergent mappings. Adapted from Mapping Strategies for Musical Performance Book Title (p. 234), by A. Hunt and R. Kirk, 2000, Trends in gestural control of music. Copyright 2000 by Ircam - Centre Pompidou. Adapted with permission.}
 
 The idea that convergent mappings are more intuitive and easily incorporated makes sense. 
 They essentially don't ask anything new of the performer, except maybe a new aural sensibility. 
@@ -1725,19 +1728,19 @@ The former generates a constant value, and jumps to a new value when changed, wh
 
 \begin{figure}[H]
 \begin{lstlisting}[language=Python]
-        for i in range(len(part)):
-            self.amps.append(SigTo(mul[i], time=self.ramp))
-            self.att.append(SigTo(att[i], time=self.inter))
-            self.dec.append(SigTo(dec[i], time=self.inter))
-            self.sus.append(SigTo(sus[i], time=self.inter))
-            self.rel.append(SigTo(rel[i], time=self.inter))
-            self.envs.append(MidiAdsr(self.note['velocity'], attack=att[i],
-	    decay=dec[i], sustain=sus[i], release=rel[i], mul=self.amps[-1]))
-            self.part.append(SigTo(part[i], time=0.2))
-            self.snds.append(Sine(freq=(self.part[i]**self.partSc) * 
-	    (MToF(FToM(self.note['pitch']-0.15))) + Randi(-rand, rand, 5) + 
-	    self.trans + self.mod, mul=self.envs[-1]))
-            self.mixed.append(self.snds[-1].mix())
+for i in range(len(part)):
+    self.amps.append(SigTo(mul[i], time=self.ramp))
+    self.att.append(SigTo(att[i], time=self.inter))
+    self.dec.append(SigTo(dec[i], time=self.inter))
+    self.sus.append(SigTo(sus[i], time=self.inter))
+    self.rel.append(SigTo(rel[i], time=self.inter))
+    self.envs.append(MidiAdsr(self.note['velocity'], attack=att[i],
+    decay=dec[i], sustain=sus[i], release=rel[i], mul=self.amps[-1]))
+    self.part.append(SigTo(part[i], time=0.2))
+    self.snds.append(Sine(freq=(self.part[i]**self.partSc) * 
+    (MToF(FToM(self.note['pitch']-0.15))) + Randi(-rand, rand, 5) + 
+    self.trans + self.mod, mul=self.envs[-1]))
+    self.mixed.append(self.snds[-1].mix())
 \end{lstlisting}
 \caption{This snippet from stop.py uses SigTo() objects to manage interpolation between values.
 self.ramp is used to determine the rate of transformation of the amplitudes of the harmonics, and self.inter, short for interpolation, governs the changes between envelope parameters.
@@ -2001,11 +2004,54 @@ At the same time, the possibility of musically altered responses, like respondin
 
 \subsection{Narrative context}
 
-\subsection{Techniques}
+The ninth elegie is a departure from the patterns established in the previous movements of "Élégies," both in its structure and thematic content. 
+This movement begins with text drawn not from the ninth elegie, as one might expect, but from the tenth. 
+This choice emerged from a deliberate consideration of how to integrate Rilke’s dense and multifaceted final elegy into the musical narrative. 
+Musically, the tenth elegy seemed to demand a reflective, non-vocal resolution, serving as a calm after the storm of the preceding movements. 
+To maintain the established pattern of incorporating sung lyrics in each movement, the text of the tenth elegy is instead woven into the fabric of the ninth.
 
-\subsection{Composition Process}
+Unlike the other elegies, which each make use of the opening words of Rilke's poems, the lyrics from the 10th elegy are taken from from various parts of the 10th elegy. 
+This reconstruction is a fragmented mosaic, creating a tapestry of incomplete thoughts and potentialities, mirroring the themes of joy, grief, and longing in Rilke’s poetry. 
+This movement, like the text it draws from, grapples with the fear that accompanies happiness--the knowledge that it is transient and inevitably fleeting. 
+Musically this movement emerges directly from the eighth, with the beat and baseline that arrive at the end of the previous movement as a link.
 
-\subsection{Linking}
+\begin{figure}[H]
+\begin{verse}
+Vienne le jour, enfin sortant.\\ 
+La pluie qui vient tomber dans les venelles de la Cité,\\ 
+prête à se briser. Mon visage resplendissant, baigné.\\ 
+Aux Anges qui l'agréent, des marteaux du cœur.\\
+\end{verse}  
+\caption{My reconstruction of poetic fragments from Rilke's 10th elegy} 
+\end{figure}
+
+\subsection{Techniques and compositional considerations}
+
+The ninth elegie begins as the voice joins the sparse texture of the sample based beat against the baseline in the pedals that ends the eighth elegy. 
+The aesthetic of this section is perhaps the closest to a UK dubstep sound, with the throbbing bass, skittering rhythm, and plaintiff, repetetive vocal line recalling Archangel of Burial. 
+The repetitive, plaintive vocal line "Vienne le jour, enfin sortant," sung in D minor, is amplified and processed with a vocoder. 
+This technique uses the original church bell sample as the carrier, creating a synthesis between the expressive human voice and the immutable sound of the carillon.
+
+\customincludegraphics[width=\textwidth]{9e_1}{The entrance of the voice over the sparse texture of pedal baseline and sample-based rhythm.}
+
+After the initial section, the vocal line drops out, leaving the bassline and beat to carry the momentum for six measures. 
+A new idea then emerges in A minor, where the melody of lamentation is transformed from its original 17th-century idiom into a modern, R\&B-inspired expression. 
+This transformation is achieved through the use of parallel minor 7 chords and a more pop oriented vocal style. 
+The lyrics "La pluie qui vient tomber..." are sung over three iterations of this melody, each iteration progressively higher and more intense, with the organ accompaniment shifting from the positif to the grand orgue.
+
+Following these iterations, the beat is gradually lowered in volume, moving further into the background until it becomes a distant echo, reminiscent of the groanings and clatterings of the church or the city. 
+This shift in dynamics allows the organ to take center stage, presenting a solo variation of the "melody of lamentation" in D minor. 
+This variation involves a tonicization of G minor, leading into a descending-third, ascending-second sequence, further deepening the sense of unresolved questioning and yearning.
+
+\customincludegraphics[width=\textwidth]{9e_2}{The transition from the second vocal melody into the extended solo organ version with the rhythmic loop in the background.}
+
+As the beat fades out, the 17th trigger initiates the sound of rain, taken from the same recording used in the opening of the piece but focused on the rain rather than the thunder. 
+The melody of lamentation reappears, this time simplified into a descending diatonic line in augmentation, stretched to one note per measure. 
+This is a direct reference to the fourth movement, though the roles of the hands are now reversed: the left hand plays the melody, while the right hand takes up the arpeggiated "spire" motive. 
+Over this framework, the voice re-enters, singing an incomplete question to the assenting angels: "Pourquoi, s'il est loisible aussi bien de remplir son délai en laurier. 
+Pourquoi s'il est loisible."
+
+\customincludegraphics[width=\textwidth]{9e_3}{The lament melody simplified and quantized to whole notes in the left hand, with the arch theme in the right hand, with voice.}
 
 \section{10e Élégie}
 
@@ -2013,11 +2059,35 @@ At the same time, the possibility of musically altered responses, like respondin
 
 \subsection{Narrative context}
 
-\subsection{Techniques}
+The tenth elegy stands as a contemplative epilogue, a reflective meditation that diverges from the narrative drama of the previous movements. 
+This elegie uniquely omits the human voice, a deliberate choice that carries poetic significance. 
+The absence indicates otherness--a distance that suggests the elegie is not participating in the unfolding drama but is instead observing, reflecting, and internalizing the previous events. 
+This silence points to the idea that the text of the tenth elegy is not meant to be embodied or expressed outwardly but is rather an internal, imagined experience.
 
-\subsection{Composition Process}
+Rilke’s final elegy grapples with the themes of joy, grief, and the haunting realization that our most profound desires and potentials may remain forever unfulfilled. 
+The decision to relegate the text of the tenth elegy to the ninth movement, where it is fragmented and distorted, introduces a layer of ambiguity. 
+This dislocation raises the question of whether the events depicted in the ninth elegy truly transpired or if they were merely a projection of the protagonist's inner world—a dream of fulfillment that remains just out of reach.
 
-\subsection{Linking}
+\subsection{Technical and Compositional Considerations}
+
+The tenth elegie opens with the ethereal sound of reversed bells, immediately setting a reflective tone. 
+This is layered with a shimmering plein orgue sound, executed through a two-handed tremolo technique with each hand playing the same chord an octave apart. 
+The combination of tremulants and a 50ms delay adds a fluttering, almost dizzying texture that mirrors the swirling thoughts of reflection and introspection. 
+Beneath the active surface, the harmonic progression moves slowly, repeating IV-V-I cadences in F major and Ab major. 
+This harmonic ambiguity reflects the coexistence of F major and F minor in the spectral composition of the bells.
+
+\customincludegraphics[width=\textwidth]{10e_1}{A tremolo between the two hands, with both tremulant motors active, and a slight delay.}
+
+\customincludegraphics[width=\textwidth]{10e_2}{A 6/5 5/3 sequence, followed by the last iteration of the initial theme of the piece.}
+
+This section ends with a 6/4 5/3 sequence followed by a final, reharmonized version of the initial theme firs heard in the voice in the first movement. 
+The last trigger then turns on a long reverb effect of about 60 seconds which attempts to augment the already significant reverb of the church to something that is essentially frozen in time. 
+To represent this timelessness, the notation dissolves into proportional notation, and several frozen, falling by step motives are heard, as the final audio recording is heard: a montage of the sounds of pigeons speaking and fluttering their wings, at first in realtime and gradually slower, combined with a recording of myself coming from the basement of the church and ascending the stairs to the organ loft. 
+Because the microphone was placed at the bottom of the stairs to the organ loft, and at the top of the stairs from the basement, my steps are heard approaching the microphone, and then moving into the distance, creating a sense of mystery. 
+On the one hand our protagonist has ascended, like the ascension mentioned in the last passage of Rilke's Elegies. 
+At the same time, what this ascension represents is unclear.
+
+\customincludegraphics[width=\textwidth]{10e_3}{The final moment of the piece, with a repeated descendng motive with frozen reverb against the sound of pigeons and footsteps.}
 
 %%--------------%
 %%     index    %
