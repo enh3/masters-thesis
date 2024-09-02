@@ -8,6 +8,7 @@
 %% Pour une thèse
 %%\documentclass[12pt,twoside,phd]{dms}
 
+\usepackage[onehalfspacing]{setspace}
 \usepackage[utf8]{inputenc} %Obligatoires
 \usepackage[T1]{fontenc}    %
 \usepackage{epigraph}
@@ -21,6 +22,8 @@
 \usepackage{float}
 \usepackage{listings}
 \usepackage{parskip}
+\usepackage{musicography}
+%%\usepackage{musixtex}
 \raggedbottom
 %%\usepackage{courier}
 \lstset{
@@ -208,7 +211,6 @@
 %% le package <setspace> ou \baselinestretch.
 %% Le package est un peu plus propre, mais le choix
 %% reste à la discrétion de l'usager.
-\usepackage[onehalfspacing]{setspace}
 \addbibresource{ref.bib}
  % ou
 %%\renewcommand{\baselinestretch}{1.5}
@@ -1326,120 +1328,129 @@ This blending of the sacred with the profane mirrors the thematic journey of the
 
 \subsection{Narrative context}
 
-I interpret this poetic fragment as a reflection on the difficulty of walking the path ahead--contemplating the dichotomy between the relative simplicity of singing of love, versus the profound challenge of vocalizing the sacred, yet enigmatic, 'God river of blood.' 
-This highlights a dialectic between thought and action, and the contrast between superficial perception and embodied reality.
-This narrative conflict sets the tone for the movement's musical exploration.
-Musically, I interpret "chanter", in a few ways, on the one hand, as the voix humaine stop on the récit, with tremolo, which imitates the sung human voice.
-"Chanter l'Amante" is represented by a simple song-like melody, and "Chanter cet occulte Fleuve-Dieu du sang" is interpreted as the compositional and timbral disintegration of the movement.
+I interpret this poetic fragment as a reflection on the difficulty of walking the path ahead--contemplating the dichotomy between the relative simplicity of singing of love, versus the profound challenge of vocalizing the sacred, yet enigmatic, 'God river of blood.'  
+This highlights a dialectic between thought and action, and the contrast between superficial perception and embodied reality.  
+This narrative conflict sets the tone for the movement's musical exploration.  
+Musically, I interpret "chanter", in a few ways, on the one hand, as the voix humaine stop on the récit, with tremolo, which imitates the sung human voice.  
+"Chanter l'Amante" is represented by a simple song-like melody, and "Chanter cet occulte Fleuve-Dieu du sang" is interpreted as a compositional and timbral disintegration. 
+This movement is situated directly after the second station in textit{le chemin}, the voice entrance overlapping slightly with the sound of the compressors of the sprinkler room.
 
-\subsection{Techniques}
+\subsection{Materials and techniques}
 
-Software:
-
-I thought that it would be appropriate to emulate the tremolo of the voix humaine stop with frequency modulation of a voix humaine emulation in OrganLab.
-With this idea, it seemed like a logical step to increase this frequency modulation in speed, while changing the index and ratio, such that the natural trembling of the voice, passes through a comic, exaggerated warble, gradually losing the sense of sung tremolo altogether, giving way to an inharmonic, bell-like sound.
-This is all done by interpolating with SigTo() objects, and the entire process takes place over 180 seconds.
+In trying to complement the voix humaine with OrganLab, I thought it would be appropriate to emulate the tremolo of the voix humaine stop with frequency modulation of a voix humaine emulation in OrganLab.  
+With this idea, it seemed like a logical next step to increase this frequency modulation in speed, while changing the index and ratio, such that the natural trembling of the voice, passes through a comic, exaggerated warble, gradually losing the sense of sung tremolo altogether and giving way to an inharmonic, bell-like sound.  
+This is all done by interpolating with SigTo() objects, and the entire process takes place over 180 seconds.  
 The one part that is not interpolated, due to limitations of ADSR objects in Pyo, is the envelope, which simply changes suddenly at the end of the 180 seconds.
 
-\begin{figure}[H]
-\begin{lstlisting}[language=Python]
-bellCall1 = None
-bellCall2 = None
-bellCall3 = None
+\begin{figure}[H]  
+\begin{lstlisting}[language=Python]  
+bellCall1 = None  
+bellCall2 = None  
+bellCall3 = None  
 bellCall4 = None
 
-def bell():
-    global bellCall1, bellCall2, bellCall3, bellCall4 
-    bellCall1 = CallAfter(stop1.setEnvAtt, time=180, arg=(.001, .001, .001, .001, 0.001, 0.001, 0.0001, 0.0006, 0.0007, 0.0005, 0.0006, 0.0003, 0.0005, 0.0003, 0.0006, 0.0005, 0.0004, 0.0002, 0.0001, 0.0001)).play()
-    bellCall2 = CallAfter(stop1.setEnvDec, time=180, arg=(1.3, .05, .02, 0, 0, 0.04, .004, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04)).play()
-    bellCall3 = CallAfter(stop1.setEnvSus, time=180, arg=(.4, .1, .02, .01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .002, 0.002)).play()
-    bellCall4 = CallAfter(stop1.setEnvRel, time=180, arg=(2, 0.1, 0.1, .01, .03, 0.4, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.4, .04, 0.04, .04, 0.4)).play()
-    setInterpol(180)
-    stop1.setRamp(180)
-    stop1.setMul([1, 0.01, 0.1, 0.01, 0.07, 0, 0.02, 0, 0.01, 0, 0.003, 0, 0.003, 0, 0.001, 0, 0.001, 0, 0.001, 0])
-    stop1.setRatio(0.43982735)
-    stop1.setIndex(4)
-    stop1.setNoiseAtt(0.001)
-    stop1.setNoiseDec(0.1)
-    stop1.setNoiseSus(0.01)
-    stop1.setNoiseRel(0.1)    
-    stop1.setNoiseMul(0.9)
-    stop1.setNoiseFiltQ(4)
-    stop1.setPartScRat(1.02)
-    print(bell)
-\end{lstlisting}
-\caption{This function morphes the ratio and index of frequency of modulation, as well as a very slight exponential expansion of the harmonic series on the attack, which creates an additionally inharmonic attack. The envelope is altered after 180 seconds through the bellCall function calls}
+def bell():  
+global bellCall1, bellCall2, bellCall3, bellCall4  
+bellCall1 = CallAfter(stop1.setEnvAtt, time=180, arg=(.001, .001, .001, .001, 0.001, 0.001, 0.0001, 0.0006, 0.0007, 0.0005, 0.0006, 0.0003, 0.0005, 0.0003, 0.0006, 0.0005, 0.0004, 0.0002, 0.0001, 0.0001)).play()  
+bellCall2 = CallAfter(stop1.setEnvDec, time=180, arg=(1.3, .05, .02, 0, 0, 0.04, .004, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04)).play()  
+bellCall3 = CallAfter(stop1.setEnvSus, time=180, arg=(.4, .1, .02, .01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .002, 0.002)).play()  
+bellCall4 = CallAfter(stop1.setEnvRel, time=180, arg=(2, 0.1, 0.1, .01, .03, 0.4, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.4, .04, 0.04, .04, 0.4)).play()  
+setInterpol(180)  
+stop1.setRamp(180)  
+stop1.setMul([1, 0.01, 0.1, 0.01, 0.07, 0, 0.02, 0, 0.01, 0, 0.003, 0, 0.003, 0, 0.001, 0, 0.001, 0, 0.001, 0])  
+stop1.setRatio(0.43982735)  
+stop1.setIndex(4)  
+stop1.setNoiseAtt(0.001)  
+stop1.setNoiseDec(0.1)  
+stop1.setNoiseSus(0.01)  
+stop1.setNoiseRel(0.1)  
+stop1.setNoiseMul(0.9)  
+stop1.setNoiseFiltQ(4)  
+stop1.setPartScRat(1.02)  
+print(bell)  
+\end{lstlisting}  
+\caption{This function morphes the ratio and index of frequency of modulation, as well as a very slight exponential expansion of the harmonic series on the attack, which creates an additionally inharmonic attack. The envelope is altered after 180 seconds through the bellCall function calls}  
 \end{figure}
 
-Interpolation in general was a major goal of this project, and one of my initial ideas was the transition between harmonic organ sounds, and inharmonic and/or chaotic sounds.
-This process is semantically justified through the passage from the simplicity of singing of love, versus the reality of singing the God river of blood.
-It is as though the simple dream is interrupted by a descent into a more complextimbral world.
+Interpolation in general was a major goal of this project, and one of my initial ideas was the transition between harmonic organ sounds, and inharmonic sounds.  
+This process is semantically justified through the passage from the simplicity of singing of love, versus the reality of singing the God river of blood.  
+It is as though the simple dream is interrupted by a descent into a more complex timbral world.
 
-Compositional:
+In terms of compositional techniques, to further represent singing, I employed song form \footcite{owens_forms_2003}, starting with an 12-bar melody as the A section.
+Instead of completing a larger structure, such as AABA, or ABAB, the A section is repeated incessantly.
+This repetitive structure refers to the tradition of theme and variations in the western classical tradition, as well as the blues in black american traditions.  
+In this case, rather than focusing the variations on melodic development, they are instead based on tempo and timbral changes. 
+Each time the twelve bar melody is heard it is slower, and the sound of the voix humaine is gradually distorted into an inharmonic mass.
+This slowing down was inspired by an idea to create an exponential or logarithmic variation, where each variation is a ratio shorter or longer than the previous.
 
-The movement adopts a song form to represent 'singing,' starting with an 12 bar melody as the A section.(Grove reference)
-Instead of following a traditional AABA form, the A section is repeated incessantly in a variation form.
-These variations expand exponentially at a rate of 5/4, symbolizing a narrative disruption akin to a rupture in the fabric of time.
-During these variations, the left hand chords and rhythms are constrained, while the right hand is free to improvise. 
-A composed version is offered as a suggestion, or as an alternative to improvisation.
-To parallel the software techniques, frequency modulation is also applied at the notational level.
-A patch in OpenMusic uses the A section melody as the carrier and the bass line as the modulator to generate chords.
-Selected sonorities from this process are integrated into the variations, enhancing the movement's thematic and textural depth.
+\subsection{Form and compositional process}
 
-\subsection{Composition Process}
+The movement begins with an uninterrupted transition from the third elegy, linked by the bed track at the end of this movement. 
+This recording, representing the the second station, dies as the third elegie begins. 
+Before completely fading out, the B\na\ of the compressor hum is doubled layered with a transposition of the same sound, giving the voice it's starting note (E\na). 
+Then, overlapping slightly with the recording, the voice enters with a sung fragment, introducing a lilting melody, rising by thirds and spelling out an E minor 7 chord. 
+When the text gets to the part about the God river of blood however, the tone changes abruptly, now descending in a serpentine way, through a chromatic passage ending with a series of alternating ascending and descending thirds, ending on C\na\ (sys. 2).
 
-The movement begins with a sung fragment, introducing a lilting melody, rising by thirds and spelling out an e minor triad.
-The organ then enters with a similar rising motive, harmonized with perfect fifths below the melody.
-Throughout this process the tonal center is tenous, first suggesting B minor in the voice, then A minor in the organ, with a thin, hollow texture of 8' and 2' flutes, before pivoting towards D minor.
-This sets the stage for the entrance of the main motive of this movement, a lamenting descending line, beginning on the third scale degree, in this case F, and moving down towards the fifth scale degree, C in this case.
-This descending line is in stark contrast with the rising motive heard earlier.
-Both the tonal and motivic contrast between the opening sung melody, and the following part create a dissonance, not in a harmonic sense, but in a temporal, or symbolic sense.
-The relation between the sung material, and the organ material is not yet clear.
-Various alternatives to the lilting rising motive were tried for the introduction.
-The original intention was to write something that felt like a classic song introduction in the tin pan alley tradition.
+\customincludegraphics[width=\textwidth]{3e_1}{The sung melodic fragment introducing lilting ascending motive is overlapped with the bed track ending the second movement (sys. 1-2)}
+
+The organ then enters with a similar rising motive, harmonized with perfect fifths below the melody, with a thin, hollow texture of 8' and 2' foundations (mm.1-7).
+Throughout this process the tonal center is tenous, first suggesting B minor in the voice, then A minor in the organ, before pivoting towards D minor.  
+Various alternatives to the lilting rising motive were tried for the introduction.  
+The original intention was to write something that felt like a classic song introduction in the tin pan alley tradition.  
 In the end, none of my more elaborate introductions seemed as appealing as the stark simplicity of the original rising motive.
 
-\customincludegraphics[width=\textwidth]{3-3-1_system}{Sung melodic fragment introducing lilting ascending motive}
+This sets the stage for the entrance of the main motive of this movement (m. 8), a lamenting descending line, beginning on the third scale degree, in this case F, and moving down towards the fifth scale degree.  
+This descending line is in stark contrast with the rising motive heard earlier.  
+Both the tonal and motivic contrast between the opening sung melody, and the following part create a dissonance, not in a harmonic sense, but in a temporal or symbolic sense.  
+The relation between the sung material, and the organ material is not yet clear.  
 
-\customincludegraphics[width=\textwidth]{3-3-2_system}{Organ introduction, referencing the rising motive, but leaning towards A minor instead of B minor, which then leads into the main, lamenting melody at the end of the system.}
+\customincludegraphics[width=\textwidth]{3e_2}{Organ introduction, referencing the rising motive, but leaning towards A minor instead of B minor, which then leads into the main, lamenting melody at the end of the system (mm. 1-17)}
 
-As for the composition of the descending motive, the first four measures came to me around the same time as the rising motive, around september, 2022, when I first started as organist at l'église Saint-Édouard and started my masters program at l'Université de Montréal.
-Throughout the following months, I found myself adding on pieces to this melody, and finding new variations.
-Once I decided to move in the direction of song form, I tried to crystallize the melody into a version that would fit within the bounds of an 8, 12 or 16 bar section I did this by taking all my motivic fragments and shuffling them around in different orders until I found a version that felt like it had a logical progression.
+As for the composition of the descending motive, the first four measures came to me around the same time as the rising motive, around September, 2022, when I first started as organist at l'église Saint-Édouard and started my masters program at l'Université de Montréal.  
+Throughout the following months, I found myself adding on pieces to this melody, and finding new variations.  
+Once I decided to move in the direction of song form, I tried to crystallize the melody into a version that would fit within the bounds of an 8, 12 or 16 bar section. 
+I did this by taking all my motivic fragments and shuffling them around in different orders until I found a version that felt like it had a logical progression.  
 In the end, the idea seemed to naturally solidify into 12 bars.
 
-At first, the continuation of this movement was supposed to simply dissolve into a textural mass, as the sound of the voix humaine undergoes it's painful transition into a bell.
-This was the working idea until I realized that variation form, a form that I was looking to incorporate into the piece at some point, would be particularily appropriate for song form, as there is a great jazz tradition of playing variations on traditional songs.
-In order to facilitate these variations, and to reference the jazz tradition, I decided to find jazz chords that could harmonize the original melody.
-The original accompaniment is with an octave ostinato, and didn't lend itself well to variations in the jazz style, leading to an alternative harmonisation.
+In one of my early improvisations I simply repeated this melody several times as the voix humaine synthesis underwent it's painful transition into a bell, eventually dissolving into a textural mass.
+However, I later had the idea to lean further into the jazz tradition, reharmonizing the melody with left hand comping chords with the intention of improvising the right hand over top. 
+I also constructed a more complex and precise version of the logarithmic variation idea, where instead of slowing the tempo for each variation, the meter is extended, choosing an expansion of 5/4, or 125\%, so that the variations would not become too long. 
+As I was developping this version, however, I realized that the quicker, more rhythmic nature of the jazz oriented approach significantly lost the quality of feeling the timbral transition, distracting the ear too much and not allowing the listener to "get inside the sound". 
+Ultimately, after listening back to both versions, I decided to return to my initial intuition, with the simpler repetitive structure. 
+In addition to placing greater emphasis on the narrative arc of the timbral transformation, this repetition adds an incessant quality to the melody, as if trapped in a recollection.
 
-\customincludegraphics[width=\textwidth]{3-3-3_melody}{Descending "lament" motive, with jazz changes annotated above}
+\customincludegraphics[width=\textwidth]{3e_3}{The original form of the melody of lamentation, with the jazz changes that were ultimately not used}
 
-The obvious and simple choice would have been simply to simply repeat the twelve bars over and over again, but I felt that this simple repetition wasn't necessarily in line with the subject matter, devolving into the God river of blood.
-I was also hearing continuations in 3/8, and wanted to find a way to alter the meter, while keeping in line with the variations idea.
-It then came to me to incorporate exponential variations.
-The idea is that each variation is either dilated, or expanded by a certain proportion.
+The melody begins at about \musQuarter\ = 58, with the acoustic voix humaine in the right hand, accompanied by a rhythmic ostinato in octaves with a plein orgue in the grand orgue. 
+Halfway through the melody, it is suddenly interrupted by the doubling of the acoustic voix humaine with it's synthesized reflection, and the pedals taking up the left hand's role of outlining the bassline. 
+Just prior to this interruption, the melody is stretched metrically in a non-systematic way, where measures 13-14 would have been simply one (m. 6 in the original 12-bar version). 
+This allows time for the organist to trigger the sixth cue, which begins the interpolation process of the voix humaine synthesis, as well as prepares the ear for a change. 
+As the synthesis enters at measure 15, the tempo decreases slightly to about 90\% of the original (cca. \musQuarter\ = 58), and the metrical extension of the melody continues, with measure seven of the original melody becoming two measures of 3/4 (mm. 16-17), and measure eight becoming a measure of 4/4 and a measure of 5/4 (mm. 18-19). 
 
-In this case, I chose the proportion of 5/4, finding that a proportion of 2/1 wouldn't give me the metric variety I was looking for, and 3/2 would be too long.
-5/4 seemed to give me the right amount of variety without being overly long.
-In order to verify this, I drafted a patch in OpenMusic that calculates the total time of a given number of measures with a given time signature at a given tempo.
-With 12 measures at a tempo of quarter note equals 64 beats per minute, I found that with four variations, the movement would take about 4.3 minutes, not including the introductory material.
-This seemed like a reasonable length, and gave me the time signatures of 5/4, 25/16, and 125/64.
+The second entry of the melody in measure 23 is even slower, again at about 90\% of the previous tempo (cca. 
+\musQuarter\ = 46), and this time, the acoustic voix humaine drops out, leaving only the synthesis against the bassline in the pedals. 
+This time, at the same point precisely halfway through the original 12-bar form as the last interruption (m. 
+19), the sustain pedal is held down, creating an increasingly dense spectral mass. 
+It is here most of all that the listener is immersed into the timbral morphing process. 
+Whereas before, the changes in harmony and rhythm distracted somewhat from the transformation taking place, in this more static structure, the listener hears all the partials shifting, twisting, appearing, and disappearing, as the sound becomes increasingly complex. 
+This moment is interrupted, however, by an improvisational section using waves of rapid ascending melodic lines based around Csharp dimished 7 (p. 5, sys. 2). 
+This section is much more chaotic than the previous, and reflects the corresponding chaos in the unstable timbral composition. 
+This improvisation comes to an end with a held perfect fifth, G and D, allowing us to continue hearing the transformation more directly. 
+Once the transformation is complete, this chord is released, allowing the resonance to subdue. 
 
-Obviously, these latter two are all but unreadable to mere mortals, and required some clever compartmentalization to yield a musical, communicative notation.
-I decided to break up 25/15 into three measures of 3/8 plus one measure of 7/16.
-The 125/64 was more problematic.
-After many attempts, including a systematic attempt to find every possible decomposition of the fraction, using a site similar to this one: https://www.mathcelebrity.com/decompose-fraction.php?num=125%2F64&pl=Decompose, only to find that all possible combinations would need a measure with a denominator of 64.
-Using 64th notes as the rythmic pulse is not particularily practical, so my first instinct was to round to the 32nd note, but I then considered the possibility of incorporating a metric modulation.
-Through some trial and error, I found that making five eighth notes equal to the new quarter note would allow me to use a measure of 2/4 plus a measure of 9/32 to equal my 125/64 beast.
-9/32 is still not a particularily common time signature, but the grouping of three 32nd notes in compound time makes it more tenable.
+Concretely, the 12-bar melody is only heard one and a half times, which calls into question the use of the term 'variations'. 
+At the same time, I like to imagine that these variations continue in a symbolic or imagined sense. 
+For instance, the synthesis server has a limit of ten voices of polyphony, so once the sustain pedal is held in measure 29, there is only room for about two measures before adding new notes will not change the sound. 
+At the same time, the performer continues playing the melody, leading to a muted physicality, where the performer is communicating through gesture, but it is not reaching the listener. 
+The performer could very well continue playing this silent melody, and from a listener's perspective, I can imagine myself trying to find the melody lost in the thick fog. 
+In this sense I see the second variation not so much being interuppted, but covered. 
+In fact, the improvised section, though bearing little resemblance to the original theme, could be considered the third variation.
 
-\customincludegraphics[width=\textwidth]{3-3-4_system}{First variation, in 5/4, with constrained elements notated in red, and free, optional element notated with small noteheads}
+After the arrival of the bell sound at the end of the transformation, the bells then sound three times a rapid descending line, ending with a powerful strike of an open fifth in each hand, allowing for each to decay. 
+These three tolls of the synthetic bells signal the end of the movement. 
+The 7th trigger is then initiated, beginning a slow crossfade from the bell sound to the sound of singing glasses, and the fourth is ready to begin.
 
-\subsection{Linking}
-
-As the movement concludes, the sound of the bells gradually fades, transitioning into the sound of singing glasses.
-This transition not only serves as a bridge to the next movement but also symbolizes the continual evolution of the thematic elements–-from the tangible to the ethereal, from the known to the unknown.
+\customincludegraphics[width=\textwidth]{3e_4}{The end of the second variation, an improvisational section, and the three synthetic bell tolls that end the movement (m. 26 to p. 5, sys. 2)}
 
 \section{4e Élégie}
 
@@ -1782,7 +1793,6 @@ One, however, seemingly a product of the space itself, established a stasis, nei
 I was so moved by the eerie tension of this sound, that I decided to try recording the sound of the footsteps overtop of it. 
 This experience of running and accelerating towards the microphone through the central cooridor of the church, gave me a strange sense of traversing a portal, a strong wave of shivers going up my spine each time I passed the microphone.
 The intention was to accent a sense of urgency, playing off the footsteps motive that has been heard intermittently throughout the piece, yet now decoupling the subject and the sound source, creating an almost cinematic effect where the listener is no longer following over the shoulder of the protagonist, but is suddenly viewing the protagonist, or some person or animal, which is running towards them. 
-
 
 \subsection{Compositional Approach}
 
