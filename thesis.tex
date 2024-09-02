@@ -1247,25 +1247,33 @@ I use this word because the quarter note and half note of metrical notation are 
 
 \section{2e Élégie}
 
-\epigraph{\textit{Tout Ange est terrible.
-Et pourtant, malheur à moi!}}{}
+\epigraph{\textit{Tout Ange est terrible. Et pourtant, malheur à moi! et pourant je vous invoque...}}{}
 
 \subsection{Narrative context}
 
-In this movement, the haunting opening of Rilke's verse, "Tout Ange est terrible," forms the thematic crux.
-The word 'terrible' presents a complex duality, oscillating between connotations of fear and awe and a sense of pathos and frailty.
-This ambiguity is not just a linguistic puzzle but a profound emotional landscape that the music seeks to explore and express.
-The latter part of the verse, "Et pourtant, malheur à moi!
-pourtant je vous invoque," resonates as a solemn invocation, a plea before embarking on an arduous, soul-searching journey.
-This movement attempts to capture the essence of this prayer, infused with both trepidation and a resigned yearning.
+I found this poetic fragment to be one of the more difficult to interpret. 
+The word terrible, in particular, could be read as ferocious and terrifying, yet could also represent a more subdued pathos, closer to pity.
+Rilke then goes on the invoke these angels.
+There is clearly a tension implied by the word 'pourtant', giving the impression that despite her misgivings, the protagonist nevertheless relies on the angels.
+Moreover, there is a sense of regret, as if pride prevents our protagonist from wanting to submit themselves.
+They do so in spite of themselves and in spite of the terrible and uncertain nature of their guides.
+
+Ultimately, I chose to emphasis the connotations of pathos and frailty in the word 'terrible' with an extremly soft dynamic, and the fearsome quality with a dissonant harmonisation.
+This approach attempts to capture the complexity of representing the terrifying nature of the angels, while situating this fear in the mind of the protagonist.
+The second part of the movement delves further into this commentary on frailty, maintaining a soft dynamic, this time using a very traditional form of renaissance inspired counterpoint.
+For me, this reference to history, and the clear, simple harmonies suggest the human, rather than the angelic.
+Here, the protagonist is in prayer---a plea before embarking on an arduous journey.
 
 \subsection{Techniques}
 
-Software:
+Synthesis:
 
 The use of a gradual dynamic envelope is a pivotal element in this movement.
-By enhancing the traditional bourdon sound with a brighter tone, and accentuating the fourth partial, a unique auditory experience is created.
-This approach transcends the limitations of an acoustic pipe organ, illustrating the intersection of tradition and innovation.
+The traditional pipe organ uses a pronounced, sudden attack, known as the chiff.
+In baroque era organs, this chiff is particularily apparent, and while in the romantic era this effect was considerably reduced through a process called nicking, the attack remains very short.
+Using the synthetic organ, one can slow this attack as much as they like. 
+In this movement, I've chosen an attack of about eighty milliseconds for the transient content, and about six hundred milliseconds for the harmonic content. This is not particularily long, which allows for a contrapuntal clarity, while being long enough to diverge from what one would expect from a pipe organ sound.
+Tonally, traditional bourdon sound is modified by accentuating the fourth partial.
 
 \begin{figure}[H]
 \begin{lstlisting}[language=Python]
@@ -1290,37 +1298,47 @@ def dynEnv():
 
 Compositional:
 
-The structure of the movement employs a binary form to parallel the contrasting themes of Rilke's verse.
-Part A, representing the 'terrible angels,' is characterized by dense chromatic harmonies and a rich, plein orgue registration, employing proportional notation for depth.
-In contrast, Part B adopts a simpler harmonic language, employing metric notation.
-This section features an inverted version of the initial melody, serving as a cantus firmus.
-Interestingly, all durations in this voice are equalized as whole notes, played with the pedals along with the bourdon and flute 8’.
-This structure serves both as an improvisational guide and a compositional framework, offering the performer the liberty to improvise around the notated cantus firmus, colored in red, with an alternative pre-composed version available as a guideline.
+This movement involves a dissonant harmonization of the main melody, making extensive use of an altered dominant \sh 7 structure.
+This chord, a variation of the classic altered dominant chord in jazz, swaps the \fl 7 for a \sh 7, 
+Also used is the more octatonic sound of dominant 7 \sh13 \fl9 sonorities, as well as a minor \fl6 chord at the end.
+
+In the final section, I used an inverted version of the initial melody as a cantus firmus.
+This melody begins on F\na\ and represents not a chromatic inversion, but a transposed, diatonic inversion---transposed in the sense that the melody does not begin on the same scale degree as the original (B\fl, the sixth degree of D minor), but instead begins on the third degree of D minor. 
+All durations in this voice are equalized as whole notes, and played with the pedals.
 
 \subsection{Composition Process}
 
-The creation of this movement began with the creation of the sung melodic line.
+This movement, like the first, begins with the voice.
 I considered using new motivic material, but ultimately decided that it would be better to use a variation of the original melody.
 This is partly to maintain coherence, and partly in reference to the Magnificat of Jehan Titelouze which uses a repetition of a sung melodic fragment as a formal element.
 This thematic variation is now infused with additional chromaticism, reflecting a progression into complexity and uncertainty.
 
-\customincludegraphics[width=\textwidth]{3-2-1_melody}{A variation of the first sung melody, with more chromaticism}
+\customincludegraphics[width=\textwidth]{2e_1}{A variation of the sung melody from the first movement, with more chromaticism (p. 2, sys.1)}
 
-The creation of Section A of the organ composition began with a dissonant harmonization of the main melody, making extensive use of an altered dominant sharp 7 chord.
-This chord, a variation of the classic altered dominant chord in jazz, swaps the flat seven for a sharp 7, alongside the dominant 7 sharp 13 flat 9, and the minor major 7.
-These harmonies, particularly resonant with the plein orgue registration, evoke an intense, almost ethereal quality.
-The subtle voice leading within this dense texture aims to create movement and emotional depth.
-Section B's composition process, focusing on the outer voices, was governed by the principles of traditional counterpoint.
-This involved careful resolution of dissonances and maintaining a fluid musical dialogue between the voices.
-The movement, starting from a melodic D minor perspective, culminates in a half cadence to the A minor dominant, signifying a transition yet an unfinished journey.
+My first interpretation of the word 'terrible' was the ferocious one, and I chose to open the organ portion of the movement (p. 2, sys. 2) forte, with the dissonant harmonisation striking an unforgiving discord. 
+At the same time, I found myself disappointed that the second movement open in the same fashion as the first, with a big loud chord.
+From a narrative perspective, it seemed much more logical to open the work with a loud sudden gesture, and then work our way up gradually from the bottom.
+Ultimately, I decided to change the opening dynamic to pianissimo, using the dulciane stop, which on the organ at l'église Saint-Édouard is extremely soft.
+Being that the chords are still dissonant, this creates an effect of viewing the 'terrible angels' from a distance. 
+I imagine the protagonist at the bottom of a steep ascent, similar to Dante in the beginning of his journey through hell, while she views the movement of the angels in the heavens.
+Perhaps these entities are never seen directly, but only felt from afar.
+This section is notated in proportional notation to imbue the harmonic motion with a clouded, murky quality.
+I nevertheless attempted to create a sense of voice leading within this dense texture.
 
-\customincludegraphics[width=\textwidth]{3-2-2_system}{System showing the progression from dense chromatic harmonies in proportional notation to metrical notation with outervoices braiding an inner cantus firmus}
+In the following section, metric notation is introduced for the first time.
+This symbolises a step towards the human, emphasizing the history of western notational practice, as well as a more structured, clearly dilineated rhythmic structure. 
+This section uses the cantus firmus as middle voice in a three voice texture, where the bassline is taken by the left hand on the grand orgue division and the treble by the right hand on the MIDI keyboard.
+The harmonic language of this section aimed to reference renaissance counterpoint.
+This involved careful consideration of the resolution of dissonances, while maintaining a fluid musical dialogue between the voices.
+The movement, starting from a D minor perspective, culminates in a half cadence to the A minor dominant.
 
-\subsection{Linking}
+\customincludegraphics[width=\textwidth]{2e_2}{System showing the progression from dense chromatic harmonies in proportional notation to metrical notation with outervoices braiding an inner cantus firmus (sys. 2)}
 
-The movement concludes with an auditory link to the next – a sound sample of footsteps echoing in the basement of the church, leading into the sprinkler room.
-The mundane, yet eerily resonant sounds of the church's underbelly, including the hum of compressors, provide a sensory bridge to the third movement.
-This blending of the sacred with the profane mirrors the thematic journey of the music, from the divine to the earthly, the celestial to the subterranean.
+The movement concludes with an auditory link to the next---a sound sample of the protagonist opening the door leading to la salle Saint-Édouard in basement of the church, representing the second station in \textit{le chemin}.
+The mundane, yet eerily resonant sounds of the church's underbelly, including the hum of  the sprinkler compressors, provide a sensory bridge to the third movement.
+This mirrors the thematic journey of the music, from the divine to the earth, the celestial to the subterranean.
+
+\customincludegraphics[width=\textwidth]{2e_3}{The final systems of this movement lead to a half cadence in A minor as an audio recording is triggered (mm. 15-23)}
 
 \section{3e Élégie}
 
