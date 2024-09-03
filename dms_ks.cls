@@ -595,7 +595,7 @@
             \ifphd@     Th\`ese pr\'esent\'ee         \fi
             en vue de l'obtention du grade de\\
             \@degree\\
-            en\strut\
+            \strut\
             \ifx\@empty\@sujet
             \dms@erreur\sujet
             \else
