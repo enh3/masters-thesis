@@ -464,12 +464,12 @@ On the one hand, I had begun playing the pipe organ shortly before the outbreak 
 On the other hand, I was in the process of finishing up a diploma program in digital music at l'Université de Montréal, where I had come in to contact with the concept of the hyper-instrumet. 
 This began a slow process of considering whether these two paradigms could be merged. 
 
-At the beginning of the project, my simple tagline and working title was, "Revisiting the original synthesizer : the pipe organ as an augmented instrument". 
-Indeed, the pipe organ can be thought in a sense to be the first instrument in the spirit of the additive synthesizers of the twentieth century. 
-Though using complex sounds, rather than simple waveforms, it nevertheless operates through the combination of a set of sonic primitives, which are combined in nearly endless ways to create astonishing timbral variety. 
+At the beginning of the project, my working title was, "Revisiting the original synthesizer : the pipe organ as an augmented instrument". 
+Indeed, the pipe organ can be thought to be the first instrument in the spirit of the additive synthesizers of the twentieth century. 
+Though using complex sounds, rather than simple waveforms, it operates through the combination of a set of sonic primitives, which are combined in nearly endless ways to create astonishing timbral variety. 
 This project attempts to leverage this rich tradition while extending it through digital synthesis, bypassing the physical constraints of a monolithic physical instrument and lending a certain malleability to the sound profile of the instrument.
 
-This was more or less the jumping off point for the project, but through the course of its development, and especially through the composition of a piece called Élégies, it became clear that I wanted not only to address the pipe organ as an insrument, but also to emphasize the space itself, leading to an extended practice in which I diffuse sound throughout the church, while referencing the sounds of bells, the fire alarm of the church, and other sonic iconography. 
+This was the jumping off point for the project, but through the course of its development, and especially through the composition of a piece called Élégies, it became clear that I wanted not only to address the pipe organ as an instrument, but also to emphasize the space itself, leading to an extended practice in which I diffuse sound throughout the church, while referencing the sounds of bells, the fire alarm of the church, and other sonic iconography. 
 
 The following text is organized in four main parts. 
 The first chapter attempts to define the concept of hyper-instruments broadly, while describing significant contributions to the field, starting with the pioneering work of Tod Machover. 
@@ -481,18 +481,16 @@ This chapter provides a detailed account of the technical and conceptual process
 
 The third chapter presents my creative approach as a performer and as a composer, as the various tools I used throughout the project. 
 
-The final chapter discusses the composition \textit{Élégies} for solo hyper-organ and voice. 
-It explores the thematic and symbolic inspirations drawn from Rainer-Maria Rilke's 10 Duino Elegies and examines how the work navigates the continuum between acoustic and synthetic soundspaces. 
-The chapter also discusses the exploration of the symbolic space of the church through references to its sonic iconography, providing a comprehensive analysis of the piece and its place within the broader context of the project.
-
-Finally, the fourth chapter discusses the composition of the piece Élégies, written for my hyper-organ interface at l’église Saint-Édouard, and voice. 
+Finally, the fourth chapter discusses the composition of the piece textit{Élégies}, written for my hyper-organ interface at l’église Saint-Édouard, and voice. 
 Based on the 10 Duino Élégies of Maria-Rainer Rilke, this piece seeks to navigate the continuum of acoustic and simulated---the sacred and the profane.
+
+In the appendix is also included a piece that I wrote for choir, singing glasses, and non-live electronics called textit{Jardin de givre}, performed in April, 2023 by the chorus of l'Université de Montréal under the direction of Matthew Lane. Though this work won't be analyzed in this text due to the focus on the hyper-organ, this work has several poetic resonances with textit{Élégies}, such as the use of a sacred space, the mixture of synthetic and non-live with acoustic sound sources, and the exploration of the voice.
 
 %%------------------------------------------------- %
 %%                pages 1                           %
 %%------------------------------------------------- %
 
-\chapter{The Emergence and Relevance of Hyper-Instruments}
+\chapter{The emergence and relevance of hyper-instruments}
 
 Hyper-instruments, situated at the confluence of traditional musical artistry and digial technologies, present a complex and diverse field of inquiry.
 In this chapter, we will resist the urge to define simply hyper-instrument practice, and will instead attempt to 'sneak up' on a more holistic perspective by delving into the work of several prominent artists and researchers in this field.
@@ -623,7 +621,7 @@ To summarize, by my thinking, there are several advantages and disadvantages to 
   \end{itemize}
 \end{itemize}
 
-\section{History and approaches}
+\section{Various perspectives}
 
 \subsection{Tod Machover and the birth of the hyper-instrument}
 
@@ -906,7 +904,7 @@ A prominent early example is the Bradford Musical Instrument Simulator, designed
 I found that additive synthesis was very useful for emulating the harmonic component of organ sounds, but less so for the transient attacks, and the sustained wind noise. 
 For this, subtractive synthesis, with resonant filters applied to noise generators was a perfect complimentary approach to bring the emulations to life.
 
-\customincludegraphics[width=\textwidth]{IMG_3414_copy.jpg}{The midi keyboard is placed to the right of the organ, and plugged into a laptop running OrganLab and Ableton Live}
+\customincludegraphics[scale=0.065]{IMG_3414_copy.jpg}{The midi keyboard is placed to the right of the organ, and plugged into a laptop running OrganLab and Ableton Live}
 
 This synthesis is controled by a MIDI keyboard to the right of the organ console. 
 This keyboard is connected to my laptop, which runs a python server called OrganLab, which I've been developing using Olivier Belanger's Pyo library. 
@@ -931,27 +929,18 @@ Like synthesis it satisfied the aesthetic priority of integrating with the sound
 In this case, the process is much simpler, rather than having to recreate the timbral profile from scratch, I could simply place a microphone around or inside of the instrument and amplify it. 
 Then, satisfying my second aesthetic priority of extending this sound world was a matter of applying any imaginable effect to the microphone input. 
 Furthermore, it allowed me to satisfy the third priority, to use both convergent and divergent mappings. 
-While I was more intrigued by the divergent approach, I was nevertheless inrigued by experimenting with a convergent approach, and I felt that adding effects to a pipe organ, essentially treating it more like an electric guitar than a pipe organ, would immediately situate it in an aesthetic paradigm that wouldn't normally be associated with the pipe organ or a church space. 
-While I wanted to celebrate the space and the heritage of the instrument, I also found that this dissonance of questioning the nature of the instrument also appealed to me. 
+While I was more intrigued by the divergent approach, I was interested in experimenting with a convergent approach, and I felt that adding effects to a pipe organ, essentially treating it more like an electric guitar than a pipe organ, would immediately situate it in an aesthetic paradigm that wouldn't normally be associated with the organ or a sacred setting. 
 
-Of course, before one can even consider adding effects to a sound, the essential ingredients are at least on microphone and at least on speaker. 
-
-When I began this project, I had a Roland MIDI keyboard ED PC-300, with an early predecessor to OrganLab, and I rented a single QSC K-10 speaker from the loan desk of the faculty of music at l'Université de Montréal. 
-Initially, I hadn't considered any furher amplification than this one speaker. 
+Initially, I hadn't considered any furher amplification than one speaker. 
 I placed it next to the organ, in order to give the impression that both sound sources came from the same direction, lending unity to the instrumental perception. 
-
 It was my director Pierre Michaud who first brought up the idea of spatialising the sound. 
-At first, this idea felt intimidating, as my project was already fairly ambitious and time-consuming. 
-At the same time, when I initially began testing microphones, including my Shure Beta 58, that I've used to amplify my voice in the past, various condensor microphones, both in mono and in stereo, and a contact microphone, it became clear to me that using any delay based effects, and especially reverb, would be nearly impossible with the speaker so close to the instrument. 
-At first, this was a disappointment, as it presented a technical hurdle. 
-At the same time, I began to imagine a speaker in the opposing, south transept. 
-This would not only position the speaker as far away from the microphone as possible, minimizing feedback concerns, but would also provide an appealing symbolic reference. 
+When I initially began testing microphones, including my Shure Beta 58, that I've used to amplify my voice in the past, various condensor microphones, both in mono and in stereo, and a contact microphone, it became clear to me that using any delay based effects, and especially reverb, would be nearly impossible with the speaker so close to the instrument. 
+At first, this was a disappointment, but I soon began to imagine a speaker in the opposing, south transept. 
+This would not only position the speaker as far away from the microphone as possible, minimizing feedback, but would also provide an appealing symbolic reference. 
 By using a delay line, I could create a sort of call and response element, harkening to both the gospel tradition, and to the ancient tradition of antiphony, where two choirs would alternate between eachother. 
-This delay line could represent an echo through history, paying hommage to the vast tradition that one draws upon in addressing an instrument as historically and culturally charged as the pipe organ. 
+This delay line could represent an echo through history, paying hommage to the vast tradition that one draws on in addressing an instrument as historically and culturally charged as the pipe organ. 
 At the same time, at this point in late 2023, I had recently become the caretaker of l'église Saint-Édouard, which gave me more access to the space, and more room to experiment. 
 I decided to hook into the house speakers of the church, situated on the ground level, to the right and left of the choir. 
-In order to achieve this level of spatialisation, I odered a second QSC K10 from Ebay, and I also purchased several hundred feet of XLR cables. 
-All of this is routed into my Steinberg UR44 interface.
 
 With this four speaker setup in place, and now having clearly entered into the territory of spatialised audio, it was very tempting to create a surround sound environment, with the fifth speaker placed behind the audience. 
 The main reason that this idea was so alluring, is that it would permit me to put the speaker in the west gallery, where the organ was originally installed before it's relocation to the north transept. 
@@ -969,11 +958,11 @@ That's to say, to have it only sound by itself.
 Ultimately, for the current project I decided that the third option was the most in line with what I was looking for. 
 This will be discussed in further detail in the following chapter. 
 
-Instead of using another speaker like the K10, I decided that it would be more practical to use a bluetooth speaker. 
+Instead of using another PA style speaker, I decided that it would be more practical to use a bluetooth speaker. 
 This way, my friend wouldn't need to have an interface or a computer, and could simply play a soundfile off of their phone. 
 I purchased a Uboom L bluetooth speaker, and tested it in the west gallery, walking around the church and finding that the volume level was more than adequate. 
 
-\customincludegraphics[width=\textwidth]{stageplot_ste-edouard.png}{A view of l'église Saint-Édouard from above, showing the microphone and five speaker diffusion layout in relation to the organ console and the organ itself}
+\customincludegraphics[scale=0.5]{stageplot_ste-edouard.png}{A view of l'église Saint-Édouard from above, showing the microphone and five speaker diffusion layout in relation to the organ console and the organ itself}
 
 In order to apply he effects themselves, I considered using python as well, but it seemed intuitive to me to keep OrganLab as synthesis software, and to treat the live effects as something separate. 
 I've been using Ableton Live since 2012, and so it was natural to incorporate it into the project. 
@@ -1008,6 +997,9 @@ Ulimately, I still made use of OSC, using Touch OSC on my phone, for moments whe
 
 \chapter{Creative approach}
 
+\epigraph{\textit{‘‘What these histories so fundamentally reveal is that the performing arts are really an instable mixture amalgamating light, space, sound, image, bodies, architecture, materials, machines, code, and a perceiving public into unique spatiotemporial events.’’}\footnotemark}{}
+\footnotetext[1]{\cite[xxii]{salter_entangled_2010}}
+
 The construction of a hyper-instrument is no easy task.
 As we've seen in the previous chapter, there are many theoretical questions and technical challenges that present themselves along the way.
 This creative chasm is rivalled, however, if not dwarfed, by the realm of creative possibilities presented in the application of this interface, once constructed.
@@ -1034,6 +1026,187 @@ Besides the issue of keyboard angle there are also the issues of sustain pedal, 
 The midi keyboard permits the pianistic privilege of the sustain pedal, which is not found on a traditional pipe organ, and is particularly useful for drone sections where one can simply depress the damper pedal, freeing the hands to do other things. 
 One of the things that the hands might be freed up to do, besides playing the other manuals or changing the registrations, is triggering samples or regulating the volume of the synthesized sounds. 
 
+\section{Expanded practice}
+
+Until now I've been speaking of the pipe organ as an instrument. 
+That's to say, an interface, with keyboards that receive gestural data and pipes that radiate sound to the listener. 
+At the outset of this project I intended to focus on this instrumental perspective, expanding the timbral possibilities with synthesis.
+
+While creating textit{Élégies}, however, it soon became clear that the space itself was integral to the context of the instrument. 
+The pipe organ is unique in this regard, being not only an instrument, but a permanent architectural installation. 
+Hans Fidom makes this case, claiming that 'If there is one form of music which is explicitly situational, certainly within our Western culture, then it is organ music.' \footcite[23]{fidom_music_2012}. 
+L'Huillier and Machover use architecture as a metaphor for music itself \footcite[361]{lhuillier_spaces_2018}. 
+This fundamental connection to the sacred space of the church was too compelling to ignore, and soon inspired me to look for ways to expand my artistic vision of the piece beyond a straightforward instrumental perspective, pursuing a 'sonic architecture'\footnote{“Sonic architectures are intentionally designed architectural soundscapes that create the conditions for the emergence of a building’s Voice” \footcite{lacey_site-specific_2014}.}.
+
+I call this approach an expanded practice, and in the following sections I'll describe several ways in which I explore this expansion.
+
+\subsection{Spatialisation}
+
+Firstly, the sound diffusion discussed in chapter two was a way for me to play with the fullness of the space. 
+In this way, a listener hears not a unified sound source coming from the organ, but a wide variety of sources surrounding them. 
+Each source has a poetic significance. 
+The synthesis comes from the same direction as the pipe organ, creating a unified instrumental experience.
+
+The effects come from the opposing south transept, implying a dialectic between the instrument, and it's transformation, or in the case of the delay effect, an echo. 
+The echo is perhaps the most cogent effect from a poetic perspective, as it evokes the sacred traditions of antiphony and call and response, while implying the echo of history. 
+The echos create a feedback where each iteration becomes quieter and quieter, similar to how the further we move into the past, whether collectively in terms of history, or personally in terms of memory, the more foggy and dim. 
+Another metaphor is the mirror. 
+I imagine the organ as the protagonist, facing a distorted reflection of itself.
+
+\subsection{Bed tracks}
+
+The other sense in which I attempt to embody the richness of l'église Saint-Édouard is through the use of audio recordings, or 'bed tracks', and in particular through what I call textit{le chemin}, a reference to textit{le chemin de croix}, or in english, the stations of the cross. 
+In english we emphasize the moments in the fourteen stages of Christ's cruxifiction, yet in french, we emphasize the movement between them---the journey itself. 
+My piece also represents a journey, both musically and dramaturgically. 
+
+Throughout the piece are heard audio recordings in various areas of the church, including outside the church. 
+During my master's program, in addition to being organist, I also became caretaker at l'église Saint-Édouard, allowing me access to the many areas of the church that would not be otherwise accessible. 
+I used this privilege to take audio recordings in to take recordings throughout not only the sanctuary, but various places throughout the building. 
+The general narrative of the path is that the subject walks towards the church as the bells sound in the distance. 
+She then enters the church through the basement, moving past the sprinkler room in la salle Saint-Édouard and through la salle Morin, eventually coming to the furnace room. 
+In my mind, the furnace room represents the bowels of the church---a key moment of darkness in the narrative structure. 
+At the same time, the ominous sound of feedback in the church, throbs incessantly in the background. 
+Later a match is struck, referring both to the candles that burn day and night in the church, as well as to the darkness of the path being walked. 
+Finally, the sound of rain enters with the same sound of bells from the beginning of the piece, but in reverse. 
+The last tableau is the sound of the subject walking up the steps from to the organ balcony, accompanied by the sound of pigeons.
+
+The reason that I call this path symbolic is that first of all, like a photograph, it is not the experience itself, but a representation of that experience, but furthermore, the sound recordings heard throughout the piece were not captured on the same day, and are not continuous through the space, at times juxtaposing several different spaces at once. 
+This presents not a real path through the church, but an imagined one that escapes temporal and spatial bounds.
+
+In the following sections, I'll outline the different stations of the chemin, in order of their appearance in the piece. 
+Rather than fourteen, there are seven, with each recording representing different places in and outside of the church. 
+Sometimes these recordings are used as linking material between movements, and sometimes they are heard during a movement.
+
+\subsubsection{First station}
+
+The first station opens the piece, and is a combination of two recordings. 
+On the one hand, a recording of me walking down Beaubien from my apartment to l'église Saint-Édouard during the summer rain storms of July 2023. 
+This recording is placed against a recording I downloaded from YouTube channel "à trouver" of the bells of l'église Saint-Édouard. 
+This latter recording was distorted with "à trouver" and treated with the Spectral Blurring plugin by Michael Norris. 
+These two recordings enter gradually, and are passed between the four speakers connected to my interface in a circular fashion. 
+The sound of the rain in the speakers when encircling the listener is similar to the sound of the wind, which is punctuated by the sound of thunder in the distance. 
+I was fascinated by the idea of placing into question the distinction between inside and outside. 
+The church is a contained unit, which is often heavily sonically isolated from environmental sound, especially with stone constructions like l'église Saint-Édouard. 
+By using audio recordings of the outside of the church within these confines provides a rare experience of hearing the external from within, as if this sacred boundary had been dissolved.
+
+This bed track serves a poetic purpose, but it also. 
+serves a very practical purpose. 
+It allows me to get to the organ discreetly. 
+Before the concert, I give a brief talk describing the piece, my perspective as I was writing it, and what the listener can expect to hear. 
+After his talk, I trigger the first bed track using Touch OSC on my phone. 
+The track enters gradually, building, and eventually looping a portion of the two recordings. 
+This looping means that my ascent to the organ loft is not constrained to a specific time. 
+Upon arriving at the organ and verifying that everything is well prepared, I simply press the next key on the midi keyboard, triggering a slow fade out of the opening recordings.
+
+\customincludegraphics[scale=0.25]{DSC00200_1.JPG}{L'église Saint-Édouard from la rue Beaubien after nightfall.}%%Station 1
+
+\subsubsection{Second station}
+
+The second station is a recording of entering the church through the basement, and entering the sprinkler room in the basement of the church. 
+This is the room that stores all the compressors and valves that connect to the elaborate sprinkler system throughout the church. 
+I found that this room emitted an interesting electrical hum, and seeing as it's right beside the entrance on Beaubien, it seemed fitting to begin the journey inside the church at this point.
+
+This recording also serves a practical purpose, this time as linking material between movements. 
+I trigger the recording with the attack of the final chord of the second movement, with the hum of the compressors copied and doubled at the fifth below, giving me the E natural to begin the next movement.
+
+\customincludegraphics[scale=0.25]{DSC00149_1.JPG}{The sprinkler room upon entering the basement of the church.}%%Station 2
+
+\subsubsection{Third station}
+
+The third station takes place in la salle Morin. 
+This is a hall that is very frequently rented for events, and is named after the first priest of l'église Saint-Édouard Joseph-Napoléon Morin in 1895. 
+This recording also provides a link between movements, this time between the fourth and fifth. 
+The recording is triggered at the peak of a dynamic swell as the left and right hands drop out leaving only the sound of the buzzing fridge of la salle Morin and the ticking of a clock in the background. 
+Here I play with the unique lens of subjectivity that the microphone provides. 
+Elsewhere in les chemins, often I am holding the microphone as I walk, providing a close representation of my subjective aural experience. 
+But in the third station, I leave the microphone on the fridge while I leave the room. 
+This recording is then crossfaded with another recording where I move the microphone closer and closer to the ticking clock. 
+At the same time, I double the sound of the clock, with a time offset, creating the sense of fracturing of time, while my footsteps recede into the distance.
+
+\begin{figure}[h]
+    \centering
+    \subfigure{
+        \includegraphics[scale=0.25]{DSC00123.JPG}
+    }
+    \subfigure{
+        \includegraphics[scale=0.25]{DSC00136.JPG}
+    }
+    \caption{The fridge of the salle Morin pictured on the left, and the clock viewed from the fridge on the right.}
+    \label{fig:sidebyside}
+\end{figure}
+
+\subsubsection{Fourth station}
+
+The fourth part of le chemin begins in the furnace room. 
+This room has a fantastic sliding metal door that creates a loud, foreboding sound when opening or closing it. 
+This sound opens the seventh movement, which is the only movement that is wholly electroacoustic. 
+By this point the listeners are completely in the dark, and the sound of this door opening is preceded by the sound of a match being lit, as if preparing to enter the darkness of the furnace room. 
+As we enter this room, a soft, dissonant drone is heard in the background. 
+This drone appeared as a feedback loop while testing reverb treated amplification in the church. 
+This was a very strange feedback loop, however, because generally feedback grows quickly out of control, looping the amplified signal again and again through the microphone until the sound becomes unbearably loud. 
+In this case, the feedback established some sort of equilibrium point, where the signal was self sustaining, not growing or diminishing. 
+I took advantage of this unusual moment, placing my field recorder on the floor in the middle of the church. 
+Then, during the ominous drone, I decided to run towards the microphone. 
+This is essentially the opposite of the subjective effect I described in the last station, where instead of moving away slowly from the microphone, I runs violently towards it, getting louder and louder as my footsteps approach. 
+In both cases this creates a transformation from subject (me coupled the microphone), to object (the microphone listening to me).
+
+The rapid footsteps, combined with the foreboding nature of the feedback resonance, the door and clicking sounds of the furnace room, and the darkness of the church, establish an aura of urgency and unease which I thought appropriate for the seventh elegy. 
+In the fragment that I selected, "Non, plus d’imploration, voix maintenant mûrie, plus de clameur.", Rilke invokes a call to action, a plea to resist the infirmity described in the preceding elegy. 
+Furthermore, this is the first time in the piece where two different spaces are juxtaposed. 
+By placing the listener simultaneously in the furnace room and in the church, there is a dreamlike, disorienting element, if not directly experienced, as the listener will not recognize the places of recording without prior knowledge, at least at a poetic level.
+
+\customincludegraphics[scale=0.25]{DSC00157.JPG}{The metal sliding door of the furnace room. When the recording took place this door was burgundy, but it has since been painted white.}%%Station 4
+
+\subsubsection{Fifth station}
+
+The fifth station marks the entry into the church itself. 
+Sonically, this is referenced with three recordings: the sound of a match being struck symbolizing the candles, the sound of feedback resonance that appeared mysteriously while testing high decay reverberation effects, and the sound of running footsteps that I recorded overtop of this feedback. 
+
+\customincludegraphics[scale=0.05]{candles.JPG}{The ever burning candles of l'église Saint-Édouard flicker in the darkness.}%%Station 5
+
+\subsubsection{Sixth station}
+%%\customincludegraphics[scale=0.25]{DSC00160.JPG}{}
+%%\customincludegraphics[scale=0.25]{DSC00171.JPG}{}
+The sixth station continues the previous station's reference to the opening sounds of the piece. 
+Another sample of the July storms of 2023 are heard, this time with an emphasis on the rain rather than the distant thunder sounds featured in the opening bed track. 
+Later on, this rain sound is crossfaded into the same bell recording from the beginning of the piece, this time in reverse. 
+This reversal of time provides a poignant reference to the theme of transcendance evoked by Rilke's final elegies, while creating a sense of aesthetic unity in the piece.
+
+\customincludegraphics[scale=0.07]{eglise_mh.JPG}{The bell towers whose sound features prominently throughout the piece.}%%Station 6
+
+\subsubsection{Seventh station}
+
+In the creative process, it is somewhat rare that ideas come in order, and more often than not a major part of this process is organizing the material in a coherent way. 
+That was certainly the case with Élégies, with the exception of this final station. 
+Not only was this the last part of le chemin to be finalized, but the realization of its necessity came only the day before the first performance on April 25, and the recording took place on the morning of the concert itself. 
+This station is in two parts, and the first part, the climbing of the stairwell leading to the organ loft, had been my leading idea for how to end the piece for some time. 
+It seemed to both symbolize the ascent from the long experience in the depths of the furnace room, which is connected to the organ loft stairwell through what's know as "la mezzanine", but it created a link to the beginning of the piece, which begins by my entering the organ loft from the stairwell. 
+In fact, on thing that I like about this element is that I imagine the listener to experience the ascent of the stairwell at the beginning of the piece as preceding the beginning of the piece, while after the recording of this ascent featured prominently at the end of the piece, the beginning might be re-interpreted as having started earlier, with the ascent being included as an integral part of the piece.
+
+This idea always seemed, however, sonically lacking. 
+The sound of climbing the stairwell in and of itself is not remarkable. 
+There is not the same timbral intrigue that the other stations have. 
+While preparing for the concert, I suddenly reflected on the first time I had ever seen l'église Saint-Édouard. 
+I was walking with my friends Marie-Hélène and Francis, and as we passed the church, admiring it's beauty, Marie-Hélène stopped to take photos of the many pigeons who call the church their home. 
+The sound of pigeons is an ever present part of the Saint-Édouard soundscape, and I suddenly realized that this would be the perfect reference to end the piece. 
+The sound of the flight of these gentle birds would parallel the ascent of the stairwell, adding to the spirit of transcendence while offering a more interesting timbral profile than the sound of the steps on their own. 
+I found an area of the church near a window where the pigeons often sit, and placed my recorder near the open window. 
+I left it recording for several hours, waiting for them to arrive, occasionally gesturing at the window to inspire them to fly away. 
+I used the sounds of their cooings and flutterings, layered, and gradually slowed down, against the slowed down recording of my footsteps ascending the stairwell. 
+Each fluttering is slightly longer, and as the recorder was placed at the middle of the stairwell between the mezzanine and the organ loft, my footsteps gradually become louder before fading off into the distance to end the piece, creating a sense of peace, yet uncertainty, as the footsteps march off to the unknown, leaving the listener behind.
+
+\begin{figure}[h]
+    \centering
+    \subfigure{
+        \includegraphics[scale=0.25]{DSC00117_3.JPG}
+    }
+    \subfigure{
+        \includegraphics[scale=0.201]{pigeons.jpg}
+    }
+    \caption{The stairwell leading to the organ loft on the left, and the pigeons of l'église Saint-Édouard nestled into the church's stone walls on the right.}
+    \label{fig:sidebyside}
+\end{figure}
+
 \section{Aesthetic references}
 
 Here I'd like to outline some of my major aesthetic influences and considerations that shape my approach to making art. 
@@ -1049,6 +1222,11 @@ At the same time that this commentary on the past fascinates me, I've also been 
 The first time that I listened to the music of Arca, for instance, I had the impression of an immediacy---that the music was somehow a living, breathing organism. 
 This is a very different approach from the former, and highlights an important tension in my thought. 
 I explore this tension through the mixing of live performance and pre-recorded sound files, the combination of what I'll call the organic (the voice) and the inorganic (the pipe organ), and the use of both traditional and modern stylistic references.
+
+Embedded in the question of liveness, especially in a concert context, is the issue of presence. 
+Often, performers, instrument designers and composers prioritize clear, comprehensible gestures in order to make the physicality of performance explicitly communicable. 
+In my own work, I'm just as interested in the subversion of these expectations, calling into question the nature of shared space. 
+By exiting and re-entering the view of the audience, including gestures that do not have a sonic result, as well as sounds that do not have a corresponding gesture, we engage in a play of shadows---a commentary on information loss and incommunicability. 
 
 \section{Tools}
 
@@ -1070,7 +1248,7 @@ I followed an excellent Virtual Pipe Organ (VPO) guide by Jester Musician on the
 I was even able to drive and manage the cues in OrganLab and Ableton Live with this same .xml file. 
 Unfortunately, as of my last attempts with MuseScore 4 in early 2024, it still does not support this VPO integration, and so I've been using MuseScore 3 until this is available.
 
-\customincludegraphics[width=\textwidth]{grand_orgue.png}{My frankenstein emulation of the Saint-Édouard organ, mimicking it's console and borrowing stops from several different organs.}
+\customincludegraphics[scale=0.3]{grand_orgue.png}{My emulation of the Saint-Édouard organ, mimicking it's console and borrowing stops from several different organs.}
 
 I will make a special mention of OpenMusic for helping me to explore some more technical solutions outside of my cognitive computational ability. 
 Though I didn't ultimately implement much of these experiments into the final score, it was nevertheless a useful way to workshop my ideas that I look forward to exploring more deeply in the future.
@@ -1078,101 +1256,6 @@ Though I didn't ultimately implement much of these experiments into the final sc
 \chapter{Élégies}
 
 \customincludegraphics[scale=0.5]{2024-04-28_MH_sat50.png}{}
-
-\section{Context and precedents}
-
-\section{Expanded practice}
-
-Until now I've been speaking of the pipe organ as an instrument. That's to say, an interface, with keyboards that receive gestural data and pipes that radiate sound to the listener. At the outset of this project I intended to focus on this instrumental perspective, expanding the timbral possibilities with synthesis.
-
-While creating élégies, however, it soon became clear that the space itself was integral to the context of the instrument. The pipe organ is unique in this regard, being not only an instrument, but a permanent architectural installation. This fundamental connection to the sacred space of the church was too compelling to ignore, and soon inspired me to look for ways to expand my artistic vision of the piece beyond a straightforward instrumental perspective.
-
-I call this approach an expanded practice, and in the following sections I'll describe several ways in which I explore this expansion.
-
-\subsection{Spatialisation}
-
-Firstly, the sound diffusion discussed in chapter two was a way for me to play with the fullness of the space. In this way, a listener hears not a unified sound source coming from the organ, but a wide variety of sources surrounding them. Each source has a poetic significance. The synthesis comes from the same direction as the pipe organ, creating a unified instrumental experience.
-
-The effects come from the opposing south transept, implying a dialectic between the instrument, and it's transformation, or in the case of the delay effect, an echo. The echo is perhaps the most cogent effect from a poetic perspective, as it evokes the sacred traditions of antiphony and call and response, while implying the echo of history. The echos create a feedback where each iteration becomes quieter and quieter, similar to how the further we move into the past, whether collectively in terms of history, or personally in terms of memory, the more foggy and dim. Another metaphor is the mirror. I imagine the organ as the protagonist, facing a distorted reflection of itself.
-
-\subsection{Bed tracks}
-
-The other sense in which I attempt to embody the richness of l'église Saint-Édouard is through the use of bed tracks, and in particular through what I call "le chemin", a reference to "le chemin de croix", or in english, the stations of the cross. In english we emphasize the moments in the fourteen stages of Christ's cruxifiction, yet in french, we emphasize the movement between them---the journey itself. My piece also represents a journey. Both musically and dramaturgically, as well as symbolically. The use of bed tracks is a prominent way that I access this symbolic dimension. Throughout the piece are heard audio recordings in various areas of the church, including outside the church. During my master's program, in addition to being organist, I also became caretaker at l'église Saint-Édouard, allowing me access to the many areas of the church that would not be otherwise accessible. I used this privilege to my advantage, taking audio recordings in the sprinkler room, in la salle Morin, in the furnace room, and others. The use of both recordings from the church itself, and the basement of the church has a personal dimension, representing the complementary, parallel roles of organist and caretaker that occupied so much of my attention during the writing process. The general narrative of the path is that the subject walks towards the church as the bells sound in the distance. She then enters the church through the basement, moving past the sprinkler room in la salle Saint-Édouard and through la salle Morin, eventually coming to the furnace room. In my mind, the furnace room represents the bowels of the church–a key moment of darkness in the narrative structure. At the same time the ominous sound of feedback in the church, throbs incessantly in the background. Later a match is struck, referring both to the candles that burn day and night in the church, as well as to the darkness of the path being walked. Finally, the sound of rain enters with the same sound of bells from the beginning of the piece, but in reverse. The last tableau is the sound of the subject walking up the steps from to the organ balcony, accompanied by the sound of pigeons.
-
-The reason that I call this path symbolic is that first of all, like a photograph, it is not the experience itself, but a representation of that experience, but furthermore, the sound recordings heard throughout the piece were not captured on the same day, and are not continuous through the space, at times juxtaposing several different spaces at once. This presents not a real path through the church, but an imagined one that escapes the bounds of temporal and spatial limitations.
-
-In the following sections, I'll outline the different stations of the chemin, in order of their appearance in the piece. Rather than fourteen, there are seven, with each recording representing different places in and outside of the church. Sometimes these recordings are used as linking material between movements, and sometimes they are heard during a movement.
-
-\subsubsection{First station}
-
-The first station opens the piece, and is a combination of two recordings. On the one hand, a recording of me walking down Beaubien from my apartment to l'église Saint-Édouard during the summer rain storms of July 2023. This recording is placed against a recording I downloaded from YouTube channel "à trouver" of the bells of l'église Saint-Édouard. This latter recording was distorted with "à trouver" and treated with the Spectral Blurring plugin by Michael Norris. These two recordings enter gradually, and are passed between the four speakers connected to my interface in a circular fashion. The sound of the rain in the speakers when encircling the listener is similar to the sound of the wind, which is punctuated by the sound of thunder in the distance. I was fascinated by the idea of placing into question the distinction between inside and outside. The church is a contained unit, which is often heavily sonically isolated from environmental sound, especially with stone constructions like l'église Saint-Édouard. By using audio recordings of the outside of the church within these confines provides a rare experience of hearing the external from within, as if this sacred boundary had been dissolved.
-
-This bed track serves a poetic purpose, but it also. serves a very practical purpose. It allows me to get to the organ discreetly. Before the concert, I give a brief talk describing the piece, my perspective as I was writing it, and what the listener can expect to hear. After his talk, I trigger the first bed track using Touch OSC on my phone. The track enters gradually, building, and eventually looping a portion of the two recordings. This looping means that my ascent to the organ loft is not constrained to a specific time. Upon arriving at the organ and verifying that everything is well prepared, I simply press the next key on the midi keyboard, triggering a slow fade out of the opening recordings.
-
-\customincludegraphics[scale=0.25]{DSC00200_1.JPG}{L'église Saint-Édouard from la rue Beaubien after nightfall.}%%Station 1
-
-\subsubsection{Second station}
-
-The second station is a recording of entering the church through the basement, and entering the sprinkler room in the basement of the church. This is the room that stores all the compressors and valves that connect to the elaborate sprinkler system throughout the church. I found that this room emitted an interesting electrical hum, and seeing as it's right beside the entrance on Beaubien, it seemed fitting to begin the journey inside the church at this point.
-
-This recording also serves a practical purpose, this time as linking material between movements. I trigger the recording with the attack of the final chord of the second movement, with the hum of the compressors copied and doubled at the fifth below, giving me the E natural to begin the next movement.
-
-\customincludegraphics[scale=0.25]{DSC00149_1.JPG}{The sprinkler room upon entering the basement of the church.}%%Station 2
-
-\subsubsection{Third station}
-
-The third station takes place in la salle Morin. This is a hall that is very frequently rented for events, and is named after the first priest of l'église Saint-Édouard Joseph-Napoléon Morin in 1895. This recording also provides a link between movements, this time between the fourth and fifth. The recording is triggered at the peak of a dynamic swell as the left and right hands drop out leaving only the sound of the buzzing fridge of la salle Morin and the ticking of a clock in the background. Here I play with the unique lens of subjectivity that the microphone provides. Elsewhere in les chemins, often I am holding the microphone as I walk, providing a close representation of my subjective aural experience. But in the third station, I leave the microphone on the fridge while I leave the room. This recording is then crossfaded with another recording where I move the microphone closer and closer to the ticking clock. At the same time, I double the sound of the clock, with a time offset, creating the sense of fracturing of time, while my footsteps recede into the distance.
-
-\begin{figure}[h]
-    \centering
-    \subfigure{
-        \includegraphics[scale=0.25]{DSC00123.JPG}
-    }
-    \subfigure{
-        \includegraphics[scale=0.25]{DSC00136.JPG}
-    }
-    \caption{The fridge of the salle Morin pictured on the left, and the clock viewed from the fridge on the right.}
-    \label{fig:sidebyside}
-\end{figure}
-
-\subsubsection{Fourth station}
-
-The fourth part of le chemin begins in the furnace room. This room has a fantastic sliding metal door that creates a loud, foreboding sound when opening or closing it. This sound opens the seventh movement, which is the only movement that is wholly electroacoustic. By this point the listeners are completely in the dark, and the sound of this door opening is preceded by the sound of a match being lit, as if preparing to enter the darkness of the furnace room. As we enter this room, a soft, dissonant drone is heard in the background. This drone appeared as a feedback loop while testing reverb treated amplification in the church. This was a very strange feedback loop, however, because generally feedback grows quickly out of control, looping the amplified signal again and again through the microphone until the sound becomes unbearably loud. In this case, the feedback established some sort of equilibrium point, where the signal was self sustaining, not growing or diminishing. I took advantage of this unusual moment, placing my field recorder on the floor in the middle of the church. Then, during the ominous drone, I decided to run towards the microphone. This is essentially the opposite of the subjective effect I described in the last station, where instead of moving away slowly from the microphone, I runs violently towards it, getting louder and louder as my footsteps approach. In both cases this creates a transformation from subject (me coupled the microphone), to object (the microphone listening to me).
-
-The rapid footsteps, combined with the foreboding nature of the feedback resonance, the door and clicking sounds of the furnace room, and the darkness of the church, establish an aura of urgency and unease which I thought appropriate for the seventh elegy. In the fragment that I selected, "Non, plus d’imploration, voix maintenant mûrie, plus de clameur.", Rilke invokes a call to action, a plea to resist the infirmity described in the preceding elegy. Furthermore, this is the first time in the piece where two different spaces are juxtaposed. By placing the listener simultaneously in the furnace room and in the church, there is a dreamlike, disorienting element, if not directly experienced, as the listener will not recognize the places of recording without prior knowledge, at least at a poetic level.
-
-\customincludegraphics[scale=0.25]{DSC00157.JPG}{The metal sliding door of the furnace room. When the recording took place this door was burgundy, but it has since been painted white.}%%Station 4
-
-\subsubsection{Fifth station}
-
-The fifth station marks the entry into the church itself. Sonically, this is referenced with three recordings: the sound of a match being struck symbolizing the candles, the sound of feedback resonance that appeared mysteriously while testing high decay reverberation effects, and the sound of running footsteps that I recorded overtop of this feedback. 
-
-\customincludegraphics[scale=0.05]{candles.JPG}{The ever burning candles of l'église Saint-Édouard flicker in the darkness.}%%Station 5
-
-\subsubsection{Sixth station}
-%%\customincludegraphics[scale=0.25]{DSC00160.JPG}{}
-%%\customincludegraphics[scale=0.25]{DSC00171.JPG}{}
-The sixth station continues the previous station's reference to the opening sounds of the piece. Another sample of the July storms of 2023 are heard, this time with an emphasis on the rain rather than the distant thunder sounds featured in the opening bed track. Later on, this rain sound is crossfaded into the same bell recording from the beginning of the piece, this time in reverse. This reversal of time provides a poignant reference to the theme of transcendance evoked by Rilke's final elegies, while creating a sense of aesthetic unity in the piece.
-
-\customincludegraphics[scale=0.07]{eglise_mh.JPG}{The bell towers whose sound features prominently throughout the piece.}%%Station 6
-
-\subsubsection{Seventh station}
-
-In the creative process, it is somewhat rare that ideas come in order, and more often than not a major part of this process is organizing the material in a coherent way. That was certainly the case with Élégies, with the exception of this final station. Not only was this the last part of le chemin to be finalized, but the realization of its necessity came only the day before the first performance on April 25, and the recording took place on the morning of the concert itself. This station is in two parts, and the first part, the climbing of the stairwell leading to the organ loft, had been my leading idea for how to end the piece for some time. It seemed to both symbolize the ascent from the long experience in the depths of the furnace room, which is connected to the organ loft stairwell through what's know as "la mezzanine", but it created a link to the beginning of the piece, which begins by my entering the organ loft from the stairwell. In fact, on thing that I like about this element is that I imagine the listener to experience the ascent of the stairwell at the beginning of the piece as preceding the beginning of the piece, while after the recording of this ascent featured prominently at the end of the piece, the beginning might be re-interpreted as having started earlier, with the ascent being included as an integral part of the piece.
-
-This idea always seemed, however, sonically lacking. The sound of climbing the stairwell in and of itself is not remarkable. There is not the same timbral intrigue that the other stations have. While preparing for the concert, I suddenly reflected on the first time I had ever seen l'église Saint-Édouard. I was walking with my friends Marie-Hélène and Francis, and as we passed the church, admiring it's beauty, Marie-Hélène stopped to take photos of the many pigeons who call the church their home. The sound of pigeons is an ever present part of the Saint-Édouard soundscape, and I suddenly realized that this would be the perfect reference to end the piece. The sound of the flight of these gentle birds would parallel the ascent of the stairwell, adding to the spirit of transcendence while offering a more interesting timbral profile than the sound of the steps on their own. I found an area of the church near a window where the pigeons often sit, and placed my recorder near the open window. I left it recording for several hours, waiting for them to arrive, occasionally gesturing at the window to inspire them to fly away. I used the sounds of their cooings and flutterings, layered, and gradually slowed down, against the slowed down recording of my footsteps ascending the stairwell. Each fluttering is slightly longer, and as the recorder was placed at the middle of the stairwell between the mezzanine and the organ loft, my footsteps gradually become louder before fading off into the distance to end the piece, creating a sense of peace, yet uncertainty, as the footsteps march off to the unknown, leaving the listener behind.
-
-\begin{figure}[h]
-    \centering
-    \subfigure{
-        \includegraphics[scale=0.25]{DSC00117_3.JPG}
-    }
-    \subfigure{
-        \includegraphics[scale=0.201]{pigeons.jpg}
-    }
-    \caption{The stairwell leading to he organ loft on he left, and the pigeons of l'église Saint-Édouard nestled into the church's stone walls on the right.}
-    \label{fig:sidebyside}
-\end{figure}
 
 \section{1e Élégie}
 
@@ -1342,7 +1425,6 @@ This melody begins on F\na\ and represents not a chromatic inversion, but a tran
 All durations in this voice are equalized as whole notes, and played with the pedals.
 
 \subsection{Form and composition process}
-
 
 This movement, like the first, begins with the voice.
 I considered using new motivic material, but ultimately decided that it would be better to use a variation of the original melody.
