@@ -23,9 +23,30 @@
 \usepackage{listings}
 \usepackage{parskip}
 \usepackage{musicography}
+\usepackage{xcolor}
+\usepackage{soul}
+\sethlcolor{red}
+\usepackage{soulpos}
+\usepackage{ulem}
+%\soulregister{\sout}{1}
+%\soulregister{\hl}{1}
 %%\usepackage{musixtex}
 \raggedbottom
 %%\usepackage{courier}
+
+\ulposdef{\hlr}{%
+    \rlap{\textcolor{red}{\rule[-.75ex]{\ulwidth}{2.5ex}}}%
+}
+
+\ulposdef{\hlst}{%
+    \rlap{\textcolor{red}{\rule[-.75ex]{\ulwidth}{2.5ex}}}%
+    \rule[.45ex]{\ulwidth}{.1ex}%
+}
+
+%%\newcommand{\hlst}[2][red]{%
+%%  \colorbox{#1}{\parbox{\dimexpr\linewidth-2\fboxsep}{\st{#2}}}%
+%%}
+
 \lstset{
     basicstyle=\fontsize{9}{9}\selectfont\ttfamily,
     showstringspaces=false
@@ -139,7 +160,7 @@
   % pour augmenter les chances qu'un algorithme de recherche
   % trouve votre document sur Internet, une fois diffusé.
 \hypersetup{
-  pdftitle = {Contemporary perspectives on the hyper-organ: conceiving, playing and writing for an augmented Casavant Frères pipe organ},
+  pdftitle = {Élégies for hyper-organ: conceiving, playing, and writing for an augmented Casavant Frères pipe organ},
   pdfauthor = {Sidloski·K},
   pdfsubject = {Developing a hyper-instrument interface for the pipe organ of l'église Saint-Édouard},
   pdfkeywords = {Hyper-instrument, pipe organ, sound design, composition, audio synthesis, sonic architecture, hauntology}
@@ -247,7 +268,9 @@
 %%% mémoire.
 %%%
 
-\title{Contemporary perspectives on the hyper-organ: conceiving, playing and writing for an augmented Casavant Frères pipe organ}
+\title{\hl{Élégies for hyper-organ: conceiving, playing and writing for an augmented Casavant Frères pipe organ}}
+
+%%cmt Changement du titre pour mettre l'accent sur les Élégies
 
 \author{Kjel Sidloski}
 
@@ -314,10 +337,12 @@ Démonté de son emplacement d'origine dans la tribune ouest, oublié et presque
 Je crois que le son de cet instrument raconte l'histoire de son patrimoine et qu'en étudiant ses propriétés uniques, nous comprenons mieux les nuances de l'histoire. 
 
 Ce projet comprend la création d'un module de synthèse sonore écrit en python, appelé OrganLab, et d'un réseau de diffusion, avec cinq haut-parleurs placés dans l'église, afin d'explorer l'espace en profondeur. 
-La culmination du projet est l'œuvre Élégies, inspirée des 10 Élégies de Duino, qui sert d'ensemble d'études pour explorer les capacités de l'hyper-organe, selon trois modalités de musique mixte : orgue acoustique et orgue synthétique, orgue avec traitement, et orgue avec piste de lit. 
+La culmination du projet est l'œuvre \hl{\textit{Élégies}}, inspirée des 10 Élégies de Duino, qui sert d'ensemble d'études pour explorer les capacités de \hl{l'hyper-orgue} selon trois modalités de musique mixte : orgue acoustique et orgue synthétique, orgue avec traitement, et orgue avec \hl{bande sonore}. 
 L'espace de l'église est également considéré dans sa totalité, invoquant une structure spatiale-narrative. 
 
 \textbf{Mots-clés :} Hyper-instrument, orgue à tuyaux, design sonore, composition, synthèse audio, architecture sonore.
+
+%%cmt Corrections orthographiquie
 
 %%------------------------------------------------- %
 %%              pages iv                            %
@@ -481,10 +506,12 @@ This chapter provides a detailed account of the technical and conceptual process
 
 The third chapter presents my creative approach as a performer and as a composer, as the various tools I used throughout the project. 
 
-Finally, the fourth chapter discusses the composition of the piece textit{Élégies}, written for my hyper-organ interface at l’église Saint-Édouard, and voice. 
+Finally, the fourth chapter discusses the composition of the piece \textit{Élégies}, written for my hyper-organ interface at l’église Saint-Édouard, and voice. 
 Based on the 10 Duino Élégies of Maria-Rainer Rilke, this piece seeks to navigate the continuum of acoustic and simulated---the sacred and the profane.
 
-In the appendix is also included a piece that I wrote for choir, singing glasses, and non-live electronics called textit{Jardin de givre}, performed in April, 2023 by the chorus of l'Université de Montréal under the direction of Matthew Lane. Though this work won't be analyzed in this text due to the focus on the hyper-organ, this work has several poetic resonances with textit{Élégies}, such as the use of a sacred space, the mixture of synthetic and non-live with acoustic sound sources, and the exploration of the voice.
+In the appendix is also included a piece that I wrote for choir, singing glasses, and non-live electronics called \textit{Jardin de givre}, performed in April, 2023 by the chorus of l'Université de Montréal under the direction of Matthew Lane. Though this work won't be analyzed in this text due to the focus on the hyper-organ, this work has several poetic resonances with \textit{Élégies}, such as the use of a sacred space, the mixture of synthetic and non-live with acoustic sound sources, and the exploration of the voice.
+
+%%cmt Reglage d'italique
 
 %%------------------------------------------------- %
 %%                pages 1                           %
@@ -523,31 +550,45 @@ For instance, with a small flute, a person with a very low voice can sound very 
 With a bowed instrument like the violin, one can sound the note indefinitely, bypassing the voices necessity to take breaths. 
 With a lute, one can sound more than one note at a time. 
 
-The results of a musical instrument are inherently subjective, and the goals of designing an expressive interface that is considered "good" are a reflection of the culture, the time, and the context of the people creating it. 
-For instance, one culture may optimize for resonance and slow decay, whereas another may want shorter, more percussive sounds. 
-One people may desire maximum expressivity through timbral variety, like with the human voice, while another may see timbral variability as a defect, and seek timbral consistency throughout the range of the instrument. 
+\hl{The results of a musical instrument are inherently subjective, and the goals of designing an expressive interface are a reflection of the person or people creating it. 
+For instance, one may optimize for resonance and slow decay, such as with a gong, whereas another may want shorter, more percussive sounds, like with a xylophone. 
+At a cultural level, one people may desire high timbral variety, such as in many african cultures, while another may seek timbral consistency throughout the range of a given instrument as is generally the case in the western classical tradition} \footcite[69]{fales_fusion_1994}. 
+
+%%cmt Ajout d'exemples et une citation
 
 The goals of innovation in musical interfaces are not uniform, and with an advance in one area of expressivity, another is lessened or lost. 
 This process of aesthetic prioritization makes instrument design inherently personal. It nevertheless represents a process of innovation, albeit non-linear. 
 
 In the twentieth and twenty-first centuries, with the advent of electronic and then digital technologies, people around the world have been reimagining the musical instrument from various perspectives. 
-On the one hand, practices like digital lutherie generally seek to create interfaces centered in digital technologies, using various sensors, and computers to input and process data for expressive means. 
-These kinds of approaches allow one to rethink what a musical instrument can be, without some of the physical restrictions and cultural baggage that come with a traditional instrument with a long history. 
-These devices range from digital interfaces that mimick instrumental approaches, to gestural interfaces that generate sound simply by moving the instrument through the air.
+\hl{Digital musical instuments (DMI), in particular, allow for a decoupling of the control interface and the resulting sound that is unparalleled in acoustic, and even electronic instruments.
+The practice of creating these imstruments is called digital lutherie and involves designing and creating an interface using various sensors, and the mapping of these sensors to some kind of sound generation mechanism.
+Digital lutherie allows one to rethink what a musical instrument can be without physical restrictions and cultural baggage that come with a traditional instrument, yet many projects incorporate traditional acoustic instruments to varying degrees. 
+Miranda and Wanderley identify a spectrum of DMIs, with interfaces that do not ressemble any traditional instrumet, such as the Radio Baton, which controls sound simply by moving two sticks through the air, on one side, interfaces that mimick instrument approaches, such as MIDI keyboards, or the Yamaha WX series of digital saxophones in the middle, and approaches that attempt to integrate digital technologies with an acoustic instrument on the other side} \footcite[19-20]{miranda_new_2006}.
 
-The practice of augmented, or hyper-instruments takes a different approach. 
-Rather than starting from scratch, the hyper-instrument seeks to integrate digital technologies with more traditional acoustic instruments. 
-This approach has several advantages and obstacles. 
+%%cmt Clarification sur le pratique de DMI. Ajout d'exemples et une citation
+
+\hl{This last approach of integrating digital technologies with acoustic instruments is a relatively recent field of exploration, dating to several projects in the late 1980s and early 1990s such as MIT's Media Lab, the Cook/Morrill trumpet, and IRCAM's MIDI flute, and has acquired several terms.
+Perhaps the most widely used is 'augmented instrument', but they have also been dubbed 'hyper', 'meta', or 'super' instruments.
+One may rightfully point out that an instrument like the electric guitar, or any amplified instrument, could be considered an augmented instrument, yet at least in the academic literure on contemporary music, the term has developed a specific connotation of association with digital technologies. 
+The question of whether a distinction can be made between augmented, hyper, meta, or super instruments is not straightfoward either, especially due to the vast variety of differing approaches.
+For the purposes of this paper, we will rely on the writings of Miranda and Wanderley} \footcite[21]{miranda_new_2006} \hl{, Palacio-Quintin} \footcite[25]{palacio-quintin_composition_2012-1} \hl{, and Thibodeau } \footcite[1]{thibodeau_trumpet_nodate} \hl{, all of which treat these terms as being synonymous.
+Going forward, I will use the terms augmented or hyper-instruments interchangeably.}
+
+%%cmt Définition plus precise des termes hyper et augmented instrument.
+
+Now, the augmented instrument approach has several advantages and obstacles when compared with a more purely digital instrument. 
+
 On the one hand, there is something to be said for longevity.
-If an instrument has endured the test of time, and come to be used for generations upon generations, that demonstrates a creative and expressive capacity that is simply established by time.
-
-On the other hand, one may easily pose the question: why ruin a good thing?
+If an instrument has come to be used for generations upon generations, that demonstrates a creative and expressive capacity that is simply established by time.
+On the other hand, one may pose the question: why ruin a good thing?
 If the instrument already works, does what it needs to do, and has an established sound that we all love, what is there to add?
-Of course, there is nothing wrong with the original instruments, and explorations of augmented instruments typically celebrate a multiplicity of approaches rather than holding the goal of a general improvement.
-However, one can also make the argument that these instruments, so loved throughout time, deserve to be revisited with a modern perspective, both in terms of technology that simply wasn't available in the original periods of the instruments' evolutions, and in terms of the ideas and conceptions that the original builders and listeners didn't have access to. Furthermore, this spirit of exploration is the very same process that led to the creation of these instruments in the first place.
-In fact, it is only in recent centuries that western instruments have become standardized, and historically, the instrument as a thing in flux, responding to the needs and desires of the performers and composers has been the norm.
-The baroque era was a particularily rich period of innovation in this regard.
+Of course, there is nothing wrong with the original instruments, /hlst{and explorations of augmented instruments typically celebrate a multiplicity of approaches rather than holding the goal of a general improvement.}, however, one can also make the argument that they deserve to be revisited with a modern perspective, both in terms of technology that wasn't available in the original periods of the instruments' evolutions, and in terms of the ideas and conceptions that the original builders and listeners didn't have access to. 
+Furthermore, this spirit of exploration is the very same process that led to the creation of these instruments in the first place.
+In fact, it is only in recent centuries that western instruments have become standardized, and historically, the instrument as a thing in flux, responding to the needs and desires of the performers and composers, has been the norm.
+The \hl{Baroque} era was a particularily rich period of innovation in this regard.
 We can point, for instance, to the innovation of the hautbois promoted prominently by Jean-Baptiste Lully \footcite{wainwright_renaissance_2017}.
+
+%%cmt Concision de pensée. Baroque en majuscule.
 
 Pursuing this expansion comes with both great possibilities, and a certain burden of responsibility.
 The historic traditions of these instruments give them a weight, not just in terms of the playing traditions, and the mechanisms involved in their interfaces, but also in the many, often unconscious, symbolic associations that we have formed with these instruments.
@@ -556,19 +597,43 @@ If one is careful to take into consideration the nuances of the original interfa
 
 \subsection{Commonalities}
 
-Hyper-instruments are extremely diverse and non-standardized, with an enormous range of possibilities, each instrument designer, and each instrument containing novel approaches. 
-At the same time each hyper-instrument will have a certain framework in common. 
-They will always use an acoustic instrument as the basis, which will then be integrated with digital technology of some sort. 
-This technology can look vastly different depending on the context, but it will always have an input and an output. 
-The input on a traditional musical instrument like a cello would be the detailed gestural information generated by pressing the fingers to the neck in a nuanced way while drawing the bow at a given angle and velocity. 
-This information includes not only precisely where the finger is placed on the neck, but how it is placed (whether it is rotating or rocking etc.) This three-dimensional gestural data yields an abundant complexity of data on the input side, which we can also call the interface. 
-On the output side is how this data is treated. 
-In the case of the cello, the gesture is carefully crafted to produce a certain resonance of the soundboard, which ultimately transmits audible sound to the listener. 
-In a hyper-instrument interface, we have the same concept, yet with a plethora of options for both the interface and the treatment of data. 
-For the interface, the most commonly used option are gestural trackers. 
-Taking the same analogy as the cello, gestural tracking is an intuitive solution, as it simply extends the paradigm of converting gesture into sound, taking in even more data, which can then be used in various ways. 
-There are, however, other approaches, such as air pressure sensitivity sensors, touch pressure sensitivity sensors, midi controllers, or even simply microphones. 
-As far as treatment, the most common approaches are live effects like distorsion, reverb, or any way in which the audio signal is processed, synthesis, where the synthesized sound is directed by the input data, but may or may not bear a resemblance to the instrumental sound, or triggering of sound files, again, where the sound files in question can bear or not a resemblance to the instrument, and can range from sample level grains, to long recordings.recordings.
+Hyper-instruments are diverse and non-standardized, with an enormous range of possibilities. \hlst{, each instrument designer, and each instrument containing novel approaches.} 
+Despite this, the general framework is consistent : an acoustic instrument as the basis, with digital technology of some sort added. 
+This technology will always have an input side (the interface that the musician(s) interact with) and an output (generally, sound!) \footcite[3]{miranda_new_2006}. 
+An acoustic instrument can already be thought of in these terms.
+For instance, for a cello, the interface collects detailed gestural information generated by pressing the fingers to the neck in a nuanced way while drawing the bow at a given angle and velocity. 
+\hlst{This information includes not only precisely where the finger is placed on the neck, but how it is placed (whether it is rotating or rocking, etc.) 
+This three-dimensional gestural data yields an abundant complexity of data on the input side, which we can also call the interface.
+In the case of the cello, }These gestures are carefully crafted to produce a certain resonance of the soundboard, which ultimately transmits audible sound to the listener. 
+Miranda and Wanderley note that "[The] separation between gestural controller and sound generation [sic] is impossible with traditional acoustic instruments." \footcite[3]{miranda_new_2006}, due to their intrinsically dependent relationship.
+Yet, when working with digital instruments, it is useful to think in these terms, as we have much more independent control of how gesture is translated into sound \footcite[24--25]{jorda_digital_2005}.
+In a hyper-instrument concept, we must work with the hard constraints of the existing acoustic interface, while considering the interactions and implications of adding new elements. 
+%%cmt Ajout de citations
+
+\hl{In terms of concrete options when considering approaches to augmenting an acoustic instrument, one of the most common is the use of gestural sensors. 
+Taking the same example of the cello, gesture tracking is an intuitive solution, as it simply extends the paradigm of converting gesture into sound, taking in even more data, which can then be used in various ways. 
+There are, however, other approaches, such as air pressure sensitivity sensors, touch pressure sensitivity sensors, midi controllers, or even microphones, to name a few.} 
+
+%%cmt Ajout de nuance
+
+\hl{Once this data is captured by the performer(s), it needs to somehow be translated into sound. Some authors such as Miranda and Wanderley \footcite[3]{miranda_new_2006} place emphasis on sound synthesis as a sound generating process, but I find Palatio-Quintin's straightforward and inclusive scope more compelling, naming three possible modes of processing input data} \footcite[52]{palacio-quintin_composition_2012-1}:
+
+{\begin{enumerate}
+  \item \textbf{Digital Audio Effects on Acoustic Sound:} The acoustic instrument's sound is transformed in real-time by digital signal processing. 
+The computer serves as a direct extension of the instrument's sound, with the potential for gestural control over the effects to maintain real-time interactivity.
+  
+  \item \textbf{Sound Synthesis Controlled by Gestures:} The computer generates sound independently, controlled by the performer's gestures, either captured directly or through sound analysis. 
+This synthesis can diverge significantly from the acoustic sound.
+  
+  \item \textbf{Accompanying Electroacoustic Sounds:} Pre-recorded or computer-generated sounds accompany the performer, independent of the performer's actions once initiated. 
+This can include fixed sounds or algorithmically generated sounds, offering interaction through the performer's reaction to the evolving sound environment.
+\end{enumerate}
+
+%%cmt Déplacement de la liste pour donner une meilleur contexte (ce n'est pas exclusive à la flûte)
+
+As far as treatment, the most common approaches are live effects like distorsion, reverb, or any way in which the audio signal is processed, synthesis, where the synthesized sound is directed by the input data, but may or may not bear a resemblance to the instrumental sound, or triggering of sound files, again, where the sound files in question can bear or not a resemblance to the instrument, and can range from sample level grains, to long \hl{recordings}.
+
+%%cmt Correction d'orthographie
 
 The choice of approach, or mix of approaches, will depend both on the intentions of the person performing the inquiry, and on the instrument iself. The historical context of performing traditions of the instrument in question will invariably inform the interface decisions, and the aural historical context will generally inform the method of treatment, either striving for timbral similarity, or juxtaposition, or both.
 
@@ -709,19 +774,6 @@ In terms of interaction, Palacio-Quintin’s approach aligns with Joel Chadabe's
 The modes of interaction can vary; the music is not entirely fixed, and the computerized system remains flexible, giving the performer some freedom in their play. 
 This aligns with her interest in improvised music, in pursuit of expressive liberty, being challenged and pushed by the computer systems rather than creatively confined. 
 This interactive system approach changes traditional subdivisions of musical practice, merging composer, score, work, performer, performance, instrument, and environment into one process.
-
-According to Palacio-Quintin, in the context of hyper-flute, there are three main types of musical interaction between acoustic and electroacoustic components \footcite[52]{palacio-quintin_composition_2012-1}:
-
-\begin{enumerate}
-  \item \textbf{Digital Audio Effects on Acoustic Sound:} The acoustic instrument's sound is transformed in real-time by digital signal processing. 
-The computer serves as a direct extension of the instrument's sound, with the potential for gestural control over the effects to maintain real-time interactivity.
-  
-  \item \textbf{Sound Synthesis Controlled by Gestures:} The computer generates sound independently, controlled by the performer's gestures, either captured directly or through sound analysis. 
-This synthesis can diverge significantly from the acoustic sound.
-  
-  \item \textbf{Accompanying Electroacoustic Sounds:} Pre-recorded or computer-generated sounds accompany the performer, independent of the performer's actions once initiated. 
-This can include fixed sounds or algorithmically generated sounds, offering interaction through the performer's reaction to the evolving sound environment.
-\end{enumerate}
 
 \section{Hyper-organ}
 
@@ -1257,7 +1309,7 @@ Though I didn't ultimately implement much of these experiments into the final sc
 
 \customincludegraphics[scale=0.5]{2024-04-28_MH_sat50.png}{}
 
-\section{1e Élégie}
+\section{colorbox{red}{1\textsuperscript{re} élégie}}
 
 \epigraph{\textit{Qui, si je criais, qui donc entendrait mon cri parmi les hiérarchies des Anges?}}{}
 
@@ -1363,7 +1415,7 @@ I use this word because the proportions of metrical notation are present, yet wi
 
 \customincludegraphics[width=\textwidth]{1e_3}{Rising chords based on open fifths and fourths (p. 1, sys. 3)}
 
-\section{2e Élégie}
+\section{\colorbox{red}{2\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Tout Ange est terrible. Et pourtant, malheur à moi! et pourant je vous invoque...}}{}
 
@@ -1458,7 +1510,7 @@ This mirrors the thematic journey of the music, from the divine to the earth, th
 
 \customincludegraphics[width=\textwidth]{2e_3}{The final systems of this movement lead to a half cadence in A minor as an audio recording is triggered (mm. 15-23)}
 
-\section{3e Élégie}
+\section{\colorbox{red}{3\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Chanter l'Amante est une chose. C'en est une autre, hélas! de chanter cet occulte Fleuve-Dieu du sang.}}{}
 
@@ -1588,7 +1640,7 @@ The 7th trigger is then initiated, beginning a slow crossfade from the bell soun
 
 \customincludegraphics[width=\textwidth]{3e_4}{The end of the second variation, an improvisational section, and the three synthetic bell tolls that end the movement (m. 26 to p. 5, sys. 2)}
 
-\section{4e Élégie}
+\section{\colorbox{red}{4\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Vous, Arbres de la Vie, oh! quand donc hivernaux? Nous n'allons pas à l'unisson.}}{}
 
@@ -1666,7 +1718,7 @@ This begins the third station (p. 12, system 1), which is accompanied by the ped
 
 \customincludegraphics[width=\textwidth]{4e_5}{The poetic fragment set over held pedal tones and a recording of la salle Morin (p.12 sys.1)}
 
-\section{5e Élégie}
+\section{\colorbox{red}{5\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Mais les errant, dis-moi qui sont-ils, ces voyageurs fugaces?}}{}
 
@@ -1792,7 +1844,7 @@ At this moment there is a short improvisational section, where rather than impro
 
 \customincludegraphics[width=\textwidth]{5e_5}{This movement ends with aleatoric stop selection while alternating expressive pedals (mm. 49-50)}
 
-\section{6e Élégie}
+\section{\colorbox{red}{6\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Figuier, depuis longtemps déjà ce m'est un signe que presque entièrement tu te dérobes à la gloire des fleures...}}{}
 
@@ -1893,7 +1945,7 @@ At the same time, seeing as the performer has left the stage, they will no longe
 This simple visual elaboration signifies on the one hand, the simple, fragile, yet constant spiritual presence of our protagonist, symbolized as a fig tree, and simultaneously represents the phantom of the organ in its original home, now vacant.
 It also invokes the separation of the traditional physical performer and the mechanized, automated version--the ghost in the machine.
 
-\section{7e Élégie}
+\section{\colorbox{red}{7\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Non, plus d’imploration, voix maintenant mûrie, plus de clameur...}}{}
 
@@ -2029,7 +2081,7 @@ Due to the relatively dark conditions, my identity remains unclear, leading audi
 Once the music sonically reaches the low pulsating drone, I reenter the stage, putting on a lavalier microphone and approaching the organ. 
 Although the score marks this as the beginning of the eighth movement, I see it as a liminal space between the seventh and eighth movements—a threshold where the boundaries between the two begin to blur.
 
-\section{8e Élégie}
+\section{\colorbox{red}{8\textsuperscript{e} élégie}}
 
 \epigraph{\textit{A plein regards, la créature voit dans l’Ouvert.}}{}
 
@@ -2104,7 +2156,7 @@ The introduction of the beat and the transformation of the voice through subharm
 The dance-like rhythm, juxtaposed with the earlier, more classical and theatrical elements, represents a fusion of the old and the new, the physical and the spiritual. 
 The use of church samples in the beat underscores the idea that the church itself is participating in this transformative moment, blurring the lines between the sacred and the profane.
 
-\section{9e Élégie}
+\section{\colorbox{red}{9\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Pourquoi, s’il est loisible aussi bien de remplir son délai d’existence en laurier, sombre un peu plus que tous les autres verts, avec ces vaguelettes...}}{}
 
@@ -2159,7 +2211,7 @@ Pourquoi s'il est loisible."
 
 \customincludegraphics[width=\textwidth]{9e_3}{The lament melody simplified and quantized to whole notes in the left hand, with the arch theme in the right hand, with voice (mm. 79-81)}
 
-\section{10e Élégie}
+\section{\colorbox{red}{10\textsuperscript{e} élégie}}
 
 \epigraph{\textit{Vienne le jour enfin, sortant de la voyance encolérée, où je chante la gloire et la jubilation aux Anges qui l’agréent. Que des marteaux du cœur au battement très clair aucun ne vienne à faux tomber sur une corde molle, ou encore douteuse ou prête à se briser.}}{}
 
