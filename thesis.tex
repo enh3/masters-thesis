@@ -15,6 +15,7 @@
 \usepackage{csquotes}
 \usepackage{graphicx}
 \usepackage[backend=biber,style=verbose]{biblatex}
+\usepackage{ragged2e}
 \graphicspath{{./graphics/}}
 \usepackage{caption}
 %%\usepackage{chngcntr}
@@ -33,6 +34,12 @@
 %%\usepackage{musixtex}
 \raggedbottom
 %%\usepackage{courier}
+
+% Modify the footcite format to use left-alignment
+\makeatletter
+\DeclareFieldFormat{footcite:note}{%
+  \noindent\RaggedRight\@thefnmark.\space#1}
+\makeatother
 
 \ulposdef{\hlr}{%
     \rlap{\textcolor{red}{\rule[-.75ex]{\ulwidth}{2.5ex}}}%
@@ -243,6 +250,8 @@
 %%%%%%%%%%                                     %%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%cmt général - justification gauche des notes de bas de page
 
 \begin{document}
 \entetedynamique
@@ -642,8 +651,10 @@ The choice of approach, or mix of approaches, will depend both on the intentions
 In the previous section, we discussed the input and output components of hyper-instrument design, yet this says nothing of the relationship between the two.
 This is what is broadly referred to as mapping, in which a certain form of data or grouping of data is made to correspond with a given audio event, including layers of multiple events or a sequence of events. 
 
-Andy Hunt and Ross Kirk provide a detailed analysis of mappings in musical interface design in their article textit{Mapping Strategies for Musical Performance} \footcite{hunt_mapping_2000}.
+Andy Hunt and Ross Kirk provide a detailed analysis of mappings in musical interface design in their article \hl{\textit{Mapping Strategies for Musical Performance}} \footcite{hunt_mapping_2000}.
 Cléo-Palacio Quintin, whose work on hyper-flute will be discussed later in the chapter, points out that there is an important, distinction between what she calls convergent and divergent mappings, where a convergent mapping implies that several data inputs affect the same output, whereas a divergent mapping means that one input parameter affects multiple outputs \footcite[44--45]{palacio-quintin_composition_2012-1}. 
+
+%%cmt Correction orthographique
 
 She then goes on to make the argument that while divergent mappings are often time more intuitive for a new instrument designer, that ultimately convergent mappings are more intuitive for the player, leading to a more holistic approach. 
 
