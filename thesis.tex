@@ -8,14 +8,17 @@
 %% Pour une thèse
 %%\documentclass[12pt,twoside,phd]{dms}
 
+\counterwithout{footnote}{chapter}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[utf8]{inputenc} %Obligatoires
 \usepackage[T1]{fontenc}    %
 \usepackage{epigraph}
 \usepackage{csquotes}
 \usepackage{graphicx}
-\usepackage[backend=biber,style=verbose]{biblatex}
+\usepackage[backend=biber, style=verbose-ibid, isbn=false, url=false, doi=false, eprint=false]{biblatex}
 \usepackage{ragged2e}
+%\usepackage[hang,multiple]{footmisc}
+%\newcommand\ftnote[1]{\footnote{\raggedright#1}}
 \graphicspath{{./graphics/}}
 \usepackage{caption}
 %%\usepackage{chngcntr}
@@ -28,7 +31,7 @@
 \usepackage{soul}
 \sethlcolor{red}
 \usepackage{soulpos}
-\usepackage{ulem}
+%\usepackage{ulem}
 %\soulregister{\sout}{1}
 %\soulregister{\hl}{1}
 %%\usepackage{musixtex}
@@ -36,10 +39,10 @@
 %%\usepackage{courier}
 
 % Modify the footcite format to use left-alignment
-\makeatletter
-\DeclareFieldFormat{footcite:note}{%
-  \noindent\RaggedRight\@thefnmark.\space#1}
-\makeatother
+%\makeatletter
+%\DeclareFieldFormat{footcite:note}{%
+%  \noindent\RaggedRight\@thefnmark.\space#1}
+%\makeatother
 
 \ulposdef{\hlr}{%
     \rlap{\textcolor{red}{\rule[-.75ex]{\ulwidth}{2.5ex}}}%
@@ -561,7 +564,7 @@ With a lute, one can sound more than one note at a time.
 
 \hl{The results of a musical instrument are inherently subjective, and the goals of designing an expressive interface are a reflection of the person or people creating it. 
 For instance, one may optimize for resonance and slow decay, such as with a gong, whereas another may want shorter, more percussive sounds, like with a xylophone. 
-At a cultural level, one people may desire high timbral variety, such as in many african cultures, while another may seek timbral consistency throughout the range of a given instrument as is generally the case in the western classical tradition} \footcite[69]{fales_fusion_1994}. 
+At a cultural level, one people may desire high timbral variety, such as in many african cultures, while another may seek timbral consistency throughout the range of a given instrument as is generally the case in the western classical tradition} . 
 
 %%cmt Ajout d'exemples et une citation
 
@@ -580,7 +583,7 @@ Miranda and Wanderley identify a spectrum of DMIs, with interfaces that do not r
 Perhaps the most widely used is 'augmented instrument', but they have also been dubbed 'hyper', 'meta', or 'super' instruments.
 One may rightfully point out that an instrument like the electric guitar, or any amplified instrument, could be considered an augmented instrument, yet at least in the academic literure on contemporary music, the term has developed a specific connotation of association with digital technologies. 
 The question of whether a distinction can be made between augmented, hyper, meta, or super instruments is not straightfoward either, especially due to the vast variety of differing approaches.
-For the purposes of this paper, we will rely on the writings of Miranda and Wanderley} \footcite[21]{miranda_new_2006} \hl{, Palacio-Quintin} \footcite[25]{palacio-quintin_composition_2012-1} \hl{, and Thibodeau } \footcite[1]{thibodeau_trumpet_nodate} \hl{, all of which treat these terms as being synonymous.
+For the purposes of this paper, we will rely on the writings of Miranda and Wanderley} \footcite[21]{miranda_new_2006} \hl{, Palacio-Quintin} \footcite[25]{palacio-quintin_composition_2012-1} \hl{, and Thibodeau } \footcite[1]{thibodeau_trumpet_2011} \hl{, all of which treat these terms as being synonymous.
 Going forward, I will use the terms augmented or hyper-instruments interchangeably.}
 
 %%cmt Définition plus precise des termes hyper et augmented instrument.
@@ -838,7 +841,7 @@ This integration enables the interfacing of disparate periods of sonic aesthetic
 
 The Orgelpark's approach to organ design and performance exemplifies a forward-thinking vision that respects historical traditions while embracing contemporary innovations. 
 The hyper-organ project demonstrates how digital enhancements can enrich the expressive potential of historical instruments, offering new possibilities for both performers and composers. 
-By highlighting the interplay between historical authenticity and modern technology, the Orgelpark sets a precedent for future developments in the field of organ music.
+By highlighting the interplay between historical authenticity and modern technology, the Orgelpark sets a precedent for future developments in the field of organ music \footcite[69]{fales_fusion_1994}.
 
 \section{Concluding thoughts}
 
