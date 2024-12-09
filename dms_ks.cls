@@ -35,7 +35,7 @@
 %%%  ====================================================================
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dms}[2019/07/18 2.2]
+\ProvidesClass{dms_ks}[2019/07/18 2.2]
 \newif\iftagsleft@
 \newif\ifphd@
 \newif\ifmaitrise@
@@ -1694,16 +1694,16 @@
 \else
   \newcounter{figure}[chapter]
 \fi
-\def\captionheadfont@{\scshape}
-\def\captionfont{\normalfont}
-\def\captionseparator{}
-\def\captionfont@{\normalfont}
-\def\ftype@figure{1}
-\def\ext@figure{lof}
-\def\fnum@figure{\figurename~\thefigure}
-\def\figurename{Fig.}
-\def\figure{\@float{figure}}
-\def\endfigure{\end@float}
+%\def\captionheadfont@{\scshape}
+%\def\captionfont{\normalfont}
+%\def\captionseparator{}
+%\def\captionfont@{\normalfont}
+%\def\ftype@figure{1}
+%\def\ext@figure{lof}
+%\def\fnum@figure{\figurename~\thefigure}
+%\def\figurename{Fig.}
+%\def\figure{\@float{figure}}
+%\def\endfigure{\end@float}
 \ifphd@
    \newcounter{table}
    \AtBeginDocument{\ifarticleenchapitre\else\def\thetable{\arabic{table}}\fi}
@@ -1762,14 +1762,6 @@
   dont \auteur, \titre, \sujet et, dans le cas d'un article, \revue. Si vous désirez en laisser un
   vide, vous pouvez faire p.ex. \revue{\relax}.}
      \errmessage{DMS : Vous devez remplir le champ \string#1 avant d'appeler \string\maketitle}}
-
-\newcommand{\customincludegraphics}[3][]{%
-    \begin{figure}[H]
-        \centering
-        \includegraphics[#1]{#2}
-        \caption{#3}
-    \end{figure}
-}
 
 \endinput
 %%

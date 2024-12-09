@@ -9,6 +9,7 @@
 %%\documentclass[12pt,twoside,phd]{dms}
 
 \counterwithout{footnote}{chapter}
+\counterwithout{figure}{chapter}
 \usepackage[onehalfspacing]{setspace}
 \usepackage[utf8]{inputenc} %Obligatoires
 \usepackage[T1]{fontenc}    %
@@ -17,12 +18,8 @@
 \usepackage{graphicx}
 \usepackage[backend=biber, style=verbose-ibid, isbn=false, url=false, doi=false, eprint=false]{biblatex}
 \usepackage{ragged2e}
-%\usepackage[hang,multiple]{footmisc}
-%\newcommand\ftnote[1]{\footnote{\raggedright#1}}
 \graphicspath{{./graphics/}}
 \usepackage{caption}
-%%\usepackage{chngcntr}
-%%\counterwithout{figure}{chapter}
 \usepackage{float}
 \usepackage{listings}
 \usepackage{parskip}
@@ -31,12 +28,35 @@
 \usepackage{soul}
 \sethlcolor{red}
 \usepackage{soulpos}
-%\usepackage{ulem}
-%\soulregister{\sout}{1}
-%\soulregister{\hl}{1}
-%%\usepackage{musixtex}
+\usepackage[stable]{footmisc}
+\usepackage{newfloat}
+\usepackage{bold-extra}
+\DeclareFloatingEnvironment[name={EXAMPLE}]{example}
+\DeclareFloatingEnvironment[name={FIGURE}]{figure2}
 \raggedbottom
 %%\usepackage{courier}
+
+% Reset the example counter to use simple numbering
+\makeatletter
+\@addtoreset{example}{section} % Reset the example counter at the section level
+\renewcommand{\theexample}{\arabic{example}} % Simple numbering (1, 2, 3...)
+%\def\captionheadfont@{\scshape} % Same as the figure
+\def\captionfont{\normalfont} % Same as the figure
+\def\captionseparator{} % Same as the figure
+\def\ftype@example{1} % Same as figure
+\def\ext@example{lof} % Same as figure
+%\def\fnum@example{\figurename~\theexample} % Format like figure (e.g., "Example 1")
+%\def\figurename{FIGURE} % Ensures the "Example" label is similar to "Fig."
+\makeatother
+
+%\makeatletter
+%\@addtoreset{figure2}{section} % Reset the example counter at the section level
+%\renewcommand{\thefigure2}{\arabic{figure2}} % Simple numbering (1, 2, 3...)
+%\makeatother
+
+\DeclareCaptionLabelFormat{bsc}{\textbf{\textsc{#1}\ #2}}
+\captionsetup[figure]{labelformat=bsc, textfont=small, labelfont=small, labelsep=colon}
+\captionsetup[example]{labelformat=bsc, textfont=small, labelfont=small, labelsep=colon}
 
 % Modify the footcite format to use left-alignment
 %\makeatletter
@@ -47,6 +67,26 @@
 \makeatletter
 \renewcommand{\@makefnmark}{\hbox{\@textsuperscript{\fontsize{7}{7}\selectfont\@thefnmark}}}
 \makeatother
+
+\newcommand{\customincludegraphics}[3][]{%
+    \begin{figure}[H]
+        \centering
+        \includegraphics[#1]{#2}
+        \caption{#3}
+    \end{figure}
+}
+
+\newcommand{\customincludeexamples}[3][]{%
+    \begin{example}[H]
+        \centering
+        \includegraphics[#1]{#2}
+        \caption{#3}
+    \end{example}
+}
+
+%\makeatletter
+%\renewcommand{\captionlabeldelim}{~} % Use no space before the colon
+%\makeatother
 
 \ulposdef{\hlr}{%
     \rlap{\textcolor{red}{\rule[-.75ex]{\ulwidth}{2.5ex}}}%
@@ -66,12 +106,12 @@
     showstringspaces=false
 }
 
-\DeclareCaptionFormat{custom}{%
-    \setlength{\parindent}{0pt}% Remove the paragraph indentation
-    %%\centered% Justify the caption text to the left
-    \textbf{\fontsize{9pt}{0pt}\selectfont #1 #2}{\fontsize{9pt}{0pt}\selectfont #3}% Adjust the label formatting
-}
-\captionsetup[figure]{format=custom, labelsep=colon, belowskip=9pt, skip=9pt}
+%\DeclareCaptionFormat{custom}{%
+%    \setlength{\parindent}{0pt}% Remove the paragraph indentation
+%    %%\centered% Justify the caption text to the left
+%    \textbf{\fontsize{9pt}{0pt}\selectfont #1 #2}{\fontsize{9pt}{0pt}\selectfont #3}% Adjust the label formatting
+%}
+%\captionsetup[figure]{format=custom, labelsep=colon, belowskip=9pt, skip=9pt}
 
 \newlength{\oldparskip}
 \setlength{\oldparskip}{\parskip}  % Save the current parskip
@@ -258,7 +298,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%cmt général - justification gauche des notes de bas de page et suppression des URL pour les articles. Suppression des répétitions de la même information (role de concierge). « le chemin » en italique, ajout de minutage
+%%cmt général - justification gauche des notes de bas de page et suppression des URL pour les articles. Suppression des répétitions de la même information (role de concierge). « le chemin » en italique, ajout de minutage. Majuscule au mot « Elegy ».
 
 \begin{document}
 \entetedynamique
@@ -274,6 +314,7 @@
 %% \version est la version de votre manuscrit
 %%
 \version{1}
+\pagenumbering{roman}
 
 %%------------------------------------------------- %
 %%              pages i et ii                       %
@@ -284,7 +325,7 @@
 %%% mémoire.
 %%%
 
-\title{\hl{Élégies for hyper-organ: conceiving, playing and writing for an augmented Casavant Frères pipe organ}}
+\title{\hl{\textit{Élégies} for hyper-organ: conceiving, playing and writing for an augmented Casavant Frères pipe organ}}
 
 %%cmt Changement du titre pour mettre l'accent sur les Élégies
 
@@ -490,6 +531,7 @@ Thank you all.
 
 \NoChapterPageNumber
 \cleardoublepage
+\pagenumbering{arabic}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                                  %
@@ -506,7 +548,7 @@ Before we get into the details, let me begin with a bit of context on my backgro
 
 From my first steps into considering what I wanted to explore with my music, it was clear that I was drawn to both traditional instrumental technique, initially through the piano and guitar, which I had taken up in my adolesence, and to the rich possibilities of electronic music. 
 I was especially inspired by the Scottish group Boards of Canada, and the way that they were able to provide a commentary on technology, media, and memory through their choices of material and production methods. 
-I was captured by the possibilities afforded by electronic and digital technologies of creating imagined spaces that lie on the periphery of what we associate with 'waking life', and wondered if there was a way to combine this more abstract, instrospective approach with the immediacy and directness of instrumental and singer songwriter oriented music.
+I was captured by the possibilities afforded by electronic and digital technologies of creating imagined spaces that lie on the periphery of what we associate with `waking life', and wondered if there was a way to combine this more abstract, instrospective approach with the immediacy and directness of instrumental and singer songwriter oriented music.
 
 My first forays into this approach was my 2014 album \textit{Ad viger}, which combined music for piano, guitar, flute, pipa, and voice, in various combinations, with electronic processing and field recordings. 
 During the making of this album, I had become enamoured with several pipe organ sounds on my Roland 300NX keyboard, and I decided to arrange one of my compositions, originally for voice, for the puff flute sound on my keyboard, which was released on \textit{Ad viger} under the name \textit{Cyclogram 1}.
@@ -536,7 +578,7 @@ It seemed then that this instrument would provide an especially fertile ground f
 \hl{Research questions:
 
 This text details a research-creation project which proposes a contemporary revisitation of the pipe organ. 
-More specifically, this project celebrates the rich heritage of the Casavant Frères symphonic pipe organ at Saint-Édouard church in Montreal, where I have been organist since July 2022. 
+More specifically, this project celebrates the rich heritage of the Casavant Frères symphonic pipe organ at l'église Saint-Édouard in Montréal, where I have been organist since July 2022. 
 I adopt a hyper-instrumental approach, extending the timbral and dynamic capabilities of this instrument through digital synthesis, processing, and sampling. 
 This work culminates in \textit{Élégies}, a piece for hyper-organ and voice which aims to pay hommage to this instrument and the space it has inhabited for over a hundred years. 
 Through this investigation, we ask important questions, including: what does it mean for history to inhabit the physical spaces in which we live; what role do ancient technologies play in our modern world?
@@ -569,7 +611,7 @@ This project attempts to leverage this rich tradition while extending it through
 
 \hlst{This was the jumping off point for the project, but through the course of its development, and especially through the composition of the piece \textit{Élégies}, it became clear that I wanted not only to address the pipe organ as an instrument, but also to emphasize the space itself, leading to an extended practice in which I diffuse sound throughout the church, while referencing the sounds of bells, the fire alarm of the church, and other sonic iconography.}
 
-hl{Thesis outline:}
+\hl{Thesis outline:}
 
 The following text is organized in four main parts. 
 The first chapter attempts to define the concept of hyper-instruments broadly, while describing significant contributions to the field, starting with the pioneering work of Tod Machover, and ending with several approaches to treating the pipe organ as an augmented instrument.
@@ -593,7 +635,7 @@ hl{The appendix also includes} a piece that I wrote for choir, singing glasses, 
 \chapter{The emergence and relevance of hyper-instruments}
 
 Hyper-instruments, situated at the confluence of traditional musical artistry and digial technologies, present a complex and diverse field of inquiry.
-In this chapter, we will resist the urge to define simply hyper-instrument practice, and will instead attempt to 'sneak up' on a more holistic perspective by delving into the work of several prominent artists and researchers in this field.
+In this chapter, we will resist the urge to define simply hyper-instrument practice, and will instead attempt to `sneak up' on a more holistic perspective by delving into the work of several prominent artists and researchers in this field.
 
 At the core of any musical instrument lies the interface between an artist's musical expression and the resultant sound in their environment.
 Augmenting an instrument, therefore, becomes an exercise in expanding this interface.
@@ -641,7 +683,7 @@ Miranda and Wanderley identify a spectrum of DMIs, with interfaces that do not r
 %%cmt Clarification sur le pratique de DMI. Ajout d'exemples et une citation
 
 \hl{This last approach of integrating digital technologies with acoustic instruments is a relatively recent field of exploration, dating to several projects in the late 1980s and early 1990s such as MIT's Media Lab, the Cook/Morrill trumpet, and IRCAM's MIDI flute, and has acquired several terms.
-Perhaps the most widely used is 'augmented instrument', but they have also been dubbed 'hyper', 'meta', or 'super' instruments.
+Perhaps the most widely used is `augmented instrument', but they have also been dubbed `hyper', `meta', or `super' instruments.
 One may rightfully point out that an instrument like the electric guitar, or any amplified instrument, could be considered an augmented instrument, yet at least in the academic literure on contemporary music, the term has developed a specific connotation of association with digital technologies. 
 The question of whether a distinction can be made between augmented, hyper, meta, or super instruments is not straightfoward either, especially due to the vast variety of differing approaches.
 For the purposes of this paper, we will rely on the writings of Miranda and Wanderley} \footcite[21]{miranda_new_2006} \hl{, Palacio-Quintin} \footcite[25]{palacio-quintin_composition_2012-1} \hl{, and Thibodeau } \footcite[1]{thibodeau_trumpet_2011} \hl{, all of which treat these terms as being synonymous.
@@ -860,7 +902,7 @@ At the same time, the pipe organ is unique in its diversity.
 Being an inherently modular instrument, one pipe organ can look very different from another. 
 From one to the seven keyboards of the Boardwalk hall organ, with or without pedal-board, with or without enclosures, with an enormous variety of stops, and many more. 
 
-In terms of the selection of stops, even a stop with the same name, such as Flute 8', can vary widely from one instrument to another based on the era of it's construction, the aesthetic goals of the builder and of the maintainers of the instrument. 
+In terms of the selection of stops, even a stop with the same name, such as the Flute 8', can vary widely from one instrument to another based on the era of it's construction, the aesthetic goals of the builder and of the maintainers of the instrument. 
 This means that each instrument tells the story of its unique heritage, and serves as a time capsule of shared historical and physical space.
 
 In the context of augmented pipe organs, these considerations manifest in unique and innovative ways.
@@ -907,7 +949,7 @@ By highlighting the interplay between historical authenticity and modern technol
 \section{Concluding thoughts}
 
 As we can see, augmented instrument design is far from a monolithic, and this inherent plurality is one of the most intriguing aspects of the field.
-The term 'hyper-instrument' encompasses a broad spectrum of augmented musical tools, each with its unique characteristics and requirements.
+The term `hyper-instrument' encompasses a broad spectrum of augmented musical tools, each with its unique characteristics and requirements.
 Developing an intuitive interface for a hyper-instrument involves a deep understanding of the instrument's core essence and a thoughtful integration of technology that enhances without overshadowing its intrinsic qualities.
 This diversity in approach underscores the difficulty in pinning down hyper-instruments as a singular practice.
 Instead, they represent a constellation of practices, each illuminating different aspects of the intersection between modern and traditional technologies.
@@ -992,11 +1034,11 @@ and synthetic timbral profiles
 In order to fulfill these priorities, it soon became clear that a multimodal approach would be helpful. The three modalities that I ended up with are:
 
 \begin{enumerate}
-  \item hl{Synthesis (divergent)}
+  \item \hl{Synthesis (divergent)}
   
-  \item hl{Live effects (convergent)}
+  \item \hl{Live effects (convergent)}
   
-  \item hl{Bed tracks (divergent)}
+  \item \hl{Bed tracks (divergent)}
 \end{enumerate}
 
 \subsection{Synthesis (intentions of mimicry and mutation\colorbox{red}{)}}
@@ -1134,9 +1176,9 @@ At the outset of this project I intended to focus on this instrumental perspecti
 
 While creating \hl{\textit{Élégies}}, however, it soon became clear that the space itself was integral to the context of the instrument. 
 The pipe organ is unique in this regard, being not only an instrument, but a permanent architectural installation. 
-Hans Fidom makes this case, claiming that 'If there is one form of music which is explicitly situational, certainly within our Western culture, then it is organ music.' \footcite[23]{fidom_music_2012}. 
+Hans Fidom makes this case, claiming that `If there is one form of music which is explicitly situational, certainly within our Western culture, then it is organ music.' \footcite[23]{fidom_music_2012}. 
 L'Huillier and Machover use architecture as a metaphor for music itself \footcite[361]{lhuillier_spaces_2018}. 
-This fundamental connection to the sacred space of the church was too compelling to ignore, and soon inspired me to look for ways to expand my artistic vision of the piece beyond a straightforward instrumental perspective, pursuing a 'sonic architecture'\footnote{“Sonic architectures are intentionally designed architectural soundscapes that create the conditions for the emergence of a building’s Voice” \footcite[2]{lacey_site-specific_2014}.}.
+This fundamental connection to the sacred space of the church was too compelling to ignore, and soon inspired me to look for ways to expand my artistic vision of the piece beyond a straightforward instrumental perspective, pursuing a `sonic architecture'\footnote{“Sonic architectures are intentionally designed architectural soundscapes that create the conditions for the emergence of a building’s Voice” \footcite[2]{lacey_site-specific_2014}.}.
 
 I call this approach an expanded practice, and in the following sections I'll describe several ways in which I explore this expansion.
 
@@ -1177,7 +1219,7 @@ In the following sections, I'll outline the different stations of \textit{le che
 Rather than fourteen, there are seven, with each recording representing different places in and outside of the church. 
 Sometimes these recordings are used as linking material between movements, and sometimes they are heard during a movement.
 
-\textbf{First station} (00:00:00--00:01:30)\footnote{Included timestamps are for elegies_video.mp4}:
+\textbf{First station} (00:00:00--00:01:30)\footnote{Included timestamps are for elegies\_video.mp4}:
 
 \begin{figure}[h]
     \centering
@@ -1312,7 +1354,7 @@ In his music, one get's the sense that he's not creating an experience, so much 
 Rather than the club itself, the sound of the club in the distance, or the memory of it echoing in one's head while walking home. 
 Both Burial's attempts to communicate his imagined experience of UK rave culture that he was too young to experience, and Boards of Canada's re-imagining of their childhood in Alberta can be described as a form of hauntology \footcite{alary_vers_2020}.
 
-At the same time that these meditations on the past fascinate me, I've also been influenced by a pursuit of 'liveness'. 
+At the same time that these meditations on the past fascinate me, I've also been influenced by a pursuit of `liveness'. 
 The first time that I listened to the music of Arca, for instance, I had the impression of an immediacy---that the music was somehow a living, breathing organism. 
 This is a very different approach from the former, and highlights an important tension in my thought. 
 I explore this tension through the mixing of live performance and pre-recorded sound files, the combination of what I'll call the organic (the voice) and the inorganic (the pipe organ), and the use of both traditional and modern stylistic references.
@@ -1351,12 +1393,12 @@ Though I didn't ultimately implement much of these experiments into the final sc
 
 \customincludegraphics[scale=0.5]{2024-04-28_MH_sat50.png}{}
 
-\section{\colorbox{red}{1\textsuperscript{re} élégie}}
+\section{\colorbox{red}{1\textsuperscript{re} élégie}\footnote{00:00:00--00:03:45 in elegies\_video.mp4}}
 
 \epigraph{\textit{Qui, si je criais, qui donc entendrait mon cri parmi les hiérarchies des Anges?}}{}
 
 \subsection{Narrative context}
-Rilke's Élégies begin not with a cry, but with the question of a cry.
+Rilke's Elegies\footnote{The title of the piece \textit{Élégies} as well as the movement names use french orthography in hommage to the french translation that I used, but I will use the english form in the body of these analyses for ease of reading.} begin not with a cry, but with the question of a cry.
 A question seemingly addressed to no one.
 A plea of solitude and desperation.
 Perhaps this question is addressed to God, to the reader of his poem, or to the protagonist herself.
@@ -1387,10 +1429,12 @@ One of the main advantages of a digital pipe-organ over an acoustic instrument, 
 To represent the hierarchies of angels, I thought that it would be appropriate to make use of an extended glissando, starting in a lower register and moving upwards, signifying some kind of transcendental nature.
 It might seem strange to represent a hierarchy with something non-discrete and essentially non-hierarchical, but at the same time, the hierarchy is already present elsewhere, such as in the harmonic series, and the strangeness of the glissando evokes something inhuman---alien.
 
-This glissando is not the same that is associated with oher instruments. A more appropriate term would be 'spectral glissando'. The way that this works, is that over the course of a set amount of time (in this case two minutes), the frequency of each of the eight partials is incremented by one about ten times a second.
-Because the frequency is being incremented, and not the MIDI cents, the harmonic series quickly becomes inharmonic.
+This glissando is not the same that is associated with other instruments. A more appropriate term would be `spectral glissando'. The way that this works, is that over the course of a set amount of time (in this case two minutes), the frequency of each of the eight partials is incremented by one about ten times a second.
+Because the frequency is being incremented, and not the MIDI cents, the sound quickly becomes inharmonic.
 For instance, if 100Hz and 200Hz are the first two partials, after an addition of 10Hz, 110Hz, and 210Hz are no longer multiples of each other.
 This process creates the sensation of an alien movement, pulsating and morphing, yet not in a coherent, familiar way.    
+
+%%cmt Précision de Hz
 
 \begin{figure}[H]
 \begin{lstlisting}[language=Python]
@@ -1429,7 +1473,21 @@ This melodic fragment is adapted from a session of singing the poetry of Rilke i
 
 %%cmt Ajout du contexte sur la séance d'enregistrement
 
-\customincludegraphics[width=\textwidth]{1e_1}{The main melody of the piece, based on the 19 syllables of the first line of Rilke's elegies (p. 1, sys. 1)}
+%%\begin{figure}[H]
+%%    \centering
+%%    \customincludegraphics[width=\textwidth]{1e_1}
+%%    \caption{The principal melody of the piece, based on the 19 syllables of the first line of Rilke's elegies (p. 1, sys. 1)}
+%%\end{figure}
+
+\begin{example}[H]
+    \centering
+    \includegraphics[width=\textwidth]{1e_1}
+    \caption{The principal melody of the piece, based on the 19 syllables of the first line of Rilke's elegies (p. 1, sys. 1)\protect\footnotemark}
+\end{example}
+
+\footnotetext{In all excerpts in proportional notation, accidentals carry to the end of the system.}
+
+%%\customincludegraphics[width=\textwidth]{1e_1}{The principal melody of the piece, based on the 19 syllables of the first line of Rilke's elegies (p. 1, sys. 1)}\protect\footnote{In all excerpts in proportional notation, accidentals carry to the end of the system.}
 
 I wanted to then create a sonic interpretation of the cry---the internal, subjective cry.
 Of course there is no correct, objective way to represent subjectivity, but I've attempted a poetic approach.
@@ -1437,12 +1495,12 @@ To do this, I call upon a characteristically property of the North American pipe
 This pedal allows the player to quickly open or close many stops simply by flicking the foot.
 One loses detailed control over the registration, yet gains access to a quick dynamic swell that surpasses the capacity of the normal expressive pedals.
 
-This section begins with the crescendo pedal open about 60% of the way, with the acoustic and digital organs playing the same D minor chord (p. 1, sys. 2).
-Jus before playing this chord, the third cue begins the spectral glissando, which is sustained by the sustain pedal.
+This section begins with the crescendo pedal open about \hl{60\% of the way, with the acoustic and digital organs playing the same D minor chord (p. 1, sys. 2).
+Just} before playing this chord, the third cue begins the spectral glissando, which is sustained by the sustain pedal.
 At first, the acoustic instrument masks the digital sound completely, evoking solitude, but gradually the crescendo pedal closes and the acoustic instrument is masked, leaving the glissando in the foreground.
 The gradual widening of registral distance between the acoustic organ and the digital glissando symbolizes the distance between the human and the angelic realms.
 
-\customincludegraphics[width=\textwidth]{1e_2}{The first system of the pipe organ is notated with proportional notation. The sustain pedal used to maintain the spectral glissando (p. 1, sys. 2)}
+\customincludeexamples[width=\textwidth]{1e_2}{The first system of the pipe organ is notated with proportional notation. The sustain pedal is used to maintain the spectral glissando (p. 1, sys. 2)}
 
 Towards the end of the movement, the pipe organ slowly enters with ascending chords built around open fifths and fourths.
 These mostly parallel, open harmonies for me evoke two influences.
@@ -1459,7 +1517,7 @@ The theme of theatricality may not be immediately apparent in the opening moveme
 When I project myself as an audience member, I imagine that this ascent, though accompanied by the recordings, would feel more a prelude to the piece than part of the piece itself, especially since the performer is not yet visually present.
 In later movements, however, we will see that this issue of presence is called into question.
 
-\section{\colorbox{red}{2\textsuperscript{e} élégie}}
+\section{\colorbox{red}{2\textsuperscript{e} élégie}\footnote{00:03:50--00:06:23 in elegies\_video.mp4}}
 
 \epigraph{\textit{Tout Ange est terrible. Et pourtant, malheur à moi! et pourant je vous invoque...}}{}
 
@@ -1468,11 +1526,11 @@ In later movements, however, we will see that this issue of presence is called i
 I found this poetic fragment to be one of the more difficult to interpret. 
 The word terrible, in particular, could be read as ferocious and terrifying, yet could also represent a more subdued pathos, closer to pity.
 Rilke then goes on the invoke these angels.
-There is clearly a tension implied by the word 'pourtant', giving the impression that despite her misgivings, the protagonist nevertheless relies on the angels.
+There is clearly a tension implied by the word `pourtant', giving the impression that despite her misgivings, the protagonist nevertheless relies on the angels.
 Moreover, there is a sense of regret, as if pride prevents our protagonist from wanting to submit themselves.
 They do so in spite of themselves and in spite of the terrible and uncertain nature of their guides.
 
-Ultimately, I chose to emphasis the connotations of pathos and frailty in the word 'terrible' with an extremly soft dynamic, and the fearsome quality with a dissonant harmonisation.
+Ultimately, I chose to emphasis the connotations of pathos and frailty in the word `terrible' with an extremly soft dynamic, and the fearsome quality with a dissonant harmonisation.
 This approach attempts to capture the complexity of representing the terrifying nature of the angels, while situating this fear in the mind of the protagonist.
 The second part of the movement delves further into this commentary on frailty, maintaining a soft dynamic, this time using a very traditional form of renaissance inspired counterpoint.
 For me, this reference to history, and the clear, simple harmonies suggest the human, rather than the angelic.
@@ -1492,7 +1550,7 @@ Tonally, traditional bourdon sound is modified by accentuating the fourth partia
 \begin{figure}[H]
 \begin{lstlisting}[language=Python]
 def dynEnv():
-    print('Enveloppe dynamique')
+    print(`Enveloppe dynamique')
     stop1.setPart([1, 2, 3, 4, 4, 4, 0, 0])
     stop1.setMul([0.588, 0.338, 0.665, 0.773, 0.512, 0, 0, 0])
     stop1.setEnvAtt([0.285, 0.450, 0.327, 0.338, 0.385, 0.277, 0, 0])
@@ -1512,11 +1570,14 @@ def dynEnv():
 
 Compositional:
 
-This movement involves a dissonant harmonization of the main melody, making extensive use of an altered dominant \sh 7 structure.
-This chord, a variation of the classic altered dominant chord in jazz, swaps the \fl 7 for a \sh 7, 
-Also used is the more octatonic sound of dominant 7 \sh13 \fl9 sonorities, as well as a minor \fl6 chord at the end.
+This movement involves a dissonant harmonization of the main melody, opening with a harmonic structure inspired by the altered dominant chord that is prevelant in jazz traditions.
+My variation swaps the typical minor 7th interval for a major seventh.
+This chord could also be called a major 7 (\sh9 \fl13), but I tend to think of it in relation to the altered chord.
+This harmonisation ends with a minor chord with a \fl6 with a swell, which is echoed in the final movement.
 
-In the final section, I used an inverted version of the initial melody as a cantus firmus.
+\customincludegraphics[]{g7alt}{A classic G7alt chord on the left, and my variation with a \sh7 on the right.}
+
+Towards the end of the movement, I incorporate an inverted version of the melody incanted at the beginning of the first movement as a cantus firmus in a three voice texture.
 This melody begins on F\na\ and represents not a chromatic inversion, but a transposed, diatonic inversion---transposed in the sense that the melody does not begin on the same scale degree as the original (B\fl, the sixth degree of D minor), but instead begins on the third degree of D minor. 
 All durations in this voice are equalized as whole notes, and played with the pedals.
 
@@ -1529,11 +1590,11 @@ This thematic variation is now infused with additional chromaticism, reflecting 
 
 \customincludegraphics[width=\textwidth]{2e_1}{A variation of the sung melody from the first movement, with more chromaticism (p. 2, sys.1)}
 
-My first interpretation of the word 'terrible' was the ferocious one, and I chose to open the organ portion of the movement (p. 2, sys. 2) forte, with the dissonant harmonisation striking an unforgiving discord. 
+My first interpretation of the word `terrible' was the ferocious one, and I chose to open the organ portion of the movement (p. 2, sys. 2) forte, with the dissonant harmonisation striking an unforgiving discord. 
 At the same time, I found myself disappointed that the second movement open in the same fashion as the first, with a big loud chord.
 From a narrative perspective, it seemed much more logical to open the work with a loud sudden gesture, and then work our way up gradually from the bottom.
 Ultimately, I decided to change the opening dynamic to pianissimo, using the dulciane stop, which on the organ at l'église Saint-Édouard is extremely soft.
-Being that the chords are still dissonant, this creates an effect of viewing the 'terrible angels' from a distance. 
+Being that the chords are still dissonant, this creates an effect of viewing the `terrible angels' from a distance. 
 I imagine the protagonist at the bottom of a steep ascent, similar to Dante in the beginning of his journey through hell, while she views the movement of the angels in the heavens.
 Perhaps these entities are never seen directly, but only felt from afar.
 This section is notated in proportional notation to imbue the harmonic motion with a clouded, murky quality.
@@ -1557,16 +1618,16 @@ I trigger the recording with the attack of the final chord of the second movemen
 
 \customincludegraphics[width=\textwidth]{2e_3}{The final systems of this movement lead to a half cadence in A minor as an audio recording is triggered (mm. 15-23)}
 
-\section{\colorbox{red}{3\textsuperscript{e} élégie}}
+\section{\colorbox{red}{3\textsuperscript{e} élégie}\footnote{00:06:23--00:10:47 in elegies\_video.mp4}}
 
 \epigraph{\textit{Chanter l'Amante est une chose. C'en est une autre, hélas! de chanter cet occulte Fleuve-Dieu du sang.}}{}
 
 \subsection{Narrative context}
 
-I interpret this poetic fragment as a reflection on the difficulty of walking the path ahead--contemplating the dichotomy between the relative simplicity of singing of love, versus the profound challenge of vocalizing the sacred, yet enigmatic, 'God river of blood.'  
+I interpret this poetic fragment as a reflection on the difficulty of walking the path ahead--contemplating the dichotomy between the relative simplicity of singing of love, versus the profound challenge of vocalizing the sacred, yet enigmatic, “God river of blood.”  
 This highlights a dialectic between thought and action, and the contrast between superficial perception and embodied reality.  
 This narrative conflict sets the tone for the movement's musical exploration.  
-Musically, I interpret "chanter", in a few ways, on the one hand, as the voix humaine stop on the récit, with tremolo, which imitates the sung human voice.  
+Musically, I interpret `chanter', in a few ways, on the one hand, as the voix humaine stop on the récit, with tremolo, which imitates the sung human voice.  
 "Chanter l'Amante" is represented by a simple song-like melody, and "Chanter cet occulte Fleuve-Dieu du sang" is interpreted as a compositional and timbral disintegration. 
 This movement is situated directly after the second station in \textit{le chemin}, the voice entrance overlapping slightly with the sound of the compressors of the sprinkler room.
 
@@ -1586,13 +1647,21 @@ bellCall4 = None
 
 def bell():  
 global bellCall1, bellCall2, bellCall3, bellCall4  
-bellCall1 = CallAfter(stop1.setEnvAtt, time=180, arg=(.001, .001, .001, .001, 0.001, 0.001, 0.0001, 0.0006, 0.0007, 0.0005, 0.0006, 0.0003, 0.0005, 0.0003, 0.0006, 0.0005, 0.0004, 0.0002, 0.0001, 0.0001)).play()  
-bellCall2 = CallAfter(stop1.setEnvDec, time=180, arg=(1.3, .05, .02, 0, 0, 0.04, .004, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04)).play()  
-bellCall3 = CallAfter(stop1.setEnvSus, time=180, arg=(.4, .1, .02, .01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .002, 0.002)).play()  
-bellCall4 = CallAfter(stop1.setEnvRel, time=180, arg=(2, 0.1, 0.1, .01, .03, 0.4, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.4, .04, 0.04, .04, 0.4)).play()  
+bellCall1 = CallAfter(stop1.setEnvAtt, time=180, arg=(.001, .001, .001, .001, 
+0.001, 0.001, 0.0001, 0.0006, 0.0007, 0.0005, 0.0006, 0.0003, 0.0005, 0.0003, 
+0.0006, 0.0005, 0.0004, 0.0002, 0.0001, 0.0001)).play()  
+bellCall2 = CallAfter(stop1.setEnvDec, time=180, arg=(1.3, .05, .02, 0, 0, 0.04, 
+.004, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 
+0.04)).play()  
+bellCall3 = CallAfter(stop1.setEnvSus, time=180, arg=(.4, .1, .02, .01, .01, 0.01, 
+.01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .01, 0.01, .002, 
+0.002)).play()  
+bellCall4 = CallAfter(stop1.setEnvRel, time=180, arg=(2, 0.1, 0.1, .01, .03, 0.4, 
+.04, 0.04, .04, 0.04, .04, 0.04, .04, 0.04, .04, 0.4, .04, 0.04, .04, 0.4)).play()  
 setInterpol(180)  
 stop1.setRamp(180)  
-stop1.setMul([1, 0.01, 0.1, 0.01, 0.07, 0, 0.02, 0, 0.01, 0, 0.003, 0, 0.003, 0, 0.001, 0, 0.001, 0, 0.001, 0])  
+stop1.setMul([1, 0.01, 0.1, 0.01, 0.07, 0, 0.02, 0, 0.01, 0, 0.003, 0, 0.003, 0, 
+0.001, 0, 0.001, 0, 0.001, 0])  
 stop1.setRatio(0.43982735)  
 stop1.setIndex(4)  
 stop1.setNoiseAtt(0.001)  
@@ -1615,16 +1684,16 @@ In terms of compositional techniques, to further represent singing, I employed s
 Instead of completing a larger structure, such as AABA, or ABAB, the A section is repeated incessantly.
 This repetitive structure refers to the tradition of theme and variations in the western classical tradition, as well as the blues in black american traditions.  
 In this case, rather than focusing the variations on melodic development, they are instead based on tempo and timbral changes. 
-Each time the twelve bar melody is heard it is slower, and the sound of the voix humaine is gradually distorted into an inharmonic mass.
+Each time the twelve bar melody is heard\hl{,} it is slower, and the sound of the voix humaine is gradually distorted into an inharmonic mass.
 This slowing down was inspired by an idea to create an exponential or logarithmic variation, where each variation is a ratio shorter or longer than the previous.
 
 \subsection{Form and compositional process}
 
-The movement begins with an uninterrupted transition from the third elegy, linked by the bed track at the end of this movement. 
-This recording, representing the the second station, dies as the third elegie begins. 
-Before completely fading out, the B\na\ of the compressor hum is doubled layered with a transposition of the same sound, giving the voice it's starting note (E\na). 
+The movement begins with an uninterrupted transition from the third Elegy, linked by the bed track at the end of this movement. 
+This recording, representing the second station, dies as the third Elegy begins. 
+Before completely fading out, the B\na\ of the compressor hum is doubled layered with a transposition of the same sound, giving the voice its starting note (E\na). 
 Then, overlapping slightly with the recording, the voice enters with a sung fragment, introducing a lilting melody, rising by thirds and spelling out an E minor 7 chord. 
-When the text gets to the part about the God river of blood however, the tone changes abruptly, now descending in a serpentine way, through a chromatic passage ending with a series of alternating ascending and descending thirds, ending on C\na\ (sys. 2).
+When the text gets to the part about the God river of blood\hl{,} however, the tone changes abruptly, now descending in a serpentine way, through a chromatic passage ending with a series of alternating ascending and descending thirds, ending on C\na\ (sys. 2).
 
 \customincludegraphics[width=\textwidth]{3e_1}{The sung melodic fragment introducing lilting ascending motive is overlapped with the bed track ending the second movement (sys. 1-2)}
 
@@ -1647,13 +1716,6 @@ Once I decided to move in the direction of song form, I tried to crystallize the
 I did this by taking all my motivic fragments and shuffling them around in different orders until I found a version that felt like it had a logical progression.  
 In the end, the idea seemed to naturally solidify into 12 bars.
 
-In one of my early improvisations I simply repeated this melody several times as the voix humaine synthesis underwent it's painful transition into a bell, eventually dissolving into a textural mass.
-However, I later had the idea to lean further into the jazz tradition, reharmonizing the melody with left hand comping chords with the intention of improvising the right hand over top. 
-I also constructed a more complex and precise version of the logarithmic variation idea, where instead of slowing the tempo for each variation, the meter is extended, choosing an expansion of 5/4, or 125\%, so that the variations would not become too long. 
-As I was developping this version, however, I realized that the quicker, more rhythmic nature of the jazz oriented approach significantly lost the quality of feeling the timbral transition, distracting the ear too much and not allowing the listener to "get inside the sound". 
-Ultimately, after listening back to both versions, I decided to return to my initial intuition, with the simpler repetitive structure. 
-In addition to placing greater emphasis on the narrative arc of the timbral transformation, this repetition adds an incessant quality to the melody, as if trapped in a recollection.
-
 \customincludegraphics[scale=0.6]{3e_3}{The original form of the melody of lamentation, with the jazz changes that were ultimately not used}
 
 The melody begins at about \musQuarter\ = 58, with the acoustic voix humaine in the right hand, accompanied by a rhythmic ostinato in octaves with a plein orgue in the grand orgue. 
@@ -1668,12 +1730,12 @@ This time, at the same point precisely halfway through the original 12-bar form 
 19), the sustain pedal is held down, creating an increasingly dense spectral mass. 
 It is here most of all that the listener is immersed into the timbral morphing process. 
 Whereas before, the changes in harmony and rhythm distracted somewhat from the transformation taking place, in this more static structure, the listener hears all the partials shifting, twisting, appearing, and disappearing, as the sound becomes increasingly complex. 
-This moment is interrupted, however, by an improvisational section using waves of rapid ascending melodic lines based around Csharp dimished 7 (p. 5, sys. 2). 
+This moment is interrupted, however, by an improvisational section using waves of rapid ascending melodic lines based around \hl{C\sh diminished 7} (p. 5, sys. 2). 
 This section is much more chaotic than the previous, and reflects the corresponding chaos in the unstable timbral composition. 
 This improvisation comes to an end with a held perfect fifth, G and D, allowing us to continue hearing the transformation more directly. 
 Once the transformation is complete, this chord is released, allowing the resonance to subdue. 
 
-Concretely, the 12-bar melody is only heard one and a half times, which calls into question the use of the term 'variations'. 
+Concretely, the 12-bar melody is only heard one and a half times, which calls into question the use of the term `variations'. 
 At the same time, I like to imagine that these variations continue in a symbolic or imagined sense. 
 For instance, the synthesis server has a limit of ten voices of polyphony, so once the sustain pedal is held in measure 29, there is only room for about two measures before adding new notes will not change the sound. 
 At the same time, the performer continues playing the melody, leading to a muted physicality, where the performer is communicating through gesture, but it is not reaching the listener. 
@@ -1687,7 +1749,7 @@ The 7th trigger is then initiated, beginning a slow crossfade from the bell soun
 
 \customincludegraphics[width=\textwidth]{3e_4}{The end of the second variation, an improvisational section, and the three synthetic bell tolls that end the movement (m. 26 to p. 5, sys. 2)}
 
-\section{\colorbox{red}{4\textsuperscript{e} élégie}}
+\section{\colorbox{red}{4\textsuperscript{e} élégie}\footnote{00:10:50--00:18:48 in elegies\_video.mp4}}
 
 \epigraph{\textit{Vous, Arbres de la Vie, oh! quand donc hivernaux? Nous n'allons pas à l'unisson.}}{}
 
@@ -1698,13 +1760,13 @@ The object that these trees symbolize is not clear.
 Are they the angels, the readers of the poem, or perhaps life itself?
 In any case, the poem then places the trees in the inevitability of the impending winter.
 This winter can be read as an intimation of death, or at least a dormant state.
-The musical term \textit{'unisson'} and its deliberate negation in the next sentence express a sense of divergence or disharmony, which becomes a central theme in the musical interpretation.
+The musical term \textit{`unisson'} and its deliberate negation in the next sentence express a sense of divergence or disharmony, which becomes a central theme in the musical interpretation.
 
 From a musical standpoint, I wanted to set the listener in the winter, which for me entails a sense of space and vastness, of stillness.
 To evoke this environment, I thought it would be appropriate to use sounds with slow attacks and decays, and decided to make use of the sounds of singing wine glasses.
 This also presents a pun, as the french word for ice is glace, which is a homophone with glass, the material of the wine glasses, evoking the ice covered ground of the desolate winter landscape.
 This is the first and only time in Élégies when a sound other than the sung voice is used monophonically. This increases the sense of solitude, and in a way can be thought of as an interiorized voice.
-As far as the second part of the poetic fragment, I decided that this would be a good moment to bring back the glissando motive from the first movement, this time moving in contrary motion, refering to the text "Nous n'allons pas à l'unisson".
+As far as the second part of the poetic fragment, I decided that this would be a good moment to bring back the glissando motive from the first movement, this time moving in contrary motion, refering to the text “Nous n'allons pas à l'unisson”.
 
 \subsection{Materials and techniques}
 
@@ -1736,7 +1798,7 @@ def glissCont():
 \caption{The function glissCont defines a glissando where each even partial is gradually incremented, whereas each odd partial is gradually decremented. This function is later called by a Pattern object 10 times a second}
 \end{figure}
 
-Another bed track is incorporated at the end of this elegy, this time representing the third station in \textit{the chemin}, as we pass through \textit{la salle Morin} in the basement of the church. We hear the humming of the fridge with a clock ticking in the distance, as the ticking becomes louder, and fractions into several offset ticks, the sounds of footsteps fade into the distance.
+Another bed track is incorporated at the end of this Elegy, this time representing the third station in \textit{the chemin}, as we pass through \textit{la salle Morin} in the basement of the church. We hear the humming of the fridge with a clock ticking in the distance, as the ticking becomes louder, and fractions into several offset ticks, the sounds of footsteps fade into the distance.
 
 \subsection{Form and compositional process}
 
@@ -1748,7 +1810,7 @@ These minor thirds are explored and combined with other intervals to form a fair
 \customincludegraphics[width=\textwidth]{4e_1}{Free monophonic section, using singing glass samples with long attacks and decays (sys. 1-2)}
 
 This melody uses proportional notation to add to the metric freedom of the evolutive sounds. Later, a meter is introduced, and a section of shifting meter (mm. 1-22) gradually finds the nebulous tonality center around C minor.
-The introduction of an ascending triad motive ostinato in C minor follows, first slowly, played in the right hand with the singing glasses and accompanied with the bourdon and the pedal. Then in measure 29, a modulating version of the melody of lamentation is introduced in G minor, this time with the melody taken by the bourdon as well, making it's way back to C minor before a sudden entrance of the grand orgue division with all keyboards coupled (m.45), reiterating the same ascending arppeggiation. This motif is heard once more, this time with a light 8' 2' coupling, before winding down with a chain of suspensions in the right hand while triggering a sound file (trigger 8) with the left (m. 56). This sound file is originally triggered with heavy reverb and an EQ plugin blocking much of the high end. During a thirty second pause of no organ playing, two more triggers are cued, the first of which turns off the reverb effect, and the second turning off the EQ. Both of these triggers restart the sound file in addition to bypassing the effects, and make the initially subdued sound more rhythmic, bright, and impactful. 
+The introduction of an ascending triad motive ostinato in C minor follows, first slowly, played in the right hand with the singing glasses and accompanied with the bourdon and the pedal. Then in measure 29, a modulating version of the melody of lamentation is introduced in G minor, this time with the melody taken by the bourdon as well, making its way back to C minor before a sudden entrance of the grand orgue division with all keyboards coupled (m. 45), reiterating the same ascending arppeggiation. This motif is heard once more, this time with a light \hl{8'/2'} coupling, before winding down with a chain of suspensions in the right hand while triggering a sound file (trigger 8) with the left (m. 56). This sound file is originally triggered with heavy reverb and an EQ plugin blocking much of the high end. During a thirty second pause of no organ playing, two more triggers are cued, the first of which turns off the reverb effect, and the second turning off the EQ. Both of these triggers restart the sound file in addition to bypassing the effects, and make the initially subdued sound more rhythmic, bright, and impactful. 
 
 \customincludegraphics[width=\textwidth]{4e_2}{The transition from proportional to metric time (sys. 4 to m. 11)}
 
@@ -1767,23 +1829,23 @@ The crescendo pedal is used strategically throughout this to create large-scale 
 At the end of the second melodic line, however, this pattern is disrupted, and the crescendo pedal cuts out all at once with a subito piano. 
 At the same time, the left and right hands drop out, while the right hand shoots over to strike the next electronic cue (trigger 11). 
 
-
-
-
 This recording also provides a link between movements, this time between the fourth and fifth. 
 The recording is triggered at the peak of a dynamic swell as the left and right hands drop out leaving only the sound of the buzzing fridge of \textit{la salle Morin} and the ticking of a clock in the background. 
 
-This begins the third station (p. 12, system 1), which is accompanied by the pedals playing a G. Overtop of this soundworld, text is sung overtop of the organ for the first time, singing: "Vous Arbres de la vie. Oh quand donc hiverneaux." The semitone ascent of the melody with the word "Oh" is supported by the pedals, which maintain both notes at once, causing a rumbling beating effect as this dissonance is held. The clock ticking becomes louder and louder, and with the final click the movement is over, moving attacca. into the fifth.
+This begins the third station (p. 12, system 1), which is accompanied by the pedals playing a G. 
+Overtop of this soundworld, the sung text "Vous Arbres de la vie. Oh quand donc hiverneaux." accompanies the organ for the first time in the piece. 
+The semitone ascent of the melody with the word "Oh" is supported by the pedals, which maintain both notes at once, causing a rumbling beating effect as this dissonance is held. 
+The clock ticking becomes louder and louder, and with the final click the, movement is over, moving directly into the fifth.
 
 \customincludegraphics[width=\textwidth]{4e_5}{The poetic fragment set over held pedal tones and a recording of \textit{la salle Morin} (p.12 sys.1)}
 
-\section{\colorbox{red}{5\textsuperscript{e} élégie}}
+\section{\colorbox{red}{5\textsuperscript{e} élégie}\footnote{00:18:50--00:24:40 in elegies\_video.mp4}}
 
 \epigraph{\textit{Mais les errant, dis-moi qui sont-ils, ces voyageurs fugaces?}}{}
 
 \subsection{Narrative context}
 
-The fifth elegy dwells on the fleeting nature of life and the enigmatic journey of the soul. The fragment that I selected from the beginning of Rilke's poem speaks of wandering souls, asking who they are. One is struck by the nameless, faceless nature of this description. It calls to mind the river Styx of Greek mythology, where the perilous boat crossing is often depicted as being surrounded by phantom souls which float aimlessly. This movement is situated between the third and fourth stations of \textit{le chemin}, as we are moving from la salle Morin towards the furnace room. 
+The fifth Elegy dwells on the fleeting nature of life and the enigmatic journey of the soul. The fragment that I selected from the beginning of Rilke's poem speaks of wandering souls, asking who they are. One is struck by the nameless, faceless nature of this description. It calls to mind the river Styx of Greek mythology, where the perilous boat crossing is often depicted as being surrounded by phantom souls which float aimlessly. This movement is situated between the third and fourth stations of \textit{le chemin}, as we are moving from la salle Morin towards the furnace room. 
 
 Narratively, this point in the poetry is the hardest for me to define. In a sense, it seems to erode the boundaries necessary for a clear definition. Musically, I represent this obscurity in various ways. On the one hand, a densely chromatic melodic theme is featured, mirroring the winding, unpredictability of smoke. The music is evolutive, with an emphasis on slow transformations and morphing. This creates a nebulous effect evocative of the \textit{voyageurs fugaces} mentioned by Rilke. 
 
@@ -1800,7 +1862,7 @@ A traditional pipe organ operates in a very binary fashion, and this is especial
 Moreover, even with a tracker organ, where half stops exist and are exploited in some experimental music, they are not so much an interpolation of the timbral space of that stop and silence, but are more like a distortion of the normal register, much like overblowing a flute.
 This is not to speak of the idea of morphing from one stop to another.
 In order to do this with a traditional organ, one would need to transform the metal in real time.
-It's simply not possible!
+It is simply not possible!
 
 In the digital world, sound is not linked to physicality in such a direct way.
 The loudspeaker opens us up to much more flexible ways of generating and manipulating air pressure waves.
@@ -1825,11 +1887,11 @@ for i in range(len(part)):
     self.dec.append(SigTo(dec[i], time=self.inter))
     self.sus.append(SigTo(sus[i], time=self.inter))
     self.rel.append(SigTo(rel[i], time=self.inter))
-    self.envs.append(MidiAdsr(self.note['velocity'], attack=att[i],
+    self.envs.append(MidiAdsr(self.note[`velocity'], attack=att[i],
     decay=dec[i], sustain=sus[i], release=rel[i], mul=self.amps[-1]))
     self.part.append(SigTo(part[i], time=0.2))
     self.snds.append(Sine(freq=(self.part[i]**self.partSc) * 
-    (MToF(FToM(self.note['pitch']-0.15))) + Randi(-rand, rand, 5) + 
+    (MToF(FToM(self.note[`pitch']-0.15))) + Randi(-rand, rand, 5) + 
     self.trans + self.mod, mul=self.envs[-1]))
     self.mixed.append(self.snds[-1].mix())
 \end{lstlisting}
@@ -1864,7 +1926,7 @@ def stopInter():
         voixHumaine()
     elif x == 3:
         cornet()
-    print('stopInter', stopInterPRand)
+    print(`stopInter', stopInterPRand)
 
 stopInterP = Pattern(function=stopInter, time=Sig(stopInterPRand))
 \end{lstlisting}
@@ -1889,7 +1951,7 @@ I was at an impass with this movement until the thought came to put the fugue at
 
 Once I had this thought, it was only a matter of stitching the elements together in a coherent way. After the voice enters with the chromatic melody, beginning precisely with the final tick of the bed track concluding the fourth movement, the player cues the twelfth trigger, which serves a double role, beginning the stop interpolation (with a delay of several seconds to ensure that the first chord is a bourdon sound), and triggering a bed track. This bed track is itself a recording of stop interpolation, taken in the church, and was created to serve both as a bridge between the evolutive and fugal section, as well as to accompany my exit from the organ at the end of the movement. The harmonic choice was difficult, because it needed to both sound like the continuation of the evolutive section, while appropriately accompanying the fugal section, and not covering it. My solution to this problem was to use higher pitches, so that it didn't interfere with the other notes of the fugue (especially the bass line), instead acting more as an integrated spectral component to the sound mass. I selected pitches from the end of the evolutive section, while avoiding notes that would be too much in conflict with the F minor / C minor orientation of the fugal section.
 
-\customincludegraphics[width=\textwidth]{5e_1}{The chromatic melody that opens the fifth elegy and serves as fugal theme (p. 12, sys. 2)}
+\customincludegraphics[width=\textwidth]{5e_1}{The chromatic melody that opens the fifth Elegy and serves as fugal theme (p. 12, sys. 2)}
 
 \customincludegraphics[width=\textwidth]{5e_2}{The opening to the evolutive section using stop interpolation (mm. 1-11}
 
@@ -1903,7 +1965,7 @@ At this moment there is a short improvisational section, where rather than impro
 
 \customincludegraphics[width=\textwidth]{5e_5}{This movement ends with aleatoric stop selection while alternating expressive pedals (mm. 49-50)}
 
-\section{\colorbox{red}{6\textsuperscript{e} élégie}}
+\section{\colorbox{red}{6\textsuperscript{e} élégie}\footnote{00:24:57--00:27:18 in elegies\_video.mp4}}
 
 \epigraph{\textit{Figuier, depuis longtemps déjà ce m'est un signe que presque entièrement tu te dérobes à la gloire des fleures...}}{}
 
@@ -1962,7 +2024,7 @@ In this case, my improvisation was based in F minor.
 This was not planned in any meaningful way at the time, but in retrospect, it is an appropriate choice, as the spectral analysis of the bells of l'église Saint-Édouard reveal a duality of F major and F minor.
 My piece attempts to put this relationship in dialogue, and the fact that structurally, at the point of great doubt, the tonality arrives in F minor, feels thematically consistent.
 
-\customincludegraphics[width=\textwidth]{6e_1}{The sixth elegy begins with a plaintive cry from out of view, followed by a short and fragile composition heard from the back of the church (p. 15, sys. 2)}
+\customincludegraphics[width=\textwidth]{6e_1}{The sixth Elegy begins with a plaintive cry from out of view, followed by a short and fragile composition heard from the back of the church (p. 15, sys. 2)}
 
 \subsection{Theatrical and spatial elements}
 
@@ -2004,7 +2066,7 @@ At the same time, seeing as the performer has left the stage, they will no longe
 This simple visual elaboration signifies on the one hand, the simple, fragile, yet constant spiritual presence of our protagonist, symbolized as a fig tree, and simultaneously represents the phantom of the organ in its original home, now vacant.
 It also invokes the separation of the traditional physical performer and the mechanized, automated version--the ghost in the machine.
 
-\section{\colorbox{red}{7\textsuperscript{e} élégie}}
+\section{\colorbox{red}{7\textsuperscript{e} élégie}\footnote{00:27:58--00:35:35 in elegies\_video.mp4}}
 
 \epigraph{\textit{Non, plus d’imploration, voix maintenant mûrie, plus de clameur...}}{}
 
@@ -2014,7 +2076,7 @@ Following the fragile unsurety of the sixth movement, the seventh represents a c
 
 I explore this tension is several ways. Firstly, the performer is still not present at the instrument but makes several brief appearances elsewhere in the church. These appearances, unexpected and shrouded in relative darkness, create a sense of unease. The obscured identity of the figure suggests a multiplicity of our protagonist, none of whom are fully embodied—only existing for mere moments like transient ghosts.
 
-In several ways, the last four movements are merged into one. There is no break in between, unlike the preceding movements, with the bed track sounding continously to the end. Narrative elements such as the delay from the ninth elegy is used at the end of the seventh movement in the form of an antiphonic echo, and the singing of hymns of praise from the text of the tenth elegy is evoked in the beginning of the ninth. This fusion of formal elements parallels the spiritual awakening in Rilke’s poetry. Attempts will be made throughout these last sections to carefully clarify where these overlapping elements are in play.
+In several ways, the last four movements are merged into one. There is no break in between, unlike the preceding movements, with the bed track sounding continously to the end. Narrative elements such as the delay from the ninth Elegy is used at the end of the seventh movement in the form of an antiphonic echo, and the singing of hymns of praise from the text of the tenth Elegy is evoked in the beginning of the ninth. This fusion of formal elements parallels the spiritual awakening in Rilke’s poetry. Attempts will be made throughout these last sections to carefully clarify where these overlapping elements are in play.
 
 \subsection{Materials and techniques}
 
@@ -2051,8 +2113,8 @@ Then, during the ominous drone, I decided to run towards the microphone.
 This is essentially the opposite of the subjective effect I described in the last station, where instead of moving away slowly from the microphone, I runs violently towards it, getting louder and louder as my footsteps approach. 
 In both cases this creates a transformation from subject (me coupled the microphone), to object (the microphone listening to me).
 
-The rapid footsteps, combined with the foreboding nature of the feedback resonance, the door and clicking sounds of the furnace room, and the darkness of the church, establish an aura of urgency and unease which I thought appropriate for the seventh elegy. 
-In the fragment that I selected, "Non, plus d’imploration, voix maintenant mûrie, plus de clameur.", Rilke invokes a call to action, a plea to resist the infirmity described in the preceding elegy. 
+The rapid footsteps, combined with the foreboding nature of the feedback resonance, the door and clicking sounds of the furnace room, and the darkness of the church, establish an aura of urgency and unease which I thought appropriate for the seventh Elegy. 
+In the fragment that I selected, "Non, plus d’imploration, voix maintenant mûrie, plus de clameur.", Rilke invokes a call to action, a plea to resist the infirmity described in the preceding Elegy. 
 
 \subsection{Form and compositional process}
 
@@ -2088,7 +2150,7 @@ While the furnace represents the fourth station in \textit{le chemin}, both the 
 This is then the first time that two stations are heard in a single movement, as well as the only time in the piece that two stations are overlapped, indicating an overlapping of place and time. 
 The protagonist is at once in the underbelly of the furnace room, and in the church itself. 
 
-\customincludegraphics[width=\textwidth]{7e_1}{The seventh elegy is summarized in one system (p. 15, sys. 3)}
+\customincludegraphics[width=\textwidth]{7e_1}{The seventh Elegy is summarized in one system (p. 15, sys. 3)}
 
 \subsection{Theatrical and spatial elements}
 
@@ -2153,7 +2215,7 @@ Due to the relatively dark conditions, my identity remains unclear, leading audi
 Once the music sonically reaches the low pulsating drone, I reenter the stage, putting on a lavalier microphone and approaching the organ. 
 Although the score marks this as the beginning of the eighth movement, I see it as a liminal space between the seventh and eighth movements—a threshold where the boundaries between the two begin to blur.
 
-\section{\colorbox{red}{8\textsuperscript{e} élégie}}
+\section{\colorbox{red}{8\textsuperscript{e} élégie}\footnote{00:35:35--00:40:23 in elegies\_video.mp4}}
 
 \epigraph{\textit{A plein regards, la créature voit dans l’Ouvert.}}{}
 
@@ -2228,7 +2290,7 @@ The introduction of the beat and the transformation of the voice through subharm
 The dance-like rhythm, juxtaposed with the earlier, more classical and theatrical elements, represents a fusion of the old and the new, the physical and the spiritual. 
 The use of church samples in the beat underscores the idea that the church itself is participating in this transformative moment, blurring the lines between the sacred and the profane.
 
-\section{\colorbox{red}{9\textsuperscript{e} élégie}}
+\section{\colorbox{red}{9\textsuperscript{e} élégie}\footnote{00:40:23--00:45:04 in elegies\_video.mp4}}
 
 \epigraph{\textit{Pourquoi, s’il est loisible aussi bien de remplir son délai d’existence en laurier, sombre un peu plus que tous les autres verts, avec ces vaguelettes...}}{}
 
@@ -2236,11 +2298,11 @@ The use of church samples in the beat underscores the idea that the church itsel
 
 The ninth elegie is a departure from the patterns established in the previous movements of "Élégies," both in its structure and thematic content. 
 This movement begins with text drawn not from the ninth elegie, as one might expect, but from the tenth. 
-This choice emerged from a deliberate consideration of how to integrate Rilke’s dense and multifaceted final elegy into the musical narrative. 
-Musically, the tenth elegy seemed to demand a reflective, non-vocal resolution, serving as a calm after the storm of the preceding movements. 
-To maintain the established pattern of incorporating sung lyrics in each movement, the text of the tenth elegy is instead woven into the fabric of the ninth.
+This choice emerged from a deliberate consideration of how to integrate Rilke’s dense and multifaceted final Elegy into the musical narrative. 
+Musically, the tenth Elegy seemed to demand a reflective, non-vocal resolution, serving as a calm after the storm of the preceding movements. 
+To maintain the established pattern of incorporating sung lyrics in each movement, the text of the tenth Elegy is instead woven into the fabric of the ninth.
 
-Unlike the other elegies, which each make use of the opening words of Rilke's poems, the lyrics from the 10th elegy are taken from from various parts of the 10th elegy. 
+Unlike the other elegies, which each make use of the opening words of Rilke's poems, the lyrics from the 10th Elegy are taken from from various parts of the 10th Elegy. 
 This reconstruction is a fragmented mosaic, creating a tapestry of incomplete thoughts and potentialities, mirroring the themes of joy, grief, and longing in Rilke’s poetry. 
 This movement, like the text it draws from, grapples with the fear that accompanies happiness--the knowledge that it is transient and inevitably fleeting. 
 Musically this movement emerges directly from the eighth, with the beat and baseline that arrive at the end of the previous movement as a link.
@@ -2252,12 +2314,12 @@ La pluie qui vient tomber dans les venelles de la Cité,\\
 prête à se briser. Mon visage resplendissant, baigné.\\ 
 Aux Anges qui l'agréent, des marteaux du cœur.\\
 \end{verse}  
-\caption{My reconstruction of poetic fragments from Rilke's 10th elegy} 
+\caption{My reconstruction of poetic fragments from Rilke's 10th Elegy} 
 \end{figure}
 
 \subsection{Materials and techniques}
 
-The ninth elegie begins as the voice joins the sparse texture of the sample based beat against the baseline in the pedals that ends the eighth elegy. 
+The ninth elegie begins as the voice joins the sparse texture of the sample based beat against the baseline in the pedals that ends the eighth Elegy. 
 The aesthetic of this section is perhaps the closest to a UK dubstep sound, with the throbbing bass, skittering rhythm, and plaintiff, repetetive vocal line recalling Archangel of Burial. 
 The repetitive, plaintive vocal line "Vienne le jour, enfin sortant," sung in D minor, is amplified and processed with a vocoder. 
 This technique uses the original church bell sample as the carrier, creating a synthesis between the expressive human voice and the immutable sound of the carillon.
@@ -2278,25 +2340,24 @@ This variation involves a tonicization of G minor, leading into a descending-thi
 As the beat fades out, the 17th trigger initiates the sound of rain, taken from the same recording used in the opening of the piece but focused on the rain rather than the thunder. 
 The melody of lamentation reappears, this time simplified into a descending diatonic line in augmentation, stretched to one note per measure. 
 This is a direct reference to the fourth movement, though the roles of the hands are now reversed: the left hand plays the melody, while the right hand takes up the arpeggiated "spire" motive. 
-Over this framework, the voice re-enters, singing an incomplete question to the assenting angels: "Pourquoi, s'il est loisible aussi bien de remplir son délai en laurier. 
-Pourquoi s'il est loisible."
+Over this framework, the voice re-enters, singing an incomplete question to the assenting angels: “Pourquoi, s'il est loisible aussi bien de remplir son délai en laurier. Pourquoi s'il est loisible.”
 
 \customincludegraphics[width=\textwidth]{9e_3}{The lament melody simplified and quantized to whole notes in the left hand, with the arch theme in the right hand, with voice (mm. 79-81)}
 
-\section{\colorbox{red}{10\textsuperscript{e} élégie}}
+\section{\colorbox{red}{10\textsuperscript{e} élégie}\footnote{00:45:04--00:49:13 in elegies\_video.mp4}}
 
 \epigraph{\textit{Vienne le jour enfin, sortant de la voyance encolérée, où je chante la gloire et la jubilation aux Anges qui l’agréent. Que des marteaux du cœur au battement très clair aucun ne vienne à faux tomber sur une corde molle, ou encore douteuse ou prête à se briser.}}{}
 
 \subsection{Narrative context}
 
-The tenth elegy stands as a contemplative epilogue, a reflective meditation that diverges from the narrative drama of the previous movements. 
+The tenth Elegy stands as a contemplative epilogue, a reflective meditation that diverges from the narrative drama of the previous movements. 
 This elegie uniquely omits the human voice, a deliberate choice that carries poetic significance. 
 The absence indicates otherness--a distance that suggests the elegie is not participating in the unfolding drama but is instead observing, reflecting, and internalizing the previous events. 
-This silence points to the idea that the text of the tenth elegy is not meant to be embodied or expressed outwardly but is rather an internal, imagined experience.
+This silence points to the idea that the text of the tenth Elegy is not meant to be embodied or expressed outwardly but is rather an internal, imagined experience.
 
-Rilke’s final elegy grapples with the themes of joy, grief, and the haunting realization that our most profound desires and potentials may remain forever unfulfilled. 
-The decision to relegate the text of the tenth elegy to the ninth movement, where it is fragmented and distorted, introduces a layer of ambiguity. 
-This dislocation raises the question of whether the events depicted in the ninth elegy truly transpired or if they were merely a projection of the protagonist's inner world—a dream of fulfillment that remains just out of reach.
+Rilke’s final Elegy grapples with the themes of joy, grief, and the haunting realization that our most profound desires and potentials may remain forever unfulfilled. 
+The decision to relegate the text of the tenth Elegy to the ninth movement, where it is fragmented and distorted, introduces a layer of ambiguity. 
+This dislocation raises the question of whether the events depicted in the ninth Elegy truly transpired or if they were merely a projection of the protagonist's inner world—a dream of fulfillment that remains just out of reach.
 
 \subsection{Materials and techniques}
 
