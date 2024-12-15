@@ -613,7 +613,7 @@ It delves into my aesthetic priorities, practical limitations, and the various s
 The third chapter presents my creative \hl{posture} as a performer and as a composer, and the various tools I used throughout the project. 
 
 Finally, the fourth chapter discusses the composition of the piece \textit{Élégies}. 
-Based on Rainer Maria Rilke's \textit{Elegies de Duino}\footcite{rilke_egies_1986}, this piece seeks to navigate the continuum of acoustic and simulated---the sacred and the profane.
+Based on Rainer Maria Rilke's \textit{Duino Elegies}\footcite{rilke_egies_1986}, this piece seeks to navigate the continuum of acoustic and simulated---the sacred and the profane.
 
 \hl{The appendix also includes} a piece that I wrote for choir, singing glasses, and non-live electronics called \textit{Jardin de givre}, performed in April, 2023 by l'Université de Montréal choir under the direction of Matthew Lane. Though this work won't be analyzed in this text due to the focus on the hyper-organ, this work has several poetic resonances with \textit{Élégies}, such as the use of a sacred space, the mixture of synthetic and non-live with acoustic sound sources, and the exploration of the voice.
 
@@ -654,7 +654,7 @@ For instance, with a small flute, a person with a very low voice can sound very 
 With a bowed instrument like the violin, one can sound the note indefinitely, bypassing the voices necessity to take breaths. 
 With a lute, one can sound more than one note at a time. 
 
-\hl{The results of a musical instrument are inherently subjective, and the goals of designing an expressive interface are a reflection of the person or people creating it. 
+\hl{The evaluation of a musical instrument is inherently subjective, and the goals of designing an expressive interface are a reflection of the person or people creating it. 
 For instance, one may optimize for resonance and slow decay, such as with a gong, whereas another may want shorter, more percussive sounds, like with a xylophone. 
 At a cultural level, one people may desire high timbral variety, such as in many African cultures, while another may seek timbral consistency throughout the range of a given instrument as is generally the case in the western classical tradition} . 
 
@@ -697,7 +697,7 @@ We can point, for instance, to the innovation of the \textit{hautbois} promoted 
 Pursuing this expansion comes with both great possibilities, and a certain burden of responsibility.
 The historic traditions of these instruments give them a weight, not just in terms of the playing traditions, and the mechanisms involved in their interfaces, but also in the many, often unconscious, symbolic associations that we have formed with these instruments.
 This cultural baggage is not something to be overcome however, but is a great strength.
-If one is careful to take into consideration the nuances of the original interface, integrating them with their ideas in a way that complements, rather than fights the natural tendencies of the instrument, the result can be an enduring hommage, and a continuation of a tradition that crosses both culture and time.
+If one is careful to take into consideration the nuances of the original interface, integrating them with their ideas in a way that complements, rather than fights the natural tendencies of the instrument, the result can be an enduring homage, and a continuation of a tradition that crosses both culture and time.
 
 \subsection{Commonalities}
 
@@ -714,7 +714,7 @@ Yet, when working with digital instruments, it is useful to think in these terms
 In a hyper-instrument concept, we must work with the hard constraints of the existing acoustic interface, while considering the interactions and implications of adding new elements. 
 %%cmt Ajout de citations
 
-\hl{In terms of concrete options when considering approaches to augmenting an acoustic instrument, one of the most common is the use of gestural sensors. 
+\hl{In terms of concrete options when considering approaches to augmenting an acoustic instrument, one example is the use of gestural sensors such as accelerometers and gyroscopes. 
 Taking the same example of the cello, gesture tracking is an intuitive solution, as it simply extends the paradigm of converting gesture into sound, taking in even more data, which can then be used in various ways. 
 There are, however, other approaches, such as air pressure sensitivity sensors, touch pressure sensitivity sensors, midi controllers, or even microphones, to name a few.} 
 
@@ -735,16 +735,14 @@ This can include fixed sounds or algorithmically generated sounds, offering inte
 
 %%cmt Déplacement de la liste pour donner une meilleur contexte (ce n'est pas exclusive à la flûte)
 
-As far as treatment, the most common approaches are live effects like distorsion, reverb, or any way in which the audio signal is processed, synthesis, where the synthesized sound is directed by the input data, but may or may not bear a resemblance to the instrumental sound, or triggering of sound files, again, where the sound files in question can bear or not a resemblance to the instrument, and can range from sample level grains, to long \hl{recordings}.
-
 %%cmt Correction d'orthographie
 
-The choice of approach, or mix of approaches, will depend both on the intentions of the person performing the inquiry, and on the instrument iself. The historical context of performing traditions of the instrument in question will invariably inform the interface decisions, and the aural historical context will generally inform the method of treatment, either striving for timbral similarity, or juxtaposition, or both.
+The choice of approach, or mix of approaches, will depend both on the intentions of the person performing the inquiry, and on the instrument itself. The historical context of performing traditions of the instrument in question will invariably inform the interface decisions, and the aural historical context will generally inform the method of treatment, either striving for timbral similarity, or juxtaposition, or both.
 
 \subsection{Convergent and divergent mappings}
 
 In the previous section, we discussed the input and output components of hyper-instrument design, yet this says nothing of the relationship between the two.
-This is what is broadly referred to as mapping, in which a certain form of data or grouping of data is made to correspond with a given audio event, including layers of multiple events or a sequence of events. 
+This relationship is what is broadly referred to as mapping, in which a certain form of data or grouping of data is made to correspond with a given audio event, including layers of multiple events or a sequence of events. 
 
 Andy Hunt and Ross Kirk provide a detailed analysis of mappings in musical interface design in their article \hl{\textit{Mapping Strategies for Musical Performance}} \footcite{hunt_mapping_2000}, pointing to an important distinction between convergent and divergent mappings (see \cref{fig:mapping}), where a convergent mapping involve several data inputs that affect the same output, while a divergent mapping has one input parameter that affects multiple outputs. 
 
@@ -756,7 +754,8 @@ Cléo-Palacio Quintin argues that while divergent mappings are often time more i
 
 The idea that convergent mappings are more intuitive and easily incorporated makes sense. 
 They essentially don't ask anything new of the performer, except maybe a new aural sensibility. 
-Physically, they rest nicely in the established paradigm of gestural repertoire, essentially saying to the performer “do what you normally do, and I'll work around it.” A divergent mapping however, requires some kind of relearning. 
+Physically, they rest nicely in the established paradigm of gestural repertoire, seemingly saying to the performer: “do what you normally do, and I'll work around it.” 
+A divergent mapping however, requires some kind of relearning. 
 With a convergent mapping, we are augmenting a part of the interface that is already integral to the functioning of the instrument, an example of which would be a gestural mapping to the horizontal, left/right plane of a piano player, who already needs to use this space to navigate pitch space.
 This ensures that the mapping is consistent with the innate gestures of playing the instrument, but does not allow for independent control of these parameters.
 With the flute, on the other hand, this exact same mapping could be used more or less independently, as the horizontal left/right plane is not directly coupled with any musical parameter.
@@ -796,128 +795,103 @@ To summarize, by my thinking, there are several advantages and disadvantages to 
 \subsection{Tod Machover and the birth of the hyper-instrument}
 
 The term hyper-instrument comes to us from Tod Machover, a leading figure at MIT's Media Lab who has been carrying out pioneering research in augmented instrument development since the 1980s. 
-Initial exploration involved integrating electronic keyboards (such as the Yamaha KX88 and Kurzweil Midiboard) and percussion controllers (including the Silicon Mallet, Octapad, and KAT) with a computer system \footcite{machover_hyper-instruments_1989}. 
+Initial exploration involved integrating electronic keyboards (such as the Yamaha KX88 and Kurzweil Midiboard) and percussion controllers (including the Silicon Mallet, Octapad, and KAT) with a computer system\footcite[186]{machover_hyper-instruments_1989}. 
 MIDI data from these instruments was sent to a Macintosh II computer running custom software called Hyperlisp.
 This real-time MIDI/Lisp environment was specifically developed to analyze and process the input data, which was then sent to digital synthesizers, samplers, and outboard processing devices to generate the final musical output.
 
 These early experiments did not yet make use of traditional acoustic instruments in the way that hyper-instruments are now generally considered. 
-Just two years later, however, came the development of the hypercello, designed by Machover for the cellist Yo-Yo Ma \footcite{levenson_taming_1994}, which incorporated sensors to measure various parameters such as bow position, pressure, and finger placement.
-The data collected was processed by a computer to control and modify the sound in real-time, allowing the cellist to interact with the instrument in a highly nuanced and expressive manner.
+Just two years later, however, came the development of the hypercello, designed by Machover for the cellist Yo-Yo Ma \footcite[15]{levenson_taming_1994}, which incorporated sensors to measure various parameters such as bow position and pressure, as well as finger placement.
+The data collected was processed by a computer to control and modify the sound in real-time, allowing the cellist to interact with the interface in a highly nuanced and expressive manner.
 
-The hypercello was featured prominently in Machover's composition “Begin Again Again...,” performed by Yo-Yo Ma at the Concertgebouw in Amsterdam in 1993. 
-The performance involved not only traditional cello playing but also interaction with a pre-programmed score, enabling Ma to control and shape the music dynamically. 
+The hypercello was featured prominently in Machover's composition “Begin Again Again...”, performed by Yo-Yo Ma at the Concertgebouw in Amsterdam in 1993. 
+The performance involved not only traditional instrumental technique but also interaction with a pre-programmed score, enabling Ma to control and shape the music dynamically, while the software in turn responds to Ma's decisions\footcite[16]{levenson_taming_1994}. 
+This interactive component is a key theme in Machover's work, and aligns with Joel Chadabe's definition of interactive composition, which describes “intelligent instrument[s]” which “respond to a performer in a complex, not entirely predictable way.”\footcite[23]{chadabe_interactive_1984}
 
-Not only does Machover seek to extend an instrument's expressive capacity, but central to his vision of the hyper-instrument is the redefinition of the relationship of the performer to their instrument. 
-For instance, his `double instruments'\footcite[189]{machover_hyper-instruments_1989} combine the gestures of two performers playing separate controllers, creating a new form of ensemble performance where musical results are produced collaboratively.
+Central to Machover's vision of the hyper-instrument is this redefinition of the relationship of the performer to their instrument. 
+An intriguing early example of this is his `double instruments'\footcite[189]{machover_hyper-instruments_1989}, which combine the gestures of two performers playing separate controllers, creating a new form of ensemble performance where musical results are produced collaboratively.
 
 \subsection{Beilharz' hyper-shakuhachi}
 
 The hyper-shaku, developed by Kirsty Beilharz, is an augmented version of the traditional Japanese bamboo shakuhachi flute. 
-This project integrates motion sensors and computer vision to create an interactive performance environment that enhances both auditory and visual elements \footcite{beilharz_hyper-shaku_2006}. 
-This dual-mode interaction distinguishes the hyper-shaku from other hyper-instruments, focusing on both the acoustic performance and the visual representation.
-The system uses a combination of wireless sensors and computer vision to capture the performer's gestures. 
-These inputs are then processed in real-time using Max/MSP and Jitter software, which generates corresponding sound and visual displays. 
-The motion data triggers various synthesis processes and generative design elements, creating a dynamic and responsive performance environment.
+Beilharz align's themself with Machover's approach to interactivity, employing a “Reactive Space” that incorporates not only sonic, but visual components\footcite[352]{beilharz_hyper-shaku_2006}. 
+Using wireless motion sensors and computer vision, she explores two distinct though complementary approaches to treating and mapping this data using Max/MSP and Jitter. 
+On one hand, a Cellular Automata function, which is used to create generative algorithms for the visual display, and on the other, a Neural Oscillator Network for the audio processing, which controls granular synthesis of the shakuhachi. 
 
-Gestural data is central to the hyper-shaku's functionality. 
+Gestural data is central to the hyper-shaku's functionality\footcite[356]{beilharz_hyper-shaku_2006}. 
 The performer's movements, such as pitch inflections achieved by angling the chin and dramatic articulations, are captured and translated into both sound and visual outputs, emphasizing the theatrical aspects of shakuhachi performance.
-
-\subsection{McPherson's augmented piano}
-
-The Magnetic Resonator Piano (MRP)\footcite{andrew_mcpherson_magnetic_2010} is designed to augment the acoustic piano, allowing continuous control over pitch, dynamics, and timbre. 
-The instrument employs 88 electromagnetic actuators to vibrate the strings independently of the traditional hammer mechanism, producing a wide range of sounds while preserving the acoustic richness of the piano. 
-This system is controlled through an optical sensor strip on the keyboard, which measures the continuous position of each key, enabling nuanced performance techniques such as gradual key presses, taps, and vibrato gestures.
-
-A common issue in DMI design is ensuring the instrument's relevance beyond its initial performance \footcite{mcpherson_problem_2012}. 
-Many new instruments fail to attract a significant following, often because they are tailored to specific pieces or performers. 
-The authors emphasize the importance of making the instrument useful to a broader community, allowing musicians to explore its capabilities and develop personal styles.
-
-McPherson and Kim discuss how feedback from initial users can guide design refinements. 
-For the MRP, they identified key areas for improvement based on musician input, including enhancing dynamic range, reducing attack time, enriching timbre, and simplifying control mappings. 
-They also aimed to expand the instrument's capabilities without compromising its playability for traditional pianists.
-
-To build a community around the MRP, the authors collaborated with six composers from Philadelphia and Princeton, each writing new pieces for the instrument. 
-This project culminated in two concert performances, showcasing a diverse range of styles and techniques. 
-The composers' engagement with the MRP provided valuable insights into its potential and limitations, driving further refinements.
 
 \subsection{Cléo Palacio-Quintin's hyper-flûte}
 
-The hyper-flute, as developed by Palacio-Quintin\footcite{noauthor_souffles_2017}, involves attaching various sensors to a standard flute. 
-These sensors capture a range of data, including, rotation, distance from an external device, several discrete signals including buttons and a trigger when the flute is inclined or rotated, as well as the luminosity of the room. 
-The data collected is then transmitted to a computer, where it is processed in real-time to manipulate electronic sounds or control other digital effects. 
-This setup allows the flutist to interact with electronic components seamlessly, creating a rich, hybrid soundscape.
+The hyper-flute, as developed by Palacio-Quintin\footcite{noauthor_souffles_2017}, involves attaching various sensors to a standard flute\footcite[27]{palacio-quintin_composition_2012-1}. 
+These sensors capture a range of data, including rotation, distance from an external device, several discrete signals including buttons and a trigger when the flute is inclined or rotated, as well as the luminosity of the room. 
+The data collected is then transmitted to a computer, where it is processed in real-time to manipulate electronic sounds or control digital effects. 
+Palacio-Quintin's argues that gestural control is crucial for creating a natural and intuitive interface between the performer and the electronic components\footcite[12]{palacio-quintin_composition_2012-1}. 
 
-One of the primary challenges addressed by Palacio-Quintin is the synchronization between the acoustic instrument and electronic components\footcite{palacio-quintin_composition_2012-1}. 
-Traditional mixed music often required performers to follow rigid, predetermined electronic tracks, which limited expressive freedom. 
-By contrast, the hyper-flute allows for real-time interaction, where the performer's gestures and playing directly influence the electronic output. 
-This dynamic interaction is achieved through programming and real-time signal processing, primarily using Max/MSP.
+One of the primary challenges addressed by Palacio-Quintin is the synchronization between the acoustic instrument and electronic components\footcite[10--11]{palacio-quintin_composition_2012-1}. 
+Traditionally, live music with electronics often require performers to follow rigid, predetermined electronic tracks, which limit expressive freedom. 
+By contrast, the hyper-flute allows for real-time interaction, where the performer's gestures and playing directly influence the electronic output---achieved through programming and real-time signal processing, primarily using Max/MSP.
+This flexibility, stems from Palacio-Quintin's background in improvised music, and again aligns with that of Machover.
 
-This choice also explains her lack of focus on sound spatialisation, a popular domain among electroacoustic composers.\footcite[50]{palacio-quintin_composition_2012-1} 
-The presence of an on-stage performer who projects an acoustic sound naturally delimits a sound space. 
-To integrate the electroacoustic sound with the acoustic, her works are designed in stereo to be projected mainly by front-positioned speakers near the performer. 
-The primary sound source remains the flute, and the electroacoustic sounds should emanate from it, justifying their projection near the source.
+Also notable in Palacio-Quintin's approach is her limited emphasis on sound spatialisation. 
+She notes that “Le fait d’avoir une interprète sur scène, qui projette un son acoustique, délimite un espace sonore.”\footcite[50]{palacio-quintin_composition_2012-1}, designing her interface in stereo, projected by front-positioned speakers near the performer in order to integrate the electroacoustic sound with the acoustic. 
 
-A significant focus of Palacio-Quintin's research is on gesture control, which she argues is crucial for creating a natural and intuitive interface between the performer and the electronic components. 
-By utilizing gesture data, the hyper-flute can respond to the nuances of the performer's movements, allowing for a more fluid and expressive performance. 
-This approach not only enhances the musical capabilities of the flute but also redefines the role of the performer, who becomes an active participant in shaping the electronic soundscape.
+\subsection{McPherson's augmented piano}
 
-In terms of interaction, Palacio-Quintin’s approach aligns with Joel Chadabe's vision, which advises allowing both the performer and the computer a degree of freedom to maintain a lively interactive space\footcite[23]{chadabe_interactive_1984}. 
-The modes of interaction can vary; the music is not entirely fixed, and the computerized system remains flexible, giving the performer some freedom in their play. 
-This aligns with her interest in improvised music, in pursuit of expressive liberty, being challenged and pushed by the computer systems rather than creatively confined. 
-This interactive system approach changes traditional subdivisions of musical practice, merging composer, score, work, performer, performance, instrument, and environment into one process.
+The previous augmented instrument approaches have all included interactivity as a central goal, yet there exist other approaches which are more instrumental in nature, such as Andrew McPherson's Magnetic Resonator Piano (MRP)\footcite{andrew_mcpherson_magnetic_2010}.
+The MRP is designed to augment the acoustic piano without compromising its playability for traditional pianists, allowing continuous control over pitch, dynamics, and timbre\footcite[10]{mcpherson_problem_2012}. 
+.
+The instrument employs 88 electromagnetic actuators to vibrate the strings independently of the traditional hammer mechanism, producing a wide range of sounds while preserving the acoustic richness of the piano. 
+This system is controlled through an optical sensor strip on the keyboard, which measures the continuous position of each key, enabling nuanced performance techniques such as gradual key presses, taps, and vibrato gestures.
+
+In the article \textit{The Problem of the Second Performer: Building a Community Around an Augmented Piano}, McPherson and Kim also highlight a common issue of DMI design: that of ensuring the instrument's relevance beyond its initial performance, with many new instruments failing to attract a significant following, often because they are tailored to specific pieces or performers\footcite[10--11]{mcpherson_problem_2012}. 
+The authors emphasize the importance of making the instrument useful to a broader community by encouraging user feedback, and allowing musicians to explore its capabilities and develop personal styles.
 
 \section{Hyper-organ}
 
-When speaking of the instrument as a technology, perhaps no instrument is so emblematic of this tradition of continuous innovation than the pipe organ. 
-Throughout its millennia-long history, it has continually been reimagined, from the one keyboard hydraulis of 300 BC Greece, to the addition of multiple independently controlled stops and keyboards, the extensive exploration of timbre, not just through the creation of new stops, but through the capacity to combine different stops, essentially bringing the role of instrument design into the hands of the performer. 
+When speaking of the instrument as a technology, perhaps no instrument is so emblematic of a tradition of continuous innovation than the pipe organ\footcite[35]{peters_how_2014}. 
+Throughout its millennia-long history, it has continually been reimagined---from the one keyboard hydraulis of 300 BC Greece to the addition of multiple independently controlled stops and keyboards, and the extensive exploration of timbre, not just through the creation of new stops, but through the capacity to combine different stops, essentially bringing the role of instrument design into the hands of the performer. 
 Then, throughout the 19\textsuperscript{th} and 20\textsuperscript{th} centuries, the pipe organ embraced pneumatic, then electro-pneumatic, and more recently, digital mechanisms of communication. 
-The pipe organ has always played a role in challenging the threshold of the possible, on the one hand, looking back towards a rich history, and on the other hand, embracing and integrating technological innovations as they arise. 
-At the same time, the pipe organ is unique in its diversity. 
-Being an inherently modular instrument, one pipe organ can look very different from another. 
-From one to the seven keyboards of the Boardwalk hall organ, with or without pedal-board, with or without enclosures, with an enormous variety of stops, and many more. 
+
+The pipe organ has always played a role in challenging the threshold of the possible---on the one hand, looking back towards a rich history, and on the other hand, embracing and integrating technological innovations as they arise. 
+At the same time, the pipe organ is unique in its heterogeneity\footcite[344--345]{redhead_developing_2023}. 
+Being an inherently modular instrument, one pipe organ can look very different from another---from one to many keyboards, with or without pedalboard, with or without enclosures, an enormous variety of stops, and many other variances. 
 
 In terms of the selection of stops, even a stop with the same name, such as the 8' Flute, can vary widely from one instrument to another based on the era of its construction, the aesthetic goals of the builder and of the maintainers of the instrument. 
 This means that each instrument tells the story of its unique heritage, and serves as a time capsule of shared historical and physical space.
+As Hans Fidom puts it: “each organ becomes a mirror of its time and place.”\footcite[18]{fidom_digital_2014}
 
 In the context of augmented pipe organs, these considerations manifest in unique and innovative ways.
-Projects led by visionaries like Lauren Redhead and the Orgelpark initiative are exemplary in demonstrating how technology can reimagine the traditional pipe organ.
+Projects led by artists like Lauren Redhead and the Orgelpark initiative are exemplary in demonstrating how technology can reimagine the traditional pipe organ.
 These initiatives not only showcase the potential of technological integration with historic instruments but also highlight the diverse methodologies and creative opportunities within the field of hyper-instruments.
 
 \subsection{Lauren Redhead}
 
-Lauren Redhead doesn't explicitly use the term hyper-organ, or augmented instrument, instead choosing to align her work with the tradition of electronics and live performer. Collaborator Alistair Zaldua conceives of and controls the electronics in concert, strengthening the perspective of a duet, rather than a unified instrumental expression. Despite this, her pursuit of improvisation with a high degree of freedom, open forms, and interactivity is in line with the practices of Machover and Palatio-Quintin.
+Lauren Redhead doesn't explicitly use the term hyper-organ, or augmented instrument, instead choosing to align her work with the tradition of organ and electronics. This duet perspective is strengthened by the role of collaborator Alistair Zaldua, who conceives of and controls the electronics in concert\footcite[325]{redhead_organ_2016}
+Despite this, her pursuit of improvisation with a high degree of freedom, open forms, and interactivity is in line with the practices of Machover, Palacio-Quintin, and Beilharz.
+Furthermore, Redhead describes her collaboration with Zaldua as “an assemblage---a single hybrid `instrument' that we perform together”\footcite[342]{redhead_developing_2023}, suggesting a certain level of unified instrumental perspective in their approach.
 
-Redhead's approach emphasizes the organ's potential as an interface for electronic music. By utilizing the organ’s MIDI capabilities and incorporating live sound processing, she expands the instrument’s expressive range. This integration enables the organ to control electronic sounds and vice versa, allowing for a dynamic and interactive performance environment.
-
-Lauren Redhead’s work often involves the use of open notation, graphic scores, and real-time generated notations, which challenge traditional notions of musical performance. Her compositions require performers to engage with the scores in a fluid and interpretative manner, often involving real-time decision-making and interaction with electronic elements.
-
-In her paper \textit{Sound and Space: Performing Music for Organ and Electronics}, Redhead discusses the collaborative nature of her work with composers and performers \footcite[]{redhead_sound_2014}. This collaboration is crucial in developing pieces that fully exploit the interaction between the organ and electronics. The performance space itself becomes an integral part of the instrument, influencing the sound and how it is perceived by the audience. This site-specific approach ensures that each performance is unique, tailored to the acoustics and spatial characteristics of the venue.
+This `hybrid instrument' approach spans a vast rang of approaches, including: live interaction with an open score, organ and fixed media, acousmatic diffusion, and organ sound as controller\footcite[345]{redhead_developing_2023}, and highlights several key issues.
+A primary concern is the site-specificity of the pipe organ as an instrument, emphasizing "the performance space as a part---and extension of---the instrument of the organ”\footcite[3]{redhead_sound_2014}.
+At the same time, this same property is resisted in certain works, such as in the \textit{orgel, orgel, orgel, orgel, orgel} tour, which was designed to be performed in five different, maximally varied contexts\footcite[344--345]{redhead_developing_2023},. 
 
 \subsection{Orgelpark}
 
 The Orgelpark in Amsterdam is a project which merges historical authenticity with contemporary innovation in the field of pipe organ building and music making. 
-Central to this endeavor is the creation of a hyper-organ\footcite{vrije_geluiden_superabundance_2020}.
-, which serves as both a historically accurate replica of a Baroque-period Zacharias Hildebrandt organ and a modern instrument capable of engaging with contemporary music practices. 
-Unlike other projects that retrofit digital technologies to existing organs, the Orgelpark had the unique privilege of conceiving this dual-purpose instrument from its inception. 
-This approach has allowed for a seamless integration of historical and modern elements, setting a new standard in organ design and performance.
+Central to this endeavor is the creation of their `hyper-organ'\footcite{vrije_geluiden_superabundance_2020}, which serves as both a historically accurate replica of a Baroque-period Zacharias Hildebrandt organ and an augmented organ\footcite[36]{peters_how_2014}. 
+Unlike other projects that retrofit digital technologies to existing organs, Orgelpark had the unique privilege of conceiving this dual-purpose instrument from its inception. 
 
-The primary goal of the hyper-organ at Orgelpark is to achieve historical accuracy while providing a platform for modern musical expression. 
-The instrument replicates the sound and mechanics of a Hildebrandt organ, renowned for its clarity and brilliance. 
-Simultaneously, it incorporates advanced digital technologies that extend its capabilities far beyond those of a traditional organ. 
-This dual functionality is made possible by a sophisticated interface that allows for the dissociation of pipe and key, enabling any pipe to be assigned to any key independently of the stops. 
-This feature is complemented by touch sensitivity, where varying depths of touch can trigger different combinations of pipes and air pressure, and variable tremulants that add nuanced expressivity to the music\footcite{fidom_digital_2014}.
+This hyper-organ allows for the dissociation of pipe and key, enabling any pipe to be assigned to any key independently of the stops, as well as touch sensitivity, where varying depths of touch can trigger different combinations of pipes and air pressure.
+In addition, variable speed tremulants open up many expressive possibilities\footcite[19--29]{fidom_digital_2014}.
 
-The technological innovations of the hyper-organ are achieved through the use of spring chests and electromagnets. 
-Spring chests, a Baroque technology, allow for independent control of individual pipes, while electromagnets enable key expressivity. 
+Technologically, spring chests, a Baroque technology, allow for independent control of individual pipes, while electromagnets enable key expressivity. 
 These features are controlled through both a traditional mechanical keyboard, which facilitates conventional playing techniques, and a hyper-organ interface. 
-This dual-console system allows organists to explore the full range of the instrument's capabilities, seamlessly blending historical and modern performance practices\footcite{peters_how_2014}.
+The hyper-organ interface is designed to control not only the new Baroque organ but also the Romantic-period Sauer organ housed at the Orgelpark, allowing for the interfacing of disparate periods of sonic aesthetics. 
 
-The hyper-organ interface is designed to control not only the new Baroque organ but also the Romantic-period Sauer organ housed at the Orgelpark. 
-This integration enables the interfacing of disparate periods of sonic aesthetics, providing musicians with an unparalleled level of flexibility and creativity. By bridging the gap between different historical periods and incorporating cutting-edge technology, the Orgelpark hyper-organ offers a unique platform for exploring new soundscapes and performance techniques \footcite{van_heumen_new_2014}.
+Furthermore, because this interface is MIDI controllable, its new expressive capacities as well as its more traditional ones are made more accessible to ehe general public, in a field that has for centuries been one of highly specialized instrumentalists. Not only can a non organ player design electroacoustic worksfor the hyper-organ of Orgelpark, such as with Robert van Heuman's work \textit{First Law of Kipple} for MIDI controlled Sauer organ and spatialized fixed media\footcite[190]{van_heumen_new_2014}, but one could envisage people from around the world writing for this interface without needing to travel to Amsterdam, overcoming the pipe organ's site specificity.
 
-The Orgelpark's approach to organ design and performance exemplifies a forward-thinking vision that respects historical traditions while embracing contemporary innovations. 
-The hyper-organ project demonstrates how digital enhancements can enrich the expressive potential of historical instruments, offering new possibilities for both performers and composers. 
-By highlighting the interplay between historical authenticity and modern technology, the Orgelpark sets a precedent for future developments in the field of organ music \footcite[69]{fales_fusion_1994}.
+The Orgelpark project is clearly oriented more towards McPherson's approach than other approaches investigated in this chapter.
+Their hyper-organ is essentially an expanded, instrumental approach, with a staggering degree of controllability at the level of tonal palette as well as in dynamic expressiviy.
+At the same time, the integration of the MIDI protocol means that other approaches, such as synthesis, and triggering of recorded samples, are trivial, providing the means of integrating innumerable other technologies with the hyper-organ's instrumental approach.
 
 \section{Concluding thoughts}
 
@@ -926,6 +900,9 @@ The term `hyper-instrument' encompasses a broad spectrum of augmented musical to
 Developing an intuitive interface for a hyper-instrument involves a deep understanding of the instrument's core essence and a thoughtful integration of technology that enhances without overshadowing its intrinsic qualities.
 This diversity in approach underscores the difficulty in pinning down hyper-instruments as a singular practice.
 Instead, they represent a constellation of practices, each illuminating different aspects of the intersection between modern and traditional technologies.
+
+My own work is situated somewhere between the interactive and instrumental approaches seen in this chapter, combining varied inputs, convergent and divergent mappings, and several methods of sound generation.
+This unique approach, which seeks to address the organ of l'église Saint-Édouard and the space that holds it in a way that is intimately connected to its context, will be explored in detail in the following chapters. 
 
 \chapter{Constructing an augmented interface for the pipe-organ}
 
@@ -937,10 +914,10 @@ In the current chapter, I'd like to discuss my own personal approach, from a com
 
 One of the central issues of hyper-instrument design is the use of a pre-existing instrument as a starting point---the chosen instrument providing the limitations and challenge space for augmentation. 
 In my case, the organ of l'église Saint-Édouard is a 1913 Casavant Frères work in the symphonic tradition. 
-It has three manuals, with two expressive boxes (the \textit{Récit} and the \textit{Positif} divisions), and electro-pneumatic action. 
+It has three manuals, with two expressive boxes (the Récit and the Positif divisions), and electro-pneumatic action. 
 One of the first major limitations in terms of integrating a hyper-organ interface was the lack of MIDI. 
 Many modern organs, such as the hyper-organ at Orgelpark mentioned in the previous chapter, allow access to its interface through MIDI, yielding the possibility of an integration of acoustic and digital controls. 
-One can imagine, for instance, coupling the \textit{Positif} to a synthesized sound, simply by sending its MIDI output to a laptop running synthesis software, or an analog synthesizer, essentially playing both acoustic and synthetic from the same keyboard. 
+One can imagine, for instance, coupling the Positif to a synthesized sound, simply by sending its MIDI output to a laptop running synthesis software, or an analog synthesizer, essentially playing both acoustic and synthetic from the same keyboard. 
 One can also imagine playing against a prefabricated, live-sampled, or algorithmic MIDI track to create the effect of having many hands, providing for density that wouldn't be possible with one body alone.
 
 This lack of direct MIDI integration means that any MIDI based approach, such as using a MIDI keyboard alongside the pipe organ as I've chosen to do (this will be discussed thoroughly in the section on synthesis), is not directly linked to the pipe organ itself.
@@ -1006,7 +983,7 @@ In order to fulfill these priorities, it soon became clear that a multimodal app
   
   \item \hl{Live effects (convergent)}
   
-  \item \hl{Bed tracks (divergent)}
+  \item \hl{Fixed media (divergent)}
 \end{enumerate}
 
 \subsection{Synthesis (intentions of mimicry and mutation\colorbox{red}{)}}
@@ -1039,11 +1016,11 @@ In the future, it would be good to have methods of extracting more objective dat
 
 %%cmt Ajout d'analyse
 
-In addition to emulating various organ stops, OrganLab permits what I call mutations. 
+In addition to emulating various organ stops, OrganLab permits what I call mutations\footnote{For a demonstration of several of these mutations, please refer to the file synthesis\_demo.mp4 that accompanies this thesis.}. 
 \hl{The mutations of OrganLab are quite different from the tradition meaning of this term} (a stop that sounds a note other than the key depressed\hlst{(usually the fifth or the third)}, and refers to any process that alters an emulation.  
 \hl{In fact, there are theoretically limitless mutations, but for a few examples: continuous pitches (glissandi); interpolation from one stop to another; decoupling of harmonic and transient content; and dynamic envelopes.} 
 These mutations allow me to fulfill my second and fourth aesthetic priorities, \hlst{allowing me to extend }\hl{extending} the organ\hl{'}s soundworld in a way that can be seamlessly navigated.\hlst{, or interpolated.} 
-\hlst{Finally}The keyboard \hl{also} represents a prominent divergent mapping, allowing independant control of the synthesis software.  
+\hlst{Finally}The keyboard \hl{also} represents a prominent divergent mapping, allowing independent control of the synthesis software.  
 
 %%cmt Ajout de précision et de la fluidité de l'écriture
 
@@ -1051,8 +1028,8 @@ These mutations allow me to fulfill my second and fourth aesthetic priorities, \
 
 The second modality, live effects, \hl{provides} a simpler way of integrating with the sound world of the pipe organ, recording the sound with a microphone rather than reconstructing it from scratch. 
 Extending the sound world \hl{is then a matter} of applying any imaginable effect to the microphone's signal \footnote{I chose to use Ableton Live instead of python its robust plugins, my familiarity with the software, and to ensure the specificity of the role of OrganLab}. 
-hl{Using live effects also} allowed me to satisfy the third priority hl{of using} both convergent and divergent mappings. 
-\hlst{While I was more intrigued by the divergent approach, I was interested in experimenting with a convergent approach, and }\hl{From an aesthetic perspectice,} I felt that adding effects to a pipe organ, essentially treating it \hlst{more} like an electric guitar \hlst{than a pipe organ}, would immediately situate it in \hlst{an aesthetic} paradigm that \hl{would not} normally be associated with the organ or a sacred setting. 
+\hl{Using live effects also} allowed me to satisfy the third priority hl{of using} both convergent and divergent mappings. 
+\hlst{While I was more intrigued by the divergent approach, I was interested in experimenting with a convergent approach, and }\hl{From an aesthetic perspectice,} I felt that adding effects to a pipe organ, essentially treating it \hlst{more} like an electric guitar \hlst{than a pipe organ}, would immediately situate it in \hlst{an aesthetic} paradigm that \hl{would not} normally be associated with the organ or a sacred setting\footnote{For a demonstration of several live effects, please refer to the file effects\_demo.mp4 that accompanies this thesis.}. . 
 
 \hl{The sound is diffused through five speakers that are placed throughout the church} (see \cref{fig:stageplot}).
 \hl{Speaker one is placed near the organ in the north transept tribune, on the left side, and is used mainly for synthesized sounds, which use only this speaker, in order to establish an instrumental synergy between the acoustic and synthetic organ.
@@ -1076,7 +1053,7 @@ Though this speaker is less flexible and not directly integrated with the others
 
 %%cmt Reformulation de la déscription de la diffusion sonore au temps présent, et sans décrire les autres options considérées.
 
-\customincludegraphics[scale=0.6]{stageplot_ste-edouard}{fig:stageplot}{A view of l'église Saint-Édouard from above, showing the microphone and five speaker diffusion layout in relation to the organ console and the organ itself.}
+\customincludegraphics[scale=0.75]{stageplot_ste-edouard2}{fig:stageplot}{A view of l'église Saint-Édouard from above, showing the microphone and five speaker diffusion layout in relation to the organ console and the organ itself.}
 
 \subsection{Fixed media}
 
@@ -1164,7 +1141,7 @@ I call this approach an expanded practice, and in the following sections I'll de
 Firstly, the sound diffusion discussed in chapter two was a way for me to play with the fullness of the space. 
 In this way, a listener hears not a unified sound source coming from the organ, but a wide variety of sources surrounding them. 
 Each source has a poetic significance. 
-The synthesis comes from the same direction as the pipe organ in the tribune of the north transept, creating a unified instrumental experience.
+The synthesis comes from the same direction as the pipe organ in the tribune of the north transept, aligning with Palacio-Quintin's ideal of a unified instrumental experience.
 
 The effects come from the opposing, south transept tribune, implying a dialectic between the instrument, and its transformation, or in the case of the delay effect, an echo. 
 The echo is perhaps the most cogent effect from a poetic perspective, as it evokes the sacred traditions of antiphony and call and response, while implying the echo of history. 
@@ -1182,7 +1159,7 @@ Throughout the piece are heard audio recordings in various areas of the church, 
 During my master's program, in addition to being organist, I also became caretaker at l'église Saint-Édouard, allowing me access to the many areas of the church that would not be otherwise accessible. 
 I used this privilege to take audio recordings not only the sanctuary, but various places throughout the building. 
 The general narrative of the path is that the subject walks towards the church as the bells sound in the distance. 
-She then enters the church through the basement, moving past the compressor room in \textit{la salle Saint-Édouard} and through \textit{la salle Morin}, eventually coming to the furnace room. 
+She then enters the church through the basement, moving past the compressor room in la salle Saint-Édouard and through la salle Morin, eventually coming to the furnace room. 
 In my mind, the furnace room represents the bowels of the church---a key moment of darkness in the narrative structure. 
 At the same time, the ominous sound of feedback in the church, throbs incessantly in the background. 
 Later a match is struck, referring both to the candles that burn day and night in the church, as well as to the darkness of the path being walked. 
@@ -1242,14 +1219,14 @@ I found that this room emitted an interesting electrical hum, and seeing as it i
     \label{fig:station3}
 \end{figure}
 
-The third station takes place in \textit{la salle Morin}, a hall that is very frequently rented for events, and is named after the first priest of l'église Saint-Édouard Joseph-Napoléon Morin in 1895. 
+The third station takes place in la salle Morin, a hall that is very frequently rented for events, and is named after the first priest of l'église Saint-Édouard Joseph-Napoléon Morin in 1895. 
 This space has two unique sonic features: a dissonantly humming fridge, and a ticking clock (see \cref{fig:station3}. 
 Here I play with the unique lens of subjectivity that the microphone provides. 
 Elsewhere in \textit{le chemin}, often I am holding the microphone as I walk, providing a close representation of my subjective aural experience, but in the third station, I leave the microphone on the fridge while I leave the room. 
 This recording is then crossfaded with another recording where I move the microphone closer and closer to the ticking clock. 
 At the same time, I double the sound of the clock, with a time offset, creating the sense of fracturing of time, while my footsteps recede into the distance.
 
-\textbf{Fourth station} (27:59--43:34)\footnote{Timestamps for fourth and fifth stations are harder to pinpoint as the two are juxtaposed, and elements of each are present throughout a long duration.}:
+\textbf{Fourth station} (27:59--43:34)\footnote{Timestamps for fourth and fifth stations are harder to pinpoint as the two are juxtaposed, and elements of each are present throughout a long duration. Though the sounds of the furnace feature prominently only towards the beginning of the recording, from a narrative standpoint I place the protagonist in the furnace room for a longer duration.}:
 
 \customincludegraphics[scale=0.25]{DSC00157.JPG}{fig:station4}{The metal sliding door of the furnace room. When the recording took place this door was burgundy, but it has since been painted white.}%%Station 4
 
@@ -1348,7 +1325,7 @@ Reaper was also used to batch slice and export the samples used for the beat tow
 Another essential piece of software was MuseScore. 
 MuseScore was used to express my ideas in notational form, allowing me to gain distance from my improvisations and form the material without my physical constraints, leading all the way to the finished score, created with a single .mscx file. 
 In order to audiate my ideas, I originally used MuseScore's built in pipe organ sound. 
-Eventually exasperated by this wholly uninspiring playback, I investigated alternatives, ultimately discovering \textit{Grand Orgue}. 
+Eventually exasperated by this wholly uninspiring playback, I investigated alternatives, ultimately discovering Grand Orgue. 
 In the summer of 2023\hl{,} I created a custom .organ file for GrandOrgue based on the Burea Church organ, which was made to mimick the both the layout of the stops of the organ at l'église Saint-Édouard, as well as the corresponding stop sounds as close as possible. 
 I did this by combining stops that I felt similar from various different virtual pipe organs, creating a frankenstein organ whose stops draw from a wide range of epochs and building styles (see \cref{fig:grand_orgue}. 
 Eventually, it would be wonderful to sample the stops at l'église Saint-Édouard and create a virtual organ representing this space, but for the purposes of creating MIDI mockups, this was already leagues ahead of MuseScore's built in sounds. 
@@ -1369,10 +1346,9 @@ In this chapter I will detail the construction of the piece \textit{Élégies} m
 
 Of course, when setting any text to music, one has to make selections. 
 With writing as dense as Rilke's, and in a context where instrumental music is featured prominently, this is only more so true. 
-Initially, I considered setting lines throughout the texts, but ultimately, I found that the opening lines of each Elegy were so striking, and seemed to outline a clear narrative, that I chose to use the first line of each Elegy. 
+Initially, I considered setting lines throughout the texts, but ultimately, I found that the opening lines of each elegy were so striking, and seemed to outline a clear narrative, that I chose to use the first line of each elegy. 
 Often, using the entire sentence was either impractical, unmusical, or less evocative, and I use incomplete phrases. 
-Though my musical interpretations are informed by the Elegies in their whole, my focus has been on rendering these poetic fragments. 
-The only movement that breaks the rule of using the opening line is the text from the tenth Elegy, which appears in the ninth movement and will be discussed in that section. 
+Though my musical interpretations are informed by the \textit{Elegies} in their whole, my focus has been on rendering these poetic fragments\footnote{Several of these fragments are not set to music in their entirety, with one not sung at all, and another reconstructed. They are nonetheless quoted at the beginning of each movement analysis, serving as a narrative guide.}. 
 
 I also want to provide some preliminary notes on the context in which this work was conceived. 
 \textit{Élégies} was very much informed by l'église Saint-Édouard and my role as an organist and vocalist. 
@@ -1393,7 +1369,7 @@ Central throughout these texts is a tension between the sacred and the profane--
 \footcitetext[9]{rilke_egies_1986}
 
 \subsection{Narrative context}
-Rilke's Elegies\footnote{The title of the piece \textit{Élégies} as well as the movement names use french orthography in hommage to the french translation that I used, but I will use the english form in the body of these analyses for ease of reading.} begin not with a cry, but with the question of a cry--- a question seemingly addressed to no one.
+Rilke's \textit{Elegies}\footnote{The title of the piece \textit{Élégies} as well as the movement names, follow French orthography in homage to the French translation that I used, but for ease of reading I will use the English form when referencing Rilke's texts, while referring to the musical elegies as movements.} begin not with a cry, but with the question of a cry--- a question seemingly addressed to no one.
 Perhaps this question is addressed to God, to the reader of his poem, or to the protagonist herself.
 With this opening line, Rilke evokes a profound spiritual solitude, placing into question the purpose of attempts to communicate.
 
@@ -1402,9 +1378,9 @@ The subjective nature of sound is also essential, with “qui donc entendrait”
 This startling juxtaposition between the immense loudness of the subject's inner world, and the expansive quietude of the environment, provides an immediate dialectic between inner and outer worlds.
 
 The second part of the sentence describes the setting somewhat, though in obscure terms.
-He depicts the subject as being among “the hierarchies of angels”, signalling another essential tension to Rilke's world: the spiritual versus the human.
+He depicts the subject as being among “the hierarchies of angels”, signaling another essential tension to Rilke's world: the spiritual versus the human.
 Here is a startling image.
-We were quickly led to believe that we were alone, contemplating the futility of communication, when not only are we not alone, but we are found among a cacophonie of angels.
+We were quickly led to believe that we were alone, contemplating the futility of communication, when not only are we not alone, but we are found among a cacophony of angels.
 The reason that the angels might not hear the subject's plaintive cry is unclear. 
 Maybe the angels are simply too far away.
 Maybe they are making too much noise themselves to hear anything.
@@ -1413,8 +1389,6 @@ If we take this last case, this quickly paints an image of Rilke's angel, not as
 The idea that they would hear nothing implies an austere, cold distance from the angels---the small human alone underneath a swarm of ethereal beings.
 
 \subsection{Materials and techniques}
-
-Synthesis:
 
 One major advantage of a digital pipe organ over an acoustic one is the ability to use non-discrete pitches.
 To represent the hierarchies of angels, I make use of an extended glissando, starting in a lower register and moving upwards, signifying a transcendent nature.
@@ -1445,8 +1419,6 @@ def glissUp():
 \caption{The glissUp function takes a python list and increments it until it reaches 600, this list is used to increment the first 8 partials of the synthesis module}
 \label{fig:glissup}
 \end{figure}
-
-Compositional:
 
 For this movement, I represent the binary form of the poetic fragment with a juxtaposition of proportional notation and semi-metric notation, with proportional notation representing the angelic form and metrical time the human.
 This choice is somewhat arbitrary.
@@ -1497,13 +1469,13 @@ I use this word because the proportions of metrical notation are present, yet wi
 
 \subsection{Theatrical and spatial elements}
 
-The theme of theatricality may not be immediately apparent in the opening movements of \textit{Élégies}, yet the ascent to the organ can be seen as a foreshadowing of the increasinly important role that it plays in later movements.
+The theme of theatricality may not be immediately apparent in the opening movements of \textit{Élégies}, yet the ascent to the organ can be seen as a foreshadowing of the increasingly important role that it plays in later movements.
 When I project myself as an audience member, I imagine that this ascent, though accompanied by the recordings, would feel more a prelude to the piece than part of the piece itself, especially since the performer is not yet visually present.
 In later movements, however, we will see that this issue of presence is called into question.
 
 \section{\colorbox{red}{2\textsuperscript{e} élégie}\footnote{03:50--06:23 in elegies\_video.mp4}}
 
-\epigraph{\textit{Tout Ange est terrible. Et pourtant, malheur à moi! et pourant je vous invoque...}\footcite[9]{rilke_egies_1986}}{Rilke, \textit{Les Élégies de Duino}\protect\footnotemark}
+\epigraph{\textit{Tout Ange est terrible. Et pourtant, malheur à moi! et pourant je vous invoque...}}{Rilke, \textit{Les Élégies de Duino}\protect\footnotemark}
 
 \footcitetext[19]{rilke_egies_1986}
 
@@ -1523,8 +1495,6 @@ For me, this reference to history, and the clear, simple harmonies suggest the h
 Here, the protagonist is in prayer---a plea before embarking on an arduous journey.
 
 \subsection{Materials and techniques}
-
-Synthesis:
 
 This movement makes use of a gradual dynamic envelope.
 The traditional pipe organ uses a pronounced, sudden attack, known as the chiff.
@@ -1555,8 +1525,6 @@ def dynEnv():
 \label{fig:dynEnv}
 \end{figure}
 
-Compositional:
-
 This movement involves a dissonant harmonization of the main melody, opening with a harmonic structure inspired by the altered dominant chord that is prevelant in jazz traditions.
 As seen in \Cref{fig:g7alt}, my variation swaps the typical minor 7\textsuperscript{th} interval for a major seventh.
 This chord could also be called a major 7 (\sh9 \fl13), but I tend to think of it in relation to the altered chord.
@@ -1583,13 +1551,13 @@ I nevertheless attempted to create a sense of voice leading within this dense te
 
 In the following section, which begins towards the end of the system shown in \Cref{ex:2e_2}, metric notation is introduced for the first time.
 This symbolises a step towards the human, emphasizing historical western notational practice, as well as a more structured, clearly dilineated rhythmic structure. 
-This section uses the inverted cantus firmus from the principal melody as a middle voice in a three voice texture, where the bassline is taken by the left hand on the \textit{Grand Orgue} division and the treble by the right hand on the MIDI keyboard.
+This section uses the inverted cantus firmus from the principal melody as a middle voice in a three voice texture, where the bassline is taken by the left hand on the Grand Orgue division and the treble by the right hand on the MIDI keyboard.
 The harmonic language of this section aimed to reference renaissance counterpoint, with careful consideration of the resolution of dissonances while aiming for a fluid musical dialogue between the voices.
 The movement, starting from a D minor perspective, culminates in a half cadence to the A minor dominant.
 
 \customincludeexamples[width=\textwidth]{2e_2}{ex:2e_2}{System showing the progression from dense chromatic harmonies in proportional notation to metrical notation with outervoices braiding an inner cantus firmus (sys.~2).}
 
-The movement concludes with an auditory link to the next---a sound sample of the protagonist opening the door leading to \textit{la salle Saint-Édouard} in basement of the church and entering the compressor room, representing the second station in \textit{le chemin}.
+The movement concludes with an auditory link to the next---a sound sample of the protagonist opening the door leading to la salle Saint-Édouard in the basement of the church and entering the compressor room, representing the second station in \textit{le chemin}.
 As shown in \Cref{ex:2e_3}, this recording is triggered simultaneously with the attack of the final chord of the second movement.
 
 \customincludeexamples[width=\textwidth]{2e_3}{ex:2e_3}{The final systems of this movement lead to a half cadence in A minor as an audio recording is triggered (mm. 15-23).}
@@ -1605,13 +1573,11 @@ As shown in \Cref{ex:2e_3}, this recording is triggered simultaneously with the 
 I interpret this poetic fragment as a reflection on the difficulty of walking the path ahead---contemplating the dichotomy between the relative simplicity of singing of love, versus the profound challenge of vocalizing the sacred, yet enigmatic, “God river of blood.”  
 This highlights a dialectic between thought and action, and the contrast between superficial perception and embodied reality.  
 Musically, I interpret `chanter', in a few ways. 
-First, as the Voix humaine stop on the \textit{Récit} division, with tremulant, for its vocal quality\footnote{Unfortunately, in the April, 2024 performances of this piece represented in elegies\_video.mp4 and elegies\_audio.wav, the tremulant of the Voix Humaine was not functional, and instead, the Clarinette was used.}.  
+First, as the Voix humaine stop on the Récit division, with tremulant, for its vocal quality\footnote{Unfortunately, in the April, 2024 performances of this piece represented in elegies\_video.mp4 and elegies\_audio.wav, the tremulant of the Voix Humaine was not functional, and instead, the Clarinette was used.}.  
 “Chanter l'Amante” is represented by a simple song-like melody, and “Chanter cet occulte Fleuve-Dieu du sang” is interpreted as a compositional and timbral disintegration. 
 This movement is situated directly after the second station in \textit{le chemin}, the voice entrance overlapping slightly with the sound of compressors.
 
 \subsection{Materials and techniques}
-
-Synthesis:
 
 In order to complement the Voix humaine with OrganLab, I decided to emulate the tremulant with frequency modulation (FM) applied to a Voix humaine emulation.  
 It then seemed like a logical continuation to use lean further into FM synthesis, increasing the frequency of modulation, while changing the index and ratio (see \cref{fig:fm}), such that the natural trembling of the voice passes through a comic, exaggerated warble, gradually losing the sense of sung tremolo altogether, and giving way to an inharmonic, bell-like sound.  
@@ -1657,8 +1623,6 @@ print(bell)
 \label{fig:fm}
 \end{figure}
 
-Compositional:
-
 To further represent `singing', I employed song form \footcite{owens_forms_2003}, starting with an 12-bar melody as the A section.
 Instead of completing a larger structure, such as AABA, or ABAB, the A section is repeated incessantly.
 This repetitive structure refers to the tradition of theme and variations in the western classical tradition, as well as the blues in black American traditions.  
@@ -1667,8 +1631,8 @@ Each time the twelve bar melody is heard\hl{,} it is slower, and the sound of th
 
 \subsection{Form and compositional process}
 
-The movement begins with an uninterrupted transition from the second Elegy, linked by the recording at the end of this movement. 
-This recording, representing the second station, dies as the third Elegy begins. 
+The movement begins with an uninterrupted transition from the last, linked by the recording at the end of this movement. 
+This recording, representing the second station in \textit{le chemin}, dies as the third movement begins. 
 Before completely fading out, the B\na\ of the compressor hum is doubled, layered with a transposition of the same sound, giving the singer their starting note (E\na). 
 Then, overlapping slightly with the recording, the voice enters with a sung fragment, introducing a lilting melody, rising by thirds and spelling out an E minor 7 chord (see \cref{ex:3e_1}). 
 When the text gets to the part about the God river of blood\hl{,} however, the tone changes abruptly, descending in a serpentine way through a chromatic passage, and ending with a series of alternating ascending and descending thirds, ending on C\na\ (sys.~2).
@@ -1689,7 +1653,7 @@ I did this by taking all my motivic fragments and shuffling them around in diffe
 
 \customincludeexamples[scale=0.6]{3e_3}{ex:3e_3}{The original construction of the melody of lamentation, in twelve measures.}
 
-The melody begins at about \musQuarter\ = 58, with the acoustic Voix humaine in the right hand, accompanied by a rhythmic ostinato in octaves with a plein orgue in the \textit{Grand Orgue}. 
+The melody begins at about \musQuarter\ = 58, with the acoustic Voix humaine in the right hand, accompanied by a rhythmic ostinato in octaves with a plein orgue in the Grand Orgue. 
 Halfway through the melody, the acoustic Voix humaine is joined by its synthesized version---the pedals taking up the left hand's role of outlining the bassline. 
 Just prior, the melody is stretched metrically in a non-systematic way, where measures 13-14 would have been simply one (m. 6 in the original 12-bar version). 
 This allows time for the organist to trigger the sixth cue, which begins the interpolation process of the FM synthesis. 
@@ -1742,7 +1706,7 @@ As far as the second part of the poetic fragment, “Nous n'allons pas à l'unis
 
 In this movement I make use of sampling for the first time, in two senses.
 First, I use a sampler VST in Ableton Live which uses recordings of wine glasses recorded in my apartment.
-I had been writing a choral piece called \textit{Jardin de Givre}, which made extensive use of singing wine glasses, and thought to myself that it would be fun to play these sounds with my keyboard, only later realizing the thematic relevance with the fourth Elegy.
+I had been writing a choral piece called \textit{Jardin de Givre}, which made extensive use of singing wine glasses, and thought to myself that it would be fun to play these sounds with my keyboard, only later realizing the thematic relevance with the “Fourth Elegy”.
 
 On the other hand, I have a longer sample that is not played instrumentally, but is triggered by the smaller MIDI keyboard, acting as a bed track\footnote{A bed track is a recording over which other elements are layered. \footcite{attariwala_re-imagining_2021}} to support the climax of the movement. 
 This recording begins with an ostinato arpeggio on the organ that is based on the ascending thirds motive, which was transposed down by a perfect fifth, originally in order to conform to another section that was in C minor. 
@@ -1774,7 +1738,9 @@ def glissCont():
 \label{fig:glisscont}
 \end{figure}
 
-Another recording is incorporated at the end of this Elegy, this time representing the third station in \textit{the chemin}, as we pass through la salle Morin in the basement of the church. We hear the humming of a fridge with a clock ticking in the distance. As the ticking becomes louder, and fractions into several offset ticks, the sounds of footsteps fade into the distance.
+In terms of thematic development, an `arch' or `spire' theme is introduced in the form of an arpeggiation (see \cref{ex:4e_4}), as well as several variations on the lamentation theme.
+Towards the end of the movement, another recording is incorporated, this time representing the third station.
+As we pass through la salle Morin in the basement of the church, we hear the humming of a fridge with a clock ticking in the distance. As the ticking becomes louder, and fractions into several offset ticks, the sounds of footsteps fade into the distance.
 
 \subsection{Form and compositional process}
 
@@ -1788,7 +1754,7 @@ These minor thirds are explored and combined with other intervals to form a fair
 This melody uses proportional notation to add to the metric freedom of the evolutive sounds. 
 Later, as shown in \Cref{ex:4e_2}, meter is introduced, and a section of shifting meter (mm. 1-22) gradually finds the nebulous tonality center around C minor.
 The introduction of an ascending triad motive ostinato in C minor follows, first slowly, played in the right hand with the singing glasses and accompanied with the Bourdon and the pedal. 
-Then, in measure 29, a modulating version of the melody of lamentation is introduced in G minor, this time with the melody taken by the Bourdon, making its way back to C minor before the sudden entrance of the \textit{Grand Orgue} division with all keyboards coupled (m. 45, \cref{ex:4e_3}), reiterating the same ascending arpeggiation. 
+Then, in measure 29, a modulating version of the melody of lamentation is introduced in G minor, this time with the melody taken by the Bourdon, making its way back to C minor before the sudden entrance of the Grand Orgue division with all keyboards coupled (m. 45, \cref{ex:4e_3}), reiterating the same ascending arpeggiation. 
 
 \customincludeexamples[width=\textwidth]{4e_2}{ex:4e_2}{The transition from proportional to metric time (sys.~4 to m. 11).}
 
@@ -1804,32 +1770,31 @@ The arpeggiations also form, both visually in the score, and sonically, a set of
 
 \customincludeexamples[width=\textwidth]{4e_4}{ex:4e_4}{Triggering of sound file and entry of the arch theme (mm. 53-59).}
 
-\customincludeexamples[width=\textwidth]{4e_5}{ex:4e_5}{The lamentation theme entering over the arch motive (p.~9 mm.~60-63).}
+\customincludeexamples[width=\textwidth]{4e_5}{ex:4e_5}{The lamentation theme entering over the arch motif (p.~9 mm.~60-63).}
 
 As seen in \Cref{ex:4e_5}, a descending melody enters in measure 60, the first notes of which are reminiscent of the melody of lamentation, this time with each duration equalized to the whole note, and beginning on the first scale degree, as opposed to the third. 
 This is the first time in the piece that these two elements are heard simultaneously. 
 This melody is heard twice, the first time lasting seven measures, and the second time eleven. 
 The crescendo pedal is used strategically throughout this to create large-scale dynamic waves, swelling and fading before and after the melodic lines. 
-At the end of the second melodic line, however, this pattern is disrupted, and the crescendo pedal cuts out all at once with a subito piano. 
+At the end of the second melodic line, however, this pattern is disrupted, and the crescendo pedal cuts out all at once with a \textit{subito piano}. 
 At the same time, the left and right hands drop out, while the right hand shoots over to strike the next electronic cue (trigger 11). 
 
 This recording also provides a link between movements, this time between the fourth and fifth. 
-The recording is triggered at the peak of a dynamic swell as the left and right hands drop out leaving only the sound of the buzzing fridge of \textit{la salle Morin} and the ticking of a clock in the background, representing the third station in \textit{le chemin}, with the drone of a low G held in the pedals. 
+The recording is triggered at the peak of a dynamic swell as the left and right hands drop out leaving only the sound of the buzzing fridge of la salle Morin and the ticking of a clock in the background, representing the third station in \textit{le chemin}, with the drone of a low G held in the pedals. 
 Overtop of this soundworld, the sung text “Vous Arbres de la vie. Oh quand donc hiverneaux.” accompanies the organ for the first time in the piece (p.~12, system 1, \cref{ex:4e_6}). 
 The semitone ascent of the melody with the word “Oh” is supported by the pedals, which maintain both notes at once, causing a rumbling beating effect as this dissonance is held. 
 The clock ticking becomes louder and louder, and with the final click, the movement is over, moving directly into the fifth.
 
-\customincludeexamples[width=\textwidth]{4e_6}{ex:4e_6}{The poetic fragment set over held pedal tones and a recording of \textit{la salle Morin} (p.~12 sys.~1).}
-
+\customincludeexamples[width=\textwidth]{4e_6}{ex:4e_6}{The poetic fragment set over held pedal tones and a recording of la salle Morin (p.~12 sys.~1).}
 \section{\colorbox{red}{5\textsuperscript{e} élégie}\footnote{18:50--24:40 in elegies\_video.mp4}}
 
-\epigraph{\textit{Mais les errant, dis-moi qui sont-ils, ces voyageurs fugaces?}}{Rilke, \textit{Les Élégies de Duino}\protect\footnotemark}
+\epigraph{\textit{Mais les errants, dis-moi qui sont-ils, ces voyageurs fugaces?}}{Rilke, \textit{Les Élégies de Duino}\protect\footnotemark}
 
 \footcitetext[47]{rilke_egies_1986}
 
 \subsection{Narrative context}
 
-The selected poetic fragment from the fifth Elegy dwells on the fleeting nature of life and the enigmatic journey of the soul. 
+The selected poetic fragment from the “Fifth Elegy” dwells on the fleeting nature of life and the enigmatic journey of the soul. 
 One is struck by the nameless, faceless description of wandering travelers, calling to mind the river Styx of Greek mythology, where the perilous boat crossing is often depicted as being surrounded by phantom souls which float aimlessly. 
 This movement is situated between the third and fourth stations of \textit{le chemin}, as we are moving from la salle Morin towards the furnace room. 
 
@@ -1839,11 +1804,9 @@ Secondly, the organ features an evolutive section with an emphasis on slow trans
 
 The ticking of the clock in the recording leading up to the fifth movement also provide an important context. 
 The reference to time, especially as the ticks are gradually doubled and offset, creates a sense of fractioning of time. 
-Combined with the play of subjectivity as the footsteps recede from the microphone for the first time, this recording appropriately establishes the liminal tone of the fifth Elegy.
+Combined with the play of subjectivity as the footsteps recede from the microphone for the first time, this recording appropriately establishes the liminal tone of the “Fifth Elegy”.
 
 \subsection{Materials and techniques}
-
-Synthesis:
 
 Once I had developed my first iteration OrganLab, one of the first ideas that I wanted to try out was morphing between stops, as if the metal is being stretched or contracted in real\=/time.
 There's not an objective way to go about doing this, and the most obvious solution might simply be to use a crossfade, making one stop quieter while another enters, akin to increasing the transparency of one photo while another increases in opacity.
@@ -1902,9 +1865,7 @@ stopInterP = Pattern(function=stopInter, time=Sig(stopInterPRand))
 \label{fig:stopinter}
 \end{figure}
 
-Compositional:
-
-\customincludeexamples[width=\textwidth]{5e_1}{ex:5e_1}{The chromatic melody that opens the fifth Elegy and serves as fugal theme (p.~12, sys.~2).}
+\customincludeexamples[width=\textwidth]{5e_1}{ex:5e_1}{The chromatic melody that opens the “Fifth Elegy” and serves as fugal theme (p.~12, sys.~2).}
 
 This movement introduces a new theme, chromatic and winding, which seemed to naturally fit the cadence and affective themes in the poetic fragment\footnote{This theme is not developed in later movements, serving as a standalone} (\cref{ex:5e_1}).
 This theme, though chromatic, suggests the tonality of F minor, marking the first time that this tonality is established in the piece.
@@ -1952,13 +1913,13 @@ I selected pitches from the end of the evolutive section, while avoiding notes t
 
 The recording continues to play in the background while the fugal section begins with the bright sound of the Cornet (m. 10, \cref{ex:5e_3}). 
 I often use this stop to introduce the psalm melody during masses, and to me, it evokes thick incense-filled air. 
-Several voices enter the fray and eventually the Cornet is dimmed with the closing of the \textit{Récit}'s expressive box, while the \textit{Positif}'s box is opened, giving more emphasis to the melodie stop (mm. 28-29, \cref{ex:5e_4}). 
+Several voices enter the fray and eventually the Cornet is dimmed with the closing of the Récit's expressive box, while the Positif's box is opened, giving more emphasis to the melodie stop (mm. 28-29, \cref{ex:5e_4}). 
 This is a technique that I learned from composer and organist Matthew Lane, and represents the closest analogue version of spectral morphing that I can think of with the pipe organ. 
 \customincludeexamples[width=\textwidth]{5e_4}{ex:5e_4}{The first appearance of analogue spectral morphing through alternating expressive pedals (mm. 28-32).}
 
 The fugue continues to build, until a five voice texture arrives at a climax (mm.~46-49). The lamentation theme is used in stretto as a coda, before suddenly backing off to a small cluster based around F minor in measure 50.
 At this moment, there is a short improvisational section, where rather than improvising notes, the same chord is held while the adding and removal of stops is improvised.
-Meanwhile, the expressive pedals are continuously alternated (see \cref{ex:5e_5}). After about thirty seconds of this, the performer stops, leaving the organ while holding a flashlight at chest level and slowly crossing the organ loft and out of sight of the audience. Ideally if this is timed correctly, the bed track continues to play, now with lower frequencies introduced, while the player performs their exit.
+Meanwhile, the expressive pedals are continuously alternated (see \cref{ex:5e_5}). After about thirty seconds of this, the performer stops, leaving the organ while holding a flashlight at chest level and slowly crossing the organ loft and out of sight of the audience. Ideally if this is timed correctly, the recording continues to play, now with lower frequencies introduced, while the player performs their exit.
 
 \customincludeexamples[width=\textwidth]{5e_5}{ex:5e_5}{This movement ends with aleatoric stop selection while alternating expressive pedals (mm. 49-50).}
 
@@ -1970,7 +1931,7 @@ Meanwhile, the expressive pedals are continuously alternated (see \cref{ex:5e_5}
 
 \subsection{Narrative context}
 
-To me, this Elegy is the crux of Rilke's texts, and the key narrative moment of the piece.
+To me, this elegy is the crux of Rilke's texts, and the key narrative moment of the piece.
 It is like the voice of God acknowledging that the subject is not living up to their fullest potential---that they are shrinking before the greatness of their task.
 It is the point in the story where the protagonist must face his mortality, questioning the possibility of continuing, feeling crushed under the weight of burden, as a small fragile child.
 For this movement I wanted to make use of what I call the `dissociated Bourdon'.
@@ -1982,13 +1943,11 @@ In this movement, the performer is completely out of view of the audience, furth
 
 \subsection{Materials and techniques}
 
-Software:
-
-The idea for the dissociated Bourdon came as a result of an error of polyphony management when designing my initial synthesis program.
+The idea for the dissociated Bourdon came as a result of an error of polyphony management when designing OrganLab.
 The issue was that my sound was separated into six channels, and instead of triggering each channel on each note event, the code was cycling through the channels, and putting all the harmonic content on the first step.~
 The noise content was not subject to this polyphony issue and came through on each step, creating an intriguing texture, largely rhythmic, and punctuated with bursts of organ sound.
-I solved the problem, but I was quite captivated by the result of this `happy error'.
-I kept that broken patch set aside, and soon after I tested it at the church, recording the result, and this is what ultimately became the bed track for this movement.
+I solved the problem, but I was captivated by the result of this `happy error'.
+I kept this broken patch set aside, later testing it in the church and recording several improvisations with this effect.
 An updated version of this mutation is shown below in \Cref{fig:dissocie}.
 
 \begin{figure}[H]
@@ -2014,12 +1973,10 @@ def dissocie(x):
 \label{fig:dissocie}
 \end{figure}
 
-Compositional:
-
 For poetic and practical reasons, this dissociated Bourdon patch is not played live.
-Instead, a recording of an improvisation during the discovery of this effect is used.
-I instinctively reached for a pan\=/tonal palette, which seemed to adequately represent a sort of pathetic nature.
-In this case, my improvisation is in F minor, referring again to the minor triad contained in the harmonics of the spectral analysis of the low F of the carillon of l'église Saint-Édouard.
+Instead, one of the recorded improvisations described above is used.
+I instinctively reached for a pan\=/tonal palette during this improvisation, which seems to adequately represent a sort of pathetic nature.
+It is centered in F minor, referring again to the minor triad contained in the harmonics of the spectral analysis of the low F of the carillon of l'église Saint-Édouard.
 Structurally, the arrival of the tonality in F minor at the point of great doubt feels thematically consistent.
 
 \subsection{Form and compositional process}
@@ -2029,7 +1986,7 @@ From here, just after the ambient recording from the fifth movement fugue ends, 
 This single word is repeated five times, and upon each utterance, the closed door of this room is slowly opened, mimicking the opening of the \textit{jalousies} of an organ enclosure.
 After this disembodied voice is heard from afar, the recording of the dissociated Bourdon enters.
 
-\customincludeexamples[width=\textwidth]{6e_1}{ex:6e_1}{The sixth Elegy begins with a plaintive cry from out of view, followed by a short and fragile composition heard from the back of the church (p.~15, sys.~2).}
+\customincludeexamples[width=\textwidth]{6e_1}{ex:6e_1}{The “Sixth Elegy” begins with a plaintive cry from out of view, followed by a short and fragile composition heard from the back of the church (p.~15, sys.~2).}
 
 \subsection{Theatrical and spatial elements}
 
@@ -2067,7 +2024,6 @@ It isn’t clear whether this plea is from within, or from some external source,
 To me, this symbolizes a calm before the storm, a rising tension before the final climax. 
 
 I explore this tension is several ways. 
-
 Firstly, the sonic elements are quiet and eerie, prominently featuring a low drone. 
 Combined with the total darkness that the audience now finds themselves in, these elements establish a tone of apprehension.
 Secondly, the performer is still not present at the instrument, but makes several brief appearances elsewhere in the church, adding to a sense of unease. 
@@ -2075,10 +2031,13 @@ The obscured identity of the figure suggests a multiplicity of our protagonist, 
 
 In this movement, both the fourth and fifth stations of \textit{le chemin} are evoked simultaneously, indicating a overlapping of place and time. 
 The protagonist is at once in the underbelly of the furnace room, and in the church itself. 
+Interestingly, this is the only movement in the piece to not have a vocalized component, adding to the theme of disembodiment explored in the sixth and seventh movements.
+It is as if our protagonist is muted, emphasizing an interiorized experience.
+This means that the selected poetic fragment is unused, but it nonetheless informs the narrative framework. 
 
 In several ways, the last four movements are merged into one. 
 There is no break in between, unlike the preceding movements, with a series of recordings sounding continuously until the end. 
-The coupling of Rilke's Elegies to the corresponding movements is also more abstract, with a blending of formal elements that parallels the spiritual awakening in Rilke’s poetry. 
+The coupling of Rilke's elegies to the corresponding movements is also more abstract, with a blending of formal elements that parallels the spiritual awakening in Rilke’s poetry. 
 Attempts will be made throughout these last sections to carefully clarify where these overlapping elements are in play.
 
 \subsection{Materials and techniques}
@@ -2145,7 +2104,7 @@ From this moment on, the low throbbing drone continues on uninterrupted, while t
 By about 35:45, the audio enters into a loop of about one and a half minutes, in which the throbbing continues, the fire alarm fades in and out of perception, and some faint footsteps and sounds of keys are heard.  
 This loop, as in the first movement allowing the performer to take their time making their way back and establishing themself at the organ console.
 
-\customincludeexamples[width=\textwidth]{7e_1}{ex:7e_1}{The seventh Elegy is summarized in one system (p.~15, sys.~3).}
+\customincludeexamples[width=\textwidth]{7e_1}{ex:7e_1}{The “Seventh Elegy” is summarized in one system (p.~15, sys.~3).}
 
 \subsection{Theatrical and spatial elements}
 
@@ -2193,7 +2152,7 @@ Although the score marks this as the beginning of the eighth movement, I see it 
 
 \subsection{Narrative context}
 
-The eighth Elegy represents a pivotal moment in \textit{Élégies}, marking a shift from the helplessness and impotence described in the sixth movement to a powerful sense of awakening and transformation. 
+The “Eighth Elegy” represents a pivotal moment in \textit{Élégies}, marking a shift from the helplessness and impotence described in the sixth movement to a powerful sense of awakening and transformation. 
 The text, “À plein regards, la créature voit dans l’Ouvert”, suggests the emergence of something nascent---a being still in the process of becoming. 
 I imagine Rilke's creature gradually taking shape, forged from raw potential into a yet unrealized form, as if being called into existence, rather than simply roused from slumber.
 
@@ -2221,34 +2180,34 @@ Here, however, the level of amplification in increased, while a vocoder is appli
 
 Once arriving at the organ, the performer makes the necessary registral changes in preparation for the final movements. 
 They then initiate the 14\textsuperscript{th} trigger, which activates a 3.5\=/second delay and distortion on the organ sound. 
-The organist then enters with soft chords played on the \textit{Récit}(p.~16, sys.~1, \cref{ex:8e_1}), echoing the parallel stack of fifths heard at the end of the first movement. 
+The organist then enters with soft chords played on the Récit(p.~16, sys.~1, \cref{ex:8e_1}), echoing the parallel stack of fifths heard at the end of the first movement. 
 However, after the third iteration, the chords diverge from the original fifths, transitioning into a series of Major 7 and Minor 7 chords, mainly in drop \hl{2/4} voicings. 
 
 \customincludeexamples[width=\textwidth]{8e_1}{ex:8e_1}{Soft chords harking back to the end of the intial movement mark the performer's return to the instrument (p.~16, sys.~1).}
 
-As the volume and intensity of the chords increase, the music shifts from the \textit{Récit} to the \textit{Positif} (with \textit{Récit} coupled), and finally to the \textit{Grand Orgue} (with both \textit{Récit} and \textit{Positif} coupled). 
+As the volume and intensity of the chords increase, the music shifts from the Récit to the Positif (with Récit coupled), and finally to the Grand Orgue (with both Récit and Positif coupled). 
 The distortion in the echoes becomes more pronounced, and feedback loops begin to form, heightening the sense of chaos. 
 At the peak of this intensity, the performer presses the 15\textsuperscript{th} trigger, which turns off the delay while allowing existing echoes to naturally decay. 
-Following this, the pedals enter with an imposing sound (p.~16, m.~1, see \cref{ex:8e_2}), combining the 32' and 16' flutes with a bright plein orgue registration from the \textit{Grand Orgue}. 
+Following this, the pedals enter with an imposing sound (p.~16, m.~1, see \cref{ex:8e_2}), combining the 32' and 16' flutes with a bright plein orgue registration from the Grand Orgue. 
 The resulting sound has an aggressive edge that is complemented by the distortion. 
 Coupled with a rumbling undertone from the lower registers, this creates a powerful, resonant presence that preempts the creature’s emergence.
 
-After six measures of solo pedal, the performer’s hands enter on the \textit{Grand Orgue} with dissonant chords (m.~7), each preceded by a rapid triplet figuration, further energizing the distortion. 
+After six measures of solo pedal, the performer’s hands enter on the Grand Orgue with dissonant chords (m.~7), each preceded by a rapid triplet figuration, further energizing the distortion. 
 The performer then switches to the MIDI keyboard, playing held notes of the sampled feedback (m.~13). 
-These sampled notes are played between sections of the \textit{Grand Orgue}, serving as moments of mysterious reflection amid the bursts of intense organ sound.
+These sampled notes are played between sections of the Grand Orgue, serving as moments of mysterious reflection amid the bursts of intense organ sound.
 After the final section of sampled feedback, where the tension peaks with a dissonant C4 against a D4, the organ suddenly drops out, creating a dramatic silence (see \cref{ex:8e_3}). 
 
 \customincludeexamples[width=\textwidth]{8e_2}{ex:8e_2}{The entry of the pedal, with coupled plein orgue. At the end of the system is the first entrance of sampled feedback (mm. 1-15).}
 
-Simultaneously, the performer triggers the 15\textsuperscript{th} cue, which silences the low rumble of the drone that has persisted since the end of the seventh Elegy. 
+Simultaneously, the performer triggers the 15\textsuperscript{th} cue, which silences the low rumble of the drone that has persisted since the end of the “Seventh Elegy”. 
 At this moment, the sound of a match being struck is heard for the second time, signifying illumination in the enduring darkness, as if the form of our creature is being revealed. 
-The crackling match is followed by a rolling, rhythmic sound, gradually growing louder as it moves from the fourth speaker to the first, echoing the pink noise effect of the seventh Elegy.
+The crackling match is followed by a rolling, rhythmic sound, gradually growing louder as it moves from the fourth speaker to the first, echoing the pink noise effect of the “Seventh Elegy”.
 
 As the rolling rhythm reaches a dynamic peak, a loud crack of thunder is heard nearby, marking a dramatic shift. 
 A driving beat inspired by UK dubstep rhythms enters, woven from samples of keys, footsteps, and taps and strikes of the pews recorded in l'église Saint-Édouard (\cref{ex:8e_3}). 
 This rhythm creates the sense that the church itself is participating in an ecstatic dance, introducing a distinctly pop\=/influenced sound into the piece for the first time. 
 Simultaneously, the voice enters with a variation on the falling third motive from the opening vocal gesture, sung in subharmonics to create an eerie, non-human sound. 
-During this passage, the vocoder is applied gradually, referencing the bell transformation heard in the third Elegy, but now realized in an embodied, rather than simulated vocal context.
+During this passage, the vocoder is applied gradually, referencing the bell transformation heard in the “Third Elegy”, but now realized in an embodied, rather than simulated vocal context.
 
 \customincludeexamples[width=\textwidth]{8e_3}{ex:8e_3}{The voice singing subharmonics against the bed track as well as the entry of the bassline over the beat (mm. 31-38).}
 
@@ -2261,12 +2220,12 @@ During this passage, the vocoder is applied gradually, referencing the bell tran
 \subsection{Narrative context}
 
 The ninth movement represents a departure from the patterns established in the previous movements of \textit{Élégies}, both in its structure and thematic content. 
-It begins with text drawn not from the ninth Elegy, as one might expect, but from the tenth. 
-This choice emerged from a deliberate consideration of how to integrate Rilke’s dense and multifaceted final Elegy into the musical narrative. 
-Musically, the tenth Elegy seemed to demand a reflective, non-vocal resolution, serving as a calm after the storm of the preceding movements. 
-To maintain the established pattern of incorporating sung lyrics in each movement, the text of the tenth Elegy is instead woven into the fabric of the ninth.
+It begins with text drawn not from the “Ninth Elegy”, as one might expect, but from the tenth. 
+This choice emerged from a deliberate consideration of how to integrate Rilke’s dense and multifaceted final elegy into the musical narrative. 
+Musically, the “Tenth Elegy” seemed to demand a reflective, non-vocal resolution, serving as a calm after the storm of the preceding movements. 
+To maintain the established pattern of incorporating sung lyrics in each movement, the text of the “Tenth Elegy” is instead woven into the fabric of the ninth.
 
-Unlike the previous movements, which each make use of the opening words of Rilke's poems, the lyrics from the tenth Elegy are taken from from various parts of the tenth Elegy. 
+Unlike the previous movements, which each make use of the opening words of Rilke's poems, the lyrics from the “Tenth Elegy” are taken from from various parts of the “Tenth Elegy”. 
 This reconstruction, shown in \Cref{fig:poem}, is a fragmented mosaic, creating a tapestry of incomplete thoughts and potentialities, mirroring the themes of joy, grief, and longing in Rilke’s poetry. 
 This movement, like the text it draws from, grapples with the fear that accompanies happiness--the knowledge that it is transient and inevitably fleeting. 
 Musically, this movement emerges directly from the eighth, with the beat and bassline that arrive at the end of the previous movement as a link.
@@ -2278,7 +2237,7 @@ La pluie qui vient tomber dans les venelles de la Cité,\\
 prête à se briser. Mon visage resplendissant, baigné.\\ 
 Aux Anges qui l'agréent, des marteaux du cœur.\\
 \end{verse}  
-	\caption{My reconstruction of poetic fragments from Rilke's 10\textsuperscript{th} Elegy} 
+	\caption{My reconstruction of poetic fragments from Rilke's “Tenth Elegy”} 
 \label{fig:poem}
 \end{figure}
 
@@ -2291,7 +2250,7 @@ The effects remain the same, with distortion and a vocoder applied to the voice.
 
 \subsection{Form and compositional process}
 
-The ninth Elegy begins as the voice joins the sparse texture of sample based beat against pedal bassline that emerges at the end of the eighth Elegy (\cref{ex:9e_1}). 
+The “Ninth Elegy” begins as the voice joins the sparse texture of sample based beat against pedal bassline that emerges at the end of the “Eighth Elegy” (\cref{ex:9e_1}). 
 The aesthetic of this section is perhaps the closest to a UK dubstep sound, with the throbbing bass, skittering rhythm, and \hl{plaintive}, repetitive vocal line recalling Burial's “Archangel”. 
 The vocal line, opening with “Vienne le jour, enfin sortant”
 
@@ -2299,7 +2258,7 @@ The vocal line, opening with “Vienne le jour, enfin sortant”
 
 After the initial section, the vocal line drops out, leaving the bassline and beat to carry the momentum for six measures. 
 The R\&B\=/influenced version of the melody of lamentation then enters in A minor  (m. 49, see \cref{ex:9e_2}). 
-The three final lines of the poetic reconstruction are sung over three iterations of this melody\footnote{In the April performances, I was still in the process of setting this text, and so the recordings accompanying this thesis use nonsense syllables for this section.}, with the organ accompaniment passing from the \textit{Positif} to the \textit{Grand Orgue} with the second, and then moving up an octave while introducing the pedals in the third.
+The three final lines of the poetic reconstruction are sung over three iterations of this melody\footnote{In the April performances, I was still in the process of setting this text, and so the recordings accompanying this thesis use nonsense syllables for this section.}, with the organ accompaniment passing from the Positif to the Grand Orgue with the second, and then moving up an octave while introducing the pedals in the third.
 
 Following these iterations, 17\textsuperscript{th} trigger is initiated, lowering the volume of the beat such that it becomes a distant echo, reminiscent of the familiar groanings and clatterings of the church building, or those of the city itself. 
 This shift in dynamics allows the organ to take center stage, presenting a solo variation of the melody of lamentation' in D minor (mm.~53-74, see \cref{ex:9e_2}). 
@@ -2323,13 +2282,13 @@ The performer then triggers the 19\textsuperscript{th} cue and engages the tremu
 
 \subsection{Narrative context}
 
-The tenth Elegy stands as a contemplative epilogue, a reflective meditation that diverges from the narrative drama of the previous movements. 
-This Elegy uniquely omits the human voice---an absence which indicates otherness, suggesting that this movement is not participating in the unfolding drama but is instead observing, reflecting, and internalizing the previous events. 
-This silence points to the idea that the text of the tenth Elegy is not meant to be embodied or expressed outwardly but is rather an internal, imagined experience.
+The “Tenth Elegy” stands as a contemplative epilogue, a reflective meditation that diverges from the narrative drama of the previous movements. 
+This movement uniquely omits the human voice---an absence which indicates otherness, suggesting that this movement is not participating in the unfolding drama but is instead observing, reflecting, and internalizing the previous events. 
+This silence points to the idea that the text of the “Tenth Elegy” is not meant to be embodied or expressed outwardly but is rather an internal, imagined experience.
 
-Rilke’s final Elegy grapples with the themes of joy, grief, and the haunting realization that our most profound desires and potentials may remain forever unfulfilled. 
-The decision to relegate the text of the tenth Elegy to the ninth movement, where it is fragmented and distorted, introduces a layer of ambiguity. 
-This dislocation raises the question of whether the events depicted in the ninth Elegy truly transpired or if they were merely a projection of the protagonist's inner world---a dream of fulfillment that remains just out of reach.
+Rilke’s final elegy grapples with the themes of joy, grief, and the haunting realization that our most profound desires and potentials may remain forever unfulfilled. 
+The decision to relegate the text of the “Tenth Elegy” to the ninth movement, where it is fragmented and distorted, introduces a layer of ambiguity. 
+This dislocation raises the question of whether the events depicted in the “Ninth Elegy” truly transpired or if they were merely a projection of the protagonist's inner world---a dream of fulfillment that remains just out of reach.
 
 \subsection{Materials and techniques}
 
@@ -2339,7 +2298,7 @@ In terms of live effect, an infinite reverb is applied, and a short delay provid
 
 \subsection{Form and compositional process}
 
-The tenth Elegy opens with the ethereal sound of reversed bells, initiated by the 18\textsuperscript{th} trigger. 
+The “Tenth Elegy” opens with the ethereal sound of reversed bells, initiated by the 18\textsuperscript{th} trigger. 
 This is layered with a shimmering plein orgue sound, executed through a two\=/handed tremolo technique with each hand playing the same chord an octave apart (see \cref{ex:10e_1}). 
 The combination of tremulants and a 50ms delay adds a fluttering, almost dizzying texture that mirrors the swirling thoughts of reflection and introspection. 
 Beneath the active surface, the harmonic progression moves slowly, repeating IV-V-I cadences in F major and Ab major. 
@@ -2354,7 +2313,7 @@ The last trigger then turns on a long reverb effect of about sixty seconds which
 To represent this timelessness, the notation dissolves into proportional notation (see \cref{ex:10e_3}), and several frozen, falling by step motives are played as the final audio recording is introduced. 
 We hear pigeons speaking and fluttering their wings, at first in real-time and gradually slower, which is juxtaposed with the sound of my ascent to the organ loft, mirroring the ascent that begins the piece. 
 Because the microphone was placed at the bottom of the stairs to the organ loft, and at the top of the stairs from the basement, my steps are heard approaching, and then moving into the distance. 
-On one hand, our protagonist has ascended, like the ascension mentioned in the last passage of Rilke's Elegies. 
+On one hand, our protagonist has ascended, like the ascension mentioned in the last passage of Rilke's \textit{Elegies}. 
 At the same time, what this ascension represents is unclear.
 
 \customincludeexamples[width=\textwidth]{10e_3}{ex:10e_3}{The final moment of the piece, with a repeated descending motive with frozen reverb against the sound of pigeons and footsteps (p.~27, sys.~2).}
@@ -2362,7 +2321,7 @@ At the same time, what this ascension represents is unclear.
 \chapter*{Conclusion}
 
 Now that \textit{Élégies} exists as a proof of concept, the question remains: “where to go from here?”.
-Contemporary music and musical interfaces face the issue of perennity, with many projects serving the means of a given context, only to fall to disuse and abandon. 
+As McPherson and Kim note, contemporary music and musical interfaces face the issue of perennity, with many projects serving the means of a given context, only to fall to disuse and abandon. 
 
 This is not necessarily a negative thing.
 Temporality is the way of life, and there is beauty in a creation that fulfills a function for a limited time.
@@ -2391,7 +2350,7 @@ If nothing else, I hope that it can stand as a humble offering, and a call to li
 
 As a composer, an organist, and a person, this work has posed many challenging questions---questions which have helped me gain insight into my creative vision, including an expanded image of what the pipe organ represents to me---as an instrumental architecture, and a rich reservoir of poetic inquiry---as well as my own strengths and limitations. 
 It is a great task to bring a work like this to fruition, with its many, layered, technical and expressive components. 
-Through the guidance and friendship offered by my colleagues at l'Université de Montréal, l'église Saint-Édouard, as well as the patient support of friends and family, I've been able to walk the tenuous path that Rilke laid before me with his Elegies, navigating through the darkness and grasping for embers of light. 
+Through the guidance and friendship offered by my colleagues at l'Université de Montréal, l'église Saint-Édouard, as well as the patient support of friends and family, I've been able to walk the tenuous path that Rilke laid before me with his \textit{Elegies}, navigating through the darkness and grasping for embers of light. 
 
 %%--------------%
 %%     index    %
