@@ -1,3 +1,5 @@
+thesis.pdf
+
 # LaTeX intermediate files
 *.aux
 *.log
@@ -39,7 +41,6 @@ _build_tex/
 # Miscellaneous files
 *.dvi
 *.ps
-*.pdf
 
 # macOS specific files
 .DS_Store
