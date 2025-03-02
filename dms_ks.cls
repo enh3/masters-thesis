@@ -1428,7 +1428,7 @@
     \c@chapter\z@ \c@section\z@
     \polyglotlet\dmschaptername\appendixname
     \polyglotlet\chaptername\appendixname
-    \def\thechapter{\@Alph\c@chapter}
+    \def\thechapter{\c@chapter}
     \AppendixPageNumber}
 \def\AppendixPageNumber{
     \def\chapter{%
