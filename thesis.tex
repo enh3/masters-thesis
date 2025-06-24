@@ -65,10 +65,7 @@
 %\def\ext@example{lof} % Same as figure
 \makeatother
 
-%\makeatletter
-%\@addtoreset{figure2}{section} % Reset the example counter at the section level
-%\renewcommand{\thefigure2}{\arabic{figure2}} % Simple numbering (1, 2, 3...)
-%\makeatother
+\newcommand{\mydate}{\DTMdisplaydate{2024}{7}{19}{-1}}
 
 \DeclareCaptionLabelFormat{bsc}{\textbf{\textsc{#1}\ #2}}
 \captionsetup[figure]{labelformat=bsc, textfont=small, labelfont=small, labelsep=colon}
@@ -347,7 +344,11 @@
 
 \department{Faculté de musique}
 
-\date{\today} %Date du DÉPÔT INITIAL (ou du 2e dépôt s'il y a corrections majeures)
+%\selectlanguage{french}
+%\printdate{2024-07-19}
+
+\date{\today}
+%\date{\selectlanguage{french}\printdate{2024-07-19}} %Date du DÉPÔT INITIAL (ou du 2e dépôt s'il y a corrections majeures)
 
 \sujet{}
 \orientation{composition et création sonore}%Ce champ est optionnel
